@@ -78,7 +78,7 @@
         "noUnreachable": "error",
         "noInvalidConstructorSuper": "error",
         "noUnsafeOptionalChaining": "error",
-        "noUnusedVariables": "warn",
+        "noUnusedVariables": "error",
         "noVoidElementsWithChildren": "error",
         "noVoidTypeReturn": "error",
         "useIsNan": "error",
