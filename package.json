@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "prepare": "husky",
+    "prepare": "panda codegen",
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build",
@@ -26,8 +26,6 @@
     "@commitlint/config-conventional": "^19.2.2",
     "@pandacss/dev": "^0.40.1",
     "@park-ui/panda-preset": "^0.38.0",
-    "husky": "^9.0.11",
-    "lint-staged": "^15.2.7",
     "postcss": "^8.4.38"
   }
 }
