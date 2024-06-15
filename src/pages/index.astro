@@ -3,12 +3,12 @@ import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 import { css } from '../../styled-system/css';
 import { App } from '../components/app';
-
-cont aaaa
+import Button from '../ui/components/Button';
 ---
 
 <Layout title="Welcome to Astro.">
   <main>
+    <Button />
     <App client:only="react" />
     <div class={css({ fontSize: '2xl', fontWeight: 'bold', color: 'yellow' })}>
       Hello !

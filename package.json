@@ -22,10 +22,12 @@
     "typescript": "^5.4.5"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.8.1",
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
     "@pandacss/dev": "^0.40.1",
     "@park-ui/panda-preset": "^0.38.0",
+    "lefthook": "^1.6.16",
     "postcss": "^8.4.38"
   }
 }
