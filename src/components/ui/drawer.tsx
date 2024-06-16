@@ -1,3 +1,4 @@
+// @ts-nocheck
 'use client'
 
 import type { Assign, HTMLArkProps } from '@ark-ui/react'

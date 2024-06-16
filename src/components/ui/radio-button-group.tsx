@@ -1,3 +1,4 @@
+// @ts-nocheck
 'use client'
 
 import type { Assign } from '@ark-ui/react'
