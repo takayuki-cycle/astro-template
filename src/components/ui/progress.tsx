@@ -23,11 +23,7 @@ export const Progress = forwardRef<HTMLDivElement, ProgressProps>((props, ref) =
 	const styles = progress(variantProps)
 
 	return (
-		<ArkProgress.Root
-			ref={ref}
-			className={cx(styles.root, css(cssProps), className)}
-			{...rootProps}
-		>
+		<ArkProgress.Root ref={ref} className={cx(styles.root, css(cssProps), className)} {...rootProps}>
 			{children && <ArkProgress.Label className={styles.label}>{children}</ArkProgress.Label>}
 			{type === 'linear' && (
 				<ArkProgress.Track className={styles.track}>

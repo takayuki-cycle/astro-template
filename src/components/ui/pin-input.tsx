@@ -24,11 +24,7 @@ export const PinInput = forwardRef<HTMLDivElement, PinInputProps>((props, ref) =
 	const styles = pinInput(variantProps)
 
 	return (
-		<ArkPinInput.Root
-			className={cx(styles.root, css(cssProps), className)}
-			ref={ref}
-			{...rootProps}
-		>
+		<ArkPinInput.Root className={cx(styles.root, css(cssProps), className)} ref={ref} {...rootProps}>
 			{children && <ArkPinInput.Label className={styles.label}>{children}</ArkPinInput.Label>}
 			<ArkPinInput.Control className={styles.control}>
 				{Array.from({ length }, (_, index) => index).map((id, index) => (

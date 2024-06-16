@@ -17,11 +17,7 @@ export const Checkbox = forwardRef<HTMLLabelElement, CheckboxProps>((props, ref)
 	const styles = checkbox(variantProps)
 
 	return (
-		<ArkCheckbox.Root
-			ref={ref}
-			className={cx(styles.root, css(cssProps), className)}
-			{...rootProps}
-		>
+		<ArkCheckbox.Root ref={ref} className={cx(styles.root, css(cssProps), className)} {...rootProps}>
 			<ArkCheckbox.Control className={styles.control}>
 				<ArkCheckbox.Indicator className={styles.indicator}>
 					<CheckIcon />
