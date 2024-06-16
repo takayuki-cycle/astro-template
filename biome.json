@@ -14,6 +14,7 @@
 	},
 	"formatter": {
 		"indentStyle": "tab",
+		"indentWidth": 1,
 		"lineWidth": 100
 	},
 	"javascript": {
