@@ -41,3 +41,6 @@ pre-commit:
     check:
       glob: '*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc,astro}'
       run: npx @biomejs/biome check --no-errors-on-unmatched --files-ignore-unknown=true {staged_files}
+    lint-ts:
+      glob: '*.ts'
+      run: npx tsc --noEmit
