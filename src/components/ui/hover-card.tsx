@@ -12,31 +12,31 @@ export interface RootProps extends HoverCard.RootProps, HoverCardVariantProps {}
 export const Root = withRootProvider<RootProps>(HoverCard.Root)
 
 export const Arrow = withContext<HTMLDivElement, Assign<JsxStyleProps, HoverCard.ArrowProps>>(
-  HoverCard.Arrow,
-  'arrow',
+	HoverCard.Arrow,
+	'arrow',
 )
 
 export const ArrowTip = withContext<HTMLDivElement, Assign<JsxStyleProps, HoverCard.ArrowTipProps>>(
-  HoverCard.ArrowTip,
-  'arrowTip',
+	HoverCard.ArrowTip,
+	'arrowTip',
 )
 
 export const Content = withContext<HTMLDivElement, Assign<JsxStyleProps, HoverCard.ContentProps>>(
-  HoverCard.Content,
-  'content',
+	HoverCard.Content,
+	'content',
 )
 
 export const Positioner = withContext<
-  HTMLDivElement,
-  Assign<JsxStyleProps, HoverCard.PositionerProps>
+	HTMLDivElement,
+	Assign<JsxStyleProps, HoverCard.PositionerProps>
 >(HoverCard.Positioner, 'positioner')
 
 export const Trigger = withContext<
-  HTMLButtonElement,
-  Assign<JsxStyleProps, HoverCard.TriggerProps>
+	HTMLButtonElement,
+	Assign<JsxStyleProps, HoverCard.TriggerProps>
 >(HoverCard.Trigger, 'trigger')
 
 export {
-  HoverCardContext as Context,
-  type HoverCardContextProps as ContextProps,
+	HoverCardContext as Context,
+	type HoverCardContextProps as ContextProps,
 } from '@ark-ui/react/hover-card'

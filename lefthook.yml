@@ -39,5 +39,5 @@ pre-commit:
     format:
       run: npx biome format ./src --write
     check:
-      glob: '*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc}'
+      glob: '*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc,astro}'
       run: npx @biomejs/biome check --no-errors-on-unmatched --files-ignore-unknown=true {staged_files}

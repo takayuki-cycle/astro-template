@@ -9,51 +9,51 @@ import { createStyleContext } from '~/lib/create-style-context'
 const { withProvider, withContext } = createStyleContext(carousel)
 
 export interface RootProps
-  extends Assign<JsxStyleProps, Carousel.RootProps>,
-    CarouselVariantProps {}
+	extends Assign<JsxStyleProps, Carousel.RootProps>,
+		CarouselVariantProps {}
 export const Root = withProvider<HTMLDivElement, RootProps>(Carousel.Root, 'root')
 
 export const Control = withContext<HTMLDivElement, Assign<JsxStyleProps, Carousel.ControlProps>>(
-  Carousel.Control,
-  'control',
+	Carousel.Control,
+	'control',
 )
 
 export const IndicatorGroup = withContext<
-  HTMLDivElement,
-  Assign<JsxStyleProps, Carousel.IndicatorGroupProps>
+	HTMLDivElement,
+	Assign<JsxStyleProps, Carousel.IndicatorGroupProps>
 >(Carousel.IndicatorGroup, 'indicatorGroup')
 
 export const Indicator = withContext<
-  HTMLButtonElement,
-  Assign<JsxStyleProps, Carousel.IndicatorProps>
+	HTMLButtonElement,
+	Assign<JsxStyleProps, Carousel.IndicatorProps>
 >(Carousel.Indicator, 'indicator')
 
 export const ItemGroup = withContext<
-  HTMLDivElement,
-  Assign<JsxStyleProps, Carousel.ItemGroupProps>
+	HTMLDivElement,
+	Assign<JsxStyleProps, Carousel.ItemGroupProps>
 >(Carousel.ItemGroup, 'itemGroup')
 
 export const Item = withContext<HTMLDivElement, Assign<JsxStyleProps, Carousel.ItemProps>>(
-  Carousel.Item,
-  'item',
+	Carousel.Item,
+	'item',
 )
 
 export const NextTrigger = withContext<
-  HTMLButtonElement,
-  Assign<JsxStyleProps, Carousel.NextTriggerProps>
+	HTMLButtonElement,
+	Assign<JsxStyleProps, Carousel.NextTriggerProps>
 >(Carousel.NextTrigger, 'nextTrigger')
 
 export const PrevTrigger = withContext<
-  HTMLButtonElement,
-  Assign<JsxStyleProps, Carousel.PrevTriggerProps>
+	HTMLButtonElement,
+	Assign<JsxStyleProps, Carousel.PrevTriggerProps>
 >(Carousel.PrevTrigger, 'prevTrigger')
 
 export const Viewport = withContext<HTMLDivElement, Assign<JsxStyleProps, Carousel.ViewportProps>>(
-  Carousel.Viewport,
-  'viewport',
+	Carousel.Viewport,
+	'viewport',
 )
 
 export {
-  CarouselContext as Context,
-  type CarouselContextProps as ContextProps,
+	CarouselContext as Context,
+	type CarouselContextProps as ContextProps,
 } from '@ark-ui/react/carousel'
