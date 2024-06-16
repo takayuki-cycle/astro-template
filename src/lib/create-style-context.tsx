@@ -45,11 +45,7 @@ export const createStyleContext = <R extends Recipe>(recipe: R) => {
 
 			return (
 				<StyleContext.Provider value={slotStyles}>
-					<StyledComponent
-						{...otherProps}
-						ref={ref}
-						className={cx(slotStyles?.[slot], props.className)}
-					/>
+					<StyledComponent {...otherProps} ref={ref} className={cx(slotStyles?.[slot], props.className)} />
 				</StyleContext.Provider>
 			)
 		})
@@ -62,9 +58,7 @@ export const createStyleContext = <R extends Recipe>(recipe: R) => {
 		const StyledComponent = styled(Component)
 		return forwardRef<T, P>((props, ref) => {
 			const slotStyles = useContext(StyleContext)
-			return (
-				<StyledComponent {...props} ref={ref} className={cx(slotStyles?.[slot], props.className)} />
-			)
+			return <StyledComponent {...props} ref={ref} className={cx(slotStyles?.[slot], props.className)} />
 		})
 	}
 

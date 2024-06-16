@@ -19,11 +19,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>((props, ref) 
 	const styles = pagination(variantProps)
 
 	return (
-		<ArkPagination.Root
-			className={cx(styles.root, css(cssProps), className)}
-			ref={ref}
-			{...rootProps}
-		>
+		<ArkPagination.Root className={cx(styles.root, css(cssProps), className)} ref={ref} {...rootProps}>
 			<ArkPagination.PrevTrigger className={styles.prevTrigger} asChild>
 				<IconButton variant='ghost' aria-label='Next Page'>
 					<ChevronLeftIcon />

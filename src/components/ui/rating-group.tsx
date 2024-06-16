@@ -20,20 +20,14 @@ export const RatingGroup = forwardRef<HTMLDivElement, RatingGroupProps>((props, 
 	const styles = ratingGroup(variantProps)
 
 	return (
-		<ArkRatingGroup.Root
-			ref={ref}
-			className={cx(styles.root, css(cssProps), className)}
-			{...rootProps}
-		>
+		<ArkRatingGroup.Root ref={ref} className={cx(styles.root, css(cssProps), className)} {...rootProps}>
 			{children && <ArkRatingGroup.Label className={styles.label}>{children}</ArkRatingGroup.Label>}
 			<ArkRatingGroup.Control className={styles.control}>
 				<ArkRatingGroup.Context>
 					{({ items }) =>
 						items.map((index) => (
 							<ArkRatingGroup.Item className={styles.item} key={index} index={index}>
-								<ArkRatingGroup.ItemContext>
-									{(item) => <StarIcon half={item.half} />}
-								</ArkRatingGroup.ItemContext>
+								<ArkRatingGroup.ItemContext>{(item) => <StarIcon half={item.half} />}</ArkRatingGroup.ItemContext>
 							</ArkRatingGroup.Item>
 						))
 					}

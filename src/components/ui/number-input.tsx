@@ -20,11 +20,7 @@ export const NumberInput = forwardRef<HTMLDivElement, NumberInputProps>((props, 
 	const styles = numberInput(variantProps)
 
 	return (
-		<ArkNumberInput.Root
-			ref={ref}
-			className={cx(styles.root, css(cssProps), className)}
-			{...rootProps}
-		>
+		<ArkNumberInput.Root ref={ref} className={cx(styles.root, css(cssProps), className)} {...rootProps}>
 			{children && <ArkNumberInput.Label className={styles.label}>{children}</ArkNumberInput.Label>}
 			<ArkNumberInput.Control className={styles.control}>
 				<ArkNumberInput.Input className={styles.input} />
