@@ -12,29 +12,29 @@ export interface RootProps extends Assign<JsxStyleProps, Toast.RootProps>, Toast
 export const Root = withProvider<HTMLDivElement, RootProps>(Toast.Root, 'root')
 
 export const ActionTrigger = withContext<
-	HTMLButtonElement,
-	Assign<JsxStyleProps, Toast.ActionTriggerProps>
+  HTMLButtonElement,
+  Assign<JsxStyleProps, Toast.ActionTriggerProps>
 >(Toast.ActionTrigger, 'actionTrigger')
 
 export const CloseTrigger = withContext<
-	HTMLDivElement,
-	Assign<JsxStyleProps, Toast.CloseTriggerProps>
+  HTMLDivElement,
+  Assign<JsxStyleProps, Toast.CloseTriggerProps>
 >(Toast.CloseTrigger, 'closeTrigger')
 
 export const Description = withContext<
-	HTMLDivElement,
-	Assign<JsxStyleProps, Toast.DescriptionProps>
+  HTMLDivElement,
+  Assign<JsxStyleProps, Toast.DescriptionProps>
 >(Toast.Description, 'description')
 
 export const Title = withContext<HTMLDivElement, Assign<JsxStyleProps, Toast.TitleProps>>(
-	Toast.Title,
-	'title',
+  Toast.Title,
+  'title',
 )
 
 export {
-	createToaster,
-	ToastContext as Context,
-	Toaster,
-	type ToastContextProps as ContextProps,
-	type ToasterProps,
+  createToaster,
+  ToastContext as Context,
+  Toaster,
+  type ToastContextProps as ContextProps,
+  type ToasterProps,
 } from '@ark-ui/react/toast'

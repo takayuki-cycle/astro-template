@@ -12,26 +12,26 @@ export interface RootProps extends Assign<JsxStyleProps, HTMLArkProps<'div'>>, C
 export const Root = withProvider<HTMLDivElement, RootProps>(ark.div, 'root')
 
 export const Body = withContext<HTMLDivElement, Assign<JsxStyleProps, HTMLArkProps<'div'>>>(
-	ark.div,
-	'body',
+  ark.div,
+  'body',
 )
 
 export const Description = withContext<HTMLDivElement, Assign<JsxStyleProps, HTMLArkProps<'div'>>>(
-	ark.div,
-	'description',
+  ark.div,
+  'description',
 )
 
 export const Footer = withContext<HTMLDivElement, Assign<JsxStyleProps, HTMLArkProps<'div'>>>(
-	ark.footer,
-	'footer',
+  ark.footer,
+  'footer',
 )
 
 export const Header = withContext<HTMLDivElement, Assign<JsxStyleProps, HTMLArkProps<'div'>>>(
-	ark.div,
-	'header',
+  ark.div,
+  'header',
 )
 
 export const Title = withContext<HTMLHeadingElement, Assign<JsxStyleProps, HTMLArkProps<'h3'>>>(
-	ark.h3,
-	'title',
+  ark.h3,
+  'title',
 )

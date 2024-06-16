@@ -12,23 +12,23 @@ export interface RootProps extends Assign<JsxStyleProps, Tabs.RootProps>, TabsVa
 export const Root = withProvider<HTMLDivElement, RootProps>(Tabs.Root, 'root')
 
 export const Content = withContext<HTMLDivElement, Assign<JsxStyleProps, Tabs.ContentProps>>(
-	Tabs.Content,
-	'content',
+  Tabs.Content,
+  'content',
 )
 
 export const Indicator = withContext<HTMLDivElement, Assign<JsxStyleProps, Tabs.IndicatorProps>>(
-	Tabs.Indicator,
-	'indicator',
+  Tabs.Indicator,
+  'indicator',
 )
 
 export const List = withContext<HTMLDivElement, Assign<JsxStyleProps, Tabs.ListProps>>(
-	Tabs.List,
-	'list',
+  Tabs.List,
+  'list',
 )
 
 export const Trigger = withContext<HTMLButtonElement, Assign<JsxStyleProps, Tabs.TriggerProps>>(
-	Tabs.Trigger,
-	'trigger',
+  Tabs.Trigger,
+  'trigger',
 )
 
 export { TabsContext as Context, type TabsContextProps as ContextProps } from '@ark-ui/react/tabs'

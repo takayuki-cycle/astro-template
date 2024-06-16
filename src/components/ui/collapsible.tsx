@@ -9,21 +9,21 @@ import { createStyleContext } from '~/lib/create-style-context'
 const { withProvider, withContext } = createStyleContext(collapsible)
 
 export interface RootProps
-	extends Assign<JsxStyleProps, Collapsible.RootProps>,
-		CollapsibleVariantProps {}
+  extends Assign<JsxStyleProps, Collapsible.RootProps>,
+    CollapsibleVariantProps {}
 export const Root = withProvider<HTMLDivElement, RootProps>(Collapsible.Root, 'root')
 
 export const Content = withContext<HTMLDivElement, Assign<JsxStyleProps, Collapsible.ContentProps>>(
-	Collapsible.Content,
-	'content',
+  Collapsible.Content,
+  'content',
 )
 
 export const Trigger = withContext<
-	HTMLButtonElement,
-	Assign<JsxStyleProps, Collapsible.TriggerProps>
+  HTMLButtonElement,
+  Assign<JsxStyleProps, Collapsible.TriggerProps>
 >(Collapsible.Trigger, 'trigger')
 
 export {
-	CollapsibleContext as Context,
-	type CollapsibleContextProps as ContextProps,
+  CollapsibleContext as Context,
+  type CollapsibleContextProps as ContextProps,
 } from '@ark-ui/react/collapsible'

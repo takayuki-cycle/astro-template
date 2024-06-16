@@ -13,56 +13,56 @@ export interface RootProps extends Drawer.RootProps, DrawerVariantProps {}
 export const Root = withRootProvider<RootProps>(Drawer.Root)
 
 export const Backdrop = withContext<HTMLDivElement, Assign<JsxStyleProps, Drawer.BackdropProps>>(
-	Drawer.Backdrop,
-	'backdrop',
+  Drawer.Backdrop,
+  'backdrop',
 )
 
 export const Body = withContext<HTMLDivElement, Assign<JsxStyleProps, HTMLArkProps<'div'>>>(
-	ark.div,
-	'body',
+  ark.div,
+  'body',
 )
 
 export const CloseTrigger = withContext<
-	HTMLButtonElement,
-	Assign<JsxStyleProps, Drawer.CloseTriggerProps>
+  HTMLButtonElement,
+  Assign<JsxStyleProps, Drawer.CloseTriggerProps>
 >(Drawer.CloseTrigger, 'closeTrigger')
 
 export const Content = withContext<HTMLDivElement, Assign<JsxStyleProps, Drawer.ContentProps>>(
-	Drawer.Content,
-	'content',
+  Drawer.Content,
+  'content',
 )
 
 export const Description = withContext<
-	HTMLParagraphElement,
-	Assign<JsxStyleProps, Drawer.DescriptionProps>
+  HTMLParagraphElement,
+  Assign<JsxStyleProps, Drawer.DescriptionProps>
 >(Drawer.Description, 'description')
 
 export const Footer = withContext<HTMLDivElement, Assign<JsxStyleProps, HTMLArkProps<'div'>>>(
-	ark.div,
-	'footer',
+  ark.div,
+  'footer',
 )
 
 export const Header = withContext<HTMLDivElement, Assign<JsxStyleProps, HTMLArkProps<'div'>>>(
-	ark.div,
-	'header',
+  ark.div,
+  'header',
 )
 
 export const Positioner = withContext<
-	HTMLDivElement,
-	Assign<JsxStyleProps, Drawer.PositionerProps>
+  HTMLDivElement,
+  Assign<JsxStyleProps, Drawer.PositionerProps>
 >(Drawer.Positioner, 'positioner')
 
 export const Title = withContext<HTMLHeadingElement, Assign<JsxStyleProps, Drawer.TitleProps>>(
-	Drawer.Title,
-	'title',
+  Drawer.Title,
+  'title',
 )
 
 export const Trigger = withContext<HTMLButtonElement, Assign<JsxStyleProps, Drawer.TriggerProps>>(
-	Drawer.Trigger,
-	'trigger',
+  Drawer.Trigger,
+  'trigger',
 )
 
 export {
-	DialogContext as Context,
-	type DialogContextProps as ContextProps,
+  DialogContext as Context,
+  type DialogContextProps as ContextProps,
 } from '@ark-ui/react/dialog'
