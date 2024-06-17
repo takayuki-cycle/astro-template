@@ -1,4 +1,4 @@
-import { defineConfig } from '@pandacss/dev';
+import { defineConfig } from '@pandacss/dev'
 
 export default defineConfig({
   // Whether to use css reset
@@ -7,10 +7,7 @@ export default defineConfig({
   presets: ['@pandacss/preset-base', '@park-ui/panda-preset'],
 
   // Where to look for your css declarations
-  include: [
-    './src/**/*.{ts,tsx,js,jsx,astro}',
-    './pages/**/*.{ts,tsx,js,jsx,astro}',
-  ],
+  include: ['./src/**/*.{ts,tsx,js,jsx,astro}', './pages/**/*.{ts,tsx,js,jsx,astro}'],
 
   // Files to exclude
   exclude: [],
@@ -24,4 +21,4 @@ export default defineConfig({
 
   // The output directory for your css system
   outdir: 'styled-system',
-});
+})

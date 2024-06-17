@@ -1,10 +1,10 @@
 {
-	"recommendations": [
-		"astro-build.astro-vscode",
-		"biomejs.biome",
-		"chakra-ui.panda-css-vscode",
-		"usernamehw.errorlens",
-		"streetsidesoftware.code-spell-checker"
-	],
-	"unwantedRecommendations": []
+  "recommendations": [
+    "astro-build.astro-vscode",
+    "biomejs.biome",
+    "chakra-ui.panda-css-vscode",
+    "usernamehw.errorlens",
+    "streetsidesoftware.code-spell-checker"
+  ],
+  "unwantedRecommendations": []
 }

@@ -44,3 +44,6 @@ pre-commit:
     lint-ts:
       glob: '*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc,astro}'
       run: npx tsc --noEmit
+    lint-astro:
+      glob: '*.{astro}'
+      run: npm run astro check
