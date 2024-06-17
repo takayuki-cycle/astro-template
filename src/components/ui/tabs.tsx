@@ -1,11 +1,11 @@
 // @ts-nocheck
 'use client'
 
+import { createStyleContext } from '@/lib/create-style-context'
 import type { Assign } from '@ark-ui/react'
 import { Tabs } from '@ark-ui/react/tabs'
 import { type TabsVariantProps, tabs } from 'styled-system/recipes'
 import type { JsxStyleProps } from 'styled-system/types'
-import { createStyleContext } from '~/lib/create-style-context'
 
 const { withProvider, withContext } = createStyleContext(tabs)
 

@@ -1,11 +1,11 @@
 // @ts-nocheck
 'use client'
 
+import { createStyleContext } from '@/lib/create-style-context'
 import type { Assign } from '@ark-ui/react'
 import { Editable } from '@ark-ui/react/editable'
 import { type EditableVariantProps, editable } from 'styled-system/recipes'
 import type { JsxStyleProps } from 'styled-system/types'
-import { createStyleContext } from '~/lib/create-style-context'
 
 const { withProvider, withContext } = createStyleContext(editable)
 

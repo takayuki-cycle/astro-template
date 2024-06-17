@@ -1,11 +1,11 @@
 // @ts-nocheck
 'use client'
 
+import { createStyleContext } from '@/lib/create-style-context'
 import type { Assign } from '@ark-ui/react'
 import { Clipboard } from '@ark-ui/react/clipboard'
 import { type ClipboardVariantProps, clipboard } from 'styled-system/recipes'
 import type { JsxStyleProps } from 'styled-system/types'
-import { createStyleContext } from '~/lib/create-style-context'
 
 const { withProvider, withContext } = createStyleContext(clipboard)
 

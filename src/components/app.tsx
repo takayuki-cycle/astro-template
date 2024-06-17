@@ -1,8 +1,8 @@
+import { Button } from '@/components/ui/button'
+import * as RadioButtonGroup from '@/components/ui/radio-button-group'
+import { Slider } from '@/components/ui/slider'
+import * as Tabs from '@/components/ui/tabs'
 import { Container } from 'styled-system/jsx'
-import { Button } from '~/components/ui/button'
-import * as RadioButtonGroup from '~/components/ui/radio-button-group'
-import { Slider } from '~/components/ui/slider'
-import * as Tabs from '~/components/ui/tabs'
 
 export const App = () => {
   return (
