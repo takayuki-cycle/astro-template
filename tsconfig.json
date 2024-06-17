@@ -8,5 +8,5 @@
       "~/*": ["./src/*"]
     }
   },
-  "include": ["src", "styled-system", "**/*.astro"]
+  "include": ["src", "styled-system"]
 }
