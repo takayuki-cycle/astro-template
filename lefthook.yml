@@ -37,9 +37,9 @@
 pre-commit:
   parallel: true
   commands:
-    format:
+    format-biome:
       run: npx biome format ./src --write
-    check:
+    lint-biome:
       glob: '*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc,astro}'
       run: npx @biomejs/biome check --no-errors-on-unmatched --files-ignore-unknown=true {staged_files}
     lint-ts:
@@ -48,3 +48,6 @@ pre-commit:
     lint-astro:
       glob: '*.{astro}'
       run: npm run astro check
+    lint-markup:
+      glob: '*.{astro,tsx}'
+      run: npm run lint:markup | grep -v '<markuplint> passed'
