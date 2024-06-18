@@ -50,4 +50,4 @@ pre-commit:
       run: npm run astro check
     lint-markup:
       glob: '*.{astro,tsx}'
-      run: npm run lint:markup | grep -v '<markuplint> passed'
+      run: npm run lint:markup
