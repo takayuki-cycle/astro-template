@@ -35,6 +35,7 @@
 #       runner: go run
 
 pre-commit:
+  parallel: true
   commands:
     format:
       run: npx biome format ./src --write
