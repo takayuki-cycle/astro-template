@@ -20,15 +20,5 @@
   },
   "specs": {
     "\\.tsx$": "@markuplint/react-spec"
-  },
-  "pretenders": [
-    {
-      "selector": "List",
-      "as": "ul"
-    },
-    {
-      "selector": "Item",
-      "as": "li"
-    }
-  ]
+  }
 }
