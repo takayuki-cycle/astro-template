@@ -10,7 +10,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "check": "biome check ./src",
-    "lint:markup": "markuplint \"src/**/*.{astro,jsx,tsx}\""
+    "lint:markup": "markuplint \"src/**/*.{astro,jsx,tsx}\" --problem-only"
   },
   "dependencies": {
     "@ark-ui/react": "^3.3.0",

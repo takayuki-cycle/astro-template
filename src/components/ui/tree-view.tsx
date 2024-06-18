@@ -65,7 +65,7 @@ export const TreeView = forwardRef<HTMLDivElement, TreeViewProps>((props, ref) =
 TreeView.displayName = 'TreeView'
 
 const ChevronRightIcon = () => (
-  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
+  <svg viewBox='0 0 24 24'>
     <title>Chevron Right Icon</title>
     <path
       fill='none'

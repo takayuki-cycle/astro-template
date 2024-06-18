@@ -56,7 +56,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>((props, ref) 
 Pagination.displayName = 'Pagination'
 
 const ChevronLeftIcon = () => (
-  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
+  <svg viewBox='0 0 24 24'>
     <title>Chevron Left Icon</title>
     <path
       fill='none'
@@ -70,7 +70,7 @@ const ChevronLeftIcon = () => (
 )
 
 const ChevronRightIcon = () => (
-  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
+  <svg viewBox='0 0 24 24'>
     <title>Chevron Right Icon</title>
     <path
       fill='none'

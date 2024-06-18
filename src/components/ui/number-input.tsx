@@ -42,7 +42,7 @@ export const NumberInput = forwardRef<HTMLDivElement, NumberInputProps>((props, 
 NumberInput.displayName = 'NumberInput'
 
 const ChevronUpIcon = () => (
-  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
+  <svg viewBox='0 0 24 24'>
     <title>Chevron Up Icon</title>
     <path
       fill='none'
@@ -56,7 +56,7 @@ const ChevronUpIcon = () => (
 )
 
 const ChevronDownIcon = () => (
-  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
+  <svg viewBox='0 0 24 24'>
     <title>Chevron Down Icon</title>
     <path
       fill='none'

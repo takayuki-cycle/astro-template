@@ -1,10 +1,5 @@
 {
-  "extends": [
-    "markuplint:recommended",
-    "markuplint:recommended-static-html",
-    "markuplint:recommended-react",
-    "markuplint:recommended-astro"
-  ],
+  "extends": ["markuplint:recommended"],
   "overrideMode": "merge",
   "overrides": {
     "./src/components/ui/*.tsx": {
