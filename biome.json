@@ -54,19 +54,6 @@
           }
         }
       }
-    },
-    {
-      "include": ["./src/components/ui/*.tsx"],
-      "linter": {
-        "rules": {
-          "suspicious": {
-            "noArrayIndexKey": "off"
-          },
-          "complexity": {
-            "noBannedTypes": "off"
-          }
-        }
-      }
     }
   ]
 }
