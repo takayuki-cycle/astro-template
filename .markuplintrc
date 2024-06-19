@@ -15,5 +15,11 @@
   },
   "specs": {
     "\\.tsx$": "@markuplint/react-spec"
-  }
+  },
+  "pretenders": [
+    {
+      "selector": "testLi",
+      "as": "li"
+    }
+  ]
 }
