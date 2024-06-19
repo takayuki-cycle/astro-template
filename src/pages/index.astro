@@ -2,13 +2,11 @@
 import { css } from '@/../styled-system/css'
 import Card from '@/components/Card.astro'
 import { App } from '@/components/app'
-import { Button } from '@/components/ui/button'
 import Layout from '@/layouts/Layout.astro'
 ---
 
 <Layout title="Welcome to Astro.">
   <main>
-    <Button />
     <App client:only="react" />
     <div class={css({ fontSize: '2xl', fontWeight: 'bold', color: 'yellow' })}>
       Hello !

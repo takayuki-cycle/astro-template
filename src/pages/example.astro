@@ -1,0 +1,111 @@
+---
+import {
+  Accordion,
+  Alert,
+  Avatar,
+  Badge,
+  Button,
+  Card,
+  Carousel,
+  Checkbox,
+  Clipboard,
+  Collapsible,
+  ColorPicker,
+  Combobox,
+  DatePicker,
+  Dialog,
+  Drawer,
+  Editable,
+  FileUpload,
+  FormLabel,
+  HoverCard,
+  Icon,
+  IconButton,
+  Input,
+  Menu,
+  NumberInput,
+  Pagination,
+  PinInput,
+  Popover,
+  Progress,
+  RadioButtonGroup,
+  RadioGroup,
+  RatingGroup,
+  SegmentGroup,
+  Select,
+  Skeleton,
+  Slider,
+  Splitter,
+  Switch,
+  Table,
+  Tabs,
+  TagsInput,
+  Textarea,
+  Toast,
+  ToggleGroup,
+  Tooltip,
+  TreeView,
+} from '@/components/atomics'
+import Layout from '@/layouts/Layout.astro'
+---
+
+<Layout title="Welcome to Astro.">
+  <main>
+    <Accordion client:only="react" />
+    <Alert />
+    <Avatar client:only="react" />
+    <Badge />
+    <Button client:only="react" />
+    <Card />
+    <Carousel />
+    <Checkbox />
+    <Clipboard />
+    <Collapsible />
+    <ColorPicker />
+    <Combobox items={['a']} />
+    <DatePicker />
+    <Dialog />
+    <Drawer />
+    <Editable />
+    <FileUpload />
+    <FormLabel />
+    <HoverCard />
+    <Icon />
+    <IconButton />
+    <Input />
+    <Menu />
+    <NumberInput />
+    <Pagination count={5} />
+    <PinInput />
+    <Popover />
+    <Progress />
+    <RadioButtonGroup />
+    <RadioGroup />
+    <RatingGroup />
+    <SegmentGroup />
+    <Select items={['a']} />
+    <Skeleton />
+    <Slider />
+    <Splitter />
+    <Switch />
+    <Table />
+    <Tabs />
+    <TagsInput />
+    <Textarea />
+    <Toast />
+    <ToggleGroup />
+    <Tooltip />
+    <TreeView />
+  </main>
+  <style>
+    main {
+      margin: auto;
+      padding: 1rem;
+      width: 800px;
+      max-width: calc(100% - 2rem);
+      color: white;
+      font-size: 20px;
+      line-height: 1.6;
+    }
+  </style>
+</Layout>
