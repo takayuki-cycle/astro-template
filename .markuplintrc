@@ -8,7 +8,7 @@
       }
     }
   },
-  "excludeFiles": ["./src/components/ui/rating-group.tsx", "./src/pages/example.astro"],
+  "excludeFiles": ["./src/components/ui/rating-group.tsx"],
   "parser": {
     "\\.astro$": "@markuplint/astro-parser",
     "\\.tsx$": "@markuplint/jsx-parser"
