@@ -32,6 +32,7 @@
     "@markuplint/jsx-parser": "^4.7.4",
     "@markuplint/react-spec": "^4.5.4",
     "@pandacss/dev": "^0.40.1",
+    "@park-ui/cli": "^0.6.0",
     "@park-ui/panda-preset": "^0.38.0",
     "lefthook": "^1.6.16",
     "markuplint": "^4.9.1",

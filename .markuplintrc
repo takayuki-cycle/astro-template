@@ -90,6 +90,10 @@
       "as": "div"
     },
     {
+      "selector": "Code",
+      "as": "code"
+    },
+    {
       "selector": "Collapsible",
       "as": "div"
     },
