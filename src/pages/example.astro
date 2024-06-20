@@ -19,11 +19,13 @@ import {
   Editable,
   FileUpload,
   FormLabel,
+  Heading,
   HoverCard,
   Icon,
   IconButton,
   Input,
   Kbd,
+  Link,
   Menu,
   NumberInput,
   Pagination,
@@ -42,6 +44,7 @@ import {
   Table,
   Tabs,
   TagsInput,
+  Text,
   Textarea,
   Toast,
   ToggleGroup,
@@ -72,11 +75,13 @@ import Layout from '@/layouts/Layout.astro'
     <Editable client:only="react" />
     <FileUpload client:only="react" />
     <FormLabel client:only="react" />
+    <Heading client:only="react" as="h1" aria-label="h1" />
     <HoverCard client:only="react" />
     <Icon client:only="react" />
     <IconButton client:only="react" />
     <Input client:only="react" />
     <Kbd client:only="react" />
+    <Link client:only="react">Link</Link>
     <Menu client:only="react" />
     <NumberInput client:only="react" />
     <Pagination count={5} client:only="react" />
@@ -95,6 +100,7 @@ import Layout from '@/layouts/Layout.astro'
     <Table client:only="react" />
     <Tabs client:only="react" />
     <TagsInput client:only="react" />
+    <Text client:only="react" />
     <Textarea client:only="react" />
     <Toast client:only="react" />
     <ToggleGroup client:only="react" />

@@ -77,6 +77,16 @@
           }
         }
       }
+    },
+    {
+      "include": ["./src/components/atomics/text/Text.tsx"],
+      "linter": {
+        "rules": {
+          "complexity": {
+            "noBannedTypes": "off"
+          }
+        }
+      }
     }
   ]
 }

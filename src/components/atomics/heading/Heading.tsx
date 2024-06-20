@@ -1,5 +1,5 @@
 import { forwardRef } from 'react'
-import { Text, type TextProps } from './text'
+import { Text, type TextProps } from '../text/Text'
 
 interface HeadingProps extends TextProps<React.ElementType> {}
 

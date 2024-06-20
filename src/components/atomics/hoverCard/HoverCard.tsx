@@ -1,10 +1,10 @@
 // Reference: https://park-ui.com/docs/panda/components/hover-card
 
+import { Link } from '@/components/atomics/link/Link'
+import { Text } from '@/components/atomics/text/Text'
 import { Avatar } from '@/components/ui/avatar'
 import * as _HoverCard from '@/components/ui/hover-card'
 import { Icon } from '@/components/ui/icon'
-import { Link } from '@/components/ui/link'
-import { Text } from '@/components/ui/text'
 import { MapPinIcon } from 'lucide-react'
 import { HStack, Stack } from 'styled-system/jsx'
 

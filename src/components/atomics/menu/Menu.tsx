@@ -1,8 +1,8 @@
 // Reference: https://park-ui.com/docs/panda/components/menu
 
+import { Text } from '@/components/atomics/text/Text'
 import { Button } from '@/components/ui/button'
 import * as _Menu from '@/components/ui/menu'
-import { Text } from '@/components/ui/text'
 import {
   ChevronRightIcon,
   CreditCardIcon,
