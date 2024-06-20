@@ -1,5 +1,4 @@
 ---
-/*
 import {
   Accordion,
   Alert,
@@ -26,7 +25,7 @@ import {
   IconButton,
   Input,
   Kbd,
-  Link,
+  // Link,
   Menu,
   NumberInput,
   Pagination,
@@ -52,14 +51,12 @@ import {
   Tooltip,
   TreeView,
 } from '@/components/atomics'
- */
+
 import Layout from '@/layouts/Layout.astro'
 ---
 
 <Layout title="Welcome to Astro.">
   <main>
-    {
-      /* 
     <Accordion client:only="react" />
     <Alert client:only="react" />
     <Avatar client:only="react" />
@@ -85,7 +82,11 @@ import Layout from '@/layouts/Layout.astro'
     <IconButton client:only="react" />
     <Input client:only="react" />
     <Kbd client:only="react" />
+    {
+      /* 
     <Link client:only="react">Link</Link>
+    */
+    }
     <Menu client:only="react" />
     <NumberInput client:only="react" />
     <Pagination count={5} client:only="react" />
@@ -110,8 +111,6 @@ import Layout from '@/layouts/Layout.astro'
     <ToggleGroup client:only="react" />
     <Tooltip client:only="react" />
     <TreeView client:only="react" />
-    */
-    }
   </main>
   <style>
     main {
