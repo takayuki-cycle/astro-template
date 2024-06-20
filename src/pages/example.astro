@@ -25,7 +25,7 @@ import {
   IconButton,
   Input,
   Kbd,
-  // Link,
+  // Link, .astroではaタグを使うこと
   Menu,
   NumberInput,
   Pagination,
@@ -84,7 +84,7 @@ import Layout from '@/layouts/Layout.astro'
     <Kbd client:only="react" />
     {
       /* 
-    <Link client:only="react">Link</Link>
+    <Link client:only="react" href="https://park-ui.com">Link</Link>
     */
     }
     <Menu client:only="react" />
