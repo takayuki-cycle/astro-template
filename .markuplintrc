@@ -206,6 +206,10 @@
       }
     },
     {
+      "selector": "Kbd",
+      "as": "code"
+    },
+    {
       "selector": "Menu",
       "as": {
         "element": "menu",
