@@ -1,4 +1,4 @@
-export const markuplintConfig = {
+const markuplintConfig = {
   extends: ['markuplint:recommended'],
   overrideMode: 'merge',
   overrides: {
@@ -9,7 +9,7 @@ export const markuplintConfig = {
     },
   },
   // Error: Matching for a tree with var() is not supportedが解決できないためexclude
-  // excludeFiles: ['./src/components/ui/rating-group.tsx'],
+  excludeFiles: ['./src/components/ui/rating-group.tsx'],
   parser: {
     '\\.astro$': '@markuplint/astro-parser',
     '\\.tsx$': '@markuplint/jsx-parser',
@@ -469,4 +469,4 @@ export const markuplintConfig = {
   ],
 }
 
-// export default markuplintConfig
+export default markuplintConfig
