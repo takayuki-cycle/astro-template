@@ -1,4 +1,5 @@
 ---
+import { css } from '@/../styled-system/css'
 import {
   Accordion,
   Alert,
@@ -53,10 +54,29 @@ import {
 } from '@/components/atomics'
 
 import Layout from '@/layouts/Layout.astro'
+
+const fruits = [
+  { label: 'Apple', value: 'apple' },
+  { label: 'Banana', value: 'banana' },
+  { label: 'Cherry', value: 'cherry' },
+]
 ---
 
 <Layout title="Welcome to Astro.">
   <main>
+    <ul>
+      {
+        fruits.map((fruit) => (
+          <li
+            class={css({
+              color: 'black',
+            })}
+          >
+            {fruit.value}
+          </li>
+        ))
+      }
+    </ul>
     <Accordion client:only="react" />
     <Alert client:only="react" />
     <Avatar client:only="react" />
