@@ -46,8 +46,6 @@ export const RatingGroup = forwardRef<HTMLDivElement, RatingGroupProps>((props, 
 RatingGroup.displayName = 'RatingGroup'
 
 type IconProps = {
-  //
-  //
   half: boolean
 }
 

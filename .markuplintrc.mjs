@@ -8,7 +8,7 @@ const markuplintConfig = {
       },
     },
   },
-  // Error: Matching for a tree with var() is not supportedのためignore
+  // Error: Matching for a tree with var() is not supportedが解決できないためexclude
   excludeFiles: ['./src/components/ui/rating-group.tsx'],
   parser: {
     '\\.astro$': '@markuplint/astro-parser',
