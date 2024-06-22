@@ -5,7 +5,8 @@
     "chakra-ui.panda-css-vscode",
     "usernamehw.errorlens",
     "streetsidesoftware.code-spell-checker",
-    "yusukehirao.vscode-markuplint"
+    "yusukehirao.vscode-markuplint",
+    "stylelint.vscode-stylelint"
   ],
   "unwantedRecommendations": []
 }
