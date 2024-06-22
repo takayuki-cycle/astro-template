@@ -47,6 +47,7 @@ RatingGroup.displayName = 'RatingGroup'
 
 type IconProps = {
   //
+  //
   half: boolean
 }
 
