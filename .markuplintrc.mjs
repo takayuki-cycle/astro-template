@@ -8,6 +8,7 @@ const markuplintConfig = {
       },
     },
   },
+  // excludeFiles: ['./src/components/ui/rating-group.tsx'],
   parser: {
     '\\.astro$': '@markuplint/astro-parser',
     '\\.tsx$': '@markuplint/jsx-parser',
