@@ -51,3 +51,5 @@ pre-commit:
     lint-markup:
       glob: '*.{astro,tsx}'
       run: npm run lint:markup
+    lint-style:
+      run: npx stylelint '**/*.astro'
