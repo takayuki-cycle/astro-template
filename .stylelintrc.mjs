@@ -7,7 +7,7 @@ const stylelintConfig = {
   ],
   rules: {
     'property-no-vendor-prefix': null,
-    // 'unit-disallowed-list': ['px'],
+    'unit-disallowed-list': ['px'],
   },
 }
 

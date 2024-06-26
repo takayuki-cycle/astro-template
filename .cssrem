@@ -1,0 +1,16 @@
+{
+  "fixedDigits": 5,
+  "autoRemovePrefixZero": false,
+  "languages": [
+    "html",
+    "css",
+    "postcss",
+    "scss",
+    "sass",
+    "javascriptreact",
+    "typescriptreact",
+    "javascript",
+    "typescript",
+    "astro"
+  ]
+}
