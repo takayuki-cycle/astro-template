@@ -30,8 +30,15 @@ export const Menu = (props: _Menu.RootProps) => {
             <_Menu.ItemGroupLabel>My Account</_Menu.ItemGroupLabel>
             <_Menu.Separator />
             <_Menu.Item value='profile'>
-              <HStack gap='6' justify='space-between' flex='1'>
-                <HStack gap='2'>
+              <HStack
+                columnGap='6'
+                rowGap='6'
+                justify='space-between'
+                flexGrow='1'
+                flexShrink='1'
+                flexBasis='0'
+              >
+                <HStack columnGap='2' rowGap='2'>
                   <UserIcon />
                   Profile
                 </HStack>
@@ -41,13 +48,20 @@ export const Menu = (props: _Menu.RootProps) => {
               </HStack>
             </_Menu.Item>
             <_Menu.Item value='billing'>
-              <HStack gap='2'>
+              <HStack columnGap='2' rowGap='2'>
                 <CreditCardIcon /> Billing
               </HStack>
             </_Menu.Item>
             <_Menu.Item value='settings'>
-              <HStack gap='6' justify='space-between' flex='1'>
-                <HStack gap='2'>
+              <HStack
+                columnGap='6'
+                rowGap='6'
+                justify='space-between'
+                flexGrow='1'
+                flexShrink='1'
+                flexBasis='0'
+              >
+                <HStack columnGap='2' rowGap='2'>
                   <SettingsIcon /> Settings
                 </HStack>
                 <Text as='span' color='fg.subtle' size='sm'>
@@ -57,7 +71,7 @@ export const Menu = (props: _Menu.RootProps) => {
             </_Menu.Item>
             <_Menu.Root positioning={{ placement: 'right-start', gutter: -2 }} {...props}>
               <_Menu.TriggerItem justifyContent='space-between'>
-                <HStack gap='2'>
+                <HStack columnGap='2' rowGap='2'>
                   <UserPlusIcon />
                   Invite member
                 </HStack>
@@ -66,18 +80,18 @@ export const Menu = (props: _Menu.RootProps) => {
               <_Menu.Positioner>
                 <_Menu.Content>
                   <_Menu.Item value='email'>
-                    <HStack gap='2'>
+                    <HStack columnGap='2' rowGap='2'>
                       <MailIcon /> Email
                     </HStack>
                   </_Menu.Item>
                   <_Menu.Item value='message'>
-                    <HStack gap='2'>
+                    <HStack columnGap='2' rowGap='2'>
                       <MessageSquareIcon /> Message
                     </HStack>
                   </_Menu.Item>
                   <_Menu.Separator />
                   <_Menu.Item value='other'>
-                    <HStack gap='2'>
+                    <HStack columnGap='2' rowGap='2'>
                       <PlusCircleIcon />
                       More Options...
                     </HStack>
@@ -87,7 +101,7 @@ export const Menu = (props: _Menu.RootProps) => {
             </_Menu.Root>
             <_Menu.Separator />
             <_Menu.Item value='logout'>
-              <HStack gap='2'>
+              <HStack columnGap='2' rowGap='2'>
                 <LogOutIcon />
                 Logout
               </HStack>

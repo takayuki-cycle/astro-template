@@ -20,13 +20,13 @@ export const HoverCard = (props: _HoverCard.RootProps) => {
           <_HoverCard.Arrow>
             <_HoverCard.ArrowTip />
           </_HoverCard.Arrow>
-          <Stack gap='4' direction='row'>
+          <Stack columnGap='4' rowGap='4' direction='row'>
             <Avatar
               name='Christian Schröter'
               src='https://avatars.githubusercontent.com/u/1846056'
             />
-            <Stack gap='3'>
-              <Stack gap='1'>
+            <Stack columnGap='3' rowGap='3'>
+              <Stack columnGap='1' rowGap='1'>
                 <Text size='sm' fontWeight='semibold'>
                   @grizzly_codes
                 </Text>
@@ -34,7 +34,7 @@ export const HoverCard = (props: _HoverCard.RootProps) => {
                   Staff Software Engineer working at vivenu GmbH
                 </Text>
               </Stack>
-              <HStack gap='1' color='fg.subtle'>
+              <HStack columnGap='1' rowGap='1' color='fg.subtle'>
                 <Icon size='sm'>
                   <MapPinIcon />
                 </Icon>

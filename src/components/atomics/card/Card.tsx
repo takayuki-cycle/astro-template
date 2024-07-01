@@ -14,12 +14,12 @@ export const Card = (props: _Card.RootProps) => {
         <_Card.Description>Add new members to your organisation.</_Card.Description>
       </_Card.Header>
       <_Card.Body>
-        <Stack gap='4'>
-          <Stack gap='1.5'>
+        <Stack columnGap='4' rowGap='4'>
+          <Stack columnGap='1.5' rowGap='1.5'>
             <FormLabel htmlFor='name'>Name</FormLabel>
             <Input id='name' placeholder='Name' />
           </Stack>
-          <Stack gap='1.5'>
+          <Stack columnGap='1.5' rowGap='1.5'>
             <FormLabel htmlFor='email'>Email</FormLabel>
             <Input id='email' type='email' placeholder='Email' />
           </Stack>

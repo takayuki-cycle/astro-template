@@ -21,7 +21,15 @@ export const Skeleton = forwardRef<HTMLDivElement, SkeletonProps>((props, ref) =
   const { isLoaded, ...otherProps } = props
 
   if (isLoaded) {
-    return <styled.div animation='fade-in' ref={ref} {...otherProps} />
+    return (
+      <styled.div
+        animationName='fade-in'
+        animationDuration='1s'
+        animationTimingFunction='ease-in-out'
+        ref={ref}
+        {...otherProps}
+      />
+    )
   }
   return <StyledSkeleton ref={ref} {...otherProps} />
 })

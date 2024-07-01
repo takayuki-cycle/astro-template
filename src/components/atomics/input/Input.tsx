@@ -6,7 +6,7 @@ import { Stack } from 'styled-system/jsx'
 
 export const Input = (props: InputProps) => {
   return (
-    <Stack gap='1.5' width='2xs'>
+    <Stack columnGap='1.5' rowGap='1.5' w='2xs'>
       <FormLabel htmlFor='name'>Name</FormLabel>
       <_Input id='name' placeholder='Your Name' {...props} />
     </Stack>

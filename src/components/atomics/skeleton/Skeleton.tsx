@@ -5,11 +5,11 @@ import { Circle, HStack, Stack } from 'styled-system/jsx'
 
 export const Skeleton = () => {
   return (
-    <HStack width='full' gap='4'>
+    <HStack w='full' columnGap='4' rowGap='4'>
       <_Skeleton borderRadius='full'>
         <Circle size='20' />
       </_Skeleton>
-      <Stack gap='3.5' width='full'>
+      <Stack columnGap='3.5' rowGap='3.5' w='full'>
         <_Skeleton h='4' />
         <_Skeleton h='4' width='80%' />
         <_Skeleton h='4' width='60%' />

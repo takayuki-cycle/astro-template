@@ -6,7 +6,7 @@ import { Stack } from 'styled-system/jsx'
 
 export const Textarea = (props: TextareaProps) => {
   return (
-    <Stack gap='1.5' width='2xs'>
+    <Stack columnGap='1.5' rowGap='1.5' w='2xs'>
       <FormLabel htmlFor='description'>Description</FormLabel>
       <_Textarea id='description' rows={4} {...props} />
     </Stack>

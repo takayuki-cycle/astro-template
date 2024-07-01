@@ -53,3 +53,5 @@ pre-commit:
       run: npm run lint:markup
     lint-style:
       run: npx stylelint '**/*.astro'
+    lint-eslint:
+      run: npx eslint .

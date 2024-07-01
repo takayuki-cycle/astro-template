@@ -15,12 +15,12 @@ export const Dialog = (props: _Dialog.RootProps) => {
       <_Dialog.Backdrop />
       <_Dialog.Positioner>
         <_Dialog.Content>
-          <Stack gap='8' p='6'>
-            <Stack gap='1'>
+          <Stack columnGap='8' rowGap='8' pt='6' pr='6' pb='6' pl='6'>
+            <Stack columnGap='1' rowGap='1'>
               <_Dialog.Title>Dialog Title</_Dialog.Title>
               <_Dialog.Description>Dialog Description</_Dialog.Description>
             </Stack>
-            <Stack gap='3' direction='row' width='full'>
+            <Stack columnGap='3' rowGap='3' direction='row' w='full'>
               <_Dialog.CloseTrigger asChild>
                 <Button variant='outline' width='full'>
                   Cancel

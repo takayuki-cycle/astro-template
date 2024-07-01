@@ -11,7 +11,19 @@ export const Collapsible = (props: _Collapsible.RootProps) => {
         <Button variant='outline'>Toggle</Button>
       </_Collapsible.Trigger>
       <_Collapsible.Content>
-        <Box bg='accent.default' color='accent.fg' p='4' borderRadius='l3' mt='3'>
+        <Box
+          bgColor='accent.default'
+          color='accent.fg'
+          pt='4'
+          pr='4'
+          pb='4'
+          pl='4'
+          roundedTopLeft='l3'
+          roundedTopRight='l3'
+          roundedBottomRight='l3'
+          roundedBottomLeft='l3'
+          // mt='3'
+        >
           Content
         </Box>
       </_Collapsible.Content>

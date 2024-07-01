@@ -6,7 +6,8 @@
     "usernamehw.errorlens",
     "streetsidesoftware.code-spell-checker",
     "yusukehirao.vscode-markuplint",
-    "stylelint.vscode-stylelint"
+    "stylelint.vscode-stylelint",
+    "dbaeumer.vscode-eslint"
   ],
   "unwantedRecommendations": []
 }

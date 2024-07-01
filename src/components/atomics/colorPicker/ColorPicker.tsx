@@ -26,18 +26,18 @@ export const ColorPicker = (props: _ColorPicker.RootProps) => {
             </_ColorPicker.Control>
             <_ColorPicker.Positioner>
               <_ColorPicker.Content>
-                <Stack gap='3'>
+                <Stack columnGap='3' rowGap='3'>
                   <_ColorPicker.Area>
                     <_ColorPicker.AreaBackground />
                     <_ColorPicker.AreaThumb />
                   </_ColorPicker.Area>
-                  <HStack gap='3'>
+                  <HStack columnGap='3' rowGap='3'>
                     <_ColorPicker.EyeDropperTrigger asChild>
                       <IconButton size='xs' variant='outline' aria-label='Pick a color'>
                         <PipetteIcon />
                       </IconButton>
                     </_ColorPicker.EyeDropperTrigger>
-                    <Stack gap='2' flex='1'>
+                    <Stack columnGap='2' rowGap='2' flexGrow='1' flexShrink='1' flexBasis='0'>
                       <_ColorPicker.ChannelSlider channel='hue'>
                         <_ColorPicker.ChannelSliderTrack />
                         <_ColorPicker.ChannelSliderThumb />
@@ -57,7 +57,7 @@ export const ColorPicker = (props: _ColorPicker.RootProps) => {
                       <Input size='2xs' />
                     </_ColorPicker.ChannelInput>
                   </HStack>
-                  <Stack gap='1.5'>
+                  <Stack columnGap='1.5' rowGap='1.5'>
                     <Text size='xs' fontWeight='medium' color='fg.default'>
                       Saved Colors
                     </Text>

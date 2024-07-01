@@ -17,13 +17,13 @@ export const Popover = (props: _Popover.RootProps) => {
           <_Popover.Arrow>
             <_Popover.ArrowTip />
           </_Popover.Arrow>
-          <Stack gap='1'>
+          <Stack columnGap='1' rowGap='1'>
             <_Popover.Title>Favorite Framework</_Popover.Title>
             <_Popover.Description>
               Tell us what is your favorite framework and why you love to use it.
             </_Popover.Description>
           </Stack>
-          <Box position='absolute' top='1' right='1'>
+          <Box pos='absolute' top='1' right='1'>
             <_Popover.CloseTrigger asChild>
               <IconButton aria-label='Close Popover' variant='ghost' size='sm'>
                 <XIcon />
