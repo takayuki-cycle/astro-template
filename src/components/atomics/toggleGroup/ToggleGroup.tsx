@@ -31,11 +31,11 @@ export const ToggleGroup = (props: _ToggleGroup.RootProps) => {
       borderRightWidth='1px'
       borderBottomWidth='1px'
       borderLeftWidth='1px'
-      pt={props.variant === 'ghost' ? '1' : '0'}
+      // pt={props.variant === 'ghost' ? '1' : '0'}
       // pr={props.variant === 'ghost' ? '1' : '0'}
       // pb={props.variant === 'ghost' ? '1' : '0'}
       // pl={props.variant === 'ghost' ? '1' : '0'}
-      // pt='1'
+      pt='1'
       pr='1'
       pb='1'
       pl='1'
