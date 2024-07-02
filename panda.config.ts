@@ -21,6 +21,7 @@ export default defineConfig({
   jsxFramework: 'react',
 
   // strictTokens: true, // UIコンポーネントライブラリを使わない選択をするのであれば、この行を使う可能性あり  トークン値だけ使用可能(px, rem, blueなどは使用不可)
+  strictPropertyValues: true,
 
   // The output directory for your css system
   outdir: 'styled-system',
