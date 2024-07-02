@@ -20,7 +20,6 @@ const eslintConfig = [
       ),
       '@pandacss/prefer-longhand-properties': 'off',
       '@pandacss/prefer-composite-properties': 'off',
-      '@pandacss/prefer-unified-property-style': 'off',
       '@pandacss/no-physical-properties': 'off',
     },
   },
