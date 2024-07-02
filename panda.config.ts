@@ -1,5 +1,6 @@
 import { defineConfig } from '@pandacss/dev'
 
+// 設定を変更したときは、npm run prepareを実行しないと反映されないので注意
 export default defineConfig({
   // Whether to use css reset
   preflight: true,
@@ -18,6 +19,8 @@ export default defineConfig({
   },
 
   jsxFramework: 'react',
+
+  // strictTokens: true, // UIコンポーネントライブラリを使わない選択をするのであれば、この行を使う可能性あり  トークン値だけ使用可能(px, rem, blueなどは使用不可)
 
   // The output directory for your css system
   outdir: 'styled-system',
