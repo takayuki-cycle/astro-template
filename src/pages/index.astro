@@ -3,12 +3,25 @@ import { css } from '@/../styled-system/css'
 import Card from '@/components/Card.astro'
 import { App } from '@/components/app'
 import Layout from '@/layouts/Layout.astro'
+
+const testCSS = css({
+  maxW: '2xl',
+  fontWeight: 'bold',
+  color: 'black.a10',
+})
 ---
 
 <Layout title="Welcome to Astro.">
   <main>
+    <div class={testCSS}>AAA</div>
     <App client:only="react" />
-    <div class={css({ fontSize: '2xl', fontWeight: 'bold', color: '#ffffff' })}>
+    <div
+      class={css({
+        fontSize: '2xl',
+        fontWeight: 'bold',
+        color: 'black.a10',
+      })}
+    >
       Hello !
     </div>
     <svg
@@ -38,7 +51,9 @@ import Layout from '@/layouts/Layout.astro'
         </linearGradient>
       </defs>
     </svg>
-    <h1 class={css({ fontSize: '50px', fontWeight: 'bold', color: 'yellow' })}>
+    <h1
+      class={css({ fontSize: '50px', fontWeight: 'bold', color: 'black.a10' })}
+    >
       Welcome to <span class="text-gradient">Astro</span>
     </h1>
     <p class="instructions">
