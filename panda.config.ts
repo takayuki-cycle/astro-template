@@ -1,6 +1,6 @@
 import { defineConfig } from '@pandacss/dev'
 
-// 設定を変更したときは、npm run prepareを実行しないと反映されないので注意
+// TODO: 設定を変更したときは、npm run prepareを実行しないと反映されないので注意
 export default defineConfig({
   // Whether to use css reset
   preflight: true,
