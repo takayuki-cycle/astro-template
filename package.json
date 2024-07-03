@@ -9,6 +9,7 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "studio": "panda studio",
     "check": "biome check ./src",
     "lint:markup": "markuplint \"src/**/*.{astro,jsx,tsx}\" --problem-only"
   },
