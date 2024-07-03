@@ -42,6 +42,7 @@
     "@typescript-eslint/parser": "^7.15.0",
     "astro-eslint-parser": "^1.0.2",
     "eslint-plugin-astro": "^1.2.2",
+    "eslint-plugin-jsx-a11y": "^6.9.0",
     "lefthook": "^1.6.18",
     "markuplint": "^4.9.2",
     "postcss": "^8.4.39",

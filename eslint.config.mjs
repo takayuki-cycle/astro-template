@@ -17,6 +17,7 @@ const pandaRules = {
 
 const eslintConfig = [
   ...eslintPluginAstro.configs.recommended,
+  ...eslintPluginAstro.configs['jsx-a11y-strict'],
   {
     files: ['**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx', '**/*.astro'],
     ignores: ['*.d.ts', 'styled-system'],
