@@ -1,6 +1,7 @@
 import panda from '@pandacss/eslint-plugin'
 import typescriptParser from '@typescript-eslint/parser'
 import astroParser from 'astro-eslint-parser'
+import eslintPluginAstro from 'eslint-plugin-astro'
 
 const pandaRules = {
   ...Object.fromEntries(
@@ -15,6 +16,7 @@ const pandaRules = {
 }
 
 const eslintConfig = [
+  ...eslintPluginAstro.configs.recommended,
   {
     files: ['**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx', '**/*.astro'],
     ignores: ['*.d.ts', 'styled-system'],

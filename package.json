@@ -11,6 +11,7 @@
     "astro": "astro",
     "studio": "panda studio",
     "check": "biome check ./src",
+    "lint:eslint": "eslint .",
     "lint:markup": "markuplint \"src/**/*.{astro,jsx,tsx}\" --problem-only"
   },
   "dependencies": {
@@ -40,6 +41,7 @@
     "@park-ui/panda-preset": "^0.38.0",
     "@typescript-eslint/parser": "^7.14.1",
     "astro-eslint-parser": "^1.0.2",
+    "eslint-plugin-astro": "^1.2.2",
     "lefthook": "^1.6.16",
     "markuplint": "^4.9.1",
     "postcss": "^8.4.38",
