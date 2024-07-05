@@ -46,16 +46,6 @@
       }
     },
     {
-      "include": ["*.tsx", "*.jsx"],
-      "linter": {
-        "rules": {
-          "style": {
-            "noDefaultExport": "error"
-          }
-        }
-      }
-    },
-    {
       "include": ["./src/components/ui/*.tsx"],
       "linter": {
         "rules": {
