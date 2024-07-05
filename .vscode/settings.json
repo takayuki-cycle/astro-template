@@ -7,5 +7,10 @@
   "prettier.semi": false,
   "prettier.singleQuote": true,
   "stylelint.validate": ["html", "astro"],
-  "panda.rem-to-px.enabled": true
+  "panda.rem-to-px.enabled": true,
+  "[astro]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    }
+  }
 }

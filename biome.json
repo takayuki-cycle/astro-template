@@ -46,6 +46,16 @@
       }
     },
     {
+      "include": ["*.js", "*.ts", "*.tsx", "*.jsx"],
+      "linter": {
+        "rules": {
+          "correctness": {
+            "noUnusedImports": "error"
+          }
+        }
+      }
+    },
+    {
       "include": ["./src/components/ui/*.tsx"],
       "linter": {
         "rules": {
