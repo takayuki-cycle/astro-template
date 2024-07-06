@@ -1,4 +1,8 @@
 {
+  "workbench.colorCustomizations": {
+    "commandCenter.border": "#f24309",
+    "commandCenter.inactiveBorder": "#f24309"
+  },
   "editor.defaultFormatter": "biomejs.biome",
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
