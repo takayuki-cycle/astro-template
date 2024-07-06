@@ -1,11 +1,13 @@
 {
   "editor.defaultFormatter": "biomejs.biome",
+  "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "quickfix.biome": "explicit",
     "source.organizeImports.biome": "explicit"
   },
   "prettier.semi": false,
   "prettier.singleQuote": true,
+  "prettier.jsxSingleQuote": true,
   "stylelint.validate": ["html", "astro"],
   "panda.rem-to-px.enabled": true,
   "[astro]": {
