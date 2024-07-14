@@ -3,15 +3,30 @@ import { css } from '@/../styled-system/css'
 import Card from '@/components/Card.astro'
 import { App } from '@/components/app'
 import Layout from '@/layouts/Layout.astro'
+import type { HeadProps } from '@/layouts/head/types'
 
 const testCSS = css({
   maxW: '2xl',
   fontWeight: 'bold',
   color: 'black.a10',
 })
+
+const head: HeadProps = {
+  title: 'ページのタイトルです。',
+  description: 'ページの説明です。',
+  canonical: 'http://localhost:4321/', // TODO: 環境ごとにURLを動的に変更できないか調べること
+  robots: 'all',
+  ogType: 'website',
+  ogImage: '/ogp/general.webp', // TODO: 環境ごとにURLを動的に変更できないか調べること
+  ogImageAlt: 'ogImageAlt',
+  xCreator: '@xCreator',
+  author: 'author',
+  googleSiteVerification: 'googleSiteVerification',
+}
 ---
 
-<Layout title='Welcome to Astro.'>
+<Layout head={head}>
+  <header></header>
   <main>
     <div class={testCSS}>AAA</div>
     <App client:only='react' />
@@ -74,6 +89,7 @@ const testCSS = css({
       />
     </ul>
   </main>
+  <footer></footer>
 </Layout>
 
 <style lang='scss'>
