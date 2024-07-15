@@ -1,4 +1,5 @@
-export interface HeadProps {
+// Webページごとに異なるheadタグの中身を生成するための型定義
+export interface HeadPageProps {
   title: string
   description: string
   robots: Robots
@@ -42,3 +43,15 @@ type OgType =
   | 'music' // 音楽
   | 'video' // ビデオ
   | 'book' // 書籍
+
+// Webサイト全体で共通のheadタグの中身を生成するための型定義
+export interface HeadSiteProps {
+  webSiteName: string // 不要であれば空文字
+  isFaviconSVG: boolean // 原則、SVG形式のファビコンも用意
+  xCard: 'summary' | 'summary_large_image' | 'app' | 'player' // 'summary_large_image'を推奨, summaryでは画像のアス比が1:1になるので注意
+  xSite?: `@${string}` | ''
+  isAppleTouchIcon: boolean
+  themeColor?: string
+  fbAppID?: string
+  gtmID?: `GTM-${string}` // TODO: headタグの中に指定するGTMのIDは動的な記法がサポートされていないため、ここの値を変更したらそちらも手作業で変更すること
+}

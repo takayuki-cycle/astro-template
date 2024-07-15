@@ -3,7 +3,7 @@ import { css } from '@/../styled-system/css'
 import Card from '@/components/Card.astro'
 import { App } from '@/components/app'
 import Layout from '@/layouts/Layout.astro'
-import type { HeadProps } from '@/layouts/head/types'
+import type { HeadPageProps } from '@/layouts/head/types'
 
 const testCSS = css({
   maxW: '2xl',
@@ -11,7 +11,7 @@ const testCSS = css({
   color: 'black.a10',
 })
 
-const head: HeadProps = {
+const headPage: HeadPageProps = {
   title: 'ページのタイトルです。',
   description: 'ページの説明です。',
   canonical: 'http://localhost:4321/', // TODO: 環境ごとにURLを動的に変更できないか調べること
@@ -25,7 +25,7 @@ const head: HeadProps = {
 }
 ---
 
-<Layout head={head}>
+<Layout headPage={headPage}>
   <header></header>
   <main>
     <div class={testCSS}>AAA</div>

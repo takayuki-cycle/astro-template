@@ -1,0 +1,103 @@
+---
+import HeadGTM from '@/layouts/head/HeadGTM.html'
+import type { HeadPageProps, HeadSiteProps } from '@/layouts/head/types'
+
+const {
+  title,
+  description,
+  canonical,
+  robots,
+  ogType,
+  ogImage,
+  ogImageAlt,
+  xCreator,
+  author,
+  googleSiteVerification,
+}: HeadPageProps = Astro.props.headPage
+
+const {
+  webSiteName,
+  isFaviconSVG,
+  xCard,
+  xSite,
+  isAppleTouchIcon,
+  themeColor,
+  fbAppID,
+  gtmID,
+}: HeadSiteProps = Astro.props.headSite
+
+const isDisplayMetaRobotsTag = robots && robots !== 'all'
+---
+
+<head>
+  {/* 必須 */}
+  <meta charset='UTF-8' />
+  <title>{title}{webSiteName && ' - '}{webSiteName}</title>
+  <meta name='description' content={description} />
+  <meta name='viewport' content='width=device-width, initial-scale=1' />
+  {isDisplayMetaRobotsTag && <meta name='robots' content={robots} />}
+  <meta name='format-detection' content='telephone=no' />
+  {
+    isFaviconSVG && (
+      <link rel='icon' href='/favicon.svg' sizes='any' type='image/svg+xml' />
+    )
+  }
+  <link rel='icon' href='/favicon.png' sizes='48x48' />
+  <link rel='canonical' href={canonical} />
+
+  {/* OGP */}
+  <meta
+    property='og:title'
+    content={`${title}${webSiteName ? ' - ' + webSiteName : ''}`}
+  />
+  <meta property='og:description' content={description} />
+  <meta property='og:type' content={ogType} />
+  <meta property='og:url' content={canonical} />
+  <meta property='og:image' content={ogImage} />
+  <meta property='og:image:width' content='1200' />
+  <meta property='og:image:height' content='630' />
+  <meta property='og:image:alt' content={ogImageAlt} />
+  <meta property='og:site_name' content={webSiteName} />
+  <meta property='og:locale' content='ja_JP' />
+
+  {/* X Card */}
+  <meta name='twitter:card' content={xCard} />
+  <meta
+    name='twitter:title'
+    content={`${title}${webSiteName ? ' - ' + webSiteName : ''}`}
+  />
+  <meta name='twitter:description' content={description} />
+  <meta name='twitter:image:alt' content={ogImageAlt} />
+  <meta name='twitter:url' content={canonical} />
+  {xSite && <meta name='twitter:site' content={xSite} />}
+  {xCreator && <meta name='twitter:creator' content={xCreator} />}
+
+  {/* 任意 */}
+  {author && <meta name='author' content={author} />}
+  {
+    isAppleTouchIcon && (
+      <link
+        rel='apple-touch-icon'
+        sizes='180x180'
+        href='/apple-touch-icon.png'
+      />
+    )
+  }
+  {themeColor && <meta name='theme-color' content={themeColor} />}
+  {webSiteName && <meta name='application-name' content={webSiteName} />}
+  {
+    googleSiteVerification && (
+      <meta name='google-site-verification' content={googleSiteVerification} />
+    )
+  }
+  {fbAppID && <meta property='fb:app_id' content={fbAppID} />}
+  <meta name='generator' content={Astro.generator} />
+
+  {/* Google Tag Manager */}
+  {/* 直書きだとコードを整形してくれなかったので、コンポーネント化 */}
+  {/* gtmIDを変更するときは、HeadGTMの方も変更すること */}
+  {
+    /* 開発者ツールでHTMLを見ると、headタグの直上になぜかGTMの一部のコードが表示 */
+  }
+  {gtmID && <HeadGTM />}
+</head>

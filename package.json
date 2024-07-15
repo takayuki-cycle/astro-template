@@ -12,7 +12,7 @@
     "prod": "astro build",
     "studio": "panda studio",
     "check": "biome check ./src",
-    "lint:eslint": "eslint .",
+    "lint:eslint": "eslint ./src",
     "lint:markup": "markuplint \"src/**/*.{astro,jsx,tsx}\" --problem-only"
   },
   "dependencies": {

@@ -19,6 +19,14 @@ const markuplintConfig = {
   },
   pretenders: [
     {
+      selector: 'Head',
+      as: 'head',
+    },
+    {
+      selector: 'HeadGTM',
+      as: 'script',
+    },
+    {
       selector: 'Accordion',
       as: 'div',
     },
