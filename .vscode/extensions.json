@@ -7,7 +7,8 @@
     "streetsidesoftware.code-spell-checker",
     "yusukehirao.vscode-markuplint",
     "stylelint.vscode-stylelint",
-    "dbaeumer.vscode-eslint"
+    "dbaeumer.vscode-eslint",
+    "unifiedjs.vscode-mdx"
   ],
   "unwantedRecommendations": []
 }
