@@ -47,7 +47,7 @@ pre-commit:
       run: npx tsc --noEmit
     lint-astro:
       glob: '*.{astro}'
-      run: npm run astro check
+      run: npm run astro:check
     lint-markup:
       glob: '*.{astro,tsx}'
       run: npm run lint:markup
