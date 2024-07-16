@@ -47,7 +47,7 @@ pre-commit:
       run: npx tsc --noEmit
     lint-astro:
       glob: '*.{astro}'
-      run: npm run build
+      run: npm run build # 親と子でpropsが不一致かつ子で型定義してないときに、astro checkだけだとパスしてしまうため、astro buildも追加
     lint-markup:
       glob: '*.{astro,tsx}'
       run: npm run lint:markup
