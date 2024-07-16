@@ -1,7 +1,11 @@
 ---
 import Head from '@/layouts/head/Head.astro'
-import type { HeadSiteProps } from '@/layouts/head/types'
+import type { HeadPageProps, HeadSiteProps } from '@/layouts/head/types'
 import '../index.css'
+
+interface Props {
+  headPage: HeadPageProps
+}
 
 const { headPage } = Astro.props
 

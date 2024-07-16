@@ -52,6 +52,7 @@ import {
   Tooltip,
   TreeView,
 } from '@/components/atomics'
+import type { HeadPageProps } from '@/layouts/head/types'
 
 import Layout from '@/layouts/Layout.astro'
 
@@ -60,9 +61,21 @@ const fruits = [
   { label: 'Banana', value: 'banana' },
   { label: 'Cherry', value: 'cherry' },
 ]
+
+const headPage: HeadPageProps = {
+  title: 'ページのタイトルです。',
+  description: 'ページの説明です。',
+  canonical: 'http://localhost:4321/', // TODO: 環境ごとにURLを動的に変更できないか調べること
+  robots: 'all',
+  ogType: 'website',
+  ogImage: '/ogp/general.webp', // TODO: 環境ごとにURLを動的に変更できないか調べること
+  ogImageAlt: 'ogImageAlt',
+  xCreator: '@xCreator',
+  author: 'author',
+}
 ---
 
-<Layout title='Welcome to Astro.'>
+<Layout headPage={headPage}>
   <main>
     <ul>
       {
