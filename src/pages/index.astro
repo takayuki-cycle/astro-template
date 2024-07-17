@@ -1,4 +1,5 @@
 ---
+import { fade } from 'astro:transitions'
 import { css } from '@/../styled-system/css'
 import Card from '@/components/Card.astro'
 import { App } from '@/components/app'
@@ -26,8 +27,15 @@ const headPage: HeadPageProps = {
 ---
 
 <Layout headPage={headPage}>
-  <header></header>
-  <main>
+  <main transition:animate={fade({ duration: '0.3s' })}>
+    <a
+      href='/example'
+      class={css({
+        color: 'black.a10',
+      })}
+    >
+      exampleへ遷移
+    </a>
     <div class={testCSS}>AAA</div>
     <App client:only='react' />
     <div
@@ -89,7 +97,6 @@ const headPage: HeadPageProps = {
       />
     </ul>
   </main>
-  <footer></footer>
 </Layout>
 
 <style lang='scss'>

@@ -1,6 +1,8 @@
 ---
+import Footer from '@/layouts/footer/Footer.astro'
 import Head from '@/layouts/head/Head.astro'
 import type { HeadPageProps, HeadSiteProps } from '@/layouts/head/types'
+import Header from '@/layouts/header/Header.astro'
 import '../index.css'
 
 interface Props {
@@ -22,7 +24,7 @@ const headSite: HeadSiteProps = {
 ---
 
 <!doctype html>
-<html lang='ja'>
+<html lang='ja' transition:animate='none'>
   <Head headPage={headPage} headSite={headSite} />
   <body>
     {/* Google Tag Manager(noscript) */}
@@ -40,6 +42,8 @@ const headSite: HeadSiteProps = {
         </noscript>
       )
     }
+    <Header />
     <slot />
+    <Footer />
   </body>
 </html>

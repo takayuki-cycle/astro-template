@@ -10,10 +10,5 @@
   "prettier.singleQuote": true,
   "prettier.jsxSingleQuote": true,
   "stylelint.validate": ["html", "astro"],
-  "panda.rem-to-px.enabled": true,
-  "[astro]": {
-    "editor.codeActionsOnSave": {
-      "source.organizeImports": "explicit"
-    }
-  }
+  "panda.rem-to-px.enabled": true
 }

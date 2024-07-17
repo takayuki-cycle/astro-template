@@ -19,6 +19,18 @@ const markuplintConfig = {
   },
   pretenders: [
     {
+      selector: 'Header',
+      as: 'header',
+    },
+    {
+      selector: 'Footer',
+      as: 'footer',
+    },
+    {
+      selector: 'ViewTransitions',
+      as: 'meta',
+    },
+    {
       selector: 'Head',
       as: 'head',
     },
