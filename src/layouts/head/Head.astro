@@ -30,7 +30,7 @@ const isDisplayMetaRobotsTag = robots && robots !== 'all'
 
 const canonical = new URL(
   `${Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`}`,
-  Astro.site
+  Astro.site,
 )
 ---
 
