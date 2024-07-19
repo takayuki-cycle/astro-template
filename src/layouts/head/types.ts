@@ -4,7 +4,7 @@ export interface HeadPageProps {
   description: string
   robots: Robots
   ogType: OgType
-  ogImage: string
+  ogImage: OgImage
   ogImageAlt: string
   xCreator?: `@${string}` | '' // 記事の作成者のXアカウント
   author?: string // 著者もしくは会社名
@@ -42,6 +42,8 @@ type OgType =
   | 'music' // 音楽
   | 'video' // ビデオ
   | 'book' // 書籍
+
+type OgImage = `/${string}.${'webp' | 'jpg' | 'jpeg' | 'png' | 'avif'}`
 
 // Webサイト全体で共通のheadタグの中身を生成するための型定義
 export interface HeadSiteProps {
