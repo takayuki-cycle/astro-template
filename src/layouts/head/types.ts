@@ -3,7 +3,6 @@ export interface HeadPageProps {
   title: string
   description: string
   robots: Robots
-  canonical: `${'http' | 'https'}://${string}/` // og:urlも兼用
   ogType: OgType
   ogImage: string
   ogImageAlt: string

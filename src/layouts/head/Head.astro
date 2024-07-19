@@ -6,7 +6,6 @@ import type { HeadPageProps, HeadSiteProps } from '@/layouts/head/types'
 const {
   title,
   description,
-  canonical,
   robots,
   ogType,
   ogImage,
@@ -28,6 +27,11 @@ const {
 }: HeadSiteProps = Astro.props.headSite
 
 const isDisplayMetaRobotsTag = robots && robots !== 'all'
+
+const canonical = new URL(
+  `${Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`}`,
+  Astro.site
+)
 ---
 
 <head>
