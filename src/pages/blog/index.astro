@@ -1,0 +1,14 @@
+---
+import { getCollection } from 'astro:content'
+
+const posts = await getCollection('blog')
+---
+
+{
+  posts.map((post) => (
+    <a href={`/blog/${post.slug}/`}>
+      <img width={100} height={100} src={post.data.heroImage} alt='' />
+      <h1>{post.data.title}</h1>
+    </a>
+  ))
+}
