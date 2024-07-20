@@ -23,6 +23,10 @@ const markuplintConfig = {
       as: 'header',
     },
     {
+      selector: 'Main',
+      as: 'main',
+    },
+    {
       selector: 'Footer',
       as: 'footer',
     },

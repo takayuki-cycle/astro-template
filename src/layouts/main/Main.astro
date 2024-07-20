@@ -1,0 +1,19 @@
+---
+import { fade } from 'astro:transitions'
+---
+
+<main transition:animate={fade({ duration: '0.3s' })}>
+  <slot />
+</main>
+
+<style lang='scss'>
+  main {
+    width: 50rem;
+    max-width: calc(100% - 2rem);
+    padding: 1rem;
+    margin: auto;
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: white;
+  }
+</style>
