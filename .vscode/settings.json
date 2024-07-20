@@ -11,5 +11,9 @@
   "prettier.jsxSingleQuote": true,
   "prettier.trailingComma": "all",
   "stylelint.validate": ["html", "astro"],
-  "panda.rem-to-px.enabled": true
+  "panda.rem-to-px.enabled": true,
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#ee7800",
+    "activityBar.activeBorder": "#800080"
+  }
 }
