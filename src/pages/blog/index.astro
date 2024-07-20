@@ -1,14 +1,30 @@
 ---
 import { getCollection } from 'astro:content'
+import Layout from '@/layouts/Layout.astro'
+import type { HeadPageProps } from '@/layouts/head/types'
 
 const posts = await getCollection('blog')
+
+const headPage: HeadPageProps = {
+  title: 'blog一覧PageTitle',
+  description: 'blog一覧ページの説明です。',
+  robots: 'all',
+  ogType: 'website',
+  ogImage: '/ogp/general.webp', // TODO: ファイルのパスをどうするか決めること
+  ogImageAlt: 'ogImageAlt',
+  xCreator: '@xCreator',
+  author: 'author',
+  googleSiteVerification: 'googleSiteVerification',
+}
 ---
 
-{
-  posts.map((post) => (
-    <a href={`/blog/${post.slug}/`}>
-      <img width={100} height={100} src={post.data.heroImage} alt='' />
-      <h1>{post.data.title}</h1>
-    </a>
-  ))
-}
+<Layout headPage={headPage}>
+  {
+    posts.map((post) => (
+      <a href={`/blog/${post.slug}/`}>
+        <img width={100} height={100} src={post.data.heroImage} alt='' />
+        <h1>{post.data.title}</h1>
+      </a>
+    ))
+  }
+</Layout>
