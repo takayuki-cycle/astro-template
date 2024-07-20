@@ -7,15 +7,14 @@ const post = Astro.props
 const { Content } = await post.render()
 
 const headPage: HeadPageProps = {
-  title: 'blog詳細PageTitle',
-  description: 'blog詳細ページの説明です。',
+  title: 'blog詳細PageTitle', // TODO: 動的にすること
+  description: 'blog詳細ページの説明です。', // TODO: 動的にすること
   robots: 'all',
   ogType: 'article',
-  ogImage: '/ogp/general.webp', // TODO: ファイルのパスをどうするか決めること
-  ogImageAlt: 'ogImageAlt',
-  xCreator: '@xCreator',
-  author: 'author',
-  googleSiteVerification: 'googleSiteVerification',
+  ogImage: '/ogp/general.webp', // TODO: ファイルのパスをどうするか決めること TODO: 動的にすること
+  ogImageAlt: 'ogImageAlt', // TODO: 動的にすること
+  xCreator: '@xCreator', // TODO: 動的にすること
+  author: 'author', // TODO: 動的にすること
 }
 
 export async function getStaticPaths() {
