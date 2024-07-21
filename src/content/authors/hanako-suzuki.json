@@ -1,0 +1,33 @@
+{
+  "name": {
+    "last": {
+      "formal": "鈴木",
+      "ruby": "すずき"
+    },
+    "middle": {
+      "formal": "aiueo",
+      "ruby": "aiueo"
+    },
+    "first": {
+      "formal": "花子",
+      "ruby": "すずき"
+    },
+    "nick": "すずきん"
+  },
+  "occupation": ["engineer", "designer", "manager"],
+  "loaction": "tokyo",
+  "position": "課長",
+  "department": "あいうえお部署",
+  "email": "alice@example.com",
+  "image": "/",
+  "sns": {
+    "x": "https://x.com/user-name/",
+    "instagram": "https://www.instagram.com/user-name/",
+    "facebook": "https://www.facebook.com/user-name/",
+    "wantedly": "https://www.wantedly.com/id/user-name/",
+    "linkedIn": "https://www.linkedin.com/in/user-name/",
+    "gitHub": "https://github.com/user-name/",
+    "zenn": "https://zenn.dev/user-name/",
+    "qiita": "https://qiita.com/user-name/"
+  }
+}

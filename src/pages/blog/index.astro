@@ -5,6 +5,12 @@ import type { HeadPageProps } from '@/layouts/head/types'
 
 const posts = await getCollection('blog')
 
+/* TODO: 試すこと 例: 本番用にビルドするときにのみ、`draft: true`を含むエントリーを除外
+const posts = await getCollection('blog', ({ data }) => {
+  return import.meta.env.PROD ? data.draft !== true : true;
+});
+*/
+
 const headPage: HeadPageProps = {
   title: 'blog一覧PageTitle',
   description: 'blog一覧ページの説明です。',
@@ -21,7 +27,7 @@ const headPage: HeadPageProps = {
   {
     posts.map((post) => (
       <a href={`/blog/${post.slug}/`}>
-        <img width={100} height={100} src={post.data.heroImage} alt='' />
+        <img width={100} height={100} src={post.data.ogImage} alt='' />
         <h1>{post.data.title}</h1>
       </a>
     ))

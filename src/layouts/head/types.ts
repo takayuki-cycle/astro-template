@@ -30,7 +30,7 @@ type RobotDirective =
   | `max-video-preview:${number}` // ビデオプレビューの長さを指定された秒数に制限します。
   | `unavailable_after:${string}` // 指定した日付以降、ページをインデックスしないようにします。
 
-type Robots =
+export type Robots =
   | RobotDirective
   | `${RobotDirective}, ${RobotDirective}`
   | `${RobotDirective}, ${RobotDirective}, ${RobotDirective}`
@@ -43,7 +43,7 @@ type OgType =
   | 'video' // ビデオ
   | 'book' // 書籍
 
-type OgImage = `/${string}.${'webp' | 'jpg' | 'jpeg' | 'png' | 'avif'}`
+export type OgImage = `/${string}.${'webp' | 'jpg' | 'jpeg' | 'png' | 'avif'}`
 
 // Webサイト全体で共通のheadタグの中身を生成するための型定義
 export interface HeadSiteProps {
