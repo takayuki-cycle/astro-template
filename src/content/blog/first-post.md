@@ -2,7 +2,7 @@
 title: 'First post'
 description: 'Lorem ipsum dolor sit amet First Post'
 robots: 'all'
-ogImage: '/blog-placeholder-3.jpg'
+ogImage: '/src/assets/images/content/blog/first-post/ogp.png'
 ogImageAlt: 'ogImageAltFirstPostです。'
 xCreator: '@xCreatorBlogFirstPost'
 author: hanako-suzuki

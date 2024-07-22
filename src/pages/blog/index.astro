@@ -24,7 +24,12 @@ const headPage: HeadPageProps = {
   {
     posts.map((post) => (
       <a href={`/blog/${post.slug}/`}>
-        <img width={100} height={100} src={post.data.ogImage} alt='' />
+        <img
+          width={400}
+          height={210}
+          src={post.data.ogImage ? post.data.ogImage : '/ogp/general.webp'}
+          alt={post.data.ogImageAlt ? post.data.ogImageAlt : 'コンテンツです'}
+        />
         <h1>{post.data.title}</h1>
       </a>
     ))

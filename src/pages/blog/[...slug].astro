@@ -30,13 +30,12 @@ export async function getStaticPaths() {
 ---
 
 <Layout headPage={headPage}>
-  <div>
-    {
-      post.data.ogImage && (
-        <img width={100} height={100} src={post.data.ogImage} alt='' />
-      )
-    }
-  </div>
+  <img
+    width={400}
+    height={210}
+    src={post.data.ogImage ? post.data.ogImage : '/ogp/general.webp'}
+    alt={post.data.ogImageAlt ? post.data.ogImageAlt : 'コンテンツです'}
+  />
   <h1>{post.data.title}</h1>
   <hr />
   <Content />
