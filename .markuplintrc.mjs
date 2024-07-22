@@ -23,6 +23,10 @@ const markuplintConfig = {
       as: 'header',
     },
     {
+      selector: 'BodyGTM',
+      as: 'noscript',
+    },
+    {
       selector: 'Footer',
       as: 'footer',
     },

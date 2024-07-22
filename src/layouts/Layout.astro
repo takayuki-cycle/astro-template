@@ -28,20 +28,22 @@ const headSite: HeadSiteProps = {
 <!doctype html>
 <html lang='ja' transition:animate='none'>
   <Head headPage={headPage} headSite={headSite} />
-  {headSite.gtmID && <BodyGTM gtmID={headSite.gtmID} />}
-  <Header />
-  <main transition:animate={fade({ duration: '0.3s' })}>
-    <slot />
-  </main>
-  <Footer />
-  <style lang='scss'>
-    main {
-      width: 50rem;
-      max-width: calc(100% - 2rem);
-      padding: 1rem;
-      margin: auto;
-      font-size: 1.25rem;
-      line-height: 1.6;
-    }
-  </style>
+  <body>
+    {headSite.gtmID && <BodyGTM gtmID={headSite.gtmID} />}
+    <Header />
+    <main transition:animate={fade({ duration: '0.3s' })}>
+      <slot />
+    </main>
+    <Footer />
+    <style lang='scss'>
+      main {
+        width: 50rem;
+        max-width: calc(100% - 2rem);
+        padding: 1rem;
+        margin: auto;
+        font-size: 1.25rem;
+        line-height: 1.6;
+      }
+    </style>
+  </body>
 </html>
