@@ -13,7 +13,7 @@ const headPage: HeadPageProps = {
   description: 'blog一覧ページの説明です。',
   robots: 'all',
   ogType: 'website',
-  ogImage: '/ogp/general.webp', // TODO: ファイルのパスをどうするか決めること
+  ogImage: '/src/assets/images/content/blog/ogp.webp',
   ogImageAlt: 'ogImageAlt',
   xCreator: '@xCreator',
   author: 'author',
@@ -27,7 +27,11 @@ const headPage: HeadPageProps = {
         <img
           width={400}
           height={210}
-          src={post.data.ogImage ? post.data.ogImage : '/ogp/general.webp'}
+          src={
+            post.data.ogImage
+              ? post.data.ogImage
+              : '/src/assets/images/content/blog/ogp.webp'
+          }
           alt={post.data.ogImageAlt ? post.data.ogImageAlt : 'コンテンツです'}
         />
         <h1>{post.data.title}</h1>

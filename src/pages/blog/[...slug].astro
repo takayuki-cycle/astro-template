@@ -11,7 +11,9 @@ const headPage: HeadPageProps = {
   description: post.data.description,
   robots: post.data.robots as Robots,
   ogType: 'article',
-  ogImage: (post.data.ogImage as OgImage) || '/ogp/general.webp', // TODO: MDX側のファイルのパスをどうするか決めること
+  ogImage:
+    (post.data.ogImage as OgImage) ||
+    '/src/assets/images/content/blog/ogp.webp',
   ogImageAlt: post.data.ogImageAlt || 'コンテンツです。',
   xCreator: post.data.xCreator as `@${string}`,
   author: post.data.author.id === 'anonymous' ? '匿名' : post.data.author.id,
@@ -33,7 +35,9 @@ export async function getStaticPaths() {
   <img
     width={400}
     height={210}
-    src={post.data.ogImage ? post.data.ogImage : '/ogp/general.webp'}
+    src={post.data.ogImage
+      ? post.data.ogImage
+      : '/src/assets/images/content/blog/ogp.webp'}
     alt={post.data.ogImageAlt ? post.data.ogImageAlt : 'コンテンツです'}
   />
   <h1>{post.data.title}</h1>
