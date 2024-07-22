@@ -54,5 +54,5 @@ export interface HeadSiteProps {
   isAppleTouchIcon: boolean
   themeColor?: string
   fbAppID?: string
-  gtmID?: `GTM-${string}` // TODO: headタグの中に指定するGTMのIDは動的な記法がサポートされていないため、ここの値を変更したらそちらも手作業で変更すること
+  gtmID?: `GTM-${string}` | '' // TODO: headタグの中に指定するGTMのIDは動的な記法がサポートされていないため、ここの値を変更したらそちらも手作業で変更すること
 }
