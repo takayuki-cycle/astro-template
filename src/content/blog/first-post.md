@@ -1,15 +1,15 @@
 ---
 title: 'First post'
 description: 'Lorem ipsum dolor sit amet First Post'
-robots: "all"
+robots: 'all'
 ogImage: '/blog-placeholder-3.jpg'
-ogImageAlt: "ogImageAltFirstPostです。"
-xCreator: "@xCreatorBlogFirstPost"
+ogImageAlt: 'ogImageAltFirstPostです。'
+xCreator: '@xCreatorBlogFirstPost'
 author: hanako-suzuki
 publishDate: 'Jul 08 2022'
-updatedDate: "Jul 10 2022"
+updatedDate: 'Jul 10 2022'
 tags: ['tags3', 'tags4']
-location: "大阪"
+location: '大阪'
 isDraft: false
 ---
 

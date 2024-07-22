@@ -14,5 +14,11 @@
   "panda.rem-to-px.enabled": true,
   "workbench.colorCustomizations": {
     "activityBar.activeBorder": "#800080"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[mdx]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }
