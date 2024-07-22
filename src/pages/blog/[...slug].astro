@@ -18,17 +18,14 @@ const headPage: HeadPageProps = {
 }
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog')
+  // 本番用にビルドするときにのみ、isDraft: trueを含むエントリーを除外
+  const posts = await getCollection('blog', ({ data }) => {
+    return import.meta.env.PROD ? data.isDraft !== true : true
+  })
   return posts.map((post) => ({
     params: { slug: post.slug },
     props: post,
   }))
-
-  /* TODO: 試すこと 例: 本番用にビルドするときにのみ、`draft: true`を含むエントリーを除外
-  const posts = await getCollection('blog', ({ data }) => {
-    return import.meta.env.PROD ? data.draft !== true : true;
-  });
-  */
 }
 ---
 

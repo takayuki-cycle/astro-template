@@ -36,7 +36,7 @@ const blog = defineCollection({
     updatedDate: z.coerce.date().optional(), // 記事の更新日
     tags: z.array(z.string()).optional(), // タグを付けてグループ化
     location: z.string().optional(), // 拠点でグループ化
-    isDraft: z.boolean(), // true = 下書き, false = 公開
+    isDraft: z.boolean(), // 本番用にビルドするときにのみ、isDraft: trueを含むエントリーを除外
   }),
 })
 

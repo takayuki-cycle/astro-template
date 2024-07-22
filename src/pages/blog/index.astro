@@ -3,13 +3,10 @@ import { getCollection } from 'astro:content'
 import Layout from '@/layouts/Layout.astro'
 import type { HeadPageProps } from '@/layouts/head/types'
 
-const posts = await getCollection('blog')
-
-/* TODO: 試すこと 例: 本番用にビルドするときにのみ、`draft: true`を含むエントリーを除外
+// 本番用にビルドするときにのみ、isDraft: trueを含むエントリーを除外
 const posts = await getCollection('blog', ({ data }) => {
-  return import.meta.env.PROD ? data.draft !== true : true;
-});
-*/
+  return import.meta.env.PROD ? data.isDraft !== true : true
+})
 
 const headPage: HeadPageProps = {
   title: 'blog一覧PageTitle',
