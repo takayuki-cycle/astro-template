@@ -1,9 +1,9 @@
 // Reference: https://park-ui.com/docs/panda/components/file-upload
 
-import { Button } from '@/components/ui/button'
-import * as _FileUpload from '@/components/ui/file-upload'
-import { IconButton } from '@/components/ui/icon-button'
-import { Trash2Icon } from 'lucide-react'
+import { Button } from "@/components/ui/button";
+import * as _FileUpload from "@/components/ui/file-upload";
+import { IconButton } from "@/components/ui/icon-button";
+import { Trash2Icon } from "lucide-react";
 
 export const FileUpload = (props: _FileUpload.RootProps) => {
   return (
@@ -11,7 +11,7 @@ export const FileUpload = (props: _FileUpload.RootProps) => {
       <_FileUpload.Dropzone>
         <_FileUpload.Label>Drop your files here</_FileUpload.Label>
         <_FileUpload.Trigger asChild>
-          <Button size='sm'>Open Dialog</Button>
+          <Button size="sm">Open Dialog</Button>
         </_FileUpload.Trigger>
       </_FileUpload.Dropzone>
       <_FileUpload.ItemGroup>
@@ -19,13 +19,13 @@ export const FileUpload = (props: _FileUpload.RootProps) => {
           {({ acceptedFiles }) =>
             acceptedFiles.map((file, id) => (
               <_FileUpload.Item key={id} file={file}>
-                <_FileUpload.ItemPreview type='image/*'>
+                <_FileUpload.ItemPreview type="image/*">
                   <_FileUpload.ItemPreviewImage />
                 </_FileUpload.ItemPreview>
                 <_FileUpload.ItemName />
                 <_FileUpload.ItemSizeText />
                 <_FileUpload.ItemDeleteTrigger asChild>
-                  <IconButton variant='link' size='sm'>
+                  <IconButton variant="link" size="sm">
                     <Trash2Icon />
                   </IconButton>
                 </_FileUpload.ItemDeleteTrigger>
@@ -36,5 +36,5 @@ export const FileUpload = (props: _FileUpload.RootProps) => {
       </_FileUpload.ItemGroup>
       <_FileUpload.HiddenInput />
     </_FileUpload.Root>
-  )
-}
+  );
+};

@@ -1,7 +1,7 @@
 // Reference: https://park-ui.com/docs/panda/components/button
 
-import { type ButtonProps, Button as _Button } from '@/components/ui/button'
-import { ArrowRightIcon } from 'lucide-react'
+import { type ButtonProps, Button as _Button } from "@/components/ui/button";
+import { ArrowRightIcon } from "lucide-react";
 
 export const Button = (props: ButtonProps) => {
   return (
@@ -9,5 +9,5 @@ export const Button = (props: ButtonProps) => {
       Button
       <ArrowRightIcon />
     </_Button>
-  )
-}
+  );
+};

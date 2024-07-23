@@ -1,7 +1,7 @@
 // Reference: https://park-ui.com/docs/panda/components/alert
 
-import * as _Alert from '@/components/ui/alert'
-import { InfoIcon } from 'lucide-react'
+import * as _Alert from "@/components/ui/alert";
+import { InfoIcon } from "lucide-react";
 
 export const Alert = (props: _Alert.RootProps) => {
   return (
@@ -16,5 +16,5 @@ export const Alert = (props: _Alert.RootProps) => {
         </_Alert.Description>
       </_Alert.Content>
     </_Alert.Root>
-  )
-}
+  );
+};
