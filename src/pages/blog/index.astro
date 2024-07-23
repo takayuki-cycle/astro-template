@@ -27,11 +27,7 @@ const headPage: HeadPageProps = {
         <img
           width={400}
           height={210}
-          src={
-            post.data.ogImage
-              ? post.data.ogImage
-              : '/src/assets/images/content/blog/ogp.webp'
-          }
+          src={post.data.ogImage ? post.data.ogImage : '/src/assets/images/content/blog/ogp.webp'}
           alt={post.data.ogImageAlt ? post.data.ogImageAlt : 'コンテンツです'}
         />
         <h1>{post.data.title}</h1>
