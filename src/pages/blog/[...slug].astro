@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content'
+import { css } from '@/../styled-system/css'
 import Layout from '@/layouts/Layout.astro'
 import type { HeadPageProps, OgImage, Robots } from '@/layouts/head/types'
 
@@ -27,6 +28,15 @@ export async function getStaticPaths() {
     props: post,
   }))
 }
+
+const blogDetail = css({
+  '& h2': {
+    fontSize: '2.5rem',
+  },
+  '& p': {
+    fontSize: '1.5rem',
+  },
+})
 ---
 
 <Layout headPage={headPage}>
@@ -38,5 +48,7 @@ export async function getStaticPaths() {
   />
   <h1>{post.data.title}</h1>
   <hr />
-  <Content />
+  <article class={blogDetail}>
+    <Content />
+  </article>
 </Layout>
