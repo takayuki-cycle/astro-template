@@ -1,15 +1,15 @@
 ---
-title: "First post"
-description: "Lorem ipsum dolor sit amet First Post"
-robots: "all"
-ogImage: "/src/assets/images/content/blog/first-post/ogp.webp"
-ogImageAlt: "ogImageAltFirstPostです。"
-xCreator: "@xCreatorBlogFirstPost"
+title: 'First post'
+description: 'Lorem ipsum dolor sit amet First Post'
+robots: 'all'
+ogImage: '/src/assets/images/content/blog/first-post/ogp.webp'
+ogImageAlt: 'ogImageAltFirstPostです。'
+xCreator: '@xCreatorBlogFirstPost'
 author: hanako-suzuki
-publishDate: "Jul 08 2022"
-updatedDate: "Jul 10 2022"
-tags: ["tags3", "tags4"]
-location: "大阪"
+publishDate: '2024-07-20'
+updatedDate: '2024-07-21'
+tags: ['tags3', 'tags4']
+location: '大阪'
 isDraft: false
 ---
 

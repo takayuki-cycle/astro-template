@@ -30,10 +30,18 @@ const blog = defineCollection({
       })
       .default('/ogp/general.webp'), // ヒーロー画像のパスでありOGP画像も兼ねるので、原則は画像を用意すること
     ogImageAlt: z.string().max(120).optional(), // OGP画像のalt属性
-    xCreator: z.string().optional(), // 記事の執筆者のXアカウント(@から始まる文字列)
-    author: reference('authors'), // 記事の執筆者
-    publishDate: z.coerce.date(), // 記事の公開日
-    updatedDate: z.coerce.date().optional(), // 記事の更新日
+    xCreator: z.string().startsWith('@').optional().or(z.literal('')), // 記事の著者のXアカウント(@から始まる文字列)
+    author: reference('authors'), // 記事の著者(著者を掲載しない場合は、anonymousを指定)
+    publishDate: z
+      .string()
+      .regex(/^\d{4}-\d{2}-\d{2}$/)
+      .date(), // 記事の公開日(YYYY-MM-DDの形式)
+    updatedDate: z
+      .string()
+      .regex(/^\d{4}-\d{2}-\d{2}$/)
+      .date()
+      .optional()
+      .or(z.literal('')), // 記事の更新日(YYYY-MM-DDの形式)
     tags: z.array(z.string()).optional(), // タグを付けてグループ化
     location: z.string().optional(), // 拠点でグループ化
     isDraft: z.boolean(), // 本番用にビルドするときにのみ、isDraft: trueを含むエントリーを除外
@@ -50,8 +58,8 @@ export const collections = { blog }
         if (!value) return true // 値が存在しない場合はバリデーション成功
         return /^\/.*\.(webp|jpg|jpeg|png|avif)$/.test(value)
       }),
-    authorProfile: z.string().optional(), // 執筆者のプロフィール
-    authorXURL: , // 執筆者のインスタグラム
-    authorInstagramURL: , // 執筆者のインスタグラム
-    authorFacebookURL: , // 執筆者のインスタグラム
+    authorProfile: z.string().optional(), // 著者のプロフィール
+    authorXURL: , // 著者のインスタグラム
+    authorInstagramURL: , // 著者のインスタグラム
+    authorFacebookURL: , // 著者のインスタグラム
 */
