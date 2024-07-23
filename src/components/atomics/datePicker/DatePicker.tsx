@@ -1,17 +1,17 @@
 // Reference: https://park-ui.com/docs/panda/components/date-picker
 
-import { Button } from "@/components/ui/button";
-import * as _DatePicker from "@/components/ui/date-picker";
-import { IconButton } from "@/components/ui/icon-button";
-import { Input } from "@/components/ui/input";
-import { CalendarIcon, ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
+import { Button } from '@/components/ui/button'
+import * as _DatePicker from '@/components/ui/date-picker'
+import { IconButton } from '@/components/ui/icon-button'
+import { Input } from '@/components/ui/input'
+import { CalendarIcon, ChevronLeftIcon, ChevronRightIcon } from 'lucide-react'
 
 export const DatePicker = (props: _DatePicker.RootProps) => {
   return (
     <_DatePicker.Root
       positioning={{ sameWidth: true }}
       startOfWeek={1}
-      selectionMode="range"
+      selectionMode='range'
       {...props}
     >
       <_DatePicker.Label>Date Picker</_DatePicker.Label>
@@ -23,30 +23,30 @@ export const DatePicker = (props: _DatePicker.RootProps) => {
           <Input />
         </_DatePicker.Input>
         <_DatePicker.Trigger asChild>
-          <IconButton variant="outline" aria-label="Open date picker">
+          <IconButton variant='outline' aria-label='Open date picker'>
             <CalendarIcon />
           </IconButton>
         </_DatePicker.Trigger>
       </_DatePicker.Control>
       <_DatePicker.Positioner>
         <_DatePicker.Content>
-          <_DatePicker.View view="day">
+          <_DatePicker.View view='day'>
             <_DatePicker.Context>
               {(api) => (
                 <>
                   <_DatePicker.ViewControl>
                     <_DatePicker.PrevTrigger asChild>
-                      <IconButton variant="ghost" size="sm">
+                      <IconButton variant='ghost' size='sm'>
                         <ChevronLeftIcon />
                       </IconButton>
                     </_DatePicker.PrevTrigger>
                     <_DatePicker.ViewTrigger asChild>
-                      <Button variant="ghost" size="sm">
+                      <Button variant='ghost' size='sm'>
                         <_DatePicker.RangeText />
                       </Button>
                     </_DatePicker.ViewTrigger>
                     <_DatePicker.NextTrigger asChild>
-                      <IconButton variant="ghost" size="sm">
+                      <IconButton variant='ghost' size='sm'>
                         <ChevronRightIcon />
                       </IconButton>
                     </_DatePicker.NextTrigger>
@@ -67,9 +67,7 @@ export const DatePicker = (props: _DatePicker.RootProps) => {
                           {week.map((day, id) => (
                             <_DatePicker.TableCell key={id} value={day}>
                               <_DatePicker.TableCellTrigger asChild>
-                                <IconButton variant="ghost">
-                                  {day.day}
-                                </IconButton>
+                                <IconButton variant='ghost'>{day.day}</IconButton>
                               </_DatePicker.TableCellTrigger>
                             </_DatePicker.TableCell>
                           ))}
@@ -81,68 +79,63 @@ export const DatePicker = (props: _DatePicker.RootProps) => {
               )}
             </_DatePicker.Context>
           </_DatePicker.View>
-          <_DatePicker.View view="month">
+          <_DatePicker.View view='month'>
             <_DatePicker.Context>
               {(api) => (
                 <>
                   <_DatePicker.ViewControl>
                     <_DatePicker.PrevTrigger asChild>
-                      <IconButton variant="ghost" size="sm">
+                      <IconButton variant='ghost' size='sm'>
                         <ChevronLeftIcon />
                       </IconButton>
                     </_DatePicker.PrevTrigger>
                     <_DatePicker.ViewTrigger asChild>
-                      <Button variant="ghost" size="sm">
+                      <Button variant='ghost' size='sm'>
                         <_DatePicker.RangeText />
                       </Button>
                     </_DatePicker.ViewTrigger>
                     <_DatePicker.NextTrigger asChild>
-                      <IconButton variant="ghost" size="sm">
+                      <IconButton variant='ghost' size='sm'>
                         <ChevronRightIcon />
                       </IconButton>
                     </_DatePicker.NextTrigger>
                   </_DatePicker.ViewControl>
                   <_DatePicker.Table>
                     <_DatePicker.TableBody>
-                      {api
-                        .getMonthsGrid({ columns: 4, format: "short" })
-                        .map((months, id) => (
-                          <_DatePicker.TableRow key={id}>
-                            {months.map((month, id) => (
-                              <_DatePicker.TableCell
-                                key={id}
-                                value={month.value}
-                              >
-                                <_DatePicker.TableCellTrigger asChild>
-                                  <Button variant="ghost">{month.label}</Button>
-                                </_DatePicker.TableCellTrigger>
-                              </_DatePicker.TableCell>
-                            ))}
-                          </_DatePicker.TableRow>
-                        ))}
+                      {api.getMonthsGrid({ columns: 4, format: 'short' }).map((months, id) => (
+                        <_DatePicker.TableRow key={id}>
+                          {months.map((month, id) => (
+                            <_DatePicker.TableCell key={id} value={month.value}>
+                              <_DatePicker.TableCellTrigger asChild>
+                                <Button variant='ghost'>{month.label}</Button>
+                              </_DatePicker.TableCellTrigger>
+                            </_DatePicker.TableCell>
+                          ))}
+                        </_DatePicker.TableRow>
+                      ))}
                     </_DatePicker.TableBody>
                   </_DatePicker.Table>
                 </>
               )}
             </_DatePicker.Context>
           </_DatePicker.View>
-          <_DatePicker.View view="year">
+          <_DatePicker.View view='year'>
             <_DatePicker.Context>
               {(api) => (
                 <>
                   <_DatePicker.ViewControl>
                     <_DatePicker.PrevTrigger asChild>
-                      <IconButton variant="ghost" size="sm">
+                      <IconButton variant='ghost' size='sm'>
                         <ChevronLeftIcon />
                       </IconButton>
                     </_DatePicker.PrevTrigger>
                     <_DatePicker.ViewTrigger asChild>
-                      <Button variant="ghost" size="sm">
+                      <Button variant='ghost' size='sm'>
                         <_DatePicker.RangeText />
                       </Button>
                     </_DatePicker.ViewTrigger>
                     <_DatePicker.NextTrigger asChild>
-                      <IconButton variant="ghost" size="sm">
+                      <IconButton variant='ghost' size='sm'>
                         <ChevronRightIcon />
                       </IconButton>
                     </_DatePicker.NextTrigger>
@@ -154,7 +147,7 @@ export const DatePicker = (props: _DatePicker.RootProps) => {
                           {years.map((year, id) => (
                             <_DatePicker.TableCell key={id} value={year.value}>
                               <_DatePicker.TableCellTrigger asChild>
-                                <Button variant="ghost">{year.label}</Button>
+                                <Button variant='ghost'>{year.label}</Button>
                               </_DatePicker.TableCellTrigger>
                             </_DatePicker.TableCell>
                           ))}
@@ -169,5 +162,5 @@ export const DatePicker = (props: _DatePicker.RootProps) => {
         </_DatePicker.Content>
       </_DatePicker.Positioner>
     </_DatePicker.Root>
-  );
-};
+  )
+}
