@@ -31,12 +31,13 @@ export async function getStaticPaths() {
 }
 
 const blogDetail = css({
-  '& h1': {
-    fontSize: '3rem',
-  },
   '& h2': {
     fontSize: '2.5rem',
   },
+  '& h3': {
+    fontSize: '2.2rem',
+  },
+
   '& p': {
     fontSize: '1.5rem',
   },
@@ -53,6 +54,7 @@ const blogDetail = css({
   <h1>{post.data.title}</h1>
   <hr />
   <article class={blogDetail}>
+    {/* 記事のタイトルにh1タグを使用するので、目次の見出しはh2タグから始めること */}
     {headings[0] && <Toc headings={headings} />}
     <Content />
   </article>
