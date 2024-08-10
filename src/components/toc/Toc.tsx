@@ -1,5 +1,5 @@
 import { css } from '@/../styled-system/css'
-import type { ExtendHeading, TocProps } from '@/components/toc/types'
+import type { ExtendHeading, ListTag, TocProps } from '@/components/toc/types'
 import type { MarkdownHeading } from 'astro'
 
 // 見出しをグループ化する関数
@@ -26,7 +26,7 @@ const groupHeadings = (markdownHeadings: MarkdownHeading[]) => {
 }
 
 // 再帰的に見出しをレンダリングする関数
-const renderHeadings = (extendHeadings: ExtendHeading[], depth = 1) => {
+const renderHeadings = (extendHeadings: ExtendHeading[], ListTag: ListTag, depth = 1) => {
   const MAX_DEPTH = 3
 
   if (depth > MAX_DEPTH) {
@@ -37,31 +37,33 @@ const renderHeadings = (extendHeadings: ExtendHeading[], depth = 1) => {
     <li key={heading.slug}>
       <a
         href={`#${heading.slug}`}
-        className={css({
-          _before: {
-            pr: '2',
-            content: 'attr(data-number)',
+        className={css(
+          ListTag === 'ol' && {
+            _before: {
+              pr: '2',
+              content: 'attr(data-number)',
+            },
           },
-        })}
-        data-number={`${heading.number}:`}
+        )}
+        {...(ListTag === 'ol' && { 'data-number': `${heading.number}:` })}
       >
         {heading.text}
       </a>
       {heading.children?.length > 0 && (
-        <ol
+        <ListTag
           className={css({
             pl: '5',
           })}
         >
-          {renderHeadings(heading.children, depth + 1)}
-        </ol>
+          {renderHeadings(heading.children, ListTag, depth + 1)}
+        </ListTag>
       )}
     </li>
   ))
 }
 
 // Table of Contents(目次)
-export const Toc = ({ headings }: TocProps) => {
+export const Toc = ({ headings, ListTag = 'ol' }: TocProps) => {
   const groupedHeadings = groupHeadings(headings)
 
   return (
@@ -74,7 +76,7 @@ export const Toc = ({ headings }: TocProps) => {
     >
       <p>目次</p>
       <nav aria-label='目次'>
-        <ol>{renderHeadings(groupedHeadings)}</ol>
+        <ListTag>{renderHeadings(groupedHeadings, ListTag)}</ListTag>
       </nav>
     </div>
   )
