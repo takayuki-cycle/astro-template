@@ -54,7 +54,7 @@ const blogDetail = css({
   <h1>{post.data.title}</h1>
   <hr />
   <article class={blogDetail}>
-    {/* 記事のタイトルにh1タグを使用するので、目次の見出しはh2タグから始めること */}
+    {/* 記事のタイトルにh1タグを使用するので、目次の見出しはh2タグから使ってください。*/}
     {headings[0] && <Toc headings={headings} />}
     <Content />
   </article>
