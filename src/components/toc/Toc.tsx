@@ -26,7 +26,13 @@ const groupHeadings = (markdownHeadings: MarkdownHeading[]) => {
 }
 
 // 再帰的に見出しをレンダリングする関数
-const renderHeadings = (extendHeadings: ExtendHeading[]) => {
+const renderHeadings = (extendHeadings: ExtendHeading[], depth = 1) => {
+  const MAX_DEPTH = 3
+
+  if (depth > MAX_DEPTH) {
+    return null
+  }
+
   return extendHeadings.map((heading) => (
     <li key={heading.slug}>
       <a
@@ -47,7 +53,7 @@ const renderHeadings = (extendHeadings: ExtendHeading[]) => {
             pl: '5',
           })}
         >
-          {renderHeadings(heading.children)}
+          {renderHeadings(heading.children, depth + 1)}
         </ol>
       )}
     </li>
