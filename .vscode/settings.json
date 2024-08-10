@@ -14,12 +14,34 @@
   "stylelint.validate": ["html", "astro"],
   "panda.rem-to-px.enabled": true,
   "workbench.colorCustomizations": {
-    "activityBar.activeBorder": "#800080"
+    "activityBar.activeBorder": "#FFA500",
+    "activityBar.border": "#FFA500"
   },
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[mdx]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "cSpell.words": [
+    "astro",
+    "astrojs",
+    "markuplint",
+    "stylelint",
+    "pandacss",
+    "biomejs",
+    "codegen",
+    "commitlint",
+    "lefthook",
+    "outdir",
+    "tsconfigs",
+    "wantedly",
+    "zenn",
+    "qiita",
+    "lucide",
+    "webp",
+    "nofollow",
+    "noarchive",
+    "noimageindex"
+  ]
 }

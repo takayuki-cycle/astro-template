@@ -15,7 +15,7 @@ const blog = defineCollection({
         'nofollow', // ページ内のリンクをたどらないことを指示します。
         'none', // 'noindex'と'nofollow'の両方を指示します。
         'noarchive', // ページのキャッシュを保存しないことを指示します。
-        'nosnippe', // 検索結果にスニペット（ページ内容の要約）を表示しないことを指示します。
+        'nosnippet', // 検索結果にスニペット（ページ内容の要約）を表示しないことを指示します。
         'index, nofollow',
         'noindex, follow',
       ])

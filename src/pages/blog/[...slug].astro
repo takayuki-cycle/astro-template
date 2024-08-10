@@ -1,11 +1,12 @@
 ---
 import { getCollection } from 'astro:content'
 import { css } from '@/../styled-system/css'
+import { Toc } from '@/components/toc/Toc.tsx'
 import Layout from '@/layouts/Layout.astro'
 import type { HeadPageProps, OgImage, Robots } from '@/layouts/head/types'
 
 const post = Astro.props
-const { Content } = await post.render()
+const { Content, headings } = await post.render()
 
 const headPage: HeadPageProps = {
   title: post.data.title,
@@ -30,6 +31,9 @@ export async function getStaticPaths() {
 }
 
 const blogDetail = css({
+  '& h1': {
+    fontSize: '3rem',
+  },
   '& h2': {
     fontSize: '2.5rem',
   },
@@ -49,6 +53,7 @@ const blogDetail = css({
   <h1>{post.data.title}</h1>
   <hr />
   <article class={blogDetail}>
+    {headings[0] && <Toc headings={headings} />}
     <Content />
   </article>
 </Layout>
