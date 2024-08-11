@@ -5,6 +5,7 @@
   "scripts": {
     "prepare": "panda codegen",
     "dev": "astro dev",
+    "dev:host": "astro dev --host",
     "start": "astro dev",
     "build": "astro check && astro build",
     "astro:check": "astro check",
