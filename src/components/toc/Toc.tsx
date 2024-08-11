@@ -1,5 +1,5 @@
 import { css } from '@/../styled-system/css'
-import type { ExtendHeading, ListTag, TocProps } from '@/components/toc/types'
+import type { ExtendHeading, ListTag, MaxDepth, TocProps } from '@/components/toc/types'
 import type { MarkdownHeading } from 'astro'
 
 // 見出しをグループ化する関数
@@ -26,10 +26,13 @@ const groupHeadings = (markdownHeadings: MarkdownHeading[]) => {
 }
 
 // 再帰的に見出しをレンダリングする関数
-const renderHeadings = (extendHeadings: ExtendHeading[], ListTag: ListTag, depth = 1) => {
-  const MAX_DEPTH = 3
-
-  if (depth > MAX_DEPTH) {
+const renderHeadings = (
+  extendHeadings: ExtendHeading[],
+  ListTag: ListTag,
+  maxDepth: MaxDepth,
+  depth = 1,
+) => {
+  if (depth > maxDepth) {
     return null
   }
 
@@ -55,7 +58,7 @@ const renderHeadings = (extendHeadings: ExtendHeading[], ListTag: ListTag, depth
             pl: '5',
           })}
         >
-          {renderHeadings(heading.children, ListTag, depth + 1)}
+          {renderHeadings(heading.children, ListTag, maxDepth, depth + 1)}
         </ListTag>
       )}
     </li>
@@ -63,7 +66,7 @@ const renderHeadings = (extendHeadings: ExtendHeading[], ListTag: ListTag, depth
 }
 
 // Table of Contents(目次)
-export const Toc = ({ headings, ListTag = 'ol' }: TocProps) => {
+export const Toc = ({ headings, ListTag = 'ol', maxDepth = 3 }: TocProps) => {
   const groupedHeadings = groupHeadings(headings)
 
   return (
@@ -76,7 +79,7 @@ export const Toc = ({ headings, ListTag = 'ol' }: TocProps) => {
     >
       <p>目次</p>
       <nav aria-label='目次'>
-        <ListTag>{renderHeadings(groupedHeadings, ListTag)}</ListTag>
+        <ListTag>{renderHeadings(groupedHeadings, ListTag, maxDepth)}</ListTag>
       </nav>
     </div>
   )
