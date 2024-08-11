@@ -12,15 +12,13 @@
   "prettier.trailingComma": "all",
   "prettier.printWidth": 100,
   "stylelint.validate": ["html", "astro"],
+  "textlint.languages": ["markdown", "mdx", "plaintext"],
   "panda.rem-to-px.enabled": true,
   "workbench.colorCustomizations": {
     "activityBar.activeBorder": "#FFA500",
     "activityBar.border": "#FFA500"
   },
-  "[markdown]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[mdx]": {
+  "[markdown][mdx]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "cSpell.words": [
@@ -28,6 +26,7 @@
     "astrojs",
     "markuplint",
     "stylelint",
+    "textlint",
     "pandacss",
     "biomejs",
     "codegen",
