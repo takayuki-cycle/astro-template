@@ -55,7 +55,9 @@ const blogDetail = css({
   <hr />
   <article class={blogDetail}>
     {/* 記事のタイトルにh1タグを使用するので、目次の見出しはh2タグから使ってください。*/}
-    {/* 目次を表示したい箇所にMDX内で、<Toc headings={getHeadings()} />を記述してください。 */}
+    {
+      /* MDXファイル内で最初に書かれている##の直上に、<Toc headings={getHeadings()} />を記述して目次を生成してください。 */
+    }
     <Content
       components={{
         Toc,
