@@ -6,7 +6,7 @@ import Layout from '@/layouts/Layout.astro'
 import type { HeadPageProps, OgImage, Robots } from '@/layouts/head/types'
 
 const post = Astro.props
-const { Content, headings } = await post.render()
+const { Content } = await post.render()
 
 const headPage: HeadPageProps = {
   title: post.data.title,
@@ -55,7 +55,11 @@ const blogDetail = css({
   <hr />
   <article class={blogDetail}>
     {/* 記事のタイトルにh1タグを使用するので、目次の見出しはh2タグから使ってください。*/}
-    {headings[0] && <Toc headings={headings} />}
-    <Content />
+    {/* 目次を表示したい箇所にMDX内で、<Toc headings={getHeadings()} />を記述してください。 */}
+    <Content
+      components={{
+        Toc,
+      }}
+    />
   </article>
 </Layout>

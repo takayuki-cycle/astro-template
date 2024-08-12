@@ -70,17 +70,19 @@ export const Toc = ({ headings, ListTag = 'ol', maxDepth = 3 }: TocProps) => {
   const groupedHeadings = groupHeadings(headings)
 
   return (
-    <div
-      className={css({
-        display: 'flex',
-        flexDir: 'column',
-        rowGap: '4',
-      })}
-    >
-      <p>目次</p>
-      <nav aria-label='目次'>
-        <ListTag>{renderHeadings(groupedHeadings, ListTag, maxDepth)}</ListTag>
-      </nav>
-    </div>
+    headings[0] && (
+      <div
+        className={css({
+          display: 'flex',
+          flexDir: 'column',
+          rowGap: '4',
+        })}
+      >
+        <p>目次</p>
+        <nav aria-label='目次'>
+          <ListTag>{renderHeadings(groupedHeadings, ListTag, maxDepth)}</ListTag>
+        </nav>
+      </div>
+    )
   )
 }
