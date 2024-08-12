@@ -41,6 +41,13 @@
     "webp",
     "nofollow",
     "noarchive",
-    "noimageindex"
+    "noimageindex",
+    "zenkaku",
+    "hankaku",
+    "keishikimeishi",
+    "fukushi",
+    "hojodoushi",
+    "tari",
+    "sudachi"
   ]
 }
