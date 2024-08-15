@@ -14,7 +14,7 @@
     "check": "biome check ./src",
     "lint:eslint": "eslint ./src",
     "lint:markup": "markuplint \"src/**/*.{astro,jsx,tsx}\" --problem-only",
-    "lint:text": "textlint ./src"
+    "lint:text": "textlint README.md ./src"
   },
   "dependencies": {
     "@ark-ui/react": "^3.5.0",
@@ -64,7 +64,6 @@
     "textlint-rule-ja-hiragana-keishikimeishi": "^1.1.0",
     "textlint-rule-ja-no-orthographic-variants": "^2.0.0",
     "textlint-rule-no-mixed-zenkaku-and-hankaku-alphabet": "^1.0.1",
-    "textlint-rule-no-surrogate-pair": "^1.0.1",
     "textlint-rule-prefer-tari-tari": "^1.0.3",
     "textlint-rule-preset-ja-technical-writing": "^10.0.1"
   }

@@ -17,7 +17,6 @@ module.exports = {
       },
       'ja-no-weak-phrase': false,
     },
-    'no-surrogate-pair': true,
     'no-mixed-zenkaku-and-hankaku-alphabet': true,
     'ja-hiragana-keishikimeishi': true,
     'ja-hiragana-fukushi': true,
