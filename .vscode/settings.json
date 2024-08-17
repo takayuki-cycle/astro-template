@@ -21,6 +21,11 @@
   "[markdown][mdx]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "markdownlint.lintWorkspaceGlobs": ["**/*.{md,mdx}", "!**/node_modules"],
+  "markdownlint.run": "onSave",
+  "files.associations": {
+    "*.mdx": "markdown"
+  },
   "cSpell.words": [
     "astro",
     "astrojs",

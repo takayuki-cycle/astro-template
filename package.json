@@ -14,7 +14,8 @@
     "check": "biome check ./src",
     "lint:eslint": "eslint ./src",
     "lint:markup": "markuplint \"src/**/*.{astro,jsx,tsx}\" --problem-only",
-    "lint:text": "textlint README.md ./src"
+    "lint:text": "textlint README.md ./src",
+    "lint:markdown": "markdownlint-cli2 \"**/*.{md,mdx}\" \"!**/node_modules\""
   },
   "dependencies": {
     "@ark-ui/react": "^3.5.0",
@@ -51,6 +52,7 @@
     "eslint-plugin-astro": "^1.2.3",
     "eslint-plugin-jsx-a11y": "^6.9.0",
     "lefthook": "^1.7.4",
+    "markdownlint-cli2": "^0.13.0",
     "markuplint": "^4.9.2",
     "postcss": "^8.4.39",
     "stylelint": "^16.7.0",

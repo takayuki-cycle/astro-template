@@ -57,3 +57,5 @@ pre-commit:
       run: npm run lint:eslint
     lint-text:
       run: npm run lint:text
+    lint-markdown:
+      run: npm run lint:markdown
