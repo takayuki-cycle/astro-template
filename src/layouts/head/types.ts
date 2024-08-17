@@ -7,7 +7,7 @@ export interface HeadPageProps {
   ogImage: OgImage
   ogImageAlt: string
   xCreator?: `@${string}` | '' // 記事の作成者のXアカウント
-  author?: string // 著者もしくは会社名
+  author?: string | undefined // 著者もしくは会社名
   googleSiteVerification?: string // トップレベルのページだけに設定
 }
 

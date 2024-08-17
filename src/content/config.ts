@@ -31,7 +31,7 @@ const blog = defineCollection({
       .default('/ogp/general.webp'), // ヒーロー画像のパスでありOGP画像も兼ねるので、原則は画像を用意すること
     ogImageAlt: z.string().max(120).optional(), // OGP画像のalt属性
     xCreator: z.string().startsWith('@').optional().or(z.literal('')), // 記事の著者のXアカウント(@から始まる文字列)
-    author: reference('authors'), // 記事の著者(著者を掲載しない場合は、anonymousを指定)
+    author: reference('authors').optional().or(z.literal('')), // 記事の著者(匿名にしたいときは、この項目を削除または'')
     publishDate: z
       .string()
       .regex(/^\d{4}-\d{2}-\d{2}$/)
@@ -48,7 +48,14 @@ const blog = defineCollection({
   }),
 })
 
-export const collections = { blog }
+const authors = defineCollection({
+  type: 'data',
+  schema: z.object({
+    // location: z.string(), // TODO: 型定義をすること
+  }),
+})
+
+export const collections = { blog, authors }
 
 /* TODO: json(yaml)で型定義をするのであれば、参考にすること
      authorImage: z
