@@ -42,8 +42,8 @@ const blog = defineCollection({
       .date()
       .optional()
       .or(z.literal('')), // 記事の更新日(YYYY-MM-DDの形式)
-    tags: z.array(z.string()).optional(), // タグを付けてグループ化
-    location: z.string().optional(), // 拠点でグループ化
+    categories: z.array(z.string()).optional(), // カテゴリーを設定してグループ化(1つだけ設定することを推奨、階層構造有)
+    tags: z.array(z.string()).optional(), // タグを設定してキーワード化(階層構造無)
     isDraft: z.boolean(), // 本番用にビルドするときにのみ、isDraft: trueを含むエントリーを除外
   }),
 })

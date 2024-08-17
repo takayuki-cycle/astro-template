@@ -8,8 +8,8 @@ xCreator: '@xCreatorBlogFirstPost'
 author: hanako-suzuki
 publishDate: '2024-07-20'
 updatedDate: '2024-07-21'
+categories: ['category1']
 tags: ['tags3', 'tags4']
-location: '大阪'
 isDraft: false
 ---
 
