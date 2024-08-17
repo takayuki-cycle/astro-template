@@ -15,8 +15,8 @@
   "textlint.languages": ["markdown", "mdx", "plaintext"],
   "panda.rem-to-px.enabled": true,
   "workbench.colorCustomizations": {
-    "activityBar.activeBorder": "#FFA500",
-    "activityBar.border": "#FFA500"
+    "activityBar.activeBorder": "#FF5A02",
+    "activityBar.border": "#FF5A02"
   },
   "[markdown][mdx]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -39,6 +39,7 @@
     "lefthook",
     "outdir",
     "tsconfigs",
+    "frontmatter",
     "wantedly",
     "zenn",
     "qiita",
