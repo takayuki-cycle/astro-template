@@ -1,24 +1,24 @@
 {
   "name": {
     "last": {
-      "formal": "鈴木",
-      "ruby": "すずき"
+      "formal": "山田",
+      "ruby": "やまだ"
     },
     "middle": {
-      "formal": "aiueo",
-      "ruby": "aiueo"
+      "formal": "",
+      "ruby": ""
     },
     "first": {
-      "formal": "花子",
-      "ruby": "すずき"
+      "formal": "太郎",
+      "ruby": "たろう"
     },
-    "nick": "すずきん"
+    "nick": "やまだん"
   },
-  "occupation": ["engineer", "designer", "manager"],
-  "location": "tokyo",
-  "position": "課長",
-  "department": "あいうえお部署",
-  "email": "alice@example.com",
+  "occupation": ["designer", "manager"],
+  "location": "kyoto",
+  "position": "部長",
+  "department": "かきくけこ部署",
+  "email": "yamada@example.com",
   "image": "/",
   "sns": {
     "x": "https://x.com/user-name/",
