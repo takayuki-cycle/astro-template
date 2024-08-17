@@ -10,7 +10,8 @@
     "dbaeumer.vscode-eslint",
     "unifiedjs.vscode-mdx",
     "esbenp.prettier-vscode",
-    "taichi.vscode-textlint"
+    "taichi.vscode-textlint",
+    "davidanson.vscode-markdownlint"
   ],
   "unwantedRecommendations": []
 }
