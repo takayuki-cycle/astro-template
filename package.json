@@ -14,7 +14,7 @@
     "check": "biome check ./src",
     "lint:eslint": "eslint ./src",
     "lint:markup": "markuplint \"src/**/*.{astro,jsx,tsx}\" --problem-only",
-    "lint:text": "textlint README.md ./src",
+    "lint:text": "textlint \"**/*.{md,mdx}\" \"!**/node_modules\"",
     "lint:markdown": "markdownlint-cli2 \"**/*.{md,mdx}\" \"!**/node_modules\""
   },
   "dependencies": {
