@@ -15,7 +15,7 @@
     "lint:eslint": "eslint ./src",
     "lint:markup": "markuplint \"src/**/*.{astro,jsx,tsx}\" --problem-only",
     "lint:text": "textlint README.md ./src",
-    "lint:markdown": "markdownlint-cli2 \"**/*.{md,mdx}\" \"!**/node_modules\""
+    "lint:markdown": "output=$(markdownlint-cli2 \"**/*.{md,mdx}\" \"!**/node_modules\" 2>&1) && echo \"\" || (echo \"$output\" && exit 1)"
   },
   "dependencies": {
     "@ark-ui/react": "^3.5.0",
