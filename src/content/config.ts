@@ -48,25 +48,47 @@ const blog = defineCollection({
   }),
 })
 
+const nameSchema = z.object({
+  formal: z.string().min(1).max(20),
+  ruby: z.string().min(1).max(20),
+})
+
 const authors = defineCollection({
   type: 'data',
   schema: z.object({
-    // location: z.string(), // TODO: 型定義をすること
-  }),
-})
-
-export const collections = { blog, authors }
-
-/* TODO: json(yaml)で型定義をするのであれば、参考にすること
-     authorImage: z
+    name: z.object({
+      last: nameSchema, // 名字
+      middle: z.object({
+        formal: z.string().max(20).optional().or(z.literal('')),
+        ruby: z.string().max(20).optional().or(z.literal('')),
+      }), // 中間名
+      first: nameSchema, // 名前
+      nick: z.string().max(20).optional().or(z.literal('')), // あだ名
+    }),
+    occupation: z.array(z.string().max(20)).optional(), // 職種
+    location: z.string().max(20).optional().or(z.literal('')), // 勤務地
+    position: z.string().max(20).optional().or(z.literal('')), // 職位
+    department: z.string().max(20).optional().or(z.literal('')), // 部署
+    email: z.string().email().optional().or(z.literal('')),
+    image: z
       .string()
       .optional()
       .refine((value) => {
         if (!value) return true // 値が存在しない場合はバリデーション成功
-        return /^\/.*\.(webp|jpg|jpeg|png|avif)$/.test(value)
-      }),
-    authorProfile: z.string().optional(), // 著者のプロフィール
-    authorXURL: , // 著者のインスタグラム
-    authorInstagramURL: , // 著者のインスタグラム
-    authorFacebookURL: , // 著者のインスタグラム
-*/
+        return /^\/.*\.(webp|jpg|jpeg|png|avif)$/.test(value) // '/'で始まり、画像の拡張子（.webp, .jpg, .jpeg, .png, .avif）で終了
+      })
+      .default('/'), // TODO: パスを決めること // 画像を表示するためのパス
+    sns: z.object({
+      x: z.string().url().optional().or(z.literal('')),
+      instagram: z.string().url().optional().or(z.literal('')),
+      facebook: z.string().url().optional().or(z.literal('')),
+      wantedly: z.string().url().optional().or(z.literal('')),
+      linkedIn: z.string().url().optional().or(z.literal('')),
+      gitHub: z.string().url().optional().or(z.literal('')),
+      zenn: z.string().url().optional().or(z.literal('')),
+      qiita: z.string().url().optional().or(z.literal('')),
+    }),
+  }),
+})
+
+export const collections = { blog, authors }

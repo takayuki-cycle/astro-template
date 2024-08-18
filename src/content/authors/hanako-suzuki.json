@@ -19,7 +19,7 @@
   "position": "課長",
   "department": "あいうえお部署",
   "email": "alice@example.com",
-  "image": "/",
+  "image": "/test.webp",
   "sns": {
     "x": "https://x.com/user-name/",
     "instagram": "https://www.instagram.com/user-name/",
