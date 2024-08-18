@@ -64,6 +64,7 @@ const authors = defineCollection({
       first: nameSchema, // 名前
       nick: z.string().max(20).optional().or(z.literal('')), // あだ名
     }),
+    introduction: z.string().max(150).optional().or(z.literal('')), // 自己紹介
     occupation: z.array(z.string().max(20)).optional(), // 職種
     location: z.string().max(20).optional().or(z.literal('')), // 勤務地
     position: z.string().max(20).optional().or(z.literal('')), // 職位
