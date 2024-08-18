@@ -5,7 +5,7 @@ robots: 'all'
 ogImage: '/src/assets/images/content/blog/first-post/ogp.webp'
 ogImageAlt: 'ogImageAltFirstPostです。'
 xCreator: '@xCreatorBlogFirstPost'
-author: hanako-suzuki
+author: taro-yamada
 publishDate: '2024-07-20'
 updatedDate: '2024-07-21'
 categories: ['category1']

@@ -8,6 +8,17 @@ import type { HeadPageProps, OgImage, Robots } from '@/layouts/head/types'
 const post = Astro.props
 const { Content } = await post.render()
 
+const authors = await getCollection('authors')
+const authorID = (post.data.author as { id: string }).id
+const author = authors.find((author) => author.id === authorID)
+
+const authorNameParts = [
+  author?.data.name.last.formal,
+  author?.data.name.middle.formal,
+  author?.data.name.first.formal,
+].filter(Boolean)
+const authorName = authorNameParts.join(' ')
+
 const headPage: HeadPageProps = {
   title: post.data.title,
   description: post.data.description,
@@ -16,8 +27,7 @@ const headPage: HeadPageProps = {
   ogImage: (post.data.ogImage as OgImage) || '/src/assets/images/content/blog/ogp.webp',
   ogImageAlt: post.data.ogImageAlt || 'コンテンツです。',
   xCreator: post.data.xCreator as `@${string}`,
-  author:
-    typeof post.data.author === 'string' && post.data.author === '' ? '' : post.data.author?.id,
+  author: typeof post.data.author === 'string' && post.data.author === '' ? '' : authorName,
 }
 
 export async function getStaticPaths() {
@@ -25,9 +35,6 @@ export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => {
     return import.meta.env.PROD ? data.isDraft !== true : true
   })
-
-  // authorsフォルダのデータを型定義するために、以下のコードを実装
-  await getCollection('authors')
 
   return posts.map((post) => ({
     params: { slug: post.slug },
