@@ -5,11 +5,11 @@ import { Toc } from '@/components/toc/Toc.tsx'
 import Layout from '@/layouts/Layout.astro'
 import type { HeadPageProps, OgImage, Robots } from '@/layouts/head/types'
 
-const post = Astro.props
-const { Content } = await post.render()
+const post = Astro.props.data
+const { Content } = await Astro.props.render()
 
 const authors = await getCollection('authors')
-const authorID = (post.data.author as { id: string }).id
+const authorID = (post.author as { id: string }).id
 const author = authors.find((author) => author.id === authorID)?.data
 
 const authorNameParts = [
@@ -20,14 +20,14 @@ const authorNameParts = [
 const authorName = authorNameParts.join(' ')
 
 const headPage: HeadPageProps = {
-  title: post.data.title,
-  description: post.data.description,
-  robots: post.data.robots as Robots,
+  title: post.title,
+  description: post.description,
+  robots: post.robots as Robots,
   ogType: 'article',
-  ogImage: (post.data.ogImage as OgImage) || '/src/assets/images/content/blog/ogp.webp',
-  ogImageAlt: post.data.ogImageAlt || 'コンテンツです。',
+  ogImage: (post.ogImage as OgImage) || '/src/assets/images/content/blog/ogp.webp',
+  ogImageAlt: post.ogImageAlt || 'コンテンツです。',
   xCreator: author?.sns.xCreator as `@${string}`,
-  author: typeof post.data.author === 'string' && post.data.author === '' ? '' : authorName,
+  author: typeof post.author === 'string' && post.author === '' ? '' : authorName,
 }
 
 export async function getStaticPaths() {
@@ -60,10 +60,10 @@ const blogDetail = css({
   <img
     width={400}
     height={210}
-    src={post.data.ogImage ? post.data.ogImage : '/src/assets/images/content/blog/ogp.webp'}
-    alt={post.data.ogImageAlt ? post.data.ogImageAlt : 'コンテンツです'}
+    src={post.ogImage ? post.ogImage : '/src/assets/images/content/blog/ogp.webp'}
+    alt={post.ogImageAlt ? post.ogImageAlt : 'コンテンツです'}
   />
-  <h1>{post.data.title}</h1>
+  <h1>{post.title}</h1>
   <hr />
   <article class={blogDetail}>
     {/* 記事のタイトルにh1タグを使用するので、目次の見出しはh2タグから使ってください。 */}
