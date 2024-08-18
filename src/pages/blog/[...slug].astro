@@ -26,7 +26,7 @@ const headPage: HeadPageProps = {
   ogType: 'article',
   ogImage: (post.data.ogImage as OgImage) || '/src/assets/images/content/blog/ogp.webp',
   ogImageAlt: post.data.ogImageAlt || 'コンテンツです。',
-  xCreator: post.data.xCreator as `@${string}`,
+  xCreator: author?.data.sns.xCreator as `@${string}`,
   author: typeof post.data.author === 'string' && post.data.author === '' ? '' : authorName,
 }
 

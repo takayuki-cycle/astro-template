@@ -30,7 +30,6 @@ const blog = defineCollection({
       })
       .default('/ogp/general.webp'), // ヒーロー画像のパスでありOGP画像も兼ねるので、原則は画像を用意すること
     ogImageAlt: z.string().max(120).optional(), // OGP画像のalt属性
-    xCreator: z.string().startsWith('@').optional().or(z.literal('')), // 記事の著者のXアカウント(@から始まる文字列)
     author: reference('authors').optional().or(z.literal('')), // 記事の著者(匿名にしたいときは、この項目を削除または'')
     publishDate: z
       .string()
@@ -79,6 +78,7 @@ const authors = defineCollection({
       })
       .default('/'), // TODO: パスを決めること // 画像を表示するためのパス
     sns: z.object({
+      xCreator: z.string().startsWith('@').optional().or(z.literal('')), // 記事の著者のXアカウント(@から始まる文字列)で、<meta name="twitter:creator" content="">に使用
       x: z.string().url().optional().or(z.literal('')),
       instagram: z.string().url().optional().or(z.literal('')),
       facebook: z.string().url().optional().or(z.literal('')),

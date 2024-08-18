@@ -21,6 +21,7 @@
   "email": "yamada@example.com",
   "image": "",
   "sns": {
+    "xCreator": "@taro-yamada",
     "x": "https://x.com/user-name/",
     "instagram": "https://www.instagram.com/user-name/",
     "facebook": "https://www.facebook.com/user-name/",
