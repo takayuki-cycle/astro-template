@@ -43,7 +43,7 @@ const markuplintConfig = {
       as: 'script',
     },
     {
-      selector: 'Toc',
+      selector: 'TOC',
       as: 'div',
     },
     {

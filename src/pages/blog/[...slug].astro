@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content'
 import { css } from '@/../styled-system/css'
-import { Toc } from '@/components/toc/Toc.tsx'
+import { TOC } from '@/components/toc/TOC.tsx'
 import Layout from '@/layouts/Layout.astro'
 import type { HeadPageProps, OgImage, Robots } from '@/layouts/head/types'
 
@@ -72,7 +72,7 @@ const blogDetail = css({
     }
     <Content
       components={{
-        Toc,
+        TOC,
       }}
     />
   </article>

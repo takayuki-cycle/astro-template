@@ -1,6 +1,6 @@
 import type { MarkdownHeading } from 'astro'
 
-export interface TocProps {
+export interface TOCProps {
   headings: MarkdownHeading[]
   ListTag?: ListTag
   maxDepth?: MaxDepth

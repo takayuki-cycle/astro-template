@@ -1,5 +1,5 @@
 import { css } from '@/../styled-system/css'
-import type { ExtendHeading, ListTag, MaxDepth, TocProps } from '@/components/toc/types'
+import type { ExtendHeading, ListTag, MaxDepth, TOCProps } from '@/components/toc/types'
 import type { MarkdownHeading } from 'astro'
 
 // 見出しをグループ化する関数
@@ -66,7 +66,7 @@ const renderHeadings = (
 }
 
 // Table of Contents(目次)
-export const Toc = ({ headings, ListTag = 'ol', maxDepth = 3 }: TocProps) => {
+export const TOC = ({ headings, ListTag = 'ol', maxDepth = 3 }: TOCProps) => {
   const groupedHeadings = groupHeadings(headings)
 
   return (
