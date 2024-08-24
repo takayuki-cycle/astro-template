@@ -9,8 +9,8 @@
       "ruby": "dummy"
     },
     "first": {
-      "formal": "花子",
-      "ruby": "はなこ"
+      "formal": "沙希",
+      "ruby": "さき"
     },
     "nick": "すずきん"
   },
@@ -22,7 +22,7 @@
   "email": "alice@example.com",
   "image": "/test.webp",
   "sns": {
-    "xCreator": "@hanako-suzuki",
+    "xCreator": "@saki-suzuki",
     "x": "https://x.com/user-name/",
     "instagram": "https://www.instagram.com/user-name/",
     "facebook": "https://www.facebook.com/user-name/",
