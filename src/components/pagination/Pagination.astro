@@ -1,0 +1,70 @@
+---
+import { css } from '@/../styled-system/css'
+import type { PaginationProps } from '@/components/pagination/types.ts'
+
+const { pathName, currentPage, lastPage, step = 2 } = Astro.props as PaginationProps
+
+const firstStep = Math.max(1, currentPage - step)
+const lastStep = Math.min(lastPage, currentPage + step)
+
+const showFirstLink = firstStep > 1
+const showLastLink = lastStep < lastPage
+
+const range = (start: number, end: number) =>
+  Array.from({ length: end - start + 1 }, (_, i) => start + i)
+---
+
+<nav aria-label='ページネーション'>
+  <ul
+    class={css({
+      display: 'flex',
+      columnGap: '8',
+    })}
+  >
+    {
+      currentPage > 1 && (
+        <li>
+          <a href={`/${pathName}/${currentPage - 1}/`}>＜ 前へ</a>
+        </li>
+      )
+    }
+    {
+      showFirstLink && (
+        <>
+          <li>
+            <a href={`/${pathName}/1/`}>1</a>
+          </li>
+          <li>...</li>
+        </>
+      )
+    }
+    {
+      range(firstStep, lastStep).map((number) => (
+        <li>
+          {number === currentPage ? (
+            <span>{number}</span>
+          ) : (
+            <a href={`/${pathName}/${number}/`}>{number}</a>
+          )}
+        </li>
+      ))
+    }
+    {
+      showLastLink && (
+        <>
+          <li>...</li>
+          <li>
+            <a href={`/${pathName}/${lastPage}/`}>{lastPage}</a>
+          </li>
+        </>
+      )
+    }
+    {
+      currentPage < lastPage && (
+        <li>
+          <a href={`/${pathName}/${currentPage + 1}/`}>次へ ＞</a>
+        </li>
+      )
+    }
+  </ul>
+</nav>

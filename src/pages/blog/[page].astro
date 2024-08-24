@@ -1,12 +1,20 @@
 ---
 import { getCollection } from 'astro:content'
+import Pagination from '@/components/pagination/Pagination.astro'
 import Layout from '@/layouts/Layout.astro'
 import type { HeadPageProps } from '@/layouts/head/types'
+import type { GetStaticPathsOptions } from 'astro'
 
-// 本番用にビルドするときにのみ、isDraft: trueを含むエントリーを除外
-const posts = await getCollection('blog', ({ data }) => {
-  return import.meta.env.PROD ? data.isDraft !== true : true
-})
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+  // 本番用にビルドするときにのみ、isDraft: trueを含むエントリーを除外
+  const posts = await getCollection('blog', ({ data }) => {
+    return import.meta.env.PROD ? data.isDraft !== true : true
+  })
+
+  return paginate(posts, { pageSize: 5 })
+}
+
+const { page } = Astro.props
 
 const headPage: HeadPageProps = {
   title: 'blog一覧PageTitle',
@@ -21,8 +29,9 @@ const headPage: HeadPageProps = {
 ---
 
 <Layout headPage={headPage}>
+  <h1>Page {page.currentPage}</h1>
   {
-    posts.map((post) => (
+    page.data.map((post) => (
       <a href={`/blog/${post.slug}/`}>
         <img
           width={400}
@@ -33,5 +42,10 @@ const headPage: HeadPageProps = {
         <h1>{post.data.title}</h1>
       </a>
     ))
+  }
+  {
+    page.total > page.size && (
+      <Pagination pathName='blog' currentPage={page.currentPage} lastPage={page.lastPage} />
+    )
   }
 </Layout>

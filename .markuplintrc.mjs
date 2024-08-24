@@ -47,6 +47,10 @@ const markuplintConfig = {
       as: 'div',
     },
     {
+      selector: 'Pagination',
+      as: 'nav',
+    },
+    {
       selector: 'Accordion',
       as: 'div',
     },
