@@ -1,3 +1,4 @@
+/*
 import type { Assign, HTMLArkProps } from '@ark-ui/react'
 import { ark } from '@ark-ui/react/factory'
 import { styled } from 'styled-system/jsx'
@@ -8,3 +9,4 @@ export interface IconButtonProps
   extends Assign<JsxStyleProps, HTMLArkProps<'button'>>,
     IconButtonVariantProps {}
 export const IconButton = styled(ark.button, iconButton)
+*/

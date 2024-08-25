@@ -1,5 +1,6 @@
 // Reference: https://park-ui.com/docs/panda/components/dialog
 
+/*
 import { Button } from '@/components/ui/button'
 import * as _Dialog from '@/components/ui/dialog'
 import { IconButton } from '@/components/ui/icon-button'
@@ -39,3 +40,4 @@ export const Dialog = (props: _Dialog.RootProps) => {
     </_Dialog.Root>
   )
 }
+*/

@@ -1,5 +1,6 @@
 // Reference: https://park-ui.com/docs/panda/components/toast
 
+/*
 import { Button } from '@/components/ui/button'
 import { IconButton } from '@/components/ui/icon-button'
 import * as _Toast from '@/components/ui/toast'
@@ -45,3 +46,4 @@ export const Toast = () => (
     </_Toast.Toaster>
   </>
 )
+*/

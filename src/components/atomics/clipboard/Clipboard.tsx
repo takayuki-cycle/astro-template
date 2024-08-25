@@ -1,5 +1,6 @@
 // Reference: https://park-ui.com/docs/panda/components/clipboard
 
+/*
 import * as _Clipboard from '@/components/ui/clipboard'
 import { FormLabel } from '@/components/ui/form-label'
 import { IconButton } from '@/components/ui/icon-button'
@@ -27,3 +28,4 @@ export const Clipboard = (props: _Clipboard.RootProps) => {
     </_Clipboard.Root>
   )
 }
+*/

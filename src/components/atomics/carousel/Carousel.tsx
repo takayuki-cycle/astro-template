@@ -1,5 +1,6 @@
 // Reference: https://park-ui.com/docs/panda/components/carousel
 
+/*
 import * as _Carousel from '@/components/ui/carousel'
 import { IconButton } from '@/components/ui/icon-button'
 import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react'
@@ -53,3 +54,4 @@ export const Carousel = (props: _Carousel.RootProps) => {
     </_Carousel.Root>
   )
 }
+*/

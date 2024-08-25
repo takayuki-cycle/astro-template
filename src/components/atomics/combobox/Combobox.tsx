@@ -1,5 +1,6 @@
 // Reference: https://park-ui.com/docs/panda/components/combobox
 
+/*
 import * as _Combobox from '@/components/ui/combobox'
 import { IconButton } from '@/components/ui/icon-button'
 import { Input } from '@/components/ui/input'
@@ -54,3 +55,4 @@ export const Combobox = (props: _Combobox.RootProps) => {
     </_Combobox.Root>
   )
 }
+*/

@@ -1,5 +1,6 @@
 // Reference: https://park-ui.com/docs/panda/components/popover
 
+/*
 import { Button } from '@/components/ui/button'
 import { IconButton } from '@/components/ui/icon-button'
 import * as _Popover from '@/components/ui/popover'
@@ -35,3 +36,4 @@ export const Popover = (props: _Popover.RootProps) => {
     </_Popover.Root>
   )
 }
+*/

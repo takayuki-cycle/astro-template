@@ -1,5 +1,6 @@
 // Reference: https://park-ui.com/docs/panda/components/file-upload
 
+/*
 import { Button } from '@/components/ui/button'
 import * as _FileUpload from '@/components/ui/file-upload'
 import { IconButton } from '@/components/ui/icon-button'
@@ -38,3 +39,4 @@ export const FileUpload = (props: _FileUpload.RootProps) => {
     </_FileUpload.Root>
   )
 }
+*/

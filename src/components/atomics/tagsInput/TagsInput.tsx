@@ -1,5 +1,6 @@
 // Reference: https://park-ui.com/docs/panda/components/tags-input
 
+/*
 import { Button } from '@/components/ui/button'
 import { IconButton } from '@/components/ui/icon-button'
 import * as _TagsInput from '@/components/ui/tags-input'
@@ -37,3 +38,4 @@ export const TagsInput = (props: _TagsInput.RootProps) => {
     </_TagsInput.Root>
   )
 }
+*/

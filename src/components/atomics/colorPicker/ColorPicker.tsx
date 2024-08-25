@@ -1,5 +1,6 @@
 // Reference: https://park-ui.com/docs/panda/components/color-Picker
 
+/*
 import { Text } from '@/components/atomics/text/Text'
 import * as _ColorPicker from '@/components/ui/color-picker'
 import { IconButton } from '@/components/ui/icon-button'
@@ -91,3 +92,4 @@ const presets = [
   'hsl(280, 81%, 59%)',
   'hsl(350, 81%, 59%)',
 ]
+*/

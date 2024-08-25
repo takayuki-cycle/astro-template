@@ -1,5 +1,6 @@
 // Reference: https://park-ui.com/docs/panda/components/drawer
 
+/*
 import { Button } from '@/components/ui/button'
 import * as _Drawer from '@/components/ui/drawer'
 import { IconButton } from '@/components/ui/icon-button'
@@ -23,7 +24,7 @@ export const Drawer = (props: _Drawer.RootProps) => {
               </IconButton>
             </_Drawer.CloseTrigger>
           </_Drawer.Header>
-          <_Drawer.Body>{/* Content */}</_Drawer.Body>
+          <_Drawer.Body></_Drawer.Body>
           <_Drawer.Footer gap='3'>
             <_Drawer.CloseTrigger asChild>
               <Button variant='outline'>Cancel</Button>
@@ -35,3 +36,4 @@ export const Drawer = (props: _Drawer.RootProps) => {
     </_Drawer.Root>
   )
 }
+*/
