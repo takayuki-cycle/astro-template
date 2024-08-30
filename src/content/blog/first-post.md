@@ -8,7 +8,7 @@ author: taro-yamada
 publishDate: '2024-07-20'
 updatedDate: '2024-07-21'
 categories: ['category1']
-tags: ['tags3', 'tags4']
+tags: ['tags1', 'tags2']
 isDraft: false
 ---
 
