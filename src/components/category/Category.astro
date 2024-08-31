@@ -1,7 +1,7 @@
 ---
 import type { CategoryProps } from '@/components/category/types.ts'
 
-const { category } = Astro.props as CategoryProps
+const { pathName, category } = Astro.props as CategoryProps
 const contentTotal = category.length
 
 // undefinedを除外して、すべての要素がstring[]である新しい配列を作成
@@ -19,10 +19,10 @@ const getCategoryCount = (categories: string[][]): Record<string, number> =>
   )
 
 // カテゴリをアルファベット順（日本語ロケール対応）にソートし、「カテゴリ名(出現回数)」形式のリストを生成
-const getCategoryList = (categoryCount: Record<string, number>): string[] =>
-  Object.entries(categoryCount)
-    .sort(([a], [b]) => a.localeCompare(b, 'ja', { sensitivity: 'base' }))
-    .map(([category, count]) => `${category} (${count})`)
+const getCategoryList = (categoryCount: Record<string, number>): [string, number][] =>
+  Object.entries(categoryCount).sort(([a], [b]) =>
+    a.localeCompare(b, 'ja', { sensitivity: 'base' }),
+  )
 
 const validCategories = getValidCategories(category)
 const categoryCount = getCategoryCount(validCategories)
@@ -33,14 +33,16 @@ const categoryList = getCategoryList(categoryCount)
   <p>カテゴリー</p>
   <ul>
     <li>
-      {/* TODO: aタグで動的ルーティングできるようにすること */}
-      <span>すべて [{contentTotal}]記事</span>
+      <a href={`/${pathName}/1/`}>
+        すべて [{contentTotal}]記事
+      </a>
     </li>
     {
-      categoryList.map((categorySingle) => (
+      categoryList.map(([category, count]) => (
         <li>
-          {/* TODO: aタグで動的ルーティングできるようにすること */}
-          <span>{categorySingle}</span>
+          <a href={`/${pathName}/${category}/1/`}>
+            {category} ({count})
+          </a>
         </li>
       ))
     }

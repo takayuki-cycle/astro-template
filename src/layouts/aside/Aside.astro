@@ -2,9 +2,9 @@
 import Category from '@/components/category/Category.astro'
 import type { AsideProps } from '@/layouts/aside/types'
 
-const { aside } = Astro.props as { aside: AsideProps }
+const { pathName, category } = Astro.props.aside as AsideProps
 ---
 
 <aside>
-  {aside.category && <Category category={aside.category} />}
+  {pathName && <Category pathName={pathName} category={category} />}
 </aside>

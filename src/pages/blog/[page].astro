@@ -6,7 +6,10 @@ import type { AsideProps } from '@/layouts/aside/types'
 import type { HeadPageProps } from '@/layouts/head/types'
 import type { GetStaticPathsOptions } from 'astro'
 
+const PATH_NAME = 'blog'
+
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+  // TODO: PATH_NAMEを変更したときは、以下の'blog'も変更してください。
   const posts = await getCollection('blog', ({ data }) => {
     // 本番用にビルドするときにのみ、isDraft: trueを含むエントリーを除外
     return import.meta.env.PROD ? data.isDraft !== true : true
@@ -15,7 +18,7 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   return paginate(posts, { pageSize: 5 })
 }
 
-const category = await getCollection('blog', ({ data }) => {
+const category = await getCollection(PATH_NAME, ({ data }) => {
   // 本番用にビルドするときにのみ、isDraft: trueを含むエントリーを除外
   return import.meta.env.PROD ? data.isDraft !== true : true
 }).then((posts) => posts.map((post) => post.data.categories))
@@ -23,17 +26,18 @@ const category = await getCollection('blog', ({ data }) => {
 const { page } = Astro.props
 
 const headPage: HeadPageProps = {
-  title: 'blog一覧PageTitle',
-  description: 'blog一覧ページの説明です。',
+  title: `${PATH_NAME}一覧PageTitle`,
+  description: `${PATH_NAME}一覧ページの説明です。`,
   robots: 'all',
   ogType: 'website',
-  ogImage: '/src/assets/images/content/blog/ogp.webp',
+  ogImage: `/src/assets/images/content/${PATH_NAME}/ogp.webp`,
   ogImageAlt: 'ogImageAlt',
   xCreator: '@xCreator',
   author: 'author',
 }
 
 const aside: AsideProps = {
+  pathName: PATH_NAME,
   category: category,
 }
 ---
@@ -42,11 +46,15 @@ const aside: AsideProps = {
   <h1>Page {page.currentPage}</h1>
   {
     page.data.map((post) => (
-      <a href={`/blog/${post.slug}/`}>
+      <a href={`/${PATH_NAME}/${post.slug}/`}>
         <img
           width={400}
           height={210}
-          src={post.data.ogImage ? post.data.ogImage : '/src/assets/images/content/blog/ogp.webp'}
+          src={
+            post.data.ogImage
+              ? post.data.ogImage
+              : `/src/assets/images/content/${PATH_NAME}/ogp.webp`
+          }
           alt={post.data.ogImageAlt ? post.data.ogImageAlt : 'コンテンツです'}
         />
         <h1>{post.data.title}</h1>
@@ -55,7 +63,7 @@ const aside: AsideProps = {
   }
   {
     page.total > page.size && (
-      <Pagination pathName='blog' currentPage={page.currentPage} lastPage={page.lastPage} />
+      <Pagination pathName={PATH_NAME} currentPage={page.currentPage} lastPage={page.lastPage} />
     )
   }
 </Layout>

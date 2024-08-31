@@ -5,6 +5,8 @@ import { TOC } from '@/components/toc/TOC.tsx'
 import Layout from '@/layouts/Layout.astro'
 import type { HeadPageProps, OgImage, Robots } from '@/layouts/head/types'
 
+const PATH_NAME = 'blog'
+
 const post = Astro.props.data
 const { Content } = await Astro.props.render()
 
@@ -24,15 +26,16 @@ const headPage: HeadPageProps = {
   description: post.description,
   robots: post.robots as Robots,
   ogType: 'article',
-  ogImage: (post.ogImage as OgImage) || '/src/assets/images/content/blog/ogp.webp',
+  ogImage: (post.ogImage as OgImage) || `/src/assets/images/content/${PATH_NAME}/ogp.webp`,
   ogImageAlt: post.ogImageAlt || 'コンテンツです。',
   xCreator: author?.sns.xCreator as `@${string}`,
   author: typeof post.author === 'string' && post.author === '' ? '' : authorName,
 }
 
 export async function getStaticPaths() {
-  // 本番用にビルドするときにのみ、isDraft: trueを含むエントリーを除外
+  // TODO: PATH_NAMEを変更したときは、以下の'blog'も変更してください。
   const posts = await getCollection('blog', ({ data }) => {
+    // 本番用にビルドするときにのみ、isDraft: trueを含むエントリーを除外
     return import.meta.env.PROD ? data.isDraft !== true : true
   })
 
@@ -60,7 +63,7 @@ const blogDetail = css({
   <img
     width={400}
     height={210}
-    src={post.ogImage ? post.ogImage : '/src/assets/images/content/blog/ogp.webp'}
+    src={post.ogImage ? post.ogImage : `/src/assets/images/content/${PATH_NAME}/ogp.webp`}
     alt={post.ogImageAlt ? post.ogImageAlt : 'コンテンツです'}
   />
   <h1>{post.title}</h1>
