@@ -6,8 +6,8 @@ import type { HeadPageProps } from '@/layouts/head/types'
 import type { GetStaticPathsOptions } from 'astro'
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
-  // 本番用にビルドするときにのみ、isDraft: trueを含むエントリーを除外
   const posts = await getCollection('blog', ({ data }) => {
+    // 本番用にビルドするときにのみ、isDraft: trueを含むエントリーを除外
     return import.meta.env.PROD ? data.isDraft !== true : true
   })
 
