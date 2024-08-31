@@ -55,6 +55,14 @@ const markuplintConfig = {
       as: 'div',
     },
     {
+      selector: 'Category',
+      as: 'div',
+    },
+    {
+      selector: 'Aside',
+      as: 'aside',
+    },
+    {
       selector: 'Alert',
       as: {
         element: 'dialog',

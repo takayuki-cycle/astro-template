@@ -1,0 +1,10 @@
+---
+import Category from '@/components/category/Category.astro'
+import type { AsideProps } from '@/layouts/aside/types'
+
+const { aside } = Astro.props as { aside: AsideProps }
+---
+
+<aside>
+  {aside.category && <Category category={aside.category} />}
+</aside>

@@ -41,8 +41,32 @@ const blog = defineCollection({
       .date()
       .optional()
       .or(z.literal('')), // 記事の更新日(YYYY-MM-DDの形式)
-    categories: z.array(z.string()).optional(), // カテゴリーを設定してグループ化(1つだけ設定することを推奨、階層構造有)
-    tags: z.array(z.string()).optional(), // タグを設定してキーワード化(階層構造無)
+    categories: z
+      .array(z.string())
+      .optional()
+      .refine(
+        (categories) => {
+          if (!categories) return true
+          const uniqueCategories = new Set(categories)
+          return uniqueCategories.size === categories.length
+        },
+        {
+          message: 'Categories must contain unique values.',
+        },
+      ), // カテゴリーを設定してグループ化(1つだけ設定することを推奨、階層構造有、重複したカテゴリー名は不可)
+    tags: z
+      .array(z.string())
+      .optional()
+      .refine(
+        (categories) => {
+          if (!categories) return true
+          const uniqueCategories = new Set(categories)
+          return uniqueCategories.size === categories.length
+        },
+        {
+          message: 'Tags must contain unique values.',
+        },
+      ), // タグを設定してキーワード化(階層構造無、重複したタグ名は不可)
     isDraft: z.boolean(), // 本番用にビルドするときにのみ、isDraft: trueを含むエントリーを除外
   }),
 })

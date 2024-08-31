@@ -1,4 +1,6 @@
 ---
+import Aside from '@/layouts/aside/Aside.astro'
+import type { AsideProps } from '@/layouts/aside/types'
 import BodyGTM from '@/layouts/bodyGTM/BodyGTM.astro'
 import Footer from '@/layouts/footer/Footer.astro'
 import Head from '@/layouts/head/Head.astro'
@@ -9,9 +11,10 @@ import { fade } from 'astro:transitions'
 
 interface Props {
   headPage: HeadPageProps
+  aside?: AsideProps
 }
 
-const { headPage } = Astro.props
+const { headPage, aside } = Astro.props
 
 const headSite: HeadSiteProps = {
   webSiteName: 'Webサイト全体で共通の文章を書いてください。',
@@ -34,6 +37,7 @@ const headSite: HeadSiteProps = {
     <main transition:animate={fade({ duration: '0.3s' })}>
       <slot />
     </main>
+    {aside && <Aside aside={aside} />}
     <Footer />
     <style lang='scss'>
       main {

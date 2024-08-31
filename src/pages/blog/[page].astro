@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content'
 import Pagination from '@/components/pagination/Pagination.astro'
 import Layout from '@/layouts/Layout.astro'
+import type { AsideProps } from '@/layouts/aside/types'
 import type { HeadPageProps } from '@/layouts/head/types'
 import type { GetStaticPathsOptions } from 'astro'
 
@@ -13,6 +14,11 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
 
   return paginate(posts, { pageSize: 5 })
 }
+
+const category = await getCollection('blog', ({ data }) => {
+  // 本番用にビルドするときにのみ、isDraft: trueを含むエントリーを除外
+  return import.meta.env.PROD ? data.isDraft !== true : true
+}).then((posts) => posts.map((post) => post.data.categories))
 
 const { page } = Astro.props
 
@@ -26,9 +32,13 @@ const headPage: HeadPageProps = {
   xCreator: '@xCreator',
   author: 'author',
 }
+
+const aside: AsideProps = {
+  category: category,
+}
 ---
 
-<Layout headPage={headPage}>
+<Layout headPage={headPage} aside={aside}>
   <h1>Page {page.currentPage}</h1>
   {
     page.data.map((post) => (
