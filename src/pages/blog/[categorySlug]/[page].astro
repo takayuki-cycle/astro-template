@@ -14,8 +14,20 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
     // 本番用にビルドするときにのみ、isDraft: trueを含むエントリーを除外
     return import.meta.env.PROD ? data.isDraft !== true : true
   })
+  const category = posts
+    .map((post) => post.data.categories)
+    .filter((categories): categories is string[] => categories !== undefined)
+    .flat()
 
-  return paginate(posts, { pageSize: 5 })
+  return category.flatMap((categorySlug) => {
+    const filteredPosts = posts.filter((post) => {
+      return post.data.categories?.includes(categorySlug)
+    })
+    return paginate(filteredPosts, {
+      params: { categorySlug },
+      pageSize: 2,
+    })
+  })
 }
 
 const category = await getCollection(PATH_NAME, ({ data }) => {
@@ -26,8 +38,10 @@ const category = await getCollection(PATH_NAME, ({ data }) => {
 const { page } = Astro.props
 const params = Astro.params
 
+const categoryPathName = `${PATH_NAME}/${params.categorySlug}`
+
 const headPage: HeadPageProps = {
-  title: `${PATH_NAME}の${params.page}ページ目 一覧ページのタイトルです。`,
+  title: `${params.categorySlug}の${params.page}ページ目 - ${PATH_NAME} 一覧ページのタイトルです。`,
   description: `${PATH_NAME}の${params.page}ページ目 一覧ページの説明です。`,
   robots: 'all',
   ogType: 'website',
@@ -44,6 +58,9 @@ const aside: AsideProps = {
 ---
 
 <Layout headPage={headPage} aside={aside}>
+  <!--直下のコードはいらないかも？ -->
+  <p>{JSON.stringify(params)}</p>
+
   <h1>Page {page.currentPage}</h1>
   {
     page.data.map((post) => (
@@ -64,7 +81,11 @@ const aside: AsideProps = {
   }
   {
     page.total > page.size && (
-      <Pagination pathName={PATH_NAME} currentPage={page.currentPage} lastPage={page.lastPage} />
+      <Pagination
+        pathName={categoryPathName}
+        currentPage={page.currentPage}
+        lastPage={page.lastPage}
+      />
     )
   }
 </Layout>

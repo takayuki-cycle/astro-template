@@ -31,10 +31,10 @@ const headSite: HeadSiteProps = {
 <!doctype html>
 <html lang='ja' transition:animate='none'>
   <Head headPage={headPage} headSite={headSite} />
-  <body>
+  <body transition:animate={fade({ duration: '0.3s' })}>
     {headSite.gtmID && <BodyGTM gtmID={headSite.gtmID} />}
     <Header />
-    <main transition:animate={fade({ duration: '0.3s' })}>
+    <main>
       <slot />
     </main>
     {aside && <Aside aside={aside} />}

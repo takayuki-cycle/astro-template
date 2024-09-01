@@ -22,7 +22,7 @@ const authorNameParts = [
 const authorName = authorNameParts.join(' ')
 
 const headPage: HeadPageProps = {
-  title: post.title,
+  title: `${post.title} - ${PATH_NAME}`,
   description: post.description,
   robots: post.robots as Robots,
   ogType: 'article',
