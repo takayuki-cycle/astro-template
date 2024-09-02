@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content'
 import { css } from '@/../styled-system/css'
 import { TOC } from '@/components/toc/TOC.tsx'
 import Layout from '@/layouts/Layout.astro'
+import type { AsideProps } from '@/layouts/aside/types'
 import type { HeadPageProps, OgImage, Robots } from '@/layouts/head/types'
 
 const PATH_NAME = 'blog'
@@ -45,6 +46,16 @@ export async function getStaticPaths() {
   }))
 }
 
+const category = await getCollection(PATH_NAME, ({ data }) => {
+  // 本番用にビルドするときにのみ、isDraft: trueを含むエントリーを除外
+  return import.meta.env.PROD ? data.isDraft !== true : true
+}).then((posts) => posts.map((post) => post.data.categories))
+
+const aside: AsideProps = {
+  pathName: PATH_NAME,
+  category: category,
+}
+
 const blogDetail = css({
   '& h2': {
     fontSize: '2.5rem',
@@ -52,14 +63,13 @@ const blogDetail = css({
   '& h3': {
     fontSize: '2.2rem',
   },
-
   '& p': {
     fontSize: '1.5rem',
   },
 })
 ---
 
-<Layout headPage={headPage}>
+<Layout headPage={headPage} aside={aside}>
   <img
     width={400}
     height={210}
