@@ -36,33 +36,34 @@ const renderHeadings = (
     return null
   }
 
-  return extendHeadings.map((heading) => (
-    <li key={heading.slug}>
-      <a
-        href={`#${heading.slug}`}
-        className={css(
-          ListTag === 'ol' && {
-            _before: {
-              pr: '2',
-              content: 'attr(data-number)',
-            },
-          },
-        )}
-        {...(ListTag === 'ol' && { 'data-number': `${heading.number}:` })}
-      >
-        {heading.text}
-      </a>
-      {heading.children?.length > 0 && (
-        <ListTag
-          className={css({
-            pl: '5',
-          })}
-        >
-          {renderHeadings(heading.children, ListTag, maxDepth, depth + 1)}
-        </ListTag>
-      )}
-    </li>
-  ))
+  return (
+    <ListTag
+      className={css({
+        pl: '5',
+      })}
+    >
+      {extendHeadings.map((heading) => (
+        <li key={heading.slug}>
+          <a
+            href={`#${heading.slug}`}
+            className={css(
+              ListTag === 'ol' && {
+                _before: {
+                  pr: '2',
+                  content: 'attr(data-number)',
+                },
+              },
+            )}
+            {...(ListTag === 'ol' && { 'data-number': `${heading.number}:` })}
+          >
+            {heading.text}
+          </a>
+          {heading.children?.length > 0 &&
+            renderHeadings(heading.children, ListTag, maxDepth, depth + 1)}
+        </li>
+      ))}
+    </ListTag>
+  )
 }
 
 // Table of Contents(目次)
@@ -79,9 +80,7 @@ export const TOC = ({ headings, ListTag = 'ol', maxDepth = 3 }: TOCProps) => {
         })}
       >
         <p>目次</p>
-        <nav aria-label='目次'>
-          <ListTag>{renderHeadings(groupedHeadings, ListTag, maxDepth)}</ListTag>
-        </nav>
+        <nav aria-label='目次'>{renderHeadings(groupedHeadings, ListTag, maxDepth)}</nav>
       </div>
     )
   )
