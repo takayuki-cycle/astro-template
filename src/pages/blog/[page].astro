@@ -15,7 +15,7 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
     return import.meta.env.PROD ? data.isDraft !== true : true
   })
 
-  return paginate(posts, { pageSize: 5 })
+  return paginate(posts, { pageSize: 1 })
 }
 
 const category = await getCollection(PATH_NAME, ({ data }) => {

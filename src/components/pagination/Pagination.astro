@@ -1,18 +1,12 @@
 ---
 import { css } from '@/../styled-system/css'
 import type { PaginationProps } from '@/components/pagination/types.ts'
+import { calculatePagination } from '@/components/pagination/utils.ts'
 
 const { pathName, currentPage, lastPage, step = 2 } = Astro.props as PaginationProps
 
-const firstStep = Math.max(1, currentPage - step)
-const lastStep = Math.min(lastPage, currentPage + step)
-const isShowFirstLink = firstStep > 1
-const isShowLastLink = lastStep < lastPage
-const isShowFirstOmit = currentPage - (step + 1) !== 1
-const isShowLastOmit = currentPage + (step + 1) !== lastPage
-
-const range = (start: number, end: number) =>
-  Array.from({ length: end - start + 1 }, (_, i) => start + i)
+const { isShowFirstLink, isShowLastLink, isShowFirstOmit, isShowLastOmit, range } =
+  calculatePagination(currentPage, lastPage, step)
 ---
 
 <nav aria-label='ページネーション'>
@@ -38,7 +32,7 @@ const range = (start: number, end: number) =>
     }
     {isShowFirstLink && isShowFirstOmit && <li>...</li>}
     {
-      range(firstStep, lastStep).map((number) => (
+      range.map((number) => (
         <li>
           {number === currentPage ? (
             <span>{number}</span>
