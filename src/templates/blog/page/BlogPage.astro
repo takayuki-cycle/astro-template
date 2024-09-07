@@ -1,0 +1,22 @@
+---
+import Pagination from '@/components/pagination/Pagination.astro'
+import type { PageProps, PathNameProps } from '@/templates/blog/page/types.ts'
+
+const { data, total, size, currentPage, lastPage } = Astro.props.page as PageProps
+const { pathName } = Astro.props as PathNameProps
+---
+
+{
+  data.map(({ slug, data: { ogImage, ogImageAlt, title } }) => (
+    <a href={`/${pathName}/${slug}/`}>
+      <img
+        width={400}
+        height={210}
+        src={ogImage ? ogImage : `/src/assets/images/content/${pathName}/ogp.webp`}
+        alt={ogImageAlt ? ogImageAlt : 'コンテンツです'}
+      />
+      <h1>{title}</h1>
+    </a>
+  ))
+}
+{total > size && <Pagination pathName={pathName} currentPage={currentPage} lastPage={lastPage} />}

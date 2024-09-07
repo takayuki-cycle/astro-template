@@ -1,9 +1,9 @@
 ---
 import { getCollection } from 'astro:content'
-import Pagination from '@/components/pagination/Pagination.astro'
 import Layout from '@/layouts/Layout.astro'
 import type { AsideProps } from '@/layouts/aside/types'
 import type { HeadPageProps } from '@/layouts/head/types'
+import BlogPage from '@/templates/blog/page/BlogPage.astro'
 import type { GetStaticPathsOptions } from 'astro'
 
 const PATH_NAME = 'blog'
@@ -44,27 +44,5 @@ const aside: AsideProps = {
 ---
 
 <Layout headPage={headPage} aside={aside}>
-  <h1>Page {page.currentPage}</h1>
-  {
-    page.data.map((post) => (
-      <a href={`/${PATH_NAME}/${post.slug}/`}>
-        <img
-          width={400}
-          height={210}
-          src={
-            post.data.ogImage
-              ? post.data.ogImage
-              : `/src/assets/images/content/${PATH_NAME}/ogp.webp`
-          }
-          alt={post.data.ogImageAlt ? post.data.ogImageAlt : 'コンテンツです'}
-        />
-        <h1>{post.data.title}</h1>
-      </a>
-    ))
-  }
-  {
-    page.total > page.size && (
-      <Pagination pathName={PATH_NAME} currentPage={page.currentPage} lastPage={page.lastPage} />
-    )
-  }
+  <BlogPage page={page} pathName={PATH_NAME} />
 </Layout>
