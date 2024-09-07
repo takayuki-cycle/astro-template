@@ -1,5 +1,6 @@
 // Reference: https://park-ui.com/docs/panda/components/menu
 
+/*
 import { Text } from '@/components/atomics/text/Text'
 import { Button } from '@/components/ui/button'
 import * as _Menu from '@/components/ui/menu'
@@ -112,3 +113,4 @@ export const Menu = (props: _Menu.RootProps) => {
     </_Menu.Root>
   )
 }
+*/

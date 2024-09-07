@@ -1,3 +1,4 @@
+/*
 import { forwardRef } from 'react'
 import { Text, type TextProps } from '../text/Text'
 
@@ -8,3 +9,4 @@ export const Heading = forwardRef<HTMLHeadingElement, HeadingProps>((props, ref)
 ))
 
 Heading.displayName = 'Heading'
+*/

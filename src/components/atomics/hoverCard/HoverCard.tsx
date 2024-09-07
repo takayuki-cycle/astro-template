@@ -1,5 +1,6 @@
 // Reference: https://park-ui.com/docs/panda/components/hover-card
 
+/*
 import { Link } from '@/components/atomics/link/Link'
 import { Text } from '@/components/atomics/text/Text'
 import { Avatar } from '@/components/ui/avatar'
@@ -47,3 +48,4 @@ export const HoverCard = (props: _HoverCard.RootProps) => {
     </_HoverCard.Root>
   )
 }
+*/

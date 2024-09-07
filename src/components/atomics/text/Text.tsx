@@ -1,3 +1,4 @@
+/*
 import type { Assign, HTMLArkProps } from '@ark-ui/react'
 import React from 'react'
 import { css, cx } from 'styled-system/css'
@@ -43,3 +44,4 @@ export const Text: PolymorphicComponent = React.forwardRef(
     return <Component ref={ref} className={cx(styles, css(cssProps), className)} {...otherProps} />
   },
 )
+*/
