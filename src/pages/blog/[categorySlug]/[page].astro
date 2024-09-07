@@ -58,9 +58,6 @@ const aside: AsideProps = {
 ---
 
 <Layout headPage={headPage} aside={aside}>
-  <!--直下のコードはいらないかも？ -->
-  <p>{JSON.stringify(params)}</p>
-
   <h1>Page {page.currentPage}</h1>
   {
     page.data.map((post) => (
