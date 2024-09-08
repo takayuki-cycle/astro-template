@@ -1,16 +1,16 @@
 ---
 import { getCollection } from 'astro:content'
-import { css } from '@/../styled-system/css'
-import { TOC } from '@/components/toc/TOC.tsx'
 import Layout from '@/layouts/Layout.astro'
 import type { AsideProps } from '@/layouts/aside/types'
 import type { HeadPageProps, OgImage, Robots } from '@/layouts/head/types'
+import BlogSlug from '@/templates/blog/slug/BlogSlug.astro'
 import { getCategories } from '@/utils/content.ts'
 
 const PATH_NAME = 'blog'
 const post = Astro.props.data
-const { Content } = await Astro.props.render()
 const category = await getCategories(PATH_NAME)
+
+const { Content } = await Astro.props.render()
 
 const authors = await getCollection('authors')
 const authorID = (post.author as { id: string }).id
@@ -51,38 +51,8 @@ const aside: AsideProps = {
   pathName: PATH_NAME,
   category: category,
 }
-
-const blogDetail = css({
-  '& h2': {
-    fontSize: '2.5rem',
-  },
-  '& h3': {
-    fontSize: '2.2rem',
-  },
-  '& p': {
-    fontSize: '1.5rem',
-  },
-})
 ---
 
 <Layout headPage={headPage} aside={aside}>
-  <img
-    width={400}
-    height={210}
-    src={post.ogImage ? post.ogImage : `/src/assets/images/content/${PATH_NAME}/ogp.webp`}
-    alt={post.ogImageAlt ? post.ogImageAlt : 'コンテンツです'}
-  />
-  <h1>{post.title}</h1>
-  <hr />
-  <article class={blogDetail}>
-    {/* 記事のタイトルにh1タグを使用するので、目次の見出しはh2タグから使ってください。 */}
-    {
-      /* MDXファイル内で最初に書かれている##の直上に、<Toc headings={getHeadings()} />を記述して目次を生成してください。 */
-    }
-    <Content
-      components={{
-        TOC,
-      }}
-    />
-  </article>
+  <BlogSlug post={post} pathName={PATH_NAME} Content={Content} />
 </Layout>

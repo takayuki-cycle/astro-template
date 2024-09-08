@@ -1,0 +1,44 @@
+---
+import type { Render } from 'astro:content'
+import { css } from '@/../styled-system/css'
+import { TOC } from '@/components/toc/TOC.tsx'
+import type { PathNameProps, SlugProps } from '@/templates/blog/slug/types.ts'
+import type { MarkdownInstance } from 'node_modules/astro/dist/@types/astro'
+
+const { Content } = Astro.props as MarkdownInstance<{ render(): Render['.md'] | Render['.mdx'] }>
+
+const { ogImage, ogImageAlt, title } = Astro.props.post as SlugProps
+const { pathName } = Astro.props as PathNameProps
+
+const blogDetail = css({
+  '& h2': {
+    fontSize: '2.5rem',
+  },
+  '& h3': {
+    fontSize: '2.2rem',
+  },
+  '& p': {
+    fontSize: '1.5rem',
+  },
+})
+---
+
+<img
+  width={400}
+  height={210}
+  src={ogImage ? ogImage : `/src/assets/images/content/${pathName}/ogp.webp`}
+  alt={ogImageAlt ? ogImageAlt : 'コンテンツです'}
+/>
+<h1>{title}</h1>
+<hr />
+<article class={blogDetail}>
+  {/* 記事のタイトルにh1タグを使用するので、目次の見出しはh2タグから使ってください。 */}
+  {
+    /* MDXファイル内で最初に書かれている##の直上に、<Toc headings={getHeadings()} />を記述して目次を生成してください。 */
+  }
+  <Content
+    components={{
+      TOC,
+    }}
+  />
+</article>
