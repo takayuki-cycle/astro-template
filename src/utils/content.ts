@@ -25,3 +25,16 @@ export const getCategories = async (
 
   return category
 }
+
+export const getAuthor = async (authorID: string | undefined) => {
+  const authors = await getCollection('authors')
+  const author = authors.find((author) => author.id === authorID)?.data
+  const authorNameParts = [
+    author?.name.last.formal,
+    author?.name.middle.formal,
+    author?.name.first.formal,
+  ].filter(Boolean)
+  const authorName = authorNameParts.join(' ')
+
+  return { author, authorName }
+}

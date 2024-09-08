@@ -4,7 +4,7 @@ import Layout from '@/layouts/Layout.astro'
 import type { AsideProps } from '@/layouts/aside/types'
 import type { HeadPageProps, OgImage, Robots } from '@/layouts/head/types'
 import BlogSlug from '@/templates/blog/slug/BlogSlug.astro'
-import { getCategories } from '@/utils/content.ts'
+import { getAuthor, getCategories } from '@/utils/content.ts'
 
 const PATH_NAME = 'blog'
 const post = Astro.props.data
@@ -12,16 +12,9 @@ const category = await getCategories(PATH_NAME)
 
 const { Content } = await Astro.props.render()
 
-const authors = await getCollection('authors')
-const authorID = (post.author as { id: string }).id
-const author = authors.find((author) => author.id === authorID)?.data
-
-const authorNameParts = [
-  author?.name.last.formal,
-  author?.name.middle.formal,
-  author?.name.first.formal,
-].filter(Boolean)
-const authorName = authorNameParts.join(' ')
+const authorID =
+  typeof post.author === 'object' && post.author !== null ? post.author.id : undefined
+const { author, authorName } = await getAuthor(authorID)
 
 export async function getStaticPaths() {
   // TODO: PATH_NAMEを変更したときは、以下の'blog'も変更してください。
