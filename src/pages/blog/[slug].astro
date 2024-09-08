@@ -1,32 +1,21 @@
 ---
-import { getCollection } from 'astro:content'
 import Layout from '@/layouts/Layout.astro'
 import type { AsideProps } from '@/layouts/aside/types'
 import type { HeadPageProps, OgImage, Robots } from '@/layouts/head/types'
 import BlogSlug from '@/templates/blog/slug/BlogSlug.astro'
-import { getAuthor, getCategories } from '@/utils/content.ts'
+import { getAuthor, getCategories, getSlugPath } from '@/utils/content.ts'
 
 const PATH_NAME = 'blog'
 const post = Astro.props.data
-const category = await getCategories(PATH_NAME)
-
 const { Content } = await Astro.props.render()
-
+const category = await getCategories(PATH_NAME)
 const authorID =
   typeof post.author === 'object' && post.author !== null ? post.author.id : undefined
 const { author, authorName } = await getAuthor(authorID)
 
 export async function getStaticPaths() {
   // TODO: PATH_NAMEを変更したときは、以下の'blog'も変更してください。
-  const posts = await getCollection('blog', ({ data }) => {
-    // 本番用にビルドするときにのみ、isDraft: trueを含むエントリーを除外
-    return import.meta.env.PROD ? data.isDraft !== true : true
-  })
-
-  return posts.map((post) => ({
-    params: { slug: post.slug },
-    props: post,
-  }))
+  return getSlugPath('blog')
 }
 
 const headPage: HeadPageProps = {

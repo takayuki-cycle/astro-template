@@ -15,6 +15,20 @@ export const getPaginatedPaths = async (
   return paginate(posts, { pageSize: pageSize })
 }
 
+export const getSlugPath = async (
+  pathName: 'blog', // TODO: 他のパスを追加する場合は、ここに追加(例: 'blog' | 'authors')
+) => {
+  const posts = await getCollection(pathName, ({ data }) => {
+    // 本番用にビルドするときにのみ、isDraft: trueを含むエントリーを除外
+    return import.meta.env.PROD ? data.isDraft !== true : true
+  })
+
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: post,
+  }))
+}
+
 export const getCategories = async (
   pathName: 'blog', // TODO: 他のパスを追加する場合は、ここに追加(例: 'blog' | 'authors')
 ) => {
