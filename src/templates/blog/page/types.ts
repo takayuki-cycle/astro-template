@@ -10,4 +10,5 @@ export interface PageProps {
 
 export interface PathNameProps {
   pathName: string
+  categoryPathName: `${string}/${string}`
 }

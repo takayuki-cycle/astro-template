@@ -1,42 +1,21 @@
 ---
-import { getCollection } from 'astro:content'
-import Pagination from '@/components/pagination/Pagination.astro'
 import Layout from '@/layouts/Layout.astro'
 import type { AsideProps } from '@/layouts/aside/types'
 import type { HeadPageProps } from '@/layouts/head/types'
-import { getCategories } from '@/utils/content.ts'
+import BlogPage from '@/templates/blog/page/BlogPage.astro'
+import { getCategories, getCategoryPaginatedPaths } from '@/utils/content.ts'
 import type { GetStaticPathsOptions } from 'astro'
 
 const PATH_NAME = 'blog'
-
-export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
-  // TODO: PATH_NAMEを変更したときは、以下の'blog'も変更してください。
-  const posts = await getCollection('blog', ({ data }) => {
-    // 本番用にビルドするときにのみ、isDraft: trueを含むエントリーを除外
-    return import.meta.env.PROD ? data.isDraft !== true : true
-  })
-  const category = posts
-    .map((post) => post.data.categories)
-    .filter((categories): categories is string[] => categories !== undefined)
-    .flat()
-
-  return category.flatMap((categorySlug) => {
-    const filteredPosts = posts.filter((post) => {
-      return post.data.categories?.includes(categorySlug)
-    })
-    return paginate(filteredPosts, {
-      params: { categorySlug },
-      pageSize: 2,
-    })
-  })
-}
-
-const category = await getCategories(PATH_NAME)
-
 const { page } = Astro.props
 const params = Astro.params
+const category = await getCategories(PATH_NAME)
+const categoryPathName = `${PATH_NAME}/${params.categorySlug}` as `${string}/${string}`
 
-const categoryPathName = `${PATH_NAME}/${params.categorySlug}`
+export async function getStaticPaths(options: GetStaticPathsOptions) {
+  // TODO: PATH_NAMEを変更したときは、以下の'blog'も変更してください。
+  return getCategoryPaginatedPaths('blog', options.paginate)
+}
 
 const headPage: HeadPageProps = {
   title: `${params.categorySlug}の${params.page}ページ目 - ${PATH_NAME} 一覧ページのタイトルです。`,
@@ -56,31 +35,5 @@ const aside: AsideProps = {
 ---
 
 <Layout headPage={headPage} aside={aside}>
-  <h1>Page {page.currentPage}</h1>
-  {
-    page.data.map((post) => (
-      <a href={`/${PATH_NAME}/${post.slug}/`}>
-        <img
-          width={400}
-          height={210}
-          src={
-            post.data.ogImage
-              ? post.data.ogImage
-              : `/src/assets/images/content/${PATH_NAME}/ogp.webp`
-          }
-          alt={post.data.ogImageAlt ? post.data.ogImageAlt : 'コンテンツです'}
-        />
-        <h1>{post.data.title}</h1>
-      </a>
-    ))
-  }
-  {
-    page.total > page.size && (
-      <Pagination
-        pathName={categoryPathName}
-        currentPage={page.currentPage}
-        lastPage={page.lastPage}
-      />
-    )
-  }
+  <BlogPage page={page} pathName={PATH_NAME} categoryPathName={categoryPathName} />
 </Layout>
