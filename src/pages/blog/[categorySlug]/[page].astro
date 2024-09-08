@@ -4,6 +4,7 @@ import Pagination from '@/components/pagination/Pagination.astro'
 import Layout from '@/layouts/Layout.astro'
 import type { AsideProps } from '@/layouts/aside/types'
 import type { HeadPageProps } from '@/layouts/head/types'
+import { getCategories } from '@/utils/content.ts'
 import type { GetStaticPathsOptions } from 'astro'
 
 const PATH_NAME = 'blog'
@@ -30,10 +31,7 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   })
 }
 
-const category = await getCollection(PATH_NAME, ({ data }) => {
-  // 本番用にビルドするときにのみ、isDraft: trueを含むエントリーを除外
-  return import.meta.env.PROD ? data.isDraft !== true : true
-}).then((posts) => posts.map((post) => post.data.categories))
+const category = await getCategories(PATH_NAME)
 
 const { page } = Astro.props
 const params = Astro.params

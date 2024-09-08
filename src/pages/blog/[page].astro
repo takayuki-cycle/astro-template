@@ -1,30 +1,20 @@
 ---
-import { getCollection } from 'astro:content'
 import Layout from '@/layouts/Layout.astro'
 import type { AsideProps } from '@/layouts/aside/types'
 import type { HeadPageProps } from '@/layouts/head/types'
 import BlogPage from '@/templates/blog/page/BlogPage.astro'
+import { getCategories, getPaginatedPaths } from '@/utils/content.ts'
 import type { GetStaticPathsOptions } from 'astro'
 
 const PATH_NAME = 'blog'
-
-export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
-  // TODO: PATH_NAMEを変更したときは、以下の'blog'も変更してください。
-  const posts = await getCollection('blog', ({ data }) => {
-    // 本番用にビルドするときにのみ、isDraft: trueを含むエントリーを除外
-    return import.meta.env.PROD ? data.isDraft !== true : true
-  })
-
-  return paginate(posts, { pageSize: 1 })
-}
-
-const category = await getCollection(PATH_NAME, ({ data }) => {
-  // 本番用にビルドするときにのみ、isDraft: trueを含むエントリーを除外
-  return import.meta.env.PROD ? data.isDraft !== true : true
-}).then((posts) => posts.map((post) => post.data.categories))
-
 const { page } = Astro.props
 const params = Astro.params
+const category = await getCategories(PATH_NAME)
+
+export async function getStaticPaths(options: GetStaticPathsOptions) {
+  // TODO: PATH_NAMEを変更したときは、以下の'blog'も変更してください。
+  return getPaginatedPaths('blog', options.paginate)
+}
 
 const headPage: HeadPageProps = {
   title: `${PATH_NAME}の${params.page}ページ目 一覧ページのタイトルです。`,

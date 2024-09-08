@@ -5,11 +5,12 @@ import { TOC } from '@/components/toc/TOC.tsx'
 import Layout from '@/layouts/Layout.astro'
 import type { AsideProps } from '@/layouts/aside/types'
 import type { HeadPageProps, OgImage, Robots } from '@/layouts/head/types'
+import { getCategories } from '@/utils/content.ts'
 
 const PATH_NAME = 'blog'
-
 const post = Astro.props.data
 const { Content } = await Astro.props.render()
+const category = await getCategories(PATH_NAME)
 
 const authors = await getCollection('authors')
 const authorID = (post.author as { id: string }).id
@@ -21,17 +22,6 @@ const authorNameParts = [
   author?.name.first.formal,
 ].filter(Boolean)
 const authorName = authorNameParts.join(' ')
-
-const headPage: HeadPageProps = {
-  title: `${post.title} - ${PATH_NAME}`,
-  description: post.description,
-  robots: post.robots as Robots,
-  ogType: 'article',
-  ogImage: (post.ogImage as OgImage) || `/src/assets/images/content/${PATH_NAME}/ogp.webp`,
-  ogImageAlt: post.ogImageAlt || 'コンテンツです。',
-  xCreator: author?.sns.xCreator as `@${string}`,
-  author: typeof post.author === 'string' && post.author === '' ? '' : authorName,
-}
 
 export async function getStaticPaths() {
   // TODO: PATH_NAMEを変更したときは、以下の'blog'も変更してください。
@@ -46,10 +36,16 @@ export async function getStaticPaths() {
   }))
 }
 
-const category = await getCollection(PATH_NAME, ({ data }) => {
-  // 本番用にビルドするときにのみ、isDraft: trueを含むエントリーを除外
-  return import.meta.env.PROD ? data.isDraft !== true : true
-}).then((posts) => posts.map((post) => post.data.categories))
+const headPage: HeadPageProps = {
+  title: `${post.title} - ${PATH_NAME}`,
+  description: post.description,
+  robots: post.robots as Robots,
+  ogType: 'article',
+  ogImage: (post.ogImage as OgImage) || `/src/assets/images/content/${PATH_NAME}/ogp.webp`,
+  ogImageAlt: post.ogImageAlt || 'コンテンツです。',
+  xCreator: author?.sns.xCreator as `@${string}`,
+  author: typeof post.author === 'string' && post.author === '' ? '' : authorName,
+}
 
 const aside: AsideProps = {
   pathName: PATH_NAME,
