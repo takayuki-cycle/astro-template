@@ -5,6 +5,7 @@ import { defineConfig } from 'astro/config'
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://TakayukiMoto-arsaga.github.io',
+  site: 'https://takayukiMoto-arsaga.github.io',
+  base: '/my-repo',
   integrations: [react(), sitemap(), mdx()],
 })
