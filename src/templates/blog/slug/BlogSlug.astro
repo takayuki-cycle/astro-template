@@ -1,9 +1,9 @@
 ---
 import type { Render } from 'astro:content'
 import { css } from '@/../styled-system/css'
+import { TOC } from '@/components/toc/TOC.tsx'
 import type { PathNameProps, SlugProps } from '@/templates/blog/slug/types.ts'
 import type { MarkdownInstance } from 'node_modules/astro/dist/@types/astro'
-// import { TOC } from '@/components/toc/TOC.tsx'
 
 const { Content } = Astro.props as MarkdownInstance<{ render(): Render['.md'] | Render['.mdx'] }>
 
@@ -37,13 +37,9 @@ const blogDetail = css({
     /* MDXファイル内で最初に書かれている##の直上に、<TOC headings={getHeadings()} />を記述して目次を生成してください。 */
   }
   <Content />
-  {
-    /* 
   <Content
     components={{
       TOC,
     }}
   />
-  */
-  }
 </article>
