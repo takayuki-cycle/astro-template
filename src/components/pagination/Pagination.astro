@@ -2,6 +2,7 @@
 import { css } from '@/../styled-system/css'
 import type { PaginationProps } from '@/components/pagination/types.ts'
 import { calculatePagination } from '@/components/pagination/utils.ts'
+import { BASE_URL } from '@/constants/url'
 
 const { pathName, currentPage, lastPage, step = 2 } = Astro.props as PaginationProps
 
@@ -19,14 +20,14 @@ const { isShowFirstLink, isShowLastLink, isShowFirstOmit, isShowLastOmit, range 
     {
       currentPage > 1 && (
         <li>
-          <a href={`/${pathName}/${currentPage - 1}/`}>＜ 前へ</a>
+          <a href={`${BASE_URL}${pathName}/${currentPage - 1}/`}>＜ 前へ</a>
         </li>
       )
     }
     {
       isShowFirstLink && (
         <li>
-          <a href={`/${pathName}/1/`}>1</a>
+          <a href={`${BASE_URL}${pathName}/1/`}>1</a>
         </li>
       )
     }
@@ -37,7 +38,7 @@ const { isShowFirstLink, isShowLastLink, isShowFirstOmit, isShowLastOmit, range 
           {number === currentPage ? (
             <span>{number}</span>
           ) : (
-            <a href={`/${pathName}/${number}/`}>{number}</a>
+            <a href={`${BASE_URL}${pathName}/${number}/`}>{number}</a>
           )}
         </li>
       ))
@@ -46,14 +47,14 @@ const { isShowFirstLink, isShowLastLink, isShowFirstOmit, isShowLastOmit, range 
     {
       isShowLastLink && (
         <li>
-          <a href={`/${pathName}/${lastPage}/`}>{lastPage}</a>
+          <a href={`${BASE_URL}${pathName}/${lastPage}/`}>{lastPage}</a>
         </li>
       )
     }
     {
       currentPage < lastPage && (
         <li>
-          <a href={`/${pathName}/${currentPage + 1}/`}>次へ ＞</a>
+          <a href={`${BASE_URL}${pathName}/${currentPage + 1}/`}>次へ ＞</a>
         </li>
       )
     }

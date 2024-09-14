@@ -1,5 +1,6 @@
 ---
 import Pagination from '@/components/pagination/Pagination.astro'
+import { BASE_URL } from '@/constants/url'
 import type { PageProps, PathNameProps } from '@/templates/blog/page/types.ts'
 
 const { data, total, size, currentPage, lastPage } = Astro.props.page as PageProps
@@ -9,7 +10,7 @@ const { pathName, categoryPathName } = Astro.props as PathNameProps
 <h1>Page {currentPage}</h1>
 {
   data.map(({ slug, data: { ogImage, ogImageAlt, title } }) => (
-    <a href={`/${pathName}/${slug}/`}>
+    <a href={`${BASE_URL}${pathName}/${slug}/`}>
       <img
         width={400}
         height={210}

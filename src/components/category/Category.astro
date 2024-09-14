@@ -5,6 +5,7 @@ import {
   getCategoryList,
   getValidCategories,
 } from '@/components/category/utils.ts'
+import { BASE_URL } from '@/constants/url'
 
 const { pathName, category } = Astro.props as CategoryProps
 const contentTotal = category.length
@@ -18,14 +19,14 @@ const categoryList = getCategoryList(categoryCount)
   <p>カテゴリー</p>
   <ul>
     <li>
-      <a href={`/${pathName}/1/`}>
+      <a href={`${BASE_URL}${pathName}/1/`}>
         すべて [{contentTotal}]記事
       </a>
     </li>
     {
       categoryList.map(([category, count]) => (
         <li>
-          <a href={`/${pathName}/${category}/1/`}>
+          <a href={`${BASE_URL}${pathName}/${category}/1/`}>
             {category} ({count})
           </a>
         </li>

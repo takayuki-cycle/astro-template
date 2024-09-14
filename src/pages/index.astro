@@ -2,6 +2,7 @@
 import { css } from '@/../styled-system/css'
 import Card from '@/components/Card.astro'
 import { App } from '@/components/app'
+import { BASE_URL } from '@/constants/url'
 import Layout from '@/layouts/Layout.astro'
 import type { HeadPageProps } from '@/layouts/head/types'
 
@@ -32,7 +33,7 @@ const headPage: HeadPageProps = {
     </a>
   </p>
   <a
-    href='/example/'
+    href={`${BASE_URL}example/`}
     class={css({
       color: 'black.a10',
     })}
@@ -41,7 +42,7 @@ const headPage: HeadPageProps = {
   </a>
   <br />
   <a
-    href='/blog/1/'
+    href={`${BASE_URL}blog/1/`}
     class={css({
       color: 'black.a10',
     })}

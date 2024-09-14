@@ -52,6 +52,7 @@ import {
   Tooltip,
   TreeView,
 } from '@/components/atomics'
+import { BASE_URL } from '@/constants/url'
 import Layout from '@/layouts/Layout.astro'
 import type { HeadPageProps } from '@/layouts/head/types'
 
@@ -75,7 +76,7 @@ const headPage: HeadPageProps = {
 
 <Layout headPage={headPage}>
   <a
-    href='/'
+    href={`${BASE_URL}`}
     class={css({
       color: 'black.a10',
     })}
@@ -84,7 +85,7 @@ const headPage: HeadPageProps = {
   </a>
   <br />
   <a
-    href='/blog/1/'
+    href={`${BASE_URL}blog/1/`}
     class={css({
       color: 'black.a10',
     })}

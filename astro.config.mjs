@@ -6,6 +6,7 @@ import { defineConfig } from 'astro/config'
 // https://astro.build/config
 export default defineConfig({
   site: 'https://takayukiMoto-arsaga.github.io',
-  base: '/astro-boilerplate',
+  base: '/astro-boilerplate/', // GitHub Pagesのために記載
+  trailingSlash: 'always',
   integrations: [react(), sitemap(), mdx()],
 })
