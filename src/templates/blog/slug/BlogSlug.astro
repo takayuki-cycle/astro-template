@@ -36,5 +36,7 @@ const blogDetail = css({
   {
     /* MDXファイル内で最初に書かれている##の直上に、<TOC headings={getHeadings()} />を記述して目次を生成してください。 */
   }
-  <Content components={{ TOC }} />
+  <TOC headings={[{ depth: 2, slug: 'AAA', text: 'BBB' }]} />
+  <Content />
+  {/* <Content components={{ TOC }} /> */}
 </article>
