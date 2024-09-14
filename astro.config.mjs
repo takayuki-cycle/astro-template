@@ -5,6 +5,6 @@ import { defineConfig } from 'astro/config'
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://www.dummy.jp',
+  site: 'https://TakayukiMoto-arsaga.github.io',
   integrations: [react(), sitemap(), mdx()],
 })
