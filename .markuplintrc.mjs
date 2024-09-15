@@ -19,6 +19,18 @@ const markuplintConfig = {
   },
   pretenders: [
     {
+      selector: 'Image',
+      as: {
+        element: 'img',
+        attrs: [
+          {
+            name: 'alt',
+            value: 'dummy',
+          },
+        ],
+      },
+    },
+    {
       selector: 'Header',
       as: 'header',
     },
