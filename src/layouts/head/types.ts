@@ -43,7 +43,7 @@ type OgType =
   | 'video' // ビデオ
   | 'book' // 書籍
 
-export type OgImage = `/${string}.${'webp' | 'jpg' | 'jpeg' | 'png' | 'avif'}`
+export type OgImage = `${string}.${'webp' | 'jpg' | 'jpeg' | 'png' | 'avif'}`
 
 // Webサイト全体で共通のheadタグの中身を生成するための型定義
 export interface HeadSiteProps {

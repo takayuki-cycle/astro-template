@@ -2,6 +2,7 @@
 import type { Render } from 'astro:content'
 import { css } from '@/../styled-system/css'
 import { TOC } from '@/components/toc/TOC.tsx'
+import { BASE_URL } from '@/constants/url'
 import type { PathNameProps, SlugProps } from '@/templates/blog/slug/types.ts'
 import type { MarkdownInstance } from 'node_modules/astro/dist/@types/astro'
 
@@ -26,7 +27,7 @@ const blogDetail = css({
 <img
   width={400}
   height={210}
-  src={ogImage ? ogImage : `/src/assets/images/content/${pathName}/ogp.webp`}
+  src={ogImage ? `${BASE_URL}${ogImage}` : `${BASE_URL}ogp/${pathName}/general.webp`}
   alt={ogImageAlt ? ogImageAlt : 'コンテンツです'}
 />
 <h1>{title}</h1>

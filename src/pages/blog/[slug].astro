@@ -1,4 +1,5 @@
 ---
+import { BASE_URL } from '@/constants/url'
 import Layout from '@/layouts/Layout.astro'
 import type { AsideProps } from '@/layouts/aside/types'
 import type { HeadPageProps, OgImage, Robots } from '@/layouts/head/types'
@@ -23,7 +24,9 @@ const headPage: HeadPageProps = {
   description: post.description,
   robots: post.robots as Robots,
   ogType: 'article',
-  ogImage: (post.ogImage as OgImage) || `/src/assets/images/content/${PATH_NAME}/ogp.webp`,
+  ogImage: post.ogImage
+    ? (`${BASE_URL}${post.ogImage}` as OgImage)
+    : `ogp/${PATH_NAME}/general.webp`,
   ogImageAlt: post.ogImageAlt || 'コンテンツです。',
   xCreator: author?.sns.xCreator as `@${string}`,
   author: typeof post.author === 'string' && post.author === '' ? '' : authorName,

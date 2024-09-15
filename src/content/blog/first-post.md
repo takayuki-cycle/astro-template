@@ -2,7 +2,7 @@
 title: 'First post'
 description: 'Lorem ipsum dolor sit First Post'
 robots: 'all'
-ogImage: '/src/assets/images/content/blog/first-post/ogp.webp'
+ogImage: 'ogp/blog/first-post.webp'
 ogImageAlt: 'ogImageAltFirstPostです。'
 author: taro-yamada
 publishDate: '2024-07-20'

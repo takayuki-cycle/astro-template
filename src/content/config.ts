@@ -26,9 +26,9 @@ const blog = defineCollection({
       .optional()
       .refine((value) => {
         if (!value) return true // 値が存在しない場合はバリデーション成功
-        return /^\/.*\.(webp|jpg|jpeg|png|avif)$/.test(value) // '/'で始まり、画像の拡張子（.webp, .jpg, .jpeg, .png, .avif）で終了
+        return /^.*\.(webp|jpg|jpeg|png|avif)$/.test(value) // 画像の拡張子（.webp, .jpg, .jpeg, .png, .avif）で終了
       })
-      .default('/ogp/general.webp'), // ヒーロー画像のパスでありOGP画像も兼ねるので、原則は画像を用意すること
+      .default('ogp/blog/general.webp'), // ヒーロー画像のパスでありOGP画像も兼ねるので、原則は画像を用意すること TODO: 他のコレクションと共通化できるように、blogの部分を動的に値を取得するコードへ修正してください。
     ogImageAlt: z.string().max(120).optional(), // OGP画像のalt属性
     author: reference('authors').optional().or(z.literal('')), // 記事の著者(匿名にしたいときは、この項目を削除または'')
     publishDate: z

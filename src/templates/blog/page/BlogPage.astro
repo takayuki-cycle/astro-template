@@ -14,7 +14,7 @@ const { pathName, categoryPathName } = Astro.props as PathNameProps
       <img
         width={400}
         height={210}
-        src={ogImage ? ogImage : `/src/assets/images/content/${pathName}/ogp.webp`}
+        src={ogImage ? `${BASE_URL}${ogImage}` : `${BASE_URL}ogp/${pathName}/general.webp`}
         alt={ogImageAlt ? ogImageAlt : 'コンテンツです'}
       />
       <h1>{title}</h1>
