@@ -1,0 +1,21 @@
+---
+import { Image } from 'astro:assets'
+import myImage from '@/assets/images/ship.jpg'
+import Layout from '@/layouts/Layout.astro'
+import type { HeadPageProps } from '@/layouts/head/types'
+
+const headPage: HeadPageProps = {
+  title: 'indexPageTitle',
+  description: 'indexページの説明です。',
+  robots: 'all',
+  ogType: 'website',
+  ogImage: '/ogp/general.webp',
+  ogImageAlt: 'ogImageAlt',
+  xCreator: '@xCreator',
+  author: 'author',
+}
+---
+
+<Layout headPage={headPage}>
+  <Image src={myImage} alt='船です。' />
+</Layout>
