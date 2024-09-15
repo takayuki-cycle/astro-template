@@ -1,5 +1,5 @@
-import { css } from '@/../styled-system/css'
 import type { ExtendHeading, ListTag, MaxDepth, TOCProps } from '@/components/toc/types'
+import { css } from '@/../styled-system/css'
 import { groupHeadings } from '@/components/toc/utils.ts'
 
 // 再帰的に見出しをレンダリングする関数
