@@ -1,6 +1,8 @@
 ---
 import { Image } from 'astro:assets'
-import myImage from '@/assets/images/ship.jpg'
+import ship from '@/assets/images/page/ship.jpg'
+import salt from '@/assets/images/page/salt.jpg'
+import { Picture } from 'astro:assets'
 import Layout from '@/layouts/Layout.astro'
 import type { HeadPageProps } from '@/layouts/head/types'
 
@@ -17,5 +19,6 @@ const headPage: HeadPageProps = {
 ---
 
 <Layout headPage={headPage}>
-  <Image src={myImage} alt='船です' />
+  <Image src={ship} alt='船です' />
+  <Picture src={salt} alt='塩です' />
 </Layout>

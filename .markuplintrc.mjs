@@ -17,6 +17,14 @@ const markuplintConfig = {
   specs: {
     '\\.tsx$': '@markuplint/react-spec',
   },
+  nodeRules: [
+    {
+      selector: 'Picture',
+      rules: {
+        'permitted-contents': false,
+      },
+    },
+  ],
   pretenders: [
     {
       selector: 'Image',
@@ -29,6 +37,10 @@ const markuplintConfig = {
           },
         ],
       },
+    },
+    {
+      selector: 'Picture',
+      as: 'picture',
     },
     {
       selector: 'Header',
