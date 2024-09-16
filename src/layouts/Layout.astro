@@ -34,20 +34,19 @@ const headSite: HeadSiteProps = {
   <body transition:animate={fade({ duration: '0.3s' })}>
     {headSite.gtmID && <BodyGTM gtmID={headSite.gtmID} />}
     <Header />
-    <main>
-      <slot />
-    </main>
-    {aside && <Aside aside={aside} />}
-    <Footer />
-    <style lang='scss'>
-      main {
+    <main
+      style='
         width: 50rem;
         max-width: calc(100% - 2rem);
         padding: 1rem;
         margin: auto;
         font-size: 1.25rem;
         line-height: 1.6;
-      }
-    </style>
+      '
+    >
+      <slot />
+    </main>
+    {aside && <Aside aside={aside} />}
+    <Footer />
   </body>
 </html>

@@ -9,7 +9,10 @@ const markuplintConfig = {
     },
   },
   // Error: Matching for a tree with var() is not supportedが解決できないためexclude
-  excludeFiles: ['./src/layouts/Layout.astro', './src/components/ui/rating-group.tsx'],
+  excludeFiles: [
+    // './src/layouts/Layout.astro',
+    './src/components/ui/rating-group.tsx',
+  ],
   parser: {
     '\\.astro$': '@markuplint/astro-parser',
     '\\.tsx$': '@markuplint/jsx-parser',
@@ -17,11 +20,19 @@ const markuplintConfig = {
   specs: {
     '\\.tsx$': '@markuplint/react-spec',
   },
+  // 注意: nodeRulesのselectorの値は大文字と小文字を区別していません。
   nodeRules: [
     {
       selector: 'Picture',
       rules: {
         'permitted-contents': false,
+      },
+    },
+    {
+      selector: 'Head',
+      rules: {
+        'permitted-contents': false,
+        'required-element': false,
       },
     },
   ],
