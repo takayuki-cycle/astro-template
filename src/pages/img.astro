@@ -19,6 +19,8 @@ const headPage: HeadPageProps = {
 ---
 
 <Layout headPage={headPage}>
-  <Image src={ship} alt='船です' />
+  <!-- 実験中 -->
+  <Image src={ship} alt='船です' width='600' height='200' densities={[1, 2, 3]} quality='low' />
+  <img src='../../public/ship.jpg' alt='船です' width='600' height='200' />
   <Picture src={salt} alt='塩です' />
 </Layout>
