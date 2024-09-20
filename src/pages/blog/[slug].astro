@@ -5,10 +5,14 @@ import type { AsideProps } from '@/layouts/aside/types'
 import type { HeadPageProps, OgImage, Robots } from '@/layouts/head/types'
 import BlogSlug from '@/templates/blog/slug/BlogSlug.astro'
 import { getAuthor, getCategories, getSlugPath } from '@/utils/content.ts'
+import { getLastSegment } from '@/utils/path'
+import { getEntry, render } from 'astro:content'
 
 const PATH_NAME = 'blog'
-const post = Astro.props.data
-const { Content } = await Astro.props.render()
+const lastSegment = getLastSegment(Astro.url.pathname)
+const slugPost = await getEntry(PATH_NAME, lastSegment)
+const { Content } = await render(slugPost)
+const post = slugPost.data
 const category = await getCategories(PATH_NAME)
 const authorID =
   typeof post.author === 'object' && post.author !== null ? post.author.id : undefined

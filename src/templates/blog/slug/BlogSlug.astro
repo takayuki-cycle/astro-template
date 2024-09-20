@@ -1,15 +1,13 @@
 ---
-import type { Render } from 'astro:content'
 import { css } from '@/../styled-system/css'
 import { TOC } from '@/components/toc/TOC.tsx'
 import { BASE_URL } from '@/constants/url'
 import type { PathNameProps, SlugProps } from '@/templates/blog/slug/types.ts'
-import type { MarkdownInstance } from 'node_modules/astro/dist/@types/astro'
-
-const { Content } = Astro.props as MarkdownInstance<{ render(): Render['.md'] | Render['.mdx'] }>
+import type { AstroComponentFactory } from 'astro/runtime/server/index.js'
 
 const { ogImage, ogImageAlt, title } = Astro.props.post as SlugProps
 const { pathName } = Astro.props as PathNameProps
+const { Content } = Astro.props as { Content: AstroComponentFactory }
 
 const blogDetail = css({
   '& h2': {

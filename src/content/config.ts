@@ -1,7 +1,8 @@
 import { defineCollection, reference, z } from 'astro:content'
+import { glob } from 'astro/loaders'
 
 const blog = defineCollection({
-  type: 'content',
+  loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: './src/data/blog' }),
   schema: z.object({
     title: z.string().min(1).max(60), // 記事のタイトル
     description: z.string().min(1).max(160), // 記事の説明
@@ -77,7 +78,7 @@ const nameSchema = z.object({
 })
 
 const authors = defineCollection({
-  type: 'data',
+  loader: glob({ pattern: '**/*.json', base: './src/data/authors' }),
   schema: z.object({
     name: z.object({
       last: nameSchema, // 名字

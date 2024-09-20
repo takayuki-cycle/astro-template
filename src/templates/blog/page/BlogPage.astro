@@ -9,8 +9,8 @@ const { pathName, categoryPathName } = Astro.props as PathNameProps
 
 <h1>Page {currentPage}</h1>
 {
-  data.map(({ slug, data: { ogImage, ogImageAlt, title } }) => (
-    <a href={`${BASE_URL}${pathName}/${slug}/`}>
+  data.map(({ id, data: { ogImage, ogImageAlt, title } }) => (
+    <a href={`${BASE_URL}${pathName}/${id}/`}>
       <img
         width={400}
         height={210}

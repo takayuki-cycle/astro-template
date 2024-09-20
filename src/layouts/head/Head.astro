@@ -1,5 +1,5 @@
 ---
-import { ViewTransitions } from 'astro:transitions'
+import { ClientRouter } from 'astro:transitions'
 import { BASE_URL } from '@/constants/url'
 import HeadGTM from '@/layouts/head/HeadGTM.html'
 import type { HeadPageProps, HeadSiteProps } from '@/layouts/head/types'
@@ -48,7 +48,7 @@ const origin = Astro.url.origin
   <link rel='icon' href={`${BASE_URL}favicon.png`} sizes='48x48' />
   <link rel='canonical' href={canonical} />
   <link rel='sitemap' href={new URL('sitemap-index.xml', `${origin}${BASE_URL}`)} />
-  <ViewTransitions />
+  <ClientRouter />
 
   {/* OGP */}
   <meta property='og:title' content={`${title}${webSiteName ? ' - ' + webSiteName : ''}`} />

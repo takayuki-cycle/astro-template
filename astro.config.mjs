@@ -7,6 +7,6 @@ import { defineConfig } from 'astro/config'
 export default defineConfig({
   site: 'https://takayukiMoto-arsaga.github.io',
   base: '/astro-boilerplate/', // GitHub Pagesのために記載
-  trailingSlash: 'always',
+  trailingSlash: 'ignore', // v5.0.0-beta.1で'always'にするとImageコンポーネントの画像が表示されなくなるため、'ignore'にします。
   integrations: [react(), sitemap(), mdx()],
 })
