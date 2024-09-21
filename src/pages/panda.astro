@@ -1,0 +1,37 @@
+---
+import { css } from '@/../styled-system/css'
+import Layout from '@/layouts/Layout.astro'
+import type { HeadPageProps } from '@/layouts/head/types'
+
+const headPage: HeadPageProps = {
+  title: 'indexPageTitle',
+  description: 'indexページの説明です。',
+  robots: 'all',
+  ogType: 'website',
+  ogImage: '/ogp/general.webp',
+  ogImageAlt: 'ogImageAlt',
+  xCreator: '@xCreator',
+  author: 'author',
+}
+---
+
+<Layout headPage={headPage}>
+  <h1 class={css({})}>h1h1h1</h1>
+  <h2 class={css({})}>h2h2h2</h2>
+  <h3 class={css({})}>h3h3h3</h3>
+  <h4 class={css({})}>h4h4h4</h4>
+  <h5 class={css({})}>h5h5h5</h5>
+  <h6 class={css({})}>h6h6h6</h6>
+  <p>ppp</p>
+  <br />
+  <hr />
+  <strong>strong</strong>
+  <em>aaaaaaa</em>
+  <p>CCC</p>
+  <p><strong>DDD</strong></p>
+
+  <details>
+    <summary>Details</summary>
+    Something small enough to escape casual notice.
+  </details>
+</Layout>

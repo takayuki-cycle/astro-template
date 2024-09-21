@@ -73,7 +73,11 @@ const origin = Astro.url.origin
 
   {/* 任意 */}
   {author && <meta name='author' content={author} />}
-  {isAppleTouchIcon && <link rel='apple-touch-icon' sizes='180x180' href='/apple-touch-icon.png' />}
+  {
+    isAppleTouchIcon && (
+      <link rel='apple-touch-icon' sizes='180x180' href={`${BASE_URL}apple-touch-icon.png`} />
+    )
+  }
   {themeColor && <meta name='theme-color' content={themeColor} />}
   {webSiteName && <meta name='application-name' content={webSiteName} />}
   {
