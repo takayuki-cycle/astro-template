@@ -3,20 +3,21 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "prepare": "panda codegen --clean",
     "dev": "astro dev --host",
     "start": "astro dev",
     "build": "astro check && astro build",
     "astro:check": "astro check",
     "preview": "astro preview",
     "astro": "astro",
+    "prepare": "panda codegen --clean",
+    "debug:panda": "panda debug",
     "studio": "panda studio",
     "check-deps": "ncu",
     "update-deps": "ncu -u",
     "check": "biome check ./src",
     "lint:eslint": "eslint ./src",
-    "lint:markup": "markuplint \"src/**/*.{astro,jsx,tsx}\" --problem-only",
     "lint:text": "textlint \"**/*.{md,mdx}\" \"!**/node_modules\"",
+    "lint:markup": "markuplint \"src/**/*.{astro,jsx,tsx}\" --problem-only",
     "lint:markdown": "markdownlint-cli2 \"**/*.{md,mdx}\" \"!**/node_modules\""
   },
   "dependencies": {
