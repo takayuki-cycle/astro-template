@@ -4,7 +4,7 @@ import { defineConfig, defineGlobalStyles } from '@pandacss/dev'
 const globalCss = defineGlobalStyles({
   html: {
     '--global-font-body': 'Noto Sans JP',
-    // '--global-font-mono': 'Mononoki Nerd Font, monospace',
+    '--global-font-mono': 'Noto Sans Mono',
     fontOpticalSizing: 'auto',
   },
   strong: {
