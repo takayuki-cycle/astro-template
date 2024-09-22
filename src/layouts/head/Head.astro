@@ -48,6 +48,14 @@ const origin = Astro.url.origin
   <link rel='icon' href={`${BASE_URL}favicon.png`} sizes='48x48' />
   <link rel='canonical' href={canonical} />
   <link rel='sitemap' href={new URL('sitemap-index.xml', `${origin}${BASE_URL}`)} />
+  {/* Fonts */}
+  <link rel='preconnect' href='https://fonts.googleapis.com' />
+  <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+  <link
+    href='https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap'
+    rel='stylesheet'
+  />
+
   <ClientRouter />
 
   {/* OGP */}
