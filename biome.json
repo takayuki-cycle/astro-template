@@ -54,39 +54,6 @@
           }
         }
       }
-    },
-    {
-      "include": ["./src/components/ui/*.tsx"],
-      "linter": {
-        "rules": {
-          "suspicious": {
-            "noArrayIndexKey": "off"
-          },
-          "complexity": {
-            "noBannedTypes": "off"
-          }
-        }
-      }
-    },
-    {
-      "include": ["./src/components/atomics/*.tsx"],
-      "linter": {
-        "rules": {
-          "suspicious": {
-            "noArrayIndexKey": "off"
-          }
-        }
-      }
-    },
-    {
-      "include": ["./src/components/atomics/text/Text.tsx"],
-      "linter": {
-        "rules": {
-          "complexity": {
-            "noBannedTypes": "off"
-          }
-        }
-      }
     }
   ]
 }

@@ -1,57 +1,5 @@
 ---
 import { css } from '@/../styled-system/css'
-import {
-  Accordion,
-  Alert,
-  Avatar,
-  Badge,
-  Button,
-  Card,
-  // Carousel,
-  Checkbox,
-  // Clipboard,
-  Code,
-  Collapsible,
-  // ColorPicker,
-  // Combobox,
-  // DatePicker,
-  // Dialog,
-  // Drawer,
-  Editable,
-  // FileUpload,
-  FormLabel,
-  // Heading,
-  // HoverCard,
-  Icon,
-  // IconButton,
-  Input,
-  Kbd,
-  // Link, .astroではaタグを使うこと
-  // Menu,
-  NumberInput,
-  // Pagination,
-  PinInput,
-  // Popover,
-  Progress,
-  RadioButtonGroup,
-  RadioGroup,
-  RatingGroup,
-  SegmentGroup,
-  Select,
-  Skeleton,
-  Slider,
-  Splitter,
-  Switch,
-  Table,
-  Tabs,
-  // TagsInput,
-  // Text,
-  Textarea,
-  // Toast,
-  ToggleGroup,
-  Tooltip,
-  TreeView,
-} from '@/components/atomics'
 import { BASE_URL } from '@/constants/url'
 import Layout from '@/layouts/Layout.astro'
 import type { HeadPageProps } from '@/layouts/head/types'
@@ -75,23 +23,9 @@ const headPage: HeadPageProps = {
 ---
 
 <Layout headPage={headPage}>
-  <a
-    href={`${BASE_URL}`}
-    class={css({
-      color: 'black.a10',
-    })}
-  >
-    indexへ遷移
-  </a>
+  <a href={`${BASE_URL}`} class={css({})}> indexへ遷移 </a>
   <br />
-  <a
-    href={`${BASE_URL}blog/1/`}
-    class={css({
-      color: 'black.a10',
-    })}
-  >
-    blogへ遷移
-  </a>
+  <a href={`${BASE_URL}blog/1/`} class={css({})}> blogへ遷移 </a>
   <ul>
     {
       fruits.map((fruit) => (
@@ -105,58 +39,4 @@ const headPage: HeadPageProps = {
       ))
     }
   </ul>
-  <Accordion client:only='react' />
-  <Alert client:only='react' />
-  <Avatar client:only='react' />
-  <Badge client:only='react' />
-  <Button client:only='react' />
-  <Card client:only='react' />
-  {/* <Carousel client:only='react' /> */}
-  <Checkbox client:only='react' />
-  {/* <Clipboard client:only='react' /> */}
-  <Code client:only='react' />
-  <Collapsible client:only='react' />
-  {/* <ColorPicker client:only='react' /> */}
-  {/* <Combobox items={['a']} client:only='react' /> */}
-  {/* <DatePicker client:only='react' /> */}
-  {/* <Dialog client:only='react' /> */}
-  {/* <Drawer client:only='react' /> */}
-  <Editable client:only='react' />
-  {/* <FileUpload client:only='react' /> */}
-  <FormLabel client:only='react' />
-  {/* <Heading client:only='react' as='h1' aria-label='h1' /> */}
-  {/* <HoverCard client:only='react' /> */}
-  <Icon client:only='react' />
-  {/* <IconButton client:only='react' /> */}
-  <Input client:only='react' />
-  <Kbd client:only='react' />
-  {
-    /* 
-    <Link client:only="react" href="https://park-ui.com">Link</Link>
-    */
-  }
-  {/* <Menu client:only='react' /> */}
-  <NumberInput client:only='react' />
-  {/* <Pagination count={5} client:only='react' /> */}
-  <PinInput client:only='react' />
-  {/* <Popover client:only='react' /> */}
-  <Progress client:only='react' />
-  <RadioButtonGroup client:only='react' />
-  <RadioGroup client:only='react' />
-  <RatingGroup client:only='react' />
-  <SegmentGroup client:only='react' />
-  <Select items={['a']} client:only='react' />
-  <Skeleton client:only='react' />
-  <Slider client:only='react' />
-  <Splitter client:only='react' />
-  <Switch client:only='react' />
-  <Table client:only='react' />
-  <Tabs client:only='react' />
-  {/* <TagsInput client:only='react' /> */}
-  {/* <Text client:only='react'>Text</Text> */}
-  <Textarea client:only='react' />
-  {/* <Toast client:only='react' /> */}
-  <ToggleGroup client:only='react' />
-  <Tooltip client:only='react' />
-  <TreeView client:only='react' />
 </Layout>
