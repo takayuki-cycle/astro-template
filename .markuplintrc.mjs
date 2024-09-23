@@ -1,15 +1,6 @@
 const markuplintConfig = {
   extends: ['markuplint:recommended'],
   overrideMode: 'merge',
-  overrides: {
-    './src/components/ui/*.tsx': {
-      rules: {
-        'require-accessible-name': false,
-      },
-    },
-  },
-  // Error: Matching for a tree with var() is not supportedが解決できないためexclude
-  excludeFiles: ['./src/components/ui/rating-group.tsx'],
   parser: {
     '\\.astro$': '@markuplint/astro-parser',
     '\\.tsx$': '@markuplint/jsx-parser',
@@ -313,10 +304,6 @@ const markuplintConfig = {
           },
         ],
       },
-    },
-    {
-      selector: 'Pagination',
-      as: 'nav',
     },
     {
       selector: 'PinInput',

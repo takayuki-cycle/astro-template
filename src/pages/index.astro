@@ -9,7 +9,6 @@ import type { HeadPageProps } from '@/layouts/head/types'
 const testCSS = css({
   maxW: '2xl',
   fontWeight: 'bold',
-  color: 'black.a10',
 })
 
 const headPage: HeadPageProps = {
@@ -32,48 +31,19 @@ const headPage: HeadPageProps = {
       https://github.com/TakayukiMoto-arsaga/astro-boilerplate
     </a>
   </p>
-  <a
-    href={`${BASE_URL}example/`}
-    class={css({
-      color: 'black.a10',
-    })}
-  >
-    exampleへ遷移
-  </a>
+  <a href={`${BASE_URL}example/`} class={css({})}> exampleへ遷移 </a>
   <br />
-  <a
-    href={`${BASE_URL}blog/1/`}
-    class={css({
-      color: 'black.a10',
-    })}
-  >
-    blogへ遷移
-  </a>
+  <a href={`${BASE_URL}blog/1/`} class={css({})}> blogへ遷移 </a>
   <br />
-  <a
-    href={`${BASE_URL}img/`}
-    class={css({
-      color: 'black.a10',
-    })}
-  >
-    imgへ遷移
-  </a>
+  <a href={`${BASE_URL}img/`} class={css({})}> imgへ遷移 </a>
   <br />
-  <a
-    href={`${BASE_URL}panda/`}
-    class={css({
-      color: 'black.a10',
-    })}
-  >
-    pandaへ遷移
-  </a>
+  <a href={`${BASE_URL}panda/`} class={css({})}> pandaへ遷移 </a>
   <div class={testCSS}>AAA</div>
   <App client:only='react' />
   <div
     class={css({
       fontSize: '2xl',
       fontWeight: 'bold',
-      color: 'black.a10',
     })}
   >
     Hello !
@@ -105,7 +75,7 @@ const headPage: HeadPageProps = {
       </linearGradient>
     </defs>
   </svg>
-  <h1 class={css({ fontSize: '50px', fontWeight: 'bold', color: 'black.a10' })}>
+  <h1 class={css({ fontSize: '50px', fontWeight: 'bold' })}>
     Welcome to <span class='text-gradient'>Astro</span>
   </h1>
   <p class='instructions'>
