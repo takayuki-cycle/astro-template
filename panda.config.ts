@@ -19,6 +19,7 @@ export default defineConfig({
   presets: ['@pandacss/preset-base', '@pandacss/preset-panda', '@park-ui/panda-preset'],
   include: ['./src/**/*.{ts,tsx,js,jsx,astro}', './pages/**/*.{ts,tsx,js,jsx,astro}'],
   exclude: [],
+  syntax: 'object-literal',
   // validation: 'error',
   jsxFramework: 'react',
   // jsxStyleProps: 'none', // TODO: コメントアウトしてビルドしたときに警告が出なければ、この行を使ってください。
@@ -26,7 +27,16 @@ export default defineConfig({
   strictPropertyValues: true,
   outdir: 'styled-system',
   theme: {
-    extend: {},
+    extend: {
+      // モバイルファースト(@media(min-width))
+      breakpoints: {
+        sm: '500px',
+        md: '768px',
+        lg: '1024px',
+        xl: '1280px',
+        '2xl': '1536px',
+      },
+    },
   },
   globalCss,
 })

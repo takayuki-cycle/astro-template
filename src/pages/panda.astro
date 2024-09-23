@@ -16,10 +16,10 @@ const headPage: HeadPageProps = {
 ---
 
 <Layout headPage={headPage}>
-  <h1 class={css({ fontWeight: 'bold' })}>h1h1h1</h1>
+  <h1 class={css({ fontWeight: 'bold', '&:hover': { fontWeight: 100 } })}>h1h1h1</h1>
   <h2 class={css({ fontWeight: 100 })}>h2h2h2</h2>
   <h3 class={css({ fontFamily: 'ui-sans-serif' })}>h3h3h3</h3>
-  <h4 class={css({})}>h4h4h4</h4>
+  <h4 class={css({ fontWeight: { base: 400, sm: 'bold' } })}>h4h4h4</h4>
   <h5 class={css({})}>h5h5h5</h5>
   <h6 class={css({})}>h6h6h6</h6>
   <a href='aaa'>AAAAAA</a>
