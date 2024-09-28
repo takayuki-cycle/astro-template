@@ -23,7 +23,7 @@ export default defineConfig({
   validation: 'error',
   jsxFramework: 'react',
   jsxStyleProps: 'none',
-  strictTokens: true, // トークン値だけ使用可能(px, rem, blueなどは使用不可)
+  strictTokens: true,
   strictPropertyValues: true,
   outdir: 'styled-system',
   theme: {
