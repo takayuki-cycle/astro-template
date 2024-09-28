@@ -27,9 +27,15 @@
     "*.mdx": "markdown"
   },
   "material-icon-theme.files.associations": {
-    "styles.ts": "panda",
-    "utils.ts": "settings"
+    "styles.ts": "panda"
   },
+  "material-icon-theme.files.customClones": [
+    {
+      "base": "settings",
+      "color": "gray",
+      "fileNames": ["utils.ts"]
+    }
+  ],
   "cSpell.words": [
     "astro",
     "astrojs",
