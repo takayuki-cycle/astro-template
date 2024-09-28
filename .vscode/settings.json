@@ -32,7 +32,7 @@
   "material-icon-theme.files.customClones": [
     {
       "base": "settings",
-      "color": "#f6b894",
+      "color": "gray",
       "fileNames": ["utils.ts"]
     }
   ],
