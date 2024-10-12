@@ -11,8 +11,6 @@ const { page } = Astro.props
 const params = Astro.params
 const category = await getCategories(PATH_NAME)
 
-// TODO: 記事を新着順にソートする実装をしてください。
-
 export async function getStaticPaths(options: GetStaticPathsOptions) {
   // TODO: PATH_NAMEを変更したときは、以下の'blog'も変更してください。
   return getPaginatedPaths('blog', options.paginate)
