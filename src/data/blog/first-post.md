@@ -5,8 +5,8 @@ robots: 'all'
 ogImage: 'ogp/blog/first-post.webp'
 ogImageAlt: 'ogImageAltFirstPostです。'
 author: taro-yamada
-publishDate: '2024-12-21'
-updatedDate: '2024-12-22'
+publishDate: '2025-01-01'
+updatedDate: '2024-12-31'
 categories: ['category1']
 tags: ['tags1', 'tags2']
 isDraft: false
