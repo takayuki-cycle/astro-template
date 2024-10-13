@@ -49,27 +49,25 @@ export default defineConfig({
         colors: createColorSemanticTokens({
           // [key]: [base, _osDark]
           // baseの値は必須で、他の使わない値には空文字列を設定
-          primary: ['#0070f3', '#1e90ff'],
-          secondary: ['#6A737D', '#9CA3AF'],
-          tertiary: ['#FF4081', '#F06292'],
-          bg: ['#ffffff', '#121212'],
-          text: {
-            DEFAULT: ['#333333', '#f5f5f5'],
-            link: ['#007bff', '#82cfff'],
-            disabled: ['#6c757d', '#828282'],
-            test: {
-              DEFAULT: ['#ffc107', '#ff6b6b'],
-              disabled: ['#425', '#82cfff'],
-            },
+          primary: ['{colors.blue.700}', '{colors.blue.500}'], // #1d4ed8, #3b82f6
+          secondary: ['{colors.gray.500}', '{colors.gray.300}'], // #6b7280, #d1d5db
+          tertiary: ['{colors.pink.600}', '{colors.pink.400}'], // #db2777, #f472b6
+          bg: {
+            DEFAULT: ['{colors.white}', '{colors.neutral.900}'], // #ffffff, #171717
+            header: ['{colors.neutral.200}', '{colors.neutral.800}'], // #e5e5e5, #262626
+            footer: ['{colors.neutral.700}', '{colors.neutral.900}'], // #404040, #171717
           },
-          success: ['#28a745', '#3cb371'],
-          warning: ['#ffc107', '#ffdd57'],
-          danger: ['#dc3545', '#ff6b6b'],
-          info: ['#17a2b8', '#63cdda'],
-          border: ['#dddddd', '#444444'],
-          hover: ['#0056b3', '#4a90e2'],
-          headerBg: ['#f8f9fa', '#212529'],
-          footerBg: ['#343a40', '#000000'],
+          text: {
+            DEFAULT: ['{colors.neutral.800}', '{colors.neutral.200}'], // #262626, #e5e5e5
+            link: ['{colors.blue.600}', '{colors.blue.400}'], // #2563eb, #60a5fa
+            disabled: ['{colors.gray.600}', '{colors.gray.400}'], // #4b5563, #9ca3af
+          },
+          success: ['{colors.green.500}', '{colors.green.300}'], // #22c55e, #86efac
+          warning: ['{colors.yellow.400}', '{colors.yellow.200}'], // #facc15 , #fef08a
+          danger: ['{colors.red.600}', '{colors.red.400}'], // #dc2626, #f87171
+          info: ['{colors.sky.500}', '{colors.sky.300}'], // ##0ea5e9, #7dd3fc
+          border: ['{colors.gray.300}', '{colors.gray.700}'], // #d1d5db, #374151
+          hover: ['{colors.blue.800}', '{colors.blue.600}'], // #1e40af, #2563eb
         }),
       },
     },
