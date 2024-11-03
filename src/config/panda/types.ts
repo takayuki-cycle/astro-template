@@ -42,7 +42,7 @@ type ColorShades =
   | '.900'
   | '.950'
 
-export type ColorPath = `{colors.${ColorCategory}${ColorShades}}`
+export type ColorPath = `${ColorCategory}${ColorShades}`
 
 type ColorValue = [ColorPath, (ColorPath | '')?] // [base, _osDark]、値を追加するときはここへ追加
 

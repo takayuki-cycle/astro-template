@@ -49,25 +49,25 @@ export default defineConfig({
         colors: createColorSemanticTokens({
           // [key]: [base, _osDark]
           // baseの値は必須で、他の使わない値には空文字列を設定
-          primary: ['{colors.blue.700}', '{colors.blue.500}'], // #1d4ed8, #3b82f6
-          secondary: ['{colors.gray.500}', '{colors.gray.300}'], // #6b7280, #d1d5db
-          tertiary: ['{colors.pink.600}', '{colors.pink.400}'], // #db2777, #f472b6
+          primary: ['blue.700', 'blue.500'], // #1d4ed8, #3b82f6
+          secondary: ['gray.500', 'gray.300'], // #6b7280, #d1d5db
+          tertiary: ['pink.600', 'pink.400'], // #db2777, #f472b6
           bg: {
-            DEFAULT: ['{colors.white}', '{colors.neutral.900}'], // #ffffff, #171717
-            header: ['{colors.neutral.200}', '{colors.neutral.800}'], // #e5e5e5, #262626
-            footer: ['{colors.neutral.700}', '{colors.neutral.900}'], // #404040, #171717
+            DEFAULT: ['white', 'neutral.900'], // #ffffff, #171717
+            header: ['neutral.200', 'neutral.800'], // #e5e5e5, #262626
+            footer: ['neutral.700', 'neutral.900'], // #404040, #171717
           },
           text: {
-            DEFAULT: ['{colors.neutral.800}', '{colors.neutral.200}'], // #262626, #e5e5e5
-            link: ['{colors.blue.600}', '{colors.blue.400}'], // #2563eb, #60a5fa
-            disabled: ['{colors.gray.600}', '{colors.gray.400}'], // #4b5563, #9ca3af
+            DEFAULT: ['neutral.800', 'neutral.200'], // #262626, #e5e5e5
+            link: ['blue.600', 'blue.400'], // #2563eb, #60a5fa
+            disabled: ['gray.600', 'gray.400'], // #4b5563, #9ca3af
           },
-          success: ['{colors.green.500}', '{colors.green.300}'], // #22c55e, #86efac
-          warning: ['{colors.yellow.400}', '{colors.yellow.200}'], // #facc15 , #fef08a
-          danger: ['{colors.red.600}', '{colors.red.400}'], // #dc2626, #f87171
-          info: ['{colors.sky.500}', '{colors.sky.300}'], // ##0ea5e9, #7dd3fc
-          border: ['{colors.gray.300}', '{colors.gray.700}'], // #d1d5db, #374151
-          hover: ['{colors.blue.800}', '{colors.blue.600}'], // #1e40af, #2563eb
+          success: ['green.500', 'green.300'], // #22c55e, #86efac
+          warning: ['yellow.400', 'yellow.200'], // #facc15 , #fef08a
+          danger: ['red.600', 'red.400'], // #dc2626, #f87171
+          info: ['sky.500', 'sky.300'], // ##0ea5e9, #7dd3fc
+          border: ['gray.300', 'gray.700'], // #d1d5db, #374151
+          hover: ['blue.800', 'blue.600'], // #1e40af, #2563eb
         }),
         gradients: createGradientSemanticTokens({
           // 元々の値
@@ -94,35 +94,35 @@ export default defineConfig({
           sample1: [
             'linear',
             'to right',
-            ['{colors.red.400}', '{colors.blue.300}'],
-            ['{colors.yellow.200}', '{colors.green.500}'],
+            ['red.400', 'blue.300'],
+            ['yellow.200', 'green.500'],
             [0, 200],
           ],
           sample2: [
             'linear',
             'to left',
-            ['{colors.yellow.200}', '{colors.green.500}', '{colors.red.600}', '{colors.blue.800}'],
-            ['{colors.green.500}', '{colors.yellow.200}', '{colors.blue.800}', '{colors.red.600}'],
+            ['yellow.200', 'green.500', 'red.600', 'blue.800'],
+            ['green.500', 'yellow.200', 'blue.800', 'red.600'],
           ],
-          sample3: ['linear', 'to bottom', ['{colors.orange.500}', '{colors.purple.500}']],
+          sample3: ['linear', 'to bottom', ['orange.500', 'purple.500']],
           sample4: {
             DEFAULT: [
               'linear',
               'to right',
-              ['{colors.red.600}', '{colors.blue.800}', '{colors.yellow.200}'],
-              ['{colors.yellow.200}', '{colors.green.500}', '{colors.red.600}'],
+              ['red.600', 'blue.800', 'yellow.200'],
+              ['yellow.200', 'green.500', 'red.600'],
               [80, 90, 100],
             ],
             sample5: [
               'linear',
               'to left',
-              ['{colors.black}', '{colors.white}', '{colors.yellow.200}'],
-              ['{colors.yellow.200}', '{colors.green.500}', '{colors.red.600}'],
+              ['black', 'white', 'yellow.200'],
+              ['yellow.200', 'green.500', 'red.600'],
               [30, 40, 50],
             ],
           },
-          sample6: ['radial', 'circle', ['{colors.orange.500}', '{colors.purple.500}']],
-          sample7: ['radial', 'ellipse', ['{colors.orange.500}', '{colors.purple.500}']],
+          sample6: ['radial', 'circle', ['orange.500', 'purple.500']],
+          sample7: ['radial', 'ellipse', ['orange.500', 'purple.500']],
         }),
       },
     },
