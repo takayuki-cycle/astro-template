@@ -92,11 +92,11 @@ export default defineConfig({
           //   },
           // },
           sample1: [
-            'linear',
-            'to right',
-            ['red.400', 'blue.300'],
-            ['yellow.200', 'green.500'],
-            [0, 200],
+            'linear', // type(baseと_osDarkで同じ値を使います。)
+            'to right', // placement(baseと_osDarkで同じ値を使います。)
+            ['red.400', 'blue.300'], // stops -> color(base)(color(base)とcolor(_osDark)とpositionの要素数は同じにしてください。)
+            ['yellow.200', 'green.500'], // stops -> color(_osDark)
+            [0, 200], // stops -> position(baseと_osDarkで同じ値を使います。単位はpxで、それぞれの数字の間隔にグラデーションがかかります。)
           ],
           sample2: [
             'linear',
