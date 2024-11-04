@@ -151,6 +151,15 @@ export default defineConfig({
           sample6: ['radial', 'circle', ['orange.500', 'purple.500']],
           sample7: ['radial', 'ellipse', ['orange.500', 'purple.500']],
         }),
+        // TODO: 次はここから https://panda-css.com/docs/theming/tokens#borders
+        borders: {
+          // string value
+          subtle: { value: '1px solid red' },
+          // string value with reference to color token
+          danger: { value: '1px solid {colors.red.400}' },
+          // composite value
+          accent: { value: { width: '1px', color: 'red', style: 'solid' } },
+        },
       },
     },
   },
