@@ -53,6 +53,7 @@ export default defineConfig({
           body: { value: 'Noto Sans JP' },
           mono: { value: 'Noto Sans Mono' },
         },
+        fontSizes: {},
       },
       semanticTokens: {
         colors: createColorSemanticTokens({
