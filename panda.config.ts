@@ -44,6 +44,13 @@ export default defineConfig({
           body: { value: 'Noto Sans JP' },
           mono: { value: 'Noto Sans Mono' },
         },
+        // widthとheightで使用
+        sizes: {
+          full: { value: '100%' },
+          min: { value: 'min-content' },
+          max: { value: 'max-content' },
+          fit: { value: 'fit-content' },
+        },
       },
       semanticTokens: {
         colors: createColorSemanticTokens({
