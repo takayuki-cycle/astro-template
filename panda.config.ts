@@ -1,5 +1,5 @@
 // TODO: 設定を変更したときは、npm run prepareを実行しないと反映されないので注意
-// npm run studioでデザインシステムを視覚化できます。
+// npm run studioでデザインシステムを視覚化できます。(このファイルに記載されていなくても、視覚化されたデザインシステムで記載されていれば適用できます。)
 import { createColorSemanticTokens, createGradientSemanticTokens } from '@/config/panda/utils'
 import { defineConfig, defineGlobalStyles } from '@pandacss/dev'
 
