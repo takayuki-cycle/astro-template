@@ -11,9 +11,10 @@ const pandaRules = {
       value === 'warn' ? 'error' : value,
     ]),
   ),
-  '@pandacss/prefer-longhand-properties': 'off',
-  '@pandacss/prefer-composite-properties': 'off',
   '@pandacss/no-physical-properties': 'off',
+  '@pandacss/prefer-longhand-properties': 'off',
+  '@pandacss/prefer-atomic-properties': 'off', // コードが長くなりすぎる場合のみ、compositeプロパティを使用(例えば、borderをatomicで記述すると12個になってしまう場合など)
+  '@pandacss/prefer-composite-properties': 'off',
 }
 
 const eslintConfig = [

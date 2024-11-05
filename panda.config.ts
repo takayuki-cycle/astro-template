@@ -158,7 +158,7 @@ export default defineConfig({
           // string value with reference to color token
           danger: { value: '1px solid {colors.red.400}' },
           // composite value
-          accent: { value: { width: '1px', color: 'red', style: 'solid' } },
+          accent: { value: { width: '1', style: 'solid', color: 'red' } },
         },
       },
     },
