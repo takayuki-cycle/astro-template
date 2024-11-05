@@ -1,6 +1,10 @@
 // TODO: 設定を変更したときは、npm run prepareを実行しないと反映されないので注意
 // npm run studioでデザインシステムを視覚化できます。(このファイルに記載されていなくても、視覚化されたデザインシステムで記載されていれば適用できます。)
-import { createColorSemanticTokens, createGradientSemanticTokens } from '@/config/panda/utils'
+import {
+  createColorSemanticTokens,
+  createGradientSemanticTokens,
+  createBorderSemanticTokens,
+} from '@/config/panda/utils'
 import { defineConfig, defineGlobalStyles } from '@pandacss/dev'
 
 const globalCss = defineGlobalStyles({
@@ -71,10 +75,12 @@ export default defineConfig({
         radii: {
           none: { value: '0' },
         },
+        // 使わないかも知れないです。
+        borderWidths: {},
       },
       semanticTokens: {
         colors: createColorSemanticTokens({
-          // [key]: [base, _osDark]
+          // [key]: [base, _osDark(任意)]
           // baseの値は必須で、他の使わない値には空文字列を設定
           primary: ['blue.700', 'blue.500'], // #1d4ed8, #3b82f6
           secondary: ['gray.500', 'gray.300'], // #6b7280, #d1d5db
@@ -151,15 +157,28 @@ export default defineConfig({
           sample6: ['radial', 'circle', ['orange.500', 'purple.500']],
           sample7: ['radial', 'ellipse', ['orange.500', 'purple.500']],
         }),
-        // TODO: 次はここから https://panda-css.com/docs/theming/tokens#borders
-        borders: {
-          // string value
-          subtle: { value: '1px solid red' },
-          // string value with reference to color token
-          danger: { value: '1px solid {colors.red.400}' },
-          // composite value
-          accent: { value: { width: '1', style: 'solid', color: 'red' } },
-        },
+        borders: createBorderSemanticTokens({
+          // [key]: [border-width(単位はrem), border-style, [base, _osDark(任意)]
+          // 元々の値
+          // border1: {
+          //   value: {
+          //     base: { width: '0.0625rem', style: 'dotted', color: '{colors.black}' },
+          //     _osDark: { width: '0.0625rem', style: 'dotted', color: '{colors.red.200}' },
+          //   },
+          // },
+          border1: [0.0625, 'dotted', ['black', 'red.600']],
+          border2: [0.125, 'dashed', ['blue.400']],
+          border3: {
+            DEFAULT: [0.1875, 'solid', ['yellow.400', 'yellow.200']],
+            border4: [0.25, 'double', ['green.700', 'green.200']],
+          },
+          border5: {
+            DEFAULT: [0.3125, 'groove', ['purple.400']],
+            border6: [0.375, 'ridge', ['orange.400', '']],
+            border7: [0.5, 'inset', ['pink.400', 'sky.400']],
+          },
+        }),
+        // TODO: 次はShadows(https://panda-css.com/docs/theming/tokens#shadows)を追加
       },
     },
   },

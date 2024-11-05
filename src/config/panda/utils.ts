@@ -4,6 +4,10 @@ import type {
   GradientTokens,
   GradientTokenResult,
   ColorPath,
+  BorderStyle,
+  BorderColor,
+  BorderTokens,
+  BorderTokenResult,
 } from '@/config/panda/types'
 
 export const createColorSemanticTokens = (tokens: ColorTokens, parentKey = ''): ColorTokenResult =>
@@ -63,6 +67,46 @@ export const createGradientSemanticTokens = (
 
       if (typeof value === 'object' && value !== null) {
         return [key, createGradientSemanticTokens(value, currentKey)]
+      }
+
+      return [key, {}]
+    }),
+  )
+}
+
+export const createBorderSemanticTokens = (
+  tokens: BorderTokens,
+  parentKey = '',
+): BorderTokenResult => {
+  const createBorder = (width: number, style: BorderStyle, colors: BorderColor) => ({
+    width: `${width}rem`,
+    style,
+    color: `{colors.${colors[0]}}`,
+    ...(colors[1] && { _osDark: `{colors.${colors[1]}}` }),
+  })
+
+  return Object.fromEntries(
+    Object.entries(tokens).map(([key, value]) => {
+      const currentKey = parentKey ? `${parentKey}.${key}` : key
+      if (Array.isArray(value)) {
+        const [width, style, colors] = value
+
+        return [
+          key,
+          {
+            value: {
+              base: createBorder(width, style, colors),
+              ...(colors.length > 1 &&
+                colors[1] !== '' && {
+                  _osDark: createBorder(width, style, [colors[1] || colors[0]]),
+                }),
+            },
+          },
+        ]
+      }
+
+      if (typeof value === 'object' && value !== null) {
+        return [key, createBorderSemanticTokens(value, currentKey)]
       }
 
       return [key, {}]

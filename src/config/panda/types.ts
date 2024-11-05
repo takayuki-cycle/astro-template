@@ -1,4 +1,4 @@
-import type { Gradient } from '@pandacss/types'
+import type { Gradient, Border } from '@pandacss/types'
 
 type ColorCategory =
   | 'current'
@@ -81,5 +81,37 @@ export type GradientTokenResult = {
     value: Gradient
   } & {
     [nestedKey: string]: GradientTokenResult | { value: Gradient }
+  }
+}
+
+export type BorderStyle =
+  | 'none'
+  | 'hidden'
+  | 'dotted'
+  | 'dashed'
+  | 'solid'
+  | 'double'
+  | 'groove'
+  | 'ridge'
+  | 'inset'
+  | 'outset'
+
+export type BorderColor = [ColorPath] | [ColorPath, ColorPath | '']
+
+type BorderValue = [
+  number, // width(単位はremです。baseと_osDarkで同じ値を使います。)
+  BorderStyle, // style(baseと_osDarkで同じ値を使います。)
+  BorderColor, // color(base) | color(_osDark)
+]
+
+export type BorderTokens = {
+  [key: string]: BorderValue | BorderTokens
+}
+
+export type BorderTokenResult = {
+  [key: string]: {
+    value: Border
+  } & {
+    [nestedKey: string]: BorderTokenResult | { value: Border }
   }
 }
