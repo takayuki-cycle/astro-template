@@ -12,19 +12,15 @@ import type {
   ShadowArray,
 } from '@/config/panda/types'
 
-export const createColorSemanticTokens = (
-  tokens: Tokens<ColorArray>,
-  parentKey = '',
-): TokenResult<ColorValue> =>
+export const createColorSemanticTokens = (tokens: Tokens<ColorArray>): TokenResult<ColorValue> =>
   Object.fromEntries(
     Object.entries(tokens).map(([key, value]) => {
-      const currentKey = parentKey ? `${parentKey}.${key}` : key
       if (Array.isArray(value)) {
         const [base, osDark = base] = value // 値を追加するときはここへ追加
         return [key, { value: { base: `{colors.${base}}`, _osDark: `{colors.${osDark}}` } }] // 値を追加するときはここへ追加
       }
       if (typeof value === 'object') {
-        return [key, createColorSemanticTokens(value, currentKey)]
+        return [key, createColorSemanticTokens(value)]
       }
 
       return [key, {}]
@@ -33,7 +29,6 @@ export const createColorSemanticTokens = (
 
 export const createGradientSemanticTokens = (
   tokens: Tokens<GradientValue>,
-  parentKey = '',
 ): TokenResult<Gradient> => {
   const createStops = (colors: ColorPath[] = [], positions: number[] = []) =>
     positions.length > 0
@@ -45,7 +40,6 @@ export const createGradientSemanticTokens = (
 
   return Object.fromEntries(
     Object.entries(tokens).map(([key, value]) => {
-      const currentKey = parentKey ? `${parentKey}.${key}` : key
       if (Array.isArray(value)) {
         const [type, placement, baseStops, osDarkStops = [], positions = []] = value
 
@@ -71,7 +65,7 @@ export const createGradientSemanticTokens = (
       }
 
       if (typeof value === 'object' && value !== null) {
-        return [key, createGradientSemanticTokens(value, currentKey)]
+        return [key, createGradientSemanticTokens(value)]
       }
 
       return [key, {}]
@@ -79,10 +73,7 @@ export const createGradientSemanticTokens = (
   )
 }
 
-export const createBorderSemanticTokens = (
-  tokens: Tokens<BorderValue>,
-  parentKey = '',
-): TokenResult<Border> => {
+export const createBorderSemanticTokens = (tokens: Tokens<BorderValue>): TokenResult<Border> => {
   const createBorder = (width: number, style: BorderStyle, colors: ColorArray) => ({
     width: `${width}rem`,
     style,
@@ -92,7 +83,6 @@ export const createBorderSemanticTokens = (
 
   return Object.fromEntries(
     Object.entries(tokens).map(([key, value]) => {
-      const currentKey = parentKey ? `${parentKey}.${key}` : key
       if (Array.isArray(value)) {
         const [width, style, colors] = value
 
@@ -111,7 +101,7 @@ export const createBorderSemanticTokens = (
       }
 
       if (typeof value === 'object' && value !== null) {
-        return [key, createBorderSemanticTokens(value, currentKey)]
+        return [key, createBorderSemanticTokens(value)]
       }
 
       return [key, {}]
