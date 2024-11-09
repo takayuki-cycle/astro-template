@@ -120,10 +120,7 @@ export const createBorderSemanticTokens = (
 }
 
 // TODO: shadow: 'shadow4.shadow5'のときでも正常に処理できるように実装すること
-export const createShadowSemanticTokens = (
-  tokens: Tokens<ShadowValue>,
-  parentKey = '',
-): TokenResult<Shadow> => {
+export const createShadowSemanticTokens = (tokens: Tokens<ShadowValue>): TokenResult<Shadow> => {
   const createShadow = (
     offsetX: number,
     offsetY: number,
@@ -140,28 +137,37 @@ export const createShadowSemanticTokens = (
 
   return Object.fromEntries(
     Object.entries(tokens).map(([key, value]) => {
-      const currentKey = parentKey ? `${parentKey}.${key}` : key
-
       if (Array.isArray(value)) {
         if (Array.isArray(value[0])) {
           return [
             key,
             {
               value: {
-                base: (value as ShadowArray[]).map(
-                  ([offsetX, offsetY, blur, spread, colors, inset = '']) =>
+                base: (value as ShadowArray[])
+                  .map(([offsetX, offsetY, blur, spread, colors, inset = '']) =>
                     createShadow(offsetX, offsetY, blur, spread, colors, inset),
-                ),
+                  )
+                  .map((shadow) => shadow.base)
+                  .join(', '),
+                _osDark: (value as ShadowArray[])
+                  .map(([offsetX, offsetY, blur, spread, colors, inset = '']) =>
+                    colors[1]
+                      ? createShadow(offsetX, offsetY, blur, spread, colors, inset)._osDark
+                      : null,
+                  )
+                  .filter(Boolean)
+                  .join(', '),
               },
             },
           ]
         }
         const [offsetX, offsetY, blur, spread, colors, inset = ''] = value as ShadowArray
+
         return [key, { value: createShadow(offsetX, offsetY, blur, spread, colors, inset) }]
       }
 
       if (typeof value === 'object' && value !== null) {
-        return [key, createShadowSemanticTokens(value as Tokens<ShadowValue>, currentKey)]
+        return [key, createShadowSemanticTokens(value as Tokens<ShadowValue>)]
       }
 
       return [key, {}]
