@@ -50,7 +50,7 @@
       "linter": {
         "rules": {
           "correctness": {
-            "noUnusedImports": "error"
+            "noUnusedImports": { "level": "error", "fix": "none" }
           }
         }
       }
