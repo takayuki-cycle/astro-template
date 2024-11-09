@@ -109,21 +109,19 @@ export const createBorderSemanticTokens = (tokens: Tokens<BorderValue>): TokenRe
   )
 }
 
-// TODO: shadow: 'shadow4.shadow5'のときでも正常に処理できるように実装すること
 export const createShadowSemanticTokens = (tokens: Tokens<ShadowValue>): TokenResult<Shadow> => {
-  const createShadow = (
-    offsetX: number,
-    offsetY: number,
-    blur: number,
-    spread: number,
-    colors: ColorArray,
-    inset = '',
-  ) => ({
-    base: `${offsetX}rem ${offsetY}rem ${blur}rem ${spread}rem {colors.${colors[0]}} ${inset}`,
-    ...(colors[1] && {
-      _osDark: `${offsetX}rem ${offsetY}rem ${blur}rem ${spread}rem {colors.${colors[1]}} ${inset}`,
-    }),
-  })
+  const createShadow = (value: ShadowArray) => {
+    const shadowValue = (color: string) =>
+      `${offsetX}rem ${offsetY}rem ${blur}rem ${spread}rem {colors.${color}} ${inset}`
+    const [offsetX, offsetY, blur, spread, colors, inset = ''] = value
+
+    return {
+      base: shadowValue(colors[0]),
+      ...(colors[1] && {
+        _osDark: shadowValue(colors[1]),
+      }),
+    }
+  }
 
   return Object.fromEntries(
     Object.entries(tokens).map(([key, value]) => {
@@ -134,16 +132,11 @@ export const createShadowSemanticTokens = (tokens: Tokens<ShadowValue>): TokenRe
             {
               value: {
                 base: (value as ShadowArray[])
-                  .map(([offsetX, offsetY, blur, spread, colors, inset = '']) =>
-                    createShadow(offsetX, offsetY, blur, spread, colors, inset),
-                  )
-                  .map((shadow) => shadow.base)
+                  .map((shadowValue) => createShadow(shadowValue).base)
                   .join(', '),
                 _osDark: (value as ShadowArray[])
-                  .map(([offsetX, offsetY, blur, spread, colors, inset = '']) =>
-                    colors[1]
-                      ? createShadow(offsetX, offsetY, blur, spread, colors, inset)._osDark
-                      : null,
+                  .map((shadowValue) =>
+                    shadowValue[4][1] ? createShadow(shadowValue)._osDark : null,
                   )
                   .filter(Boolean)
                   .join(', '),
@@ -151,13 +144,12 @@ export const createShadowSemanticTokens = (tokens: Tokens<ShadowValue>): TokenRe
             },
           ]
         }
-        const [offsetX, offsetY, blur, spread, colors, inset = ''] = value as ShadowArray
 
-        return [key, { value: createShadow(offsetX, offsetY, blur, spread, colors, inset) }]
+        return [key, { value: createShadow(value as ShadowArray) }]
       }
 
       if (typeof value === 'object' && value !== null) {
-        return [key, createShadowSemanticTokens(value as Tokens<ShadowValue>)]
+        return [key, createShadowSemanticTokens(value)]
       }
 
       return [key, {}]
