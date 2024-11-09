@@ -4,6 +4,7 @@ import {
   createColorSemanticTokens,
   createGradientSemanticTokens,
   createBorderSemanticTokens,
+  createShadowSemanticTokens,
 } from '@/config/panda/utils'
 import { defineConfig, defineGlobalStyles } from '@pandacss/dev'
 
@@ -158,7 +159,7 @@ export default defineConfig({
           sample7: ['radial', 'ellipse', ['orange.500', 'purple.500']],
         }),
         borders: createBorderSemanticTokens({
-          // [key]: [border-width(単位はrem), border-style, [base, _osDark(任意)]
+          // [key]: [border-width(rem), border-style, [base, _osDark(任意)]
           // 元々の値
           // border1: {
           //   value: {
@@ -178,7 +179,63 @@ export default defineConfig({
             border7: [0.5, 'inset', ['pink.400', 'sky.400']],
           },
         }),
-        // TODO: 次はShadows(https://panda-css.com/docs/theming/tokens#shadows)を追加
+        /*
+        shadows: {
+          // [key]: [offsetX(rem), offsetY(rem), blur(rem), spread(rem), [base, _osDark(任意)], inset(任意、省略でoutset)]
+          // composite valueではnumber型の単位がpxになるので、multiple string valuesを用いて単位でremが使えるようにしています。
+          shadow1: {
+            value: {
+              base: [
+                '0.0625rem 0.0625rem 0.125rem 0.125rem {colors.green.800} inset',
+                '0.1875rem 0.1875rem 0.25rem 0.25rem {colors.rose.300}',
+                '0.3125rem 0.3125rem 0.375rem 0.375rem {colors.purple.300} inset',
+              ],
+              _osDark: [
+                '0.0625rem 0.0625rem 0.125rem 0.125rem {colors.yellow.400} inset',
+                '0.1875rem 0.1875rem 0.25rem 0.25rem {colors.lime.900}',
+                '0.3125rem 0.3125rem 0.375rem 0.375rem {colors.zinc.700} inset',
+              ],
+            },
+          },
+          shadow2: {
+            value: ['0.0625rem 0.0625rem 0.125rem 0.125rem {colors.green.800}'],
+          },
+          shadow3: {
+            DEFAULT: { value: ['0.3125rem 0.3125rem 0.375rem 0.375rem {colors.black} inset'] },
+            shadow4: {
+              value: {
+                base: [
+                  '0.0625rem 0.125rem 0.1875rem 0.25rem {colors.amber.600}',
+                  '0.1875rem 0.1875rem 0.25rem 0.25rem {colors.rose.700}',
+                  '0.3125rem 0.3125rem 0.375rem 0.375rem {colors.orange.50} inset',
+                ],
+                _osDark: [
+                  '0.0625rem 0.125rem 0.1875rem 0.25rem {colors.yellow.500}',
+                  '0.1875rem 0.1875rem 0.25rem 0.25rem {colors.lime.600}',
+                  '0.3125rem 0.3125rem 0.375rem 0.375rem {colors.orange.700} inset',
+                ],
+              },
+            },
+          },
+        },
+        */
+        shadows: createShadowSemanticTokens({
+          shadow1: [
+            [0.0625, 0.0625, 0.125, 0.125, ['green.800', 'yellow.400'], 'inset'],
+            [0.1875, 0.1875, 0.25, 0.25, ['rose.300', 'lime.900']],
+            [0.3125, 0.3125, 0.375, 0.375, ['purple.300', 'zinc.700'], 'inset'],
+          ],
+          shadow2: [0.0625, 0.0625, 0.125, 0.125, ['green.800']],
+          shadow3: [0.375, 0.3125, 0.25, 0.1875, ['zinc.900', 'purple.900']],
+          shadow4: {
+            DEFAULT: [0.3125, 0.3125, 0.375, 0.375, ['black', ''], 'inset'],
+            shadow5: [
+              [0.0625, 0.125, 0.1875, 0.25, ['amber.600', 'yellow.500']],
+              [0.1875, 0.1875, 0.25, 0.25, ['rose.700', 'lime.600']],
+              [0.3125, 0.3125, 0.375, 0.375, ['orange.50', 'orange.700'], 'inset'],
+            ],
+          },
+        }),
       },
     },
   },

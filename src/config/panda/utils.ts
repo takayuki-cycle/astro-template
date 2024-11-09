@@ -1,16 +1,21 @@
+import type { Border, Gradient, Shadow } from '@pandacss/types'
 import type {
-  ColorTokens,
-  ColorTokenResult,
-  GradientTokens,
-  GradientTokenResult,
   ColorPath,
   BorderStyle,
-  BorderColor,
-  BorderTokens,
-  BorderTokenResult,
+  ColorArray,
+  Tokens,
+  ColorValue,
+  TokenResult,
+  GradientValue,
+  BorderValue,
+  ShadowValue,
+  ShadowArray,
 } from '@/config/panda/types'
 
-export const createColorSemanticTokens = (tokens: ColorTokens, parentKey = ''): ColorTokenResult =>
+export const createColorSemanticTokens = (
+  tokens: Tokens<ColorArray>,
+  parentKey = '',
+): TokenResult<ColorValue> =>
   Object.fromEntries(
     Object.entries(tokens).map(([key, value]) => {
       const currentKey = parentKey ? `${parentKey}.${key}` : key
@@ -27,9 +32,9 @@ export const createColorSemanticTokens = (tokens: ColorTokens, parentKey = ''): 
   )
 
 export const createGradientSemanticTokens = (
-  tokens: GradientTokens,
+  tokens: Tokens<GradientValue>,
   parentKey = '',
-): GradientTokenResult => {
+): TokenResult<Gradient> => {
   const createStops = (colors: ColorPath[] = [], positions: number[] = []) =>
     positions.length > 0
       ? colors.map((color, index) => ({
@@ -75,10 +80,10 @@ export const createGradientSemanticTokens = (
 }
 
 export const createBorderSemanticTokens = (
-  tokens: BorderTokens,
+  tokens: Tokens<BorderValue>,
   parentKey = '',
-): BorderTokenResult => {
-  const createBorder = (width: number, style: BorderStyle, colors: BorderColor) => ({
+): TokenResult<Border> => {
+  const createBorder = (width: number, style: BorderStyle, colors: ColorArray) => ({
     width: `${width}rem`,
     style,
     color: `{colors.${colors[0]}}`,
@@ -107,6 +112,56 @@ export const createBorderSemanticTokens = (
 
       if (typeof value === 'object' && value !== null) {
         return [key, createBorderSemanticTokens(value, currentKey)]
+      }
+
+      return [key, {}]
+    }),
+  )
+}
+
+// TODO: shadow: 'shadow4.shadow5'のときでも正常に処理できるように実装すること
+export const createShadowSemanticTokens = (
+  tokens: Tokens<ShadowValue>,
+  parentKey = '',
+): TokenResult<Shadow> => {
+  const createShadow = (
+    offsetX: number,
+    offsetY: number,
+    blur: number,
+    spread: number,
+    colors: ColorArray,
+    inset = '',
+  ) => ({
+    base: `${offsetX}rem ${offsetY}rem ${blur}rem ${spread}rem {colors.${colors[0]}} ${inset}`,
+    ...(colors[1] && {
+      _osDark: `${offsetX}rem ${offsetY}rem ${blur}rem ${spread}rem {colors.${colors[1]}} ${inset}`,
+    }),
+  })
+
+  return Object.fromEntries(
+    Object.entries(tokens).map(([key, value]) => {
+      const currentKey = parentKey ? `${parentKey}.${key}` : key
+
+      if (Array.isArray(value)) {
+        if (Array.isArray(value[0])) {
+          return [
+            key,
+            {
+              value: {
+                base: (value as ShadowArray[]).map(
+                  ([offsetX, offsetY, blur, spread, colors, inset = '']) =>
+                    createShadow(offsetX, offsetY, blur, spread, colors, inset),
+                ),
+              },
+            },
+          ]
+        }
+        const [offsetX, offsetY, blur, spread, colors, inset = ''] = value as ShadowArray
+        return [key, { value: createShadow(offsetX, offsetY, blur, spread, colors, inset) }]
+      }
+
+      if (typeof value === 'object' && value !== null) {
+        return [key, createShadowSemanticTokens(value as Tokens<ShadowValue>, currentKey)]
       }
 
       return [key, {}]
