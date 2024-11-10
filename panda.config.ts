@@ -78,6 +78,31 @@ export default defineConfig({
         },
         // 使わないかも知れないです。
         borderWidths: {},
+        easings: {
+          // transition:
+          //   プロパティ名?(transitionProperty: Globals | "all" | "none" | (string & {})) デフォルト値: all
+          //   再生時間(transitionDuration)
+          //   イージング関数?(transitionTimingFunction) デフォルト値: ease
+          //   待ち時間?(transitionDelay) デフォルト値: 0s
+          // cubic-bezier
+          ease: { value: [0.25, 0.1, 0.25, 1] }, // 遷移の中間に向かって速度が増加し、最後には再び遅くなります。
+          linear: { value: [0, 0, 1, 1] }, // 等速度で遷移します。
+          easeIn: { value: [0.42, 0, 1, 1] }, // 最初はゆっくり始まり、完了するまで遷移速度が増加します。
+          easeOut: { value: [0, 0, 0.58, 1] }, // 急速に遷移が始まり、遷移が続くにつれて速度が低下します。
+          easeInOut: { value: [0.42, 0, 0.58, 1] }, // ゆっくりと遷移を開始し、速度が上がり、その後再び速度が低下します。
+          // steps
+          jumpStart4: { value: 'steps(4, jump-start)' }, // トランジションの開始時に最初のジャンプが発生します。
+          jumpEnd4: { value: 'steps(4, jump-end)' }, // アニメーションの終了時に最後のジャンプが発生します。
+          jumpNone4: { value: 'steps(4, jump-none)' }, // どちら側にもジャンプが発生しません。0%の位置と100%の位置の両方が長さの1/nだけ表示されます。
+          jumpBoth4: { value: 'steps(4, jump-both)' }, // 0%と100%の両方で停止が含まれます。その結果、トランジションの時間内にステップが1つ追加されます。
+          stepStart: { value: 'steps(1, start)' }, // 遷移が始まったときに最初のジャンプが発生します。(startとjump-startは同じ動作をします。)
+          stepEnd: { value: 'steps(1, end)' }, // 最後のジャンプはアニメーションの終了時に発生します。(endとjump-endは同じ動作をします。)
+          // グローバル値
+          inherit: { value: 'inherit' }, // 親要素から設定を引き継ぎます。
+          initial: { value: 'initial' }, // 初期値にリセットされます。(easeと同義のため、easeを優先的に使用)
+          unset: { value: 'unset' }, // 継承可能: 親要素からのスタイルを引き継ぎます。継承不可能: そのプロパティの初期値にリセットされます。
+        },
+        // TODO: 次はここから: https://panda-css.com/docs/theming/tokens#opacity
       },
       semanticTokens: {
         colors: createColorSemanticTokens({
