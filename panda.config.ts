@@ -102,7 +102,16 @@ export default defineConfig({
           initial: { value: 'initial' }, // 初期値にリセットされます。(easeと同義のため、easeを優先的に使用)
           unset: { value: 'unset' }, // 継承可能: 親要素からのスタイルを引き継ぎます。継承不可能: そのプロパティの初期値にリセットされます。
         },
-        // TODO: 次はここから: https://panda-css.com/docs/theming/tokens#opacity
+        opacity: {
+          none: { value: 0 },
+          light: { value: 0.1 },
+          lighter: { value: 0.3 },
+          medium: { value: 0.5 },
+          dark: { value: 0.7 },
+          heavy: { value: 0.9 },
+          full: { value: 1 },
+        },
+        // TODO: 次はここから: https://panda-css.com/docs/theming/tokens
       },
       semanticTokens: {
         colors: createColorSemanticTokens({
