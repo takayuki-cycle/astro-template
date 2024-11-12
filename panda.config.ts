@@ -111,22 +111,22 @@ export default defineConfig({
           heavy: { value: 0.9 },
           full: { value: 1 },
         },
-        // TODO: 以下を元にzIndexを定義
-        // chakra: https://www.chakra-ui.com/docs/theming/z-index
+        // 参照元: https://www.chakra-ui.com/docs/theming/z-index
         zIndex: {
-          hide: { value: -1 },
-          base: { value: 0 },
-          docked: { value: 10 },
-          dropdown: { value: 1000 },
-          sticky: { value: 1100 },
-          banner: { value: 1200 },
-          overlay: { value: 1300 },
-          modal: { value: 1400 },
-          popover: { value: 1500 },
-          skipNav: { value: 1600 },
-          toast: { value: 1700 },
-          tooltip: { value: 1800 },
-          max: { value: 2147483647 },
+          hide: { value: -1 }, // 装飾的な背景や視覚的に隠すべきだが完全に非表示にはしたくない要素
+          auto: { value: 'auto' }, // 基本のレイアウト要素や背景の調整が不要な要素
+          base: { value: 0 }, // 一般的なテキストや画像などのコンテンツ要素
+          docked: { value: 10 }, // サイドバーや固定されたナビゲーションのようなドッキング要素
+          dropdown: { value: 1000 }, // フォーム内のオートコンプリートリストやナビゲーションメニューの展開など、他の基本的なコンテンツの上に表示する必要がある要素
+          sticky: { value: 1100 }, // ヘッダーやスクロール追従型のサイドバーなどスクロール時に位置が固定されるsticky要素
+          banner: { value: 1200 }, // ユーザーへの重要な通知やプロモーションのバナーなど、目立たせる必要のある内容
+          overlay: { value: 1300 }, // モーダルが表示される際に、ページ全体に薄暗い背景を追加し、ユーザーの注目をモーダルに集中
+          modal: { value: 1400 }, // 確認ダイアログ、ポップアップウィンドウなどページ内で最も重要な情報を表示するため、他の要素を隠して目立たせる目的
+          popover: { value: 1500 }, // フォームフィールドのヘルプメッセージや、アイコンの詳細情報など
+          skipNav: { value: 1600 }, // スキップリンク（ページ内ナビゲーションをスキップするためのリンク）に使用
+          toast: { value: 1700 }, // 成功、エラーメッセージ、警告通知(トースト通知)に適用
+          tooltip: { value: 1800 }, // ボタンやアイコンにホバーした際の説明(ツールチップ)テキスト
+          max: { value: 2147483647 }, // 最高優先度の警告メッセージや一時的なシステムアラートのように絶対に他の要素に隠れてはいけない場合
         },
       },
       semanticTokens: {
