@@ -4,6 +4,11 @@ import astroParser from 'astro-eslint-parser'
 import eslintPluginAstro from 'eslint-plugin-astro'
 import jsxA11y from 'eslint-plugin-jsx-a11y'
 
+const styledCss = 'css|cx|cva|sva'
+const styledPatterns =
+  'box|flex|stack|vstack|hstack|spacer|square|circle|center|link-overlay|aspect-ratio|grid|grid-item|wrap|container|divider|float|bleed|visually-hidden|cq'
+const styledCalleeName = `${styledCss}|${styledPatterns}`
+
 const pandaRules = {
   ...Object.fromEntries(
     Object.entries(panda.configs.all.rules).map(([key, value]) => [
@@ -41,6 +46,14 @@ const eslintConfig = [
               message: "絶対パスでインポートしてください。例: '@/components/toc/types'",
             },
           ],
+        },
+      ],
+      'no-restricted-syntax': [
+        'error',
+        // Panda CSSで特定のプロパティ名の使用を禁止
+        {
+          selector: `CallExpression[callee.name=/^(${styledCalleeName})$/] Property[key.name='bgImage'][value.type!='ObjectExpression']`,
+          message: `'bgImage' は使用しないでください。代わりに 'Imageコンポーネント' を使用してください。`,
         },
       ],
     },

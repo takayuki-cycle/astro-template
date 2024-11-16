@@ -68,6 +68,8 @@
     "sudachi",
     "Fontface",
     "Noto",
-    "easings"
+    "easings",
+    "vstack",
+    "hstack"
   ]
 }

@@ -1,5 +1,6 @@
 ---
-import { css } from '@/../styled-system/css'
+import { css, cva } from '@/../styled-system/css'
+import { stack } from '@/../styled-system/patterns'
 import Layout from '@/layouts/Layout.astro'
 import type { HeadPageProps } from '@/layouts/head/types'
 
@@ -13,6 +14,34 @@ const headPage: HeadPageProps = {
   xCreator: '@xCreator',
   author: 'author',
 }
+
+export const testCSS = cva({
+  base: {
+    fontWeight: 'medium',
+    px: '3',
+    rounded: 'md',
+  },
+  variants: {
+    status: {
+      default: {
+        color: 'white',
+        bg: 'gray.500',
+      },
+      success: {
+        color: 'white',
+        bg: 'green.500',
+      },
+      warning: {
+        color: 'white',
+        bg: 'yellow.500',
+        w: '3',
+      },
+    },
+  },
+  defaultVariants: {
+    status: 'default',
+  },
+})
 ---
 
 <Layout headPage={headPage}>
@@ -78,8 +107,9 @@ const headPage: HeadPageProps = {
   </div>
   <div class={css({ opacity: 'medium' })}>opacity</div>
   <div class={css({ zIndex: 'docked' })}>zIndex</div>
-  <div class={css({ h: '96', bgImage: 'ship', bgSize: 'contain' })}>asset</div>
+  <div class={css({ h: '96', bgSize: 'contain' })}>asset</div>
   <div class={css({ p: '10' })}>asset</div>
+  <div class={stack({ w: '16', p: '4' })}>aaa</div>
   <br />
   <hr />
   <p><strong class={css({})}>strong</strong></p>
