@@ -70,6 +70,7 @@
     "Noto",
     "easings",
     "vstack",
-    "hstack"
+    "hstack",
+    "flexbox"
   ]
 }
