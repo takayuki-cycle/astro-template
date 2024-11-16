@@ -37,11 +37,7 @@ const eslintConfig = [
         {
           patterns: [
             {
-              group: ['../*'],
-              message: "絶対パスでインポートしてください。例: '@/components/toc/types'",
-            },
-            {
-              group: ['./*'],
+              group: ['./*', '../*'],
               message: "絶対パスでインポートしてください。例: '@/components/toc/types'",
             },
           ],
