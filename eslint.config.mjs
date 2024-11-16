@@ -55,6 +55,10 @@ const eslintConfig = [
           selector: `CallExpression[callee.name=/^(${styledCalleeName})$/] Property[key.name='bgImage'][value.type!='ObjectExpression']`,
           message: `'bgImage' は使用しないでください。代わりに 'Imageコンポーネント' を使用してください。`,
         },
+        {
+          selector: `CallExpression[callee.name=/^(${styledCalleeName})$/] Property[key.name='float'][value.type!='ObjectExpression']`,
+          message: `'float' は使用しないでください。代わりに 'flexboxやgridレイアウト' を使用してください。`,
+        },
       ],
     },
   },
