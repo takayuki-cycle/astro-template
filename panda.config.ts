@@ -266,7 +266,7 @@ export default defineConfig({
             },
           },
         }),
-        //
+        // background-imageではImageコンポーネントによる画像最適化が使えないので、assetsは使わないでください。
         assets: {},
       },
     },
