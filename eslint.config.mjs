@@ -22,14 +22,32 @@ const eslintConfig = [
   ...eslintPluginAstro.configs['jsx-a11y-strict'],
   {
     files: ['**/*.{js,jsx,ts,tsx,astro}'],
-    ignores: ['*.d.ts', 'styled-system'],
+    ignores: ['*.d.ts', 'node_modules/**', 'styled-system/**', '.astro/**', 'dist/**'],
     plugins: {
       '@pandacss': panda,
     },
     languageOptions: {
       parser: typescriptParser,
     },
-    rules: pandaRules,
+    rules: {
+      ...pandaRules,
+      'no-duplicate-imports': 'error',
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            {
+              group: ['../*'],
+              message: "絶対パスでインポートしてください。例: '@/components/toc/types'",
+            },
+            {
+              group: ['./*'],
+              message: "絶対パスでインポートしてください。例: '@/components/toc/types'",
+            },
+          ],
+        },
+      ],
+    },
   },
   {
     files: ['**/*.astro'],

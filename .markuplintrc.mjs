@@ -526,6 +526,7 @@ const markuplintConfig = {
       },
     },
   ],
+  excludeFiles: ['node_modules/**', 'styled-system/**', '.astro/**', 'dist/**'],
 }
 
 export default markuplintConfig
