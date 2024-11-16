@@ -5,7 +5,6 @@ import {
   createGradientSemanticTokens,
   createBorderSemanticTokens,
   createShadowSemanticTokens,
-  // createAssetSemanticTokens,
 } from '@/config/panda/utils'
 import { defineConfig, defineGlobalStyles } from '@pandacss/dev'
 
@@ -267,38 +266,8 @@ export default defineConfig({
             },
           },
         }),
-        // TODO: 背景画像を使うか使わないか決めること(ダークモード用の画像も考慮すること)
-        assets: {
-          /*
-          ship: {
-            value: {
-              base: {
-                type: 'url',
-                value: ship.src,
-              },
-              _osDark: {
-                type: 'url',
-                value: '/src/assets/images/page/ship.jpg',
-              },
-            },
-          },
-          */
-          /*
-          checkMark: {
-            value: { type: 'svg', value: '<svg>...</svg>' },
-          },
-          */
-        },
-        /*
-        assets: createAssetSemanticTokens({
-          logo: {
-            value: { type: 'url', value: '/static/logo.png' },
-          },
-          checkmark: {
-            value: { type: 'svg', value: '<svg>...</svg>' },
-          },
-        }),
-        */
+        //
+        assets: {},
       },
     },
   },

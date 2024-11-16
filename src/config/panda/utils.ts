@@ -156,5 +156,3 @@ export const createShadowSemanticTokens = (tokens: Tokens<ShadowValue>): TokenRe
     }),
   )
 }
-
-export const createAssetSemanticTokens = () => {}
