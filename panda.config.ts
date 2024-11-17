@@ -61,17 +61,8 @@ export default defineConfig({
         fontSizes: {},
         fontWeights: {},
         letterSpacings: {},
-        lineHeights: {
-          // 単位付き(rem)を用いることは非推奨
-          '3': { value: '0.75rem' },
-          '4': { value: '1rem' },
-          '5': { value: '1.25rem' },
-          '6': { value: '1.5rem' },
-          '7': { value: '1.75rem' },
-          '8': { value: '2rem' },
-          '9': { value: '2.25rem' },
-          '10': { value: '2.5rem' },
-        },
+        // 単位付き(rem)を用いることは非推奨
+        lineHeights: {},
         // border radiusで使用
         radii: {
           none: { value: '0' },

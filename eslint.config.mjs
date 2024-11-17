@@ -9,6 +9,12 @@ const styledPatterns =
   'box|flex|stack|vstack|hstack|spacer|square|circle|center|link-overlay|aspect-ratio|grid|grid-item|wrap|container|divider|float|bleed|visually-hidden|cq'
 const styledCalleeName = `${styledCss}|${styledPatterns}`
 
+const createStyledNoRestrictedSyntax = (rules) =>
+  rules.map(([property, suggestion]) => ({
+    selector: `CallExpression[callee.name=/^(${styledCalleeName})$/] Property[key.name='${property}'][value.type!='ObjectExpression']`,
+    message: `'${property}' は使用しないでください。${suggestion ? `代わりに '${suggestion}' を使用してください。` : 'この機能は非推奨になりました。'}`,
+  }))
+
 const pandaRules = {
   ...Object.fromEntries(
     Object.entries(panda.configs.all.rules).map(([key, value]) => [
@@ -51,14 +57,21 @@ const eslintConfig = [
       'no-restricted-syntax': [
         'error',
         // Panda CSSで特定のプロパティ名の使用を禁止
-        {
-          selector: `CallExpression[callee.name=/^(${styledCalleeName})$/] Property[key.name='bgImage'][value.type!='ObjectExpression']`,
-          message: `'bgImage' は使用しないでください。代わりに 'Imageコンポーネント' を使用してください。`,
-        },
-        {
-          selector: `CallExpression[callee.name=/^(${styledCalleeName})$/] Property[key.name='float'][value.type!='ObjectExpression']`,
-          message: `'float' は使用しないでください。代わりに 'flexboxやgridレイアウト' を使用してください。`,
-        },
+        // ['使用を禁止したいプロパティ名', '代わりに提案したい方法'](代わりに提案したい方法がなければ、''にしてください。)
+        // 使用を禁止するプロパティ名は、https://developer.mozilla.org/ja/docs/Web/CSS を参考にしました。
+        ...createStyledNoRestrictedSyntax([
+          ['bgImage', 'Imageコンポーネント'],
+          ['float', 'flexboxやgridレイアウト'],
+          ['clip', 'clipPath'],
+          ['boxAlign', ''],
+          ['boxDirection', ''],
+          ['boxFlex', ''],
+          ['boxFlexGroup', ''],
+          ['boxLines', ''],
+          ['boxOrdinalGroup', ''],
+          ['boxOrient', ''],
+          ['boxPack', ''],
+        ]),
       ],
     },
   },
