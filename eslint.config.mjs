@@ -12,7 +12,13 @@ const styledCalleeName = `${styledCss}|${styledPatterns}`
 const createStyledNoRestrictedSyntax = (rules) =>
   rules.map(([property, suggestion]) => ({
     selector: `CallExpression[callee.name=/^(${styledCalleeName})$/] Property[key.name='${property}'][value.type!='ObjectExpression']`,
-    message: `'${property}' は使用しないでください。${suggestion ? `代わりに '${suggestion}' を使用してください。` : 'この機能は非推奨になりました。'}`,
+    message: `'${property}' は使用しないでください。${suggestion ? `代わりに '${suggestion}' にしてください。` : '非推奨です。'}`,
+  }))
+
+const createHTMLTagNoRestrictedSyntax = (rules) =>
+  rules.map(([property, suggestion]) => ({
+    selector: `JSXOpeningElement[name.name='${property}']`,
+    message: `'${property}' は使用しないでください。${suggestion ? `代わりに '${suggestion}' にしてください。` : '非推奨です。'}`,
   }))
 
 const pandaRules = {
@@ -71,6 +77,18 @@ const eslintConfig = [
           ['boxOrdinalGroup', ''],
           ['boxOrient', ''],
           ['boxPack', ''],
+        ]),
+        // 特定のHTMLタグの使用を禁止
+        // ['使用を禁止したいHTMLタグ', '代わりに提案したい方法'](代わりに提案したい方法がなければ、''にしてください。)
+        // Markuplintで<font>、<center>、<marquee>、<frameset>、<frame>、<noframes>、<big>、<applet>、<blink>の使用は、既に禁止されています。
+        // <small>は補足情報で使用するので、禁止にはしていません。
+        ...createHTMLTagNoRestrictedSyntax([
+          ['b', '<strong>または<em>またはスタイルで太字'],
+          ['i', '<em>または<cite>またはスタイルで斜体'],
+          ['u', '<mark>または<abbr>またはスタイルで下線'],
+          ['s', '<del>または<ins>またはスタイルで打ち消し線'],
+          // ['img', 'Imageコンポーネント'], // TODO: いずれ適用
+          // ['style', 'Panda CSS'], // TODO: いずれ適用
         ]),
       ],
     },
