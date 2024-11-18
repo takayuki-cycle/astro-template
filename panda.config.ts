@@ -119,6 +119,12 @@ export default defineConfig({
           tooltip: { value: 1800 }, // ボタンやアイコンにホバーした際の説明(ツールチップ)テキスト
           max: { value: 2147483647 }, // 最高優先度の警告メッセージや一時的なシステムアラートのように絶対に他の要素に隠れてはいけない場合
         },
+        durations: {
+          // 'fastest': 50ms | 'faster': 100ms | 'fast': 150ms | 'normal': 200ms | 'slow': 300ms | 'slower': 400ms | 'slowest': 500ms
+        },
+        animations: {
+          // "spin": spin 1s linear infinite | "ping": ping 1s cubic-bezier(0, 0, 0.2, 1) infinite | "pulse": pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite | "bounce": bounce 1s infinite
+        },
       },
       semanticTokens: {
         colors: createColorSemanticTokens({

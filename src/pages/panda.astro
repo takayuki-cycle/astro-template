@@ -106,6 +106,19 @@ export const testCSS = cva({
   >
     transitionTimingFunction
   </div>
+  <div
+    class={css({
+      w: '16',
+      h: '8',
+      bgColor: 'bg.header',
+      transitionDuration: 'slow',
+      _hover: { w: '64', bgColor: 'bg.footer' },
+    })}
+  >
+    ABC
+  </div>
+  <div class={css({ animation: 'bounce' })}>animation</div>
+  <div class={css({ bgGradient: 'sample1', rounded: 'xl', maxW: '80', h: '16' })}>animeBox</div>
   <div class={css({ opacity: 'medium' })}>opacity</div>
   <div class={css({ zIndex: 'docked' })}>zIndex</div>
   <div class={css({ h: '96', bgSize: 'contain' })}>asset</div>
