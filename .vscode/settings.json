@@ -71,6 +71,8 @@
     "easings",
     "vstack",
     "hstack",
-    "flexbox"
+    "flexbox",
+    "bgsound",
+    "noembed"
   ]
 }
