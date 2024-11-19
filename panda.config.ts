@@ -124,6 +124,28 @@ export default defineConfig({
         },
         animations: {
           // "spin": spin 1s linear infinite | "ping": ping 1s cubic-bezier(0, 0, 0.2, 1) infinite | "pulse": pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite | "bounce": bounce 1s infinite
+          fadein: {
+            value: 'fadein 1s linear infinite',
+          },
+        },
+        aspectRatios: {
+          // 写真、映像
+          standard: { value: '4 / 3' },
+          widescreen: { value: '16 / 9' },
+          film: { value: '3 / 2' },
+          square: { value: '1 / 1' },
+          // デザイン、ウェブ
+          banner: { value: '2 / 1' },
+          workspace: { value: '16 / 10' },
+          // 映画・映像
+          cinemaScope: { value: '21 / 9' },
+          cinema: { value: '2.39 / 1' },
+          // スマートフォン
+          portraitVideo: { value: '9 / 16' },
+          smartScreen: { value: '19.5 / 9' },
+          // 特殊用途
+          classicCinema: { value: '2.35 / 1' },
+          standardCinema: { value: '1.85 / 1' },
         },
       },
       semanticTokens: {
@@ -265,6 +287,18 @@ export default defineConfig({
         }),
         // background-imageではImageコンポーネントによる画像最適化が使えないので、assetsは使わないでください。
         assets: {},
+      },
+      keyframes: {
+        fadein: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        /*
+        fadeout: {
+          '0%': { opacity: '1' },
+          '100%': { opacity: '0' }
+        },
+        */
       },
     },
   },
