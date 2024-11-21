@@ -6,20 +6,12 @@ import {
   createBorderSemanticTokens,
   createShadowSemanticTokens,
 } from '@/config/panda/utils'
-import { defineConfig, defineGlobalStyles } from '@pandacss/dev'
+import { animationNames } from '@/config/panda/creators/animationNames'
+import { globalStyles } from '@/config/panda/creators/globalStyles'
+import { defineConfig, defineGlobalStyles, defineKeyframes } from '@pandacss/dev'
 
-const globalCss = defineGlobalStyles({
-  html: {
-    '--global-font-body': 'Noto Sans JP',
-    '--global-font-mono': 'Noto Sans Mono',
-    fontOpticalSizing: 'auto',
-  },
-  strong: {
-    fontWeight: 'normal',
-  },
-  textarea: { resize: 'none' },
-  summary: {},
-})
+const keyframes = defineKeyframes(animationNames)
+const globalCss = defineGlobalStyles(globalStyles)
 
 export default defineConfig({
   preflight: true, // リセットCSSを適用
@@ -124,8 +116,35 @@ export default defineConfig({
         },
         animations: {
           // "spin": spin 1s linear infinite | "ping": ping 1s cubic-bezier(0, 0, 0.2, 1) infinite | "pulse": pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite | "bounce": bounce 1s infinite
-          fadein: {
-            value: 'fadein 1s linear infinite',
+          fadeIn: {
+            value: 'fadeIn 0.7s cubic-bezier(0.33, 1, 0.68, 1) forwards',
+          },
+          slideIn: {
+            value: 'slideIn 1s cubic-bezier(0.25, 1, 0.5, 1) forwards',
+          },
+          zoomIn: {
+            value: 'zoomIn 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards',
+          },
+          poyoyon: {
+            value: 'poyoyon 0.5s cubic-bezier(0.12, 0, 0.39, 0) 1 forwards',
+          },
+          poyoyon2: {
+            value: 'poyoyon2 1s ease-in-out forwards',
+          },
+          poyoyon3: {
+            value: 'poyoyon3 2.5s infinite',
+          },
+          slideSkew: {
+            value: 'slideSkew 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards',
+          },
+          popup: {
+            value: 'popup 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards',
+          },
+          poyopoyo: {
+            value: 'poyopoyo 2s ease-out infinite',
+          },
+          fadeUp: {
+            value: 'fadeUp 1s cubic-bezier(0.33, 1, 0.68, 1) forwards',
           },
         },
         aspectRatios: {
@@ -288,18 +307,7 @@ export default defineConfig({
         // background-imageではImageコンポーネントによる画像最適化が使えないので、assetsは使わないでください。
         assets: {},
       },
-      keyframes: {
-        fadein: {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' },
-        },
-        /*
-        fadeout: {
-          '0%': { opacity: '1' },
-          '100%': { opacity: '0' }
-        },
-        */
-      },
+      keyframes,
     },
   },
   globalCss,
