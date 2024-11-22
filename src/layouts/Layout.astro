@@ -8,6 +8,7 @@ import type { HeadPageProps, HeadSiteProps } from '@/layouts/head/types'
 import Header from '@/layouts/header/Header.astro'
 import '@/index.css'
 import { fade } from 'astro:transitions'
+import { css } from '@/../styled-system/css'
 
 interface Props {
   headPage: HeadPageProps
@@ -24,7 +25,7 @@ const headSite: HeadSiteProps = {
   isAppleTouchIcon: true,
   themeColor: '#808080',
   fbAppID: '01234567890',
-  gtmID: 'GTM-XXXXXXXX',
+  gtmID: 'GTM-XXXXXXXX'
 }
 ---
 
@@ -35,14 +36,16 @@ const headSite: HeadSiteProps = {
     {headSite.gtmID && <BodyGTM gtmID={headSite.gtmID} />}
     <Header />
     <main
-      style='
-        width: 50rem;
-        max-width: calc(100% - 2rem);
-        padding: 1rem;
-        margin: auto;
-        font-size: 1.25rem;
-        line-height: 1.6;
-      '
+      class={css({
+        w: '3xl',
+        maxW: 'innerSize',
+        p: '4',
+        // eslint-disable-next-line @pandacss/no-margin-properties
+        mr: 'auto',
+        // eslint-disable-next-line @pandacss/no-margin-properties
+        ml: 'auto',
+        fontSize: 'xl'
+      })}
     >
       <slot />
     </main>

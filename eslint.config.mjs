@@ -21,6 +21,12 @@ const createHTMLTagNoRestrictedSyntax = (rules) =>
     message: `'${property}' は使用しないでください。${suggestion ? `代わりに '${suggestion}' にしてください。` : '非推奨です。'}`,
   }))
 
+const createAttributeNoRestrictedSyntax = (rules) =>
+  rules.map(([property, suggestion]) => ({
+    selector: `JSXAttribute[name.name='${property}']`,
+    message: `'${property}' は使用しないでください。${suggestion ? `代わりに '${suggestion}' にしてください。` : '非推奨です。'}`,
+  }))
+
 const pandaRules = {
   ...Object.fromEntries(
     Object.entries(panda.configs.all.rules).map(([key, value]) => [
@@ -92,6 +98,8 @@ const eslintConfig = [
           ['style', 'Panda CSS'],
           // ['img', 'Imageコンポーネント'], // TODO: いずれ適用
         ]),
+        // 特定のHTML属性の使用を禁止
+        ...createAttributeNoRestrictedSyntax([['style', 'Panda CSS']]),
       ],
     },
   },

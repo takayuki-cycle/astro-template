@@ -43,6 +43,7 @@ export default defineConfig({
           min: { value: 'min-content' },
           max: { value: 'max-content' },
           fit: { value: 'fit-content' },
+          innerSize: { value: 'calc(100% - 2rem)' },
         },
         // paddingで使用
         spacing: {},
