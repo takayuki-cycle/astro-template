@@ -9,9 +9,8 @@
   "prettier.semi": false,
   "prettier.singleQuote": true,
   "prettier.jsxSingleQuote": true,
-  "prettier.trailingComma": "all",
+  "prettier.trailingComma": "none",
   "prettier.printWidth": 100,
-  "stylelint.validate": ["html", "astro"],
   "textlint.languages": ["markdown", "mdx", "plaintext"],
   "panda.rem-to-px.enabled": true,
   "workbench.colorCustomizations": {
