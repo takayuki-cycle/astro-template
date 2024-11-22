@@ -18,7 +18,7 @@ const blog = defineCollection({
         'noarchive', // ページのキャッシュを保存しないことを指示します。
         'nosnippet', // 検索結果にスニペット（ページ内容の要約）を表示しないことを指示します。
         'index, nofollow',
-        'noindex, follow',
+        'noindex, follow'
       ])
       .optional()
       .default(''),
@@ -52,8 +52,8 @@ const blog = defineCollection({
           return uniqueCategories.size === categories.length
         },
         {
-          message: 'Categories must contain unique values.',
-        },
+          message: 'Categories must contain unique values.'
+        }
       ), // カテゴリーを設定してグループ化(1つだけ設定することを推奨、階層構造有、重複したカテゴリー名は不可)
     tags: z
       .array(z.string())
@@ -65,16 +65,16 @@ const blog = defineCollection({
           return uniqueCategories.size === categories.length
         },
         {
-          message: 'Tags must contain unique values.',
-        },
+          message: 'Tags must contain unique values.'
+        }
       ), // タグを設定してキーワード化(階層構造無、重複したタグ名は不可)
-    isDraft: z.boolean(), // 本番用にビルドするときにのみ、isDraft: trueを含むエントリーを除外
-  }),
+    isDraft: z.boolean() // 本番用にビルドするときにのみ、isDraft: trueを含むエントリーを除外
+  })
 })
 
 const nameSchema = z.object({
   formal: z.string().min(1).max(20),
-  ruby: z.string().min(1).max(20),
+  ruby: z.string().min(1).max(20)
 })
 
 const authors = defineCollection({
@@ -84,10 +84,10 @@ const authors = defineCollection({
       last: nameSchema, // 名字
       middle: z.object({
         formal: z.string().max(20).optional().or(z.literal('')),
-        ruby: z.string().max(20).optional().or(z.literal('')),
+        ruby: z.string().max(20).optional().or(z.literal(''))
       }), // 中間名
       first: nameSchema, // 名前
-      nick: z.string().max(20).optional().or(z.literal('')), // あだ名
+      nick: z.string().max(20).optional().or(z.literal('')) // あだ名
     }),
     introduction: z.string().max(150).optional().or(z.literal('')), // 自己紹介
     occupation: z.array(z.string().max(20)).optional(), // 職種
@@ -112,9 +112,9 @@ const authors = defineCollection({
       linkedIn: z.string().url().optional().or(z.literal('')),
       gitHub: z.string().url().optional().or(z.literal('')),
       zenn: z.string().url().optional().or(z.literal('')),
-      qiita: z.string().url().optional().or(z.literal('')),
-    }),
-  }),
+      qiita: z.string().url().optional().or(z.literal(''))
+    })
+  })
 })
 
 export const collections = { blog, authors }

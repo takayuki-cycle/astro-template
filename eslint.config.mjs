@@ -12,32 +12,32 @@ const styledCalleeName = `${styledCss}|${styledPatterns}`
 const createStyledNoRestrictedSyntax = (rules) =>
   rules.map(([property, suggestion]) => ({
     selector: `CallExpression[callee.name=/^(${styledCalleeName})$/] Property[key.name='${property}'][value.type!='ObjectExpression']`,
-    message: `'${property}' は使用しないでください。${suggestion ? `代わりに '${suggestion}' にしてください。` : '非推奨です。'}`,
+    message: `'${property}' は使用しないでください。${suggestion ? `代わりに '${suggestion}' にしてください。` : '非推奨です。'}`
   }))
 
 const createHTMLTagNoRestrictedSyntax = (rules) =>
   rules.map(([property, suggestion]) => ({
     selector: `JSXOpeningElement[name.name='${property}']`,
-    message: `'${property}' は使用しないでください。${suggestion ? `代わりに '${suggestion}' にしてください。` : '非推奨です。'}`,
+    message: `'${property}' は使用しないでください。${suggestion ? `代わりに '${suggestion}' にしてください。` : '非推奨です。'}`
   }))
 
 const createAttributeNoRestrictedSyntax = (rules) =>
   rules.map(([property, suggestion]) => ({
     selector: `JSXAttribute[name.name='${property}']`,
-    message: `'${property}' は使用しないでください。${suggestion ? `代わりに '${suggestion}' にしてください。` : '非推奨です。'}`,
+    message: `'${property}' は使用しないでください。${suggestion ? `代わりに '${suggestion}' にしてください。` : '非推奨です。'}`
   }))
 
 const pandaRules = {
   ...Object.fromEntries(
     Object.entries(panda.configs.all.rules).map(([key, value]) => [
       key,
-      value === 'warn' ? 'error' : value,
-    ]),
+      value === 'warn' ? 'error' : value
+    ])
   ),
   '@pandacss/no-physical-properties': 'off',
   '@pandacss/prefer-longhand-properties': 'off',
   '@pandacss/prefer-atomic-properties': 'off', // コードが長くなりすぎる場合のみ、compositeプロパティを使用(例えば、borderをatomicで記述すると12個になってしまう場合など)
-  '@pandacss/prefer-composite-properties': 'off',
+  '@pandacss/prefer-composite-properties': 'off'
 }
 
 const eslintConfig = [
@@ -47,10 +47,10 @@ const eslintConfig = [
     files: ['**/*.{js,jsx,ts,tsx,astro}'],
     ignores: ['*.d.ts', 'node_modules/**', 'styled-system', '.astro/**', 'dist/**'],
     plugins: {
-      '@pandacss': panda,
+      '@pandacss': panda
     },
     languageOptions: {
-      parser: typescriptParser,
+      parser: typescriptParser
     },
     rules: {
       ...pandaRules,
@@ -61,10 +61,10 @@ const eslintConfig = [
           patterns: [
             {
               group: ['./*', '../*'],
-              message: "絶対パスでインポートしてください。例: '@/components/toc/types'",
-            },
-          ],
-        },
+              message: "絶対パスでインポートしてください。例: '@/components/toc/types'"
+            }
+          ]
+        }
       ],
       'no-restricted-syntax': [
         'error',
@@ -82,7 +82,7 @@ const eslintConfig = [
           ['boxLines', ''],
           ['boxOrdinalGroup', ''],
           ['boxOrient', ''],
-          ['boxPack', ''],
+          ['boxPack', '']
         ]),
         // 特定のHTMLタグの使用を禁止
         // ['使用を禁止したいHTMLタグ', '代わりに提案したい方法'](代わりに提案したい方法がなければ、''にしてください。)
@@ -95,13 +95,13 @@ const eslintConfig = [
           ['s', '<del>または<ins>またはスタイルで打ち消し線'],
           ['hgroup', '<header>または<section>または<div>にARIA属性'],
           ['command', '<menu>または<button>または<kbd>または<ul>または<ol>または<span>'],
-          ['style', 'Panda CSS'],
+          ['style', 'Panda CSS']
           // ['img', 'Imageコンポーネント'], // TODO: いずれ適用
         ]),
         // 特定のHTML属性の使用を禁止
-        ...createAttributeNoRestrictedSyntax([['style', 'Panda CSS']]),
-      ],
-    },
+        ...createAttributeNoRestrictedSyntax([['style', 'Panda CSS']])
+      ]
+    }
   },
   {
     files: ['**/*.astro'],
@@ -109,20 +109,20 @@ const eslintConfig = [
       parser: astroParser,
       parserOptions: {
         parser: typescriptParser,
-        extraFileExtensions: ['.astro'],
-      },
+        extraFileExtensions: ['.astro']
+      }
     },
-    rules: pandaRules,
+    rules: pandaRules
   },
   {
     files: ['**/*.{js,jsx,ts,tsx}'],
     plugins: {
-      'jsx-a11y': jsxA11y,
+      'jsx-a11y': jsxA11y
     },
     rules: {
-      ...jsxA11y.flatConfigs.recommended.rules,
-    },
-  },
+      ...jsxA11y.flatConfigs.recommended.rules
+    }
+  }
 ]
 
 export default eslintConfig

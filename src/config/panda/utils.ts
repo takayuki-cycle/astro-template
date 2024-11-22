@@ -9,7 +9,7 @@ import type {
   GradientValue,
   BorderValue,
   ShadowValue,
-  ShadowArray,
+  ShadowArray
 } from '@/config/panda/types'
 
 export const createColorSemanticTokens = (tokens: Tokens<ColorArray>): TokenResult<ColorValue> =>
@@ -24,17 +24,17 @@ export const createColorSemanticTokens = (tokens: Tokens<ColorArray>): TokenResu
       }
 
       return [key, {}]
-    }),
+    })
   )
 
 export const createGradientSemanticTokens = (
-  tokens: Tokens<GradientValue>,
+  tokens: Tokens<GradientValue>
 ): TokenResult<Gradient> => {
   const createStops = (colors: ColorPath[] = [], positions: number[] = []) =>
     positions.length > 0
       ? colors.map((color, index) => ({
           color: `{colors.${color}}`,
-          ...(positions[index] !== undefined ? { position: positions[index] } : {}),
+          ...(positions[index] !== undefined ? { position: positions[index] } : {})
         }))
       : colors.map((color) => `{colors.${color}}`)
 
@@ -50,17 +50,17 @@ export const createGradientSemanticTokens = (
               base: {
                 type,
                 placement,
-                stops: createStops(baseStops, positions),
+                stops: createStops(baseStops, positions)
               },
               ...(osDarkStops.length > 0 && {
                 _osDark: {
                   type,
                   placement,
-                  stops: createStops(osDarkStops, positions),
-                },
-              }),
-            },
-          },
+                  stops: createStops(osDarkStops, positions)
+                }
+              })
+            }
+          }
         ]
       }
 
@@ -69,7 +69,7 @@ export const createGradientSemanticTokens = (
       }
 
       return [key, {}]
-    }),
+    })
   )
 }
 
@@ -78,7 +78,7 @@ export const createBorderSemanticTokens = (tokens: Tokens<BorderValue>): TokenRe
     width: `${width}rem`,
     style,
     color: `{colors.${colors[0]}}`,
-    ...(colors[1] && { _osDark: `{colors.${colors[1]}}` }),
+    ...(colors[1] && { _osDark: `{colors.${colors[1]}}` })
   })
 
   return Object.fromEntries(
@@ -93,10 +93,10 @@ export const createBorderSemanticTokens = (tokens: Tokens<BorderValue>): TokenRe
               base: createBorder(width, style, colors),
               ...(colors.length > 1 &&
                 colors[1] !== '' && {
-                  _osDark: createBorder(width, style, [colors[1] || colors[0]]),
-                }),
-            },
-          },
+                  _osDark: createBorder(width, style, [colors[1] || colors[0]])
+                })
+            }
+          }
         ]
       }
 
@@ -105,7 +105,7 @@ export const createBorderSemanticTokens = (tokens: Tokens<BorderValue>): TokenRe
       }
 
       return [key, {}]
-    }),
+    })
   )
 }
 
@@ -118,8 +118,8 @@ export const createShadowSemanticTokens = (tokens: Tokens<ShadowValue>): TokenRe
     return {
       base: shadowValue(colors[0]),
       ...(colors[1] && {
-        _osDark: shadowValue(colors[1]),
-      }),
+        _osDark: shadowValue(colors[1])
+      })
     }
   }
 
@@ -136,12 +136,12 @@ export const createShadowSemanticTokens = (tokens: Tokens<ShadowValue>): TokenRe
                   .join(', '),
                 _osDark: (value as ShadowArray[])
                   .map((shadowValue) =>
-                    shadowValue[4][1] ? createShadow(shadowValue)._osDark : null,
+                    shadowValue[4][1] ? createShadow(shadowValue)._osDark : null
                   )
                   .filter(Boolean)
-                  .join(', '),
-              },
-            },
+                  .join(', ')
+              }
+            }
           ]
         }
 
@@ -153,6 +153,6 @@ export const createShadowSemanticTokens = (tokens: Tokens<ShadowValue>): TokenRe
       }
 
       return [key, {}]
-    }),
+    })
   )
 }

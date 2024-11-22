@@ -12,35 +12,35 @@ const headPage: HeadPageProps = {
   ogImage: '/ogp/general.webp',
   ogImageAlt: 'ogImageAlt',
   xCreator: '@xCreator',
-  author: 'author',
+  author: 'author'
 }
 
 export const testCSS = cva({
   base: {
     fontWeight: 'medium',
     px: '3',
-    rounded: 'md',
+    rounded: 'md'
   },
   variants: {
     status: {
       default: {
         color: 'white',
-        bg: 'gray.500',
+        bg: 'gray.500'
       },
       success: {
         color: 'white',
-        bg: 'green.500',
+        bg: 'green.500'
       },
       warning: {
         color: 'white',
         bg: 'yellow.500',
-        w: '3',
-      },
-    },
+        w: '3'
+      }
+    }
   },
   defaultVariants: {
-    status: 'default',
-  },
+    status: 'default'
+  }
 })
 ---
 

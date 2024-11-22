@@ -1,8 +1,8 @@
 module.exports = {
   plugins: {
     '@textlint/markdown': {
-      extensions: ['.mdx'],
-    },
+      extensions: ['.mdx']
+    }
   },
   filters: {},
   rules: {
@@ -10,12 +10,12 @@ module.exports = {
       'no-exclamation-question-mark': false,
       'ja-no-mixed-period': {
         periodMark: ['。', '笑', 'w', 'W', '…', '...'],
-        allowEmojiAtEnd: true,
+        allowEmojiAtEnd: true
       },
       'sentence-length': {
-        max: 150,
+        max: 150
       },
-      'ja-no-weak-phrase': false,
+      'ja-no-weak-phrase': false
     },
     'no-mixed-zenkaku-and-hankaku-alphabet': true,
     'ja-hiragana-keishikimeishi': true,
@@ -24,6 +24,6 @@ module.exports = {
     '@textlint-ja/textlint-rule-no-insert-dropping-sa': true,
     'prefer-tari-tari': true,
     '@textlint-ja/no-synonyms': true,
-    'ja-no-orthographic-variants': true,
-  },
+    'ja-no-orthographic-variants': true
+  }
 }

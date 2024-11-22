@@ -3,7 +3,7 @@ import type { GetStaticPathsOptions } from 'astro'
 
 const sortByPublishDateDesc = (
   a: { data: { publishDate: string } },
-  b: { data: { publishDate: string } },
+  b: { data: { publishDate: string } }
 ) => {
   const dateA = new Date(a.data.publishDate).getTime()
   const dateB = new Date(b.data.publishDate).getTime()
@@ -14,7 +14,7 @@ const sortByPublishDateDesc = (
 export const getPaginatedPaths = async (
   pathName: 'blog', // TODO: 他のパスを追加する場合は、ここに追加(例: 'blog' | 'authors')
   paginate: GetStaticPathsOptions['paginate'],
-  pageSize = 1,
+  pageSize = 1
 ) => {
   const posts = await getCollection(pathName, ({ data }) => {
     // 本番用にビルドするときにのみ、isDraft: trueを含むエントリーを除外
@@ -27,7 +27,7 @@ export const getPaginatedPaths = async (
 export const getCategoryPaginatedPaths = async (
   pathName: 'blog', // TODO: 他のパスを追加する場合は、ここに追加(例: 'blog' | 'authors')
   paginate: GetStaticPathsOptions['paginate'],
-  pageSize = 1,
+  pageSize = 1
 ) => {
   const posts = await getCollection(pathName, ({ data }) => {
     // 本番用にビルドするときにのみ、isDraft: trueを含むエントリーを除外
@@ -44,13 +44,13 @@ export const getCategoryPaginatedPaths = async (
     })
     return paginate(filteredPosts, {
       params: { categorySlug },
-      pageSize: pageSize,
+      pageSize: pageSize
     })
   })
 }
 
 export const getSlugPath = async (
-  pathName: 'blog', // TODO: 他のパスを追加する場合は、ここに追加(例: 'blog' | 'authors')
+  pathName: 'blog' // TODO: 他のパスを追加する場合は、ここに追加(例: 'blog' | 'authors')
 ) => {
   const posts = await getCollection(pathName, ({ data }) => {
     // 本番用にビルドするときにのみ、isDraft: trueを含むエントリーを除外
@@ -59,12 +59,12 @@ export const getSlugPath = async (
 
   return posts.map((post) => ({
     params: { slug: post.id },
-    props: post,
+    props: post
   }))
 }
 
 export const getCategories = async (
-  pathName: 'blog', // TODO: 他のパスを追加する場合は、ここに追加(例: 'blog' | 'authors')
+  pathName: 'blog' // TODO: 他のパスを追加する場合は、ここに追加(例: 'blog' | 'authors')
 ) => {
   const category = await getCollection(pathName, ({ data }) => {
     // 本番用にビルドするときにのみ、isDraft: trueを含むエントリーを除外
@@ -80,7 +80,7 @@ export const getAuthor = async (authorID: string | undefined) => {
   const authorNameParts = [
     author?.name.last.formal,
     author?.name.middle.formal,
-    author?.name.first.formal,
+    author?.name.first.formal
   ].filter(Boolean)
   const authorName = authorNameParts.join(' ')
 

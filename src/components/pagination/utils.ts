@@ -15,6 +15,6 @@ export const calculatePagination = (currentPage: number, lastPage: number, step:
     isShowLastLink,
     isShowFirstOmit,
     isShowLastOmit,
-    range: range(firstStep, lastStep),
+    range: range(firstStep, lastStep)
   }
 }

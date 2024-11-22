@@ -7,7 +7,7 @@ const renderHeadings = (
   extendHeadings: ExtendHeading[],
   ListTag: ListTag,
   maxDepth: MaxDepth,
-  depth = 1,
+  depth = 1
 ) => {
   if (depth > maxDepth) {
     return null
@@ -16,7 +16,7 @@ const renderHeadings = (
   return (
     <ListTag
       className={css({
-        pl: '5',
+        pl: '5'
       })}
     >
       {extendHeadings.map((heading) => (
@@ -27,9 +27,9 @@ const renderHeadings = (
               ListTag === 'ol' && {
                 _before: {
                   pr: '2',
-                  content: 'attr(data-number)',
-                },
-              },
+                  content: 'attr(data-number)'
+                }
+              }
             )}
             {...(ListTag === 'ol' && { 'data-number': `${heading.number}:` })}
           >
@@ -53,7 +53,7 @@ export const TOC = ({ headings, ListTag = 'ol', maxDepth = 3 }: TOCProps) => {
         className={css({
           display: 'flex',
           flexDir: 'column',
-          rowGap: '4',
+          rowGap: '4'
         })}
       >
         <p>目次</p>

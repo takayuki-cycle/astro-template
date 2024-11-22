@@ -4,7 +4,7 @@ import {
   createColorSemanticTokens,
   createGradientSemanticTokens,
   createBorderSemanticTokens,
-  createShadowSemanticTokens,
+  createShadowSemanticTokens
 } from '@/config/panda/utils'
 import { animationNames } from '@/config/panda/creators/animationNames'
 import { globalStyles } from '@/config/panda/creators/globalStyles'
@@ -33,7 +33,7 @@ export default defineConfig({
         md: '768px',
         lg: '1024px',
         xl: '1280px',
-        '2xl': '1536px',
+        '2xl': '1536px'
       },
       tokens: {
         colors: {},
@@ -43,13 +43,13 @@ export default defineConfig({
           min: { value: 'min-content' },
           max: { value: 'max-content' },
           fit: { value: 'fit-content' },
-          innerSize: { value: 'calc(100% - 2rem)' },
+          innerSize: { value: 'calc(100% - 2rem)' }
         },
         // paddingで使用
         spacing: {},
         fonts: {
           body: { value: 'Noto Sans JP' },
-          mono: { value: 'Noto Sans Mono' },
+          mono: { value: 'Noto Sans Mono' }
         },
         fontSizes: {},
         fontWeights: {},
@@ -58,7 +58,7 @@ export default defineConfig({
         lineHeights: {},
         // border radiusで使用
         radii: {
-          none: { value: '0' },
+          none: { value: '0' }
         },
         // 使わないかも知れないです。
         borderWidths: {},
@@ -84,7 +84,7 @@ export default defineConfig({
           // グローバル値
           inherit: { value: 'inherit' }, // 親要素から設定を引き継ぎます。
           initial: { value: 'initial' }, // 初期値にリセットされます。(easeと同義のため、easeを優先的に使用)
-          unset: { value: 'unset' }, // 継承可能: 親要素からのスタイルを引き継ぎます。継承不可能: そのプロパティの初期値にリセットされます。
+          unset: { value: 'unset' } // 継承可能: 親要素からのスタイルを引き継ぎます。継承不可能: そのプロパティの初期値にリセットされます。
         },
         opacity: {
           none: { value: 0 },
@@ -93,7 +93,7 @@ export default defineConfig({
           medium: { value: 0.5 },
           dark: { value: 0.7 },
           heavy: { value: 0.9 },
-          full: { value: 1 },
+          full: { value: 1 }
         },
         // 参照元: https://www.chakra-ui.com/docs/theming/z-index
         zIndex: {
@@ -110,7 +110,7 @@ export default defineConfig({
           skipNav: { value: 1600 }, // スキップリンク（ページ内ナビゲーションをスキップするためのリンク）に使用
           toast: { value: 1700 }, // 成功、エラーメッセージ、警告通知(トースト通知)に適用
           tooltip: { value: 1800 }, // ボタンやアイコンにホバーした際の説明(ツールチップ)テキスト
-          max: { value: 2147483647 }, // 最高優先度の警告メッセージや一時的なシステムアラートのように絶対に他の要素に隠れてはいけない場合
+          max: { value: 2147483647 } // 最高優先度の警告メッセージや一時的なシステムアラートのように絶対に他の要素に隠れてはいけない場合
         },
         durations: {
           // 'fastest': 50ms | 'faster': 100ms | 'fast': 150ms | 'normal': 200ms | 'slow': 300ms | 'slower': 400ms | 'slowest': 500ms
@@ -118,35 +118,35 @@ export default defineConfig({
         animations: {
           // "spin": spin 1s linear infinite | "ping": ping 1s cubic-bezier(0, 0, 0.2, 1) infinite | "pulse": pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite | "bounce": bounce 1s infinite
           fadeIn: {
-            value: 'fadeIn 0.7s cubic-bezier(0.33, 1, 0.68, 1) forwards',
+            value: 'fadeIn 0.7s cubic-bezier(0.33, 1, 0.68, 1) forwards'
           },
           slideIn: {
-            value: 'slideIn 1s cubic-bezier(0.25, 1, 0.5, 1) forwards',
+            value: 'slideIn 1s cubic-bezier(0.25, 1, 0.5, 1) forwards'
           },
           zoomIn: {
-            value: 'zoomIn 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards',
+            value: 'zoomIn 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards'
           },
           poyoyon: {
-            value: 'poyoyon 0.5s cubic-bezier(0.12, 0, 0.39, 0) 1 forwards',
+            value: 'poyoyon 0.5s cubic-bezier(0.12, 0, 0.39, 0) 1 forwards'
           },
           poyoyon2: {
-            value: 'poyoyon2 1s ease-in-out forwards',
+            value: 'poyoyon2 1s ease-in-out forwards'
           },
           poyoyon3: {
-            value: 'poyoyon3 2.5s infinite',
+            value: 'poyoyon3 2.5s infinite'
           },
           slideSkew: {
-            value: 'slideSkew 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards',
+            value: 'slideSkew 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards'
           },
           popup: {
-            value: 'popup 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards',
+            value: 'popup 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards'
           },
           poyopoyo: {
-            value: 'poyopoyo 2s ease-out infinite',
+            value: 'poyopoyo 2s ease-out infinite'
           },
           fadeUp: {
-            value: 'fadeUp 1s cubic-bezier(0.33, 1, 0.68, 1) forwards',
-          },
+            value: 'fadeUp 1s cubic-bezier(0.33, 1, 0.68, 1) forwards'
+          }
         },
         aspectRatios: {
           // 写真、映像
@@ -165,8 +165,8 @@ export default defineConfig({
           smartScreen: { value: '19.5 / 9' },
           // 特殊用途
           classicCinema: { value: '2.35 / 1' },
-          standardCinema: { value: '1.85 / 1' },
-        },
+          standardCinema: { value: '1.85 / 1' }
+        }
       },
       semanticTokens: {
         colors: createColorSemanticTokens({
@@ -178,19 +178,19 @@ export default defineConfig({
           bg: {
             DEFAULT: ['white', 'neutral.900'], // #ffffff, #171717
             header: ['neutral.200', 'neutral.800'], // #e5e5e5, #262626
-            footer: ['neutral.700', 'neutral.900'], // #404040, #171717
+            footer: ['neutral.700', 'neutral.900'] // #404040, #171717
           },
           text: {
             DEFAULT: ['neutral.800', 'neutral.200'], // #262626, #e5e5e5
             link: ['blue.600', 'blue.400'], // #2563eb, #60a5fa
-            disabled: ['gray.600', 'gray.400'], // #4b5563, #9ca3af
+            disabled: ['gray.600', 'gray.400'] // #4b5563, #9ca3af
           },
           success: ['green.500', 'green.300'], // #22c55e, #86efac
           warning: ['yellow.400', 'yellow.200'], // #facc15 , #fef08a
           danger: ['red.600', 'red.400'], // #dc2626, #f87171
           info: ['sky.500', 'sky.300'], // ##0ea5e9, #7dd3fc
           border: ['gray.300', 'gray.700'], // #d1d5db, #374151
-          hover: ['blue.800', 'blue.600'], // #1e40af, #2563eb
+          hover: ['blue.800', 'blue.600'] // #1e40af, #2563eb
         }),
         gradients: createGradientSemanticTokens({
           // 元々の値
@@ -219,13 +219,13 @@ export default defineConfig({
             'to right', // placement(baseと_osDarkで同じ値を使います。)
             ['red.400', 'blue.300'], // stops -> color(base)(color(base)とcolor(_osDark)とpositionの要素数は同じにしてください。)
             ['yellow.200', 'green.500'], // stops -> color(_osDark)
-            [0, 200], // stops -> position(baseと_osDarkで同じ値を使います。単位はpxで、それぞれの数字の間隔にグラデーションがかかります。)
+            [0, 200] // stops -> position(baseと_osDarkで同じ値を使います。単位はpxで、それぞれの数字の間隔にグラデーションがかかります。)
           ],
           sample2: [
             'linear',
             'to left',
             ['yellow.200', 'green.500', 'red.600', 'blue.800'],
-            ['green.500', 'yellow.200', 'blue.800', 'red.600'],
+            ['green.500', 'yellow.200', 'blue.800', 'red.600']
           ],
           sample3: ['linear', 'to bottom', ['orange.500', 'purple.500']],
           sample4: {
@@ -234,18 +234,18 @@ export default defineConfig({
               'to right',
               ['red.600', 'blue.800', 'yellow.200'],
               ['yellow.200', 'green.500', 'red.600'],
-              [80, 90, 100],
+              [80, 90, 100]
             ],
             sample5: [
               'linear',
               'to left',
               ['black', 'white', 'yellow.200'],
               ['yellow.200', 'green.500', 'red.600'],
-              [30, 40, 50],
-            ],
+              [30, 40, 50]
+            ]
           },
           sample6: ['radial', 'circle', ['orange.500', 'purple.500']],
-          sample7: ['radial', 'ellipse', ['orange.500', 'purple.500']],
+          sample7: ['radial', 'ellipse', ['orange.500', 'purple.500']]
         }),
         borders: createBorderSemanticTokens({
           // [key]: [border-width(rem), border-style, [base, _osDark(任意)]
@@ -260,13 +260,13 @@ export default defineConfig({
           border2: [0.125, 'dashed', ['blue.400']],
           border3: {
             DEFAULT: [0.1875, 'solid', ['yellow.400', 'yellow.200']],
-            border4: [0.25, 'double', ['green.700', 'green.200']],
+            border4: [0.25, 'double', ['green.700', 'green.200']]
           },
           border5: {
             DEFAULT: [0.3125, 'groove', ['purple.400']],
             border6: [0.375, 'ridge', ['orange.400', '']],
-            border7: [0.5, 'inset', ['pink.400', 'sky.400']],
-          },
+            border7: [0.5, 'inset', ['pink.400', 'sky.400']]
+          }
         }),
         shadows: createShadowSemanticTokens({
           // [key]: [offsetX(rem), offsetY(rem), blur(rem), spread(rem), [base, _osDark(任意)], inset(任意、省略でoutset)]
@@ -289,7 +289,7 @@ export default defineConfig({
           shadow1: [
             [0.0625, 0.0625, 0.125, 0.125, ['green.800', 'yellow.400'], 'inset'],
             [0.1875, 0.1875, 0.25, 0.25, ['rose.300', 'lime.900']],
-            [0.3125, 0.3125, 0.375, 0.375, ['purple.300', 'zinc.700'], 'inset'],
+            [0.3125, 0.3125, 0.375, 0.375, ['purple.300', 'zinc.700'], 'inset']
           ],
           shadow2: [0.0625, 0.0625, 0.125, 0.125, ['green.800']],
           shadow3: [0.375, 0.3125, 0.25, 0.1875, ['zinc.900', 'purple.900']],
@@ -299,17 +299,17 @@ export default defineConfig({
               DEFAULT: [
                 [0.0625, 0.125, 0.1875, 0.25, ['amber.600', 'yellow.500']],
                 [0.1875, 0.1875, 0.25, 0.25, ['rose.700', 'lime.600']],
-                [0.3125, 0.3125, 0.375, 0.375, ['orange.50', 'orange.700'], 'inset'],
+                [0.3125, 0.3125, 0.375, 0.375, ['orange.50', 'orange.700'], 'inset']
               ],
-              shadow6: [0.375, 0.3125, 0.25, 0.1875, ['red.900', 'purple.900']],
-            },
-          },
+              shadow6: [0.375, 0.3125, 0.25, 0.1875, ['red.900', 'purple.900']]
+            }
+          }
         }),
         // background-imageではImageコンポーネントによる画像最適化が使えないので、assetsは使わないでください。
-        assets: {},
+        assets: {}
       },
-      keyframes,
-    },
+      keyframes
+    }
   },
-  globalCss,
+  globalCss
 })

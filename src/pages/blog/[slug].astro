@@ -33,12 +33,12 @@ const headPage: HeadPageProps = {
     : `ogp/${PATH_NAME}/general.webp`,
   ogImageAlt: post.ogImageAlt || 'コンテンツです。',
   xCreator: author?.sns.xCreator as `@${string}`,
-  author: typeof post.author === 'string' && post.author === '' ? '' : authorName,
+  author: typeof post.author === 'string' && post.author === '' ? '' : authorName
 }
 
 const aside: AsideProps = {
   pathName: PATH_NAME,
-  category: category,
+  category: category
 }
 ---
 

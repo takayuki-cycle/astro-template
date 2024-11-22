@@ -10,7 +10,7 @@ export const App = () => {
       <div
         className={css({
           fontSize: '2xl',
-          fontWeight: 'bold',
+          fontWeight: 'bold'
         })}
       >
         AAA

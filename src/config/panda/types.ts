@@ -67,13 +67,13 @@ export type GradientValue = [
   string, // placement(baseと_osDarkで同じ値を使います。)
   ColorPath[], // stops -> color(base)(color(base)とcolor(_osDark)とpositionの要素数は同じにしてください。)
   ColorPath[]?, // stops -> color(_osDark)
-  number[]?, // stops -> position(baseと_osDarkで同じ値を使います。単位はpxで、それぞれの数字の間隔にグラデーションがかかります。)
+  number[]? // stops -> position(baseと_osDarkで同じ値を使います。単位はpxで、それぞれの数字の間隔にグラデーションがかかります。)
 ]
 
 export type BorderValue = [
   number, // width(単位はremです。baseと_osDarkで同じ値を使います。)
   BorderStyle, // style(baseと_osDarkで同じ値を使います。)
-  ColorArray, // color
+  ColorArray // color
 ]
 
 export type ShadowArray = [
@@ -82,7 +82,7 @@ export type ShadowArray = [
   number, // blur(単位はremです。baseと_osDarkで同じ値を使います。)
   number, // spread(単位はremです。baseと_osDarkで同じ値を使います。)
   ColorArray, // color
-  'inset'?, // inset(とりうる値はinsetまたはundefined(outset)のみです。)
+  'inset'? // inset(とりうる値はinsetまたはundefined(outset)のみです。)
 ]
 
 export type ShadowValue = ShadowArray | ShadowArray[]

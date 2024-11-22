@@ -3,26 +3,26 @@ const markuplintConfig = {
   overrideMode: 'merge',
   parser: {
     '\\.astro$': '@markuplint/astro-parser',
-    '\\.tsx$': '@markuplint/jsx-parser',
+    '\\.tsx$': '@markuplint/jsx-parser'
   },
   specs: {
-    '\\.tsx$': '@markuplint/react-spec',
+    '\\.tsx$': '@markuplint/react-spec'
   },
   // 注意: nodeRulesのselectorの値は大文字と小文字を区別していません。
   nodeRules: [
     {
       selector: 'Picture',
       rules: {
-        'permitted-contents': false,
-      },
+        'permitted-contents': false
+      }
     },
     {
       selector: 'Head',
       rules: {
         'permitted-contents': false,
-        'required-element': false,
-      },
-    },
+        'required-element': false
+      }
+    }
   ],
   pretenders: [
     {
@@ -32,58 +32,58 @@ const markuplintConfig = {
         attrs: [
           {
             name: 'alt',
-            value: 'dummy',
-          },
-        ],
-      },
+            value: 'dummy'
+          }
+        ]
+      }
     },
     {
       selector: 'Picture',
-      as: 'picture',
+      as: 'picture'
     },
     {
       selector: 'Header',
-      as: 'header',
+      as: 'header'
     },
     {
       selector: 'BodyGTM',
-      as: 'noscript',
+      as: 'noscript'
     },
     {
       selector: 'Footer',
-      as: 'footer',
+      as: 'footer'
     },
     {
       selector: 'ViewTransitions',
-      as: 'meta',
+      as: 'meta'
     },
     {
       selector: 'Head',
-      as: 'head',
+      as: 'head'
     },
     {
       selector: 'HeadGTM',
-      as: 'script',
+      as: 'script'
     },
     {
       selector: 'TOC',
-      as: 'div',
+      as: 'div'
     },
     {
       selector: 'Pagination',
-      as: 'nav',
+      as: 'nav'
     },
     {
       selector: 'Accordion',
-      as: 'div',
+      as: 'div'
     },
     {
       selector: 'Category',
-      as: 'div',
+      as: 'div'
     },
     {
       selector: 'Aside',
-      as: 'aside',
+      as: 'aside'
     },
     {
       selector: 'Alert',
@@ -92,10 +92,10 @@ const markuplintConfig = {
         attrs: [
           {
             name: 'aria-label',
-            value: 'dummy',
-          },
-        ],
-      },
+            value: 'dummy'
+          }
+        ]
+      }
     },
     {
       selector: 'Avatar',
@@ -104,14 +104,14 @@ const markuplintConfig = {
         attrs: [
           {
             name: 'aria-label',
-            value: 'dummy',
-          },
-        ],
-      },
+            value: 'dummy'
+          }
+        ]
+      }
     },
     {
       selector: 'Badge',
-      as: 'div',
+      as: 'div'
     },
     {
       selector: 'Button',
@@ -120,18 +120,18 @@ const markuplintConfig = {
         attrs: [
           {
             name: 'aria-label',
-            value: 'dummy',
-          },
-        ],
-      },
+            value: 'dummy'
+          }
+        ]
+      }
     },
     {
       selector: 'Card',
-      as: 'article',
+      as: 'article'
     },
     {
       selector: 'Carousel',
-      as: 'div',
+      as: 'div'
     },
     {
       selector: 'Checkbox',
@@ -140,30 +140,30 @@ const markuplintConfig = {
         attrs: [
           {
             name: 'type',
-            value: 'checkbox',
+            value: 'checkbox'
           },
           {
             name: 'aria-label',
-            value: 'dummy',
-          },
-        ],
-      },
+            value: 'dummy'
+          }
+        ]
+      }
     },
     {
       selector: 'Clipboard',
-      as: 'div',
+      as: 'div'
     },
     {
       selector: 'Code',
-      as: 'code',
+      as: 'code'
     },
     {
       selector: 'Collapsible',
-      as: 'div',
+      as: 'div'
     },
     {
       selector: 'ColorPicker',
-      as: 'div',
+      as: 'div'
     },
     {
       selector: 'Combobox',
@@ -172,14 +172,14 @@ const markuplintConfig = {
         attrs: [
           {
             name: 'aria-label',
-            value: 'dummy',
-          },
-        ],
-      },
+            value: 'dummy'
+          }
+        ]
+      }
     },
     {
       selector: 'DatePicker',
-      as: 'div',
+      as: 'div'
     },
     {
       selector: 'Dialog',
@@ -188,14 +188,14 @@ const markuplintConfig = {
         attrs: [
           {
             name: 'aria-label',
-            value: 'dummy',
-          },
-        ],
-      },
+            value: 'dummy'
+          }
+        ]
+      }
     },
     {
       selector: 'Drawer',
-      as: 'div',
+      as: 'div'
     },
     {
       selector: 'Editable',
@@ -204,14 +204,14 @@ const markuplintConfig = {
         attrs: [
           {
             name: 'type',
-            value: 'text',
+            value: 'text'
           },
           {
             name: 'aria-label',
-            value: 'dummy',
-          },
-        ],
-      },
+            value: 'dummy'
+          }
+        ]
+      }
     },
     {
       selector: 'FileUpload',
@@ -220,26 +220,26 @@ const markuplintConfig = {
         attrs: [
           {
             name: 'type',
-            value: 'file',
+            value: 'file'
           },
           {
             name: 'aria-label',
-            value: 'dummy',
-          },
-        ],
-      },
+            value: 'dummy'
+          }
+        ]
+      }
     },
     {
       selector: 'FormLabel',
-      as: 'div',
+      as: 'div'
     },
     {
       selector: 'HoverCard',
-      as: 'a',
+      as: 'a'
     },
     {
       selector: 'Icon',
-      as: 'svg',
+      as: 'svg'
     },
     {
       selector: 'IconButton',
@@ -248,10 +248,10 @@ const markuplintConfig = {
         attrs: [
           {
             name: 'aria-label',
-            value: 'dummy',
-          },
-        ],
-      },
+            value: 'dummy'
+          }
+        ]
+      }
     },
     {
       selector: 'Input',
@@ -260,22 +260,22 @@ const markuplintConfig = {
         attrs: [
           {
             name: 'type',
-            value: 'text',
+            value: 'text'
           },
           {
             name: 'aria-label',
-            value: 'dummy',
-          },
-        ],
-      },
+            value: 'dummy'
+          }
+        ]
+      }
     },
     {
       selector: 'Kbd',
-      as: 'code',
+      as: 'code'
     },
     {
       selector: 'Link',
-      as: 'a',
+      as: 'a'
     },
     {
       selector: 'Menu',
@@ -284,10 +284,10 @@ const markuplintConfig = {
         attrs: [
           {
             name: 'aria-busy',
-            value: 'true',
-          },
-        ],
-      },
+            value: 'true'
+          }
+        ]
+      }
     },
     {
       selector: 'NumberInput',
@@ -296,14 +296,14 @@ const markuplintConfig = {
         attrs: [
           {
             name: 'type',
-            value: 'number',
+            value: 'number'
           },
           {
             name: 'aria-label',
-            value: 'dummy',
-          },
-        ],
-      },
+            value: 'dummy'
+          }
+        ]
+      }
     },
     {
       selector: 'PinInput',
@@ -312,14 +312,14 @@ const markuplintConfig = {
         attrs: [
           {
             name: 'type',
-            value: 'number',
+            value: 'number'
           },
           {
             name: 'aria-label',
-            value: 'dummy',
-          },
-        ],
-      },
+            value: 'dummy'
+          }
+        ]
+      }
     },
     {
       selector: 'Popover',
@@ -328,14 +328,14 @@ const markuplintConfig = {
         attrs: [
           {
             name: 'aria-label',
-            value: 'dummy',
-          },
-        ],
-      },
+            value: 'dummy'
+          }
+        ]
+      }
     },
     {
       selector: 'Progress',
-      as: 'div',
+      as: 'div'
     },
     {
       selector: 'RadioButtonGroup',
@@ -344,10 +344,10 @@ const markuplintConfig = {
         attrs: [
           {
             name: 'aria-busy',
-            value: 'true',
-          },
-        ],
-      },
+            value: 'true'
+          }
+        ]
+      }
     },
     {
       selector: 'RadioGroup',
@@ -356,10 +356,10 @@ const markuplintConfig = {
         attrs: [
           {
             name: 'aria-busy',
-            value: 'true',
-          },
-        ],
-      },
+            value: 'true'
+          }
+        ]
+      }
     },
     {
       selector: 'RatingGroup',
@@ -368,10 +368,10 @@ const markuplintConfig = {
         attrs: [
           {
             name: 'aria-busy',
-            value: 'true',
-          },
-        ],
-      },
+            value: 'true'
+          }
+        ]
+      }
     },
     {
       selector: 'SegmentGroup',
@@ -380,10 +380,10 @@ const markuplintConfig = {
         attrs: [
           {
             name: 'aria-busy',
-            value: 'true',
-          },
-        ],
-      },
+            value: 'true'
+          }
+        ]
+      }
     },
     {
       selector: 'Select',
@@ -392,22 +392,22 @@ const markuplintConfig = {
         attrs: [
           {
             name: 'aria-label',
-            value: 'dummy',
-          },
-        ],
-      },
+            value: 'dummy'
+          }
+        ]
+      }
     },
     {
       selector: 'Skeleton',
-      as: 'div',
+      as: 'div'
     },
     {
       selector: 'Slider',
-      as: 'div',
+      as: 'div'
     },
     {
       selector: 'Splitter',
-      as: 'div',
+      as: 'div'
     },
     {
       selector: 'Switch',
@@ -416,14 +416,14 @@ const markuplintConfig = {
         attrs: [
           {
             name: 'type',
-            value: 'checkbox',
+            value: 'checkbox'
           },
           {
             name: 'aria-label',
-            value: 'dummy',
-          },
-        ],
-      },
+            value: 'dummy'
+          }
+        ]
+      }
     },
     {
       selector: 'Table',
@@ -432,14 +432,14 @@ const markuplintConfig = {
         attrs: [
           {
             name: 'aria-busy',
-            value: 'true',
+            value: 'true'
           },
           {
             name: 'aria-label',
-            value: 'dummy',
-          },
-        ],
-      },
+            value: 'dummy'
+          }
+        ]
+      }
     },
     {
       selector: 'Tabs',
@@ -448,10 +448,10 @@ const markuplintConfig = {
         attrs: [
           {
             name: 'aria-busy',
-            value: 'true',
-          },
-        ],
-      },
+            value: 'true'
+          }
+        ]
+      }
     },
     {
       selector: 'TagsInput',
@@ -460,18 +460,18 @@ const markuplintConfig = {
         attrs: [
           {
             name: 'type',
-            value: 'text',
+            value: 'text'
           },
           {
             name: 'aria-label',
-            value: 'dummy',
-          },
-        ],
-      },
+            value: 'dummy'
+          }
+        ]
+      }
     },
     {
       selector: 'Text',
-      as: 'p',
+      as: 'p'
     },
     {
       selector: 'Textarea',
@@ -480,10 +480,10 @@ const markuplintConfig = {
         attrs: [
           {
             name: 'aria-label',
-            value: 'dummy',
-          },
-        ],
-      },
+            value: 'dummy'
+          }
+        ]
+      }
     },
     {
       selector: 'Toast',
@@ -492,10 +492,10 @@ const markuplintConfig = {
         attrs: [
           {
             name: 'aria-label',
-            value: 'dummy',
-          },
-        ],
-      },
+            value: 'dummy'
+          }
+        ]
+      }
     },
     {
       selector: 'ToggleGroup',
@@ -504,14 +504,14 @@ const markuplintConfig = {
         attrs: [
           {
             name: 'aria-busy',
-            value: 'true',
-          },
-        ],
-      },
+            value: 'true'
+          }
+        ]
+      }
     },
     {
       selector: 'Tooltip',
-      as: 'div',
+      as: 'div'
     },
     {
       selector: 'TreeView',
@@ -520,13 +520,13 @@ const markuplintConfig = {
         attrs: [
           {
             name: 'aria-busy',
-            value: 'true',
-          },
-        ],
-      },
-    },
+            value: 'true'
+          }
+        ]
+      }
+    }
   ],
-  excludeFiles: ['node_modules/**', 'styled-system/**', '.astro/**', 'dist/**'],
+  excludeFiles: ['node_modules/**', 'styled-system/**', '.astro/**', 'dist/**']
 }
 
 export default markuplintConfig
