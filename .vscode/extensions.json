@@ -6,13 +6,13 @@
     "usernamehw.errorlens",
     "streetsidesoftware.code-spell-checker",
     "yusukehirao.vscode-markuplint",
-    "stylelint.vscode-stylelint",
     "dbaeumer.vscode-eslint",
     "unifiedjs.vscode-mdx",
     "esbenp.prettier-vscode",
     "taichi.vscode-textlint",
     "davidanson.vscode-markdownlint",
-    "github.vscode-github-actions"
+    "github.vscode-github-actions",
+    "cipchk.cssrem"
   ],
-  "unwantedRecommendations": []
+  "unwantedRecommendations": ["stylelint.vscode-stylelint"]
 }
