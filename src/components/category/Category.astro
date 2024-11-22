@@ -19,14 +19,18 @@ const categoryList = getCategoryList(categoryCount)
   <p>カテゴリー</p>
   <ul>
     <li>
-      <a href={`${BASE_URL}${pathName}/1/`}>
+      <a href={`${BASE_URL}${pathName}/1/`} aria-label='すべてのカテゴリー'>
         すべて [{contentTotal}]記事
       </a>
     </li>
     {
       categoryList.map(([category, count]) => (
         <li>
-          <a href={`${BASE_URL}${pathName}/${category}/1/`}>
+          {/* TODO: 日本語のときの文字化けによるリンク切れを修正すること */}
+          <a
+            href={`${BASE_URL}${pathName}/${category}/1/`}
+            aria-label={`カテゴリー: ${category} (${count}記事)`}
+          >
             {category} ({count})
           </a>
         </li>
