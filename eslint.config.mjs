@@ -89,8 +89,8 @@ const eslintConfig = [
           ['s', '<del>または<ins>またはスタイルで打ち消し線'],
           ['hgroup', '<header>または<section>または<div>にARIA属性'],
           ['command', '<menu>または<button>または<kbd>または<ul>または<ol>または<span>'],
+          ['style', 'Panda CSS'],
           // ['img', 'Imageコンポーネント'], // TODO: いずれ適用
-          // ['style', 'Panda CSS'], // TODO: いずれ適用
         ]),
       ],
     },
