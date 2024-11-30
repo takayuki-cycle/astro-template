@@ -1,25 +1,23 @@
-// 画像最適化モジュール
 import sharp from 'sharp'
+import fs from 'node:fs'
 
-// sharp('dummy-input.jpg').resize(600, 400).toFile('dummy-output.webp')
+const THRESHOLD_SIZE = 512000 // 500KB
 
 sharp('dummy-input.jpg')
   .metadata()
   .then((metadata) => {
-    console.log(metadata)
-    /* console.log 結果
-      {
-        format: 'png',
-        width: 1200,
-        height: 800,
-        space: 'srgb',
-        channels: 3,
-        depth: 'uchar',
-        density: 72,
-        isProgressive: false,
-        paletteBitDepth: 8,
-        hasProfile: false,
-        hasAlpha: false
-      }
-    */
+    // ファイルサイズの取得
+    const stats = fs.statSync('dummy-input.jpg')
+    const fileSizeInBytes = stats.size
+
+    console.log('画像メタデータ:', metadata)
+    console.log('ファイルサイズ(バイト):', fileSizeInBytes)
+
+    if (fileSizeInBytes > THRESHOLD_SIZE) {
+      console.log('警告: ファイルサイズが500KBを超えています。圧縮が必要です。')
+
+      // 圧縮処理の例
+    } else {
+      console.log('ファイルサイズは適切です。')
+    }
   })
