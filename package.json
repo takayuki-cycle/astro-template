@@ -18,8 +18,7 @@
     "lint:eslint": "eslint ./src",
     "lint:text": "textlint \"**/*.{md,mdx}\" \"!**/node_modules\"",
     "lint:markup": "markuplint \"src/**/*.{astro,jsx,tsx}\" --problem-only",
-    "lint:markdown": "markdownlint-cli2 \"**/*.{md,mdx}\" \"!**/node_modules\"",
-    "sharp": "node sharp.config.mjs"
+    "lint:markdown": "markdownlint-cli2 \"**/*.{md,mdx}\" \"!**/node_modules\""
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",

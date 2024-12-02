@@ -1,7 +1,9 @@
 ---
-import { Image, Picture } from 'astro:assets'
+// TODO: Imageを使うときは'astro:assets'からは禁止する実装をすること
+// import { Picture } from 'astro:assets'
+import Image from '@/components/image/Image.astro'
 import ship from '@/assets/images/page/ship.jpg'
-import salt from '@/assets/images/page/salt.jpg'
+// import salt from '@/assets/images/page/salt.jpg'
 import Layout from '@/layouts/Layout.astro'
 import type { HeadPageProps } from '@/layouts/head/types'
 
@@ -23,27 +25,13 @@ const headPage: HeadPageProps = {
   {
     /* TODO: ダークモード用の画像も用意した方が良いかも？(srcでダークモードであれば分岐させて表示？) */
   }
-  <Image
-    src={ship}
-    alt='船です'
-    width='700'
-    height='300'
-    densities={[1, 1.5, 2, 2.5, 3, 3.5, 4]}
-    quality='low'
-  />
-  <p>TESTTESTTESTTESTTEST</p>
-  <Image
-    src={salt}
-    alt='塩です'
-    width='700'
-    height='300'
-    densities={[1, 1.5, 2, 2.5, 3, 3.5, 4]}
-    quality='low'
-  />
-  <p>TESTTESTTESTTESTTEST</p>
+  <Image src={ship} alt='船です' width='700' height='300' isOptimization />
+  <p>TEST_TEST_TEST_TEST_TEST</p>
+  {/* <Image src={salt} alt='塩です' width='700' height='300' /> */}
+  <p>TEST_TEST_TEST_TEST_TEST</p>
   <img src={ship.src} alt='船です' width='700' height='300' />
-  <p>TESTTESTTESTTESTTEST</p>
-  <Image src={salt} alt='塩です' width='700' height='300' />
-  <p>TESTTESTTESTTESTTEST</p>
-  <Picture src={salt} alt='塩です' />
+  <p>TEST_TEST_TEST_TEST_TEST</p>
+  {/* <Image src={salt} alt='塩です' width='700' height='300' /> */}
+  <p>TEST_TEST_TEST_TEST_TEST</p>
+  {/* <Picture src={salt} alt='塩です' /> */}
 </Layout>

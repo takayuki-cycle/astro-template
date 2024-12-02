@@ -1,0 +1,60 @@
+---
+// TODO: node_modules/astro/components/Image.astroを参考にastro:assetsのImageコンポーネントをカスタマイズしているため、astro:assetsのImageコンポーネントが変更された場合はこのファイルも変更する必要があるかもしれません。
+import { type LocalImageProps, type RemoteImageProps, getImage } from 'astro:assets'
+import { AstroError, AstroErrorData } from '@/../node_modules/astro/dist/core/errors/index.js'
+import type { HTMLAttributes } from '@/../node_modules/astro/types'
+import type { UnresolvedImageTransform } from 'node_modules/astro/dist/assets/types'
+import { optimizeImage } from '@/components/image/utils'
+
+// The TypeScript diagnostic for JSX props uses the last member of the union to suggest props, so it would be better for
+// LocalImageProps to be last. Unfortunately, when we do this the error messages that remote images get are complete nonsense
+// Not 100% sure how to fix this, seems to be a TypeScript issue. Unfortunate.
+type Props = (LocalImageProps | RemoteImageProps) & {
+  // widthとheightの指定を任意から必須に変更、densitiesとqualityは固定値へ変更
+  width: number | string
+  height: number | string
+  densities?: undefined
+  quality?: undefined
+  isOptimization: boolean // 元の画像を上書きして最適化するため、意図しない変更を防ぐためにtrueと指定したときに最適化を実行
+}
+
+const props = Astro.props
+
+if (props.alt === undefined || props.alt === null) {
+  throw new AstroError(AstroErrorData.ImageMissingAlt)
+}
+
+// As a convenience, allow width and height to be string with a number in them, to match HTML's native `img`.
+if (typeof props.width === 'string') {
+  props.width = Number.parseInt(props.width)
+}
+
+if (typeof props.height === 'string') {
+  props.height = Number.parseInt(props.height)
+}
+
+const densities = [1, 1.5, 2, 2.5, 3, 3.5, 4] as const
+const quality = 'mid'
+
+const image = await getImage({ ...props, densities, quality } as UnresolvedImageTransform)
+
+const additionalAttributes: HTMLAttributes<'img'> = {}
+if (image.srcSet.values.length > 0) {
+  additionalAttributes.srcset = image.srcSet.attribute
+}
+
+if (import.meta.env.DEV) {
+  additionalAttributes['data-image-component'] = 'true'
+}
+
+if (props.isOptimization) {
+  const fullPath = (props.src as { src: string }).src
+  const match = fullPath.match(/src\/[^?]+\.(jpg|jpeg|png|webp|gif|tiff|avif|heif|jp2|jxl)/)
+  const imagePath = match?.[0]
+  if (imagePath) {
+    optimizeImage(imagePath, props.width)
+  }
+}
+---
+
+<img src={image.src} alt={props.alt} {...additionalAttributes} {...image.attributes} />
