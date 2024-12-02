@@ -1,7 +1,9 @@
 import sharp from 'sharp'
 import fsPromises from 'node:fs/promises'
-// import fsBasic from 'node:fs'
 import path from 'node:path'
+
+//// const UPDATE_THRESHOLD = 10000 // 10秒
+const QUALITY = 80
 
 // ローカルの画像の容量を最適化してリポジトリの容量を大幅に削減
 export const optimizeImage = async (imagePath: string, width: number) => {
@@ -10,6 +12,14 @@ export const optimizeImage = async (imagePath: string, width: number) => {
   const tempPath = path.join(path.dirname(imagePath), `temp_${path.basename(imagePath)}`)
 
   try {
+    //// ファイルの最終更新時刻を取得
+    //// const fileStats = await fsPromises.stat(imagePath)
+    //// const lastModified = fileStats.mtimeMs
+    //// const currentTime = Date.now()
+
+    //// 更新時刻からUPDATE_THRESHOLD以内の場合はスキップ(スキップしないと永遠に画像最適化を実行するからです。)
+    //// if (currentTime - lastModified < UPDATE_THRESHOLD) return
+
     // 元の画像をバックアップ
     await fsPromises.copyFile(imagePath, backupPath)
 
@@ -26,28 +36,28 @@ export const optimizeImage = async (imagePath: string, width: number) => {
     switch (metadata.format) {
       case 'jpeg':
       case 'jpg':
-        transformer = transformer.jpeg({ quality: 80 })
+        transformer = transformer.jpeg({ quality: QUALITY })
         break
       case 'png':
-        transformer = transformer.png({ quality: 80 })
+        transformer = transformer.png({ quality: QUALITY })
         break
       case 'webp':
-        transformer = transformer.webp({ quality: 80 })
+        transformer = transformer.webp({ quality: QUALITY })
         break
       case 'jp2':
-        transformer = transformer.jp2({ quality: 80 })
+        transformer = transformer.jp2({ quality: QUALITY })
         break
       case 'tiff':
-        transformer = transformer.tiff({ quality: 80 })
+        transformer = transformer.tiff({ quality: QUALITY })
         break
       case 'avif':
-        transformer = transformer.avif({ quality: 80 })
+        transformer = transformer.avif({ quality: QUALITY })
         break
       case 'heif':
-        transformer = transformer.heif({ quality: 80 })
+        transformer = transformer.heif({ quality: QUALITY })
         break
       case 'jxl':
-        transformer = transformer.jxl({ quality: 80 })
+        transformer = transformer.jxl({ quality: QUALITY })
         break
       default:
         break
