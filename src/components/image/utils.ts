@@ -3,7 +3,8 @@ import fsPromises from 'node:fs/promises'
 import path from 'node:path'
 
 //// const UPDATE_THRESHOLD = 10000 // 10秒
-const QUALITY = 80
+const QUALITY_50 = 50
+const QUALITY_80 = 80
 
 // ローカルの画像の容量を最適化してリポジトリの容量を大幅に削減
 export const optimizeImage = async (imagePath: string, width: number) => {
@@ -36,28 +37,28 @@ export const optimizeImage = async (imagePath: string, width: number) => {
     switch (metadata.format) {
       case 'jpeg':
       case 'jpg':
-        transformer = transformer.jpeg({ quality: QUALITY })
+        transformer = transformer.jpeg({ quality: QUALITY_80 })
         break
       case 'png':
-        transformer = transformer.png({ quality: QUALITY })
+        transformer = transformer.png({ quality: QUALITY_80 })
         break
       case 'webp':
-        transformer = transformer.webp({ quality: QUALITY })
+        transformer = transformer.webp({ quality: QUALITY_80 })
         break
       case 'jp2':
-        transformer = transformer.jp2({ quality: QUALITY })
+        transformer = transformer.jp2({ quality: QUALITY_80 })
         break
       case 'tiff':
-        transformer = transformer.tiff({ quality: QUALITY })
+        transformer = transformer.tiff({ quality: QUALITY_80 })
         break
       case 'avif':
-        transformer = transformer.avif({ quality: QUALITY })
+        transformer = transformer.avif({ quality: QUALITY_50 })
         break
       case 'heif':
-        transformer = transformer.heif({ quality: QUALITY })
+        transformer = transformer.heif({ quality: QUALITY_50 })
         break
       case 'jxl':
-        transformer = transformer.jxl({ quality: QUALITY })
+        transformer = transformer.jxl({ quality: QUALITY_80 })
         break
       default:
         break
