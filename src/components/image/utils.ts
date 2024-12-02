@@ -2,9 +2,10 @@ import sharp from 'sharp'
 import fsPromises from 'node:fs/promises'
 import path from 'node:path'
 
-//// const UPDATE_THRESHOLD = 10000 // 10秒
 const QUALITY_50 = 50
 const QUALITY_80 = 80
+const QUALITY_100 = 100
+const ALLOWED_DIFF_RATIO = 0.0005 // 許容される差分の割合（0.05%） TODO: この値で適切か検討
 
 // ローカルの画像の容量を最適化してリポジトリの容量を大幅に削減
 export const optimizeImage = async (imagePath: string, width: number) => {
@@ -13,14 +14,6 @@ export const optimizeImage = async (imagePath: string, width: number) => {
   const tempPath = path.join(path.dirname(imagePath), `temp_${path.basename(imagePath)}`)
 
   try {
-    //// ファイルの最終更新時刻を取得
-    //// const fileStats = await fsPromises.stat(imagePath)
-    //// const lastModified = fileStats.mtimeMs
-    //// const currentTime = Date.now()
-
-    //// 更新時刻からUPDATE_THRESHOLD以内の場合はスキップ(スキップしないと永遠に画像最適化を実行するからです。)
-    //// if (currentTime - lastModified < UPDATE_THRESHOLD) return
-
     // 元の画像をバックアップ
     await fsPromises.copyFile(imagePath, backupPath)
 
@@ -33,35 +26,109 @@ export const optimizeImage = async (imagePath: string, width: number) => {
       transformer = transformer.resize(maxDensityWidth)
     }
 
+    // 元のファイルサイズを取得
+    const originalSize = (await fsPromises.stat(imagePath)).size
+
     // フォーマットに応じた変換
+    let sizeChanged = false
     switch (metadata.format) {
       case 'jpeg':
-      case 'jpg':
-        transformer = transformer.jpeg({ quality: QUALITY_80 })
+      case 'jpg': {
+        const outputBuffer = await transformer.jpeg({ quality: QUALITY_80 }).toBuffer()
+        if (
+          Math.abs(outputBuffer.length - originalSize) >
+          outputBuffer.length * ALLOWED_DIFF_RATIO
+        ) {
+          transformer = transformer.jpeg({ quality: QUALITY_80 })
+          sizeChanged = true
+        }
         break
-      case 'png':
-        transformer = transformer.png({ quality: QUALITY_80 })
+      }
+      case 'png': {
+        const outputBuffer = await transformer.png({ quality: QUALITY_100 }).toBuffer()
+        if (
+          Math.abs(outputBuffer.length - originalSize) >
+          outputBuffer.length * ALLOWED_DIFF_RATIO
+        ) {
+          transformer = transformer.png({ quality: QUALITY_100 })
+          sizeChanged = true
+        }
         break
-      case 'webp':
-        transformer = transformer.webp({ quality: QUALITY_80 })
+      }
+      case 'webp': {
+        const outputBuffer = await transformer.webp({ quality: QUALITY_80 }).toBuffer()
+        if (
+          Math.abs(outputBuffer.length - originalSize) >
+          outputBuffer.length * ALLOWED_DIFF_RATIO
+        ) {
+          transformer = transformer.webp({ quality: QUALITY_80 })
+          sizeChanged = true
+        }
         break
-      case 'jp2':
-        transformer = transformer.jp2({ quality: QUALITY_80 })
+      }
+      case 'jp2': {
+        const outputBuffer = await transformer.jp2({ quality: QUALITY_80 }).toBuffer()
+        if (
+          Math.abs(outputBuffer.length - originalSize) >
+          outputBuffer.length * ALLOWED_DIFF_RATIO
+        ) {
+          transformer = transformer.jp2({ quality: QUALITY_80 })
+          sizeChanged = true
+        }
         break
-      case 'tiff':
-        transformer = transformer.tiff({ quality: QUALITY_80 })
+      }
+      case 'tiff': {
+        const outputBuffer = await transformer.tiff({ quality: QUALITY_80 }).toBuffer()
+        if (
+          Math.abs(outputBuffer.length - originalSize) >
+          outputBuffer.length * ALLOWED_DIFF_RATIO
+        ) {
+          transformer = transformer.tiff({ quality: QUALITY_80 })
+          sizeChanged = true
+        }
         break
-      case 'avif':
-        transformer = transformer.avif({ quality: QUALITY_50 })
+      }
+      case 'avif': {
+        const outputBuffer = await transformer.avif({ quality: QUALITY_50 }).toBuffer()
+        if (
+          Math.abs(outputBuffer.length - originalSize) >
+          outputBuffer.length * ALLOWED_DIFF_RATIO
+        ) {
+          transformer = transformer.avif({ quality: QUALITY_50 })
+          sizeChanged = true
+        }
         break
-      case 'heif':
-        transformer = transformer.heif({ quality: QUALITY_50 })
+      }
+      case 'heif': {
+        const outputBuffer = await transformer.heif({ quality: QUALITY_50 }).toBuffer()
+        if (
+          Math.abs(outputBuffer.length - originalSize) >
+          outputBuffer.length * ALLOWED_DIFF_RATIO
+        ) {
+          transformer = transformer.heif({ quality: QUALITY_50 })
+          sizeChanged = true
+        }
         break
-      case 'jxl':
-        transformer = transformer.jxl({ quality: QUALITY_80 })
+      }
+      case 'jxl': {
+        const outputBuffer = await transformer.jxl({ quality: QUALITY_80 }).toBuffer()
+        if (
+          Math.abs(outputBuffer.length - originalSize) >
+          outputBuffer.length * ALLOWED_DIFF_RATIO
+        ) {
+          transformer = transformer.jxl({ quality: QUALITY_80 })
+          sizeChanged = true
+        }
         break
+      }
       default:
         break
+    }
+
+    // サイズ変更がない場合、処理を終了 = sharpのqualityで既に最適化されていたということです。
+    if (!sizeChanged) {
+      await fsPromises.unlink(backupPath)
+      return
     }
 
     // 一時ファイルに変換結果を保存
