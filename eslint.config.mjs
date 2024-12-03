@@ -67,9 +67,9 @@ const eslintConfig = [
           paths: [
             {
               name: 'astro:assets',
-              importNames: ['Image'],
+              importNames: ['Image', 'Picture'],
               message:
-                '代わりにローカルにある画像最適化付きのImageコンポーネントを使用してください。'
+                '代わりにローカルにある画像最適化付きの同名のコンポーネントを使用してください。'
             }
           ]
         }

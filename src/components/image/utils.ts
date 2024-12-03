@@ -37,8 +37,8 @@ export const optimizeImage = async (
   const tempPath = path.join(path.dirname(imagePath), `temp_${path.basename(imagePath)}`)
 
   try {
-    // 元の画像をバックアップ
-    await fsPromises.copyFile(imagePath, backupPath)
+    // バックアップが作成されたか判定するフラグ
+    let isFileBackup = false
 
     // 画像のメタデータを取得
     const metadata = await sharp(imagePath).metadata()
@@ -46,6 +46,9 @@ export const optimizeImage = async (
 
     // 幅が最大密度幅(4倍)を超えている場合はリサイズ
     if (metadata.width !== undefined && metadata.width > maxDensityWidth) {
+      // 元の画像をバックアップ
+      await fsPromises.copyFile(imagePath, backupPath)
+      isFileBackup = true
       transformer = transformer.resize(maxDensityWidth)
     }
 
@@ -64,6 +67,10 @@ export const optimizeImage = async (
         const isExceedsAllowedSizeDiff =
           Math.abs(outputBuffer.length - originalSize) > outputBuffer.length * ALLOWED_DIFF_RATIO
         if (isExceedsAllowedSizeDiff) {
+          if (isFileBackup === false) {
+            await fsPromises.copyFile(imagePath, backupPath)
+            isFileBackup = true
+          }
           transformer = (transformer[method] as SharpTransformFunction)({
             quality
           })
@@ -74,7 +81,9 @@ export const optimizeImage = async (
 
     // サイズ変更がない場合、処理を終了 = sharpのqualityで既に最適化されていたということです。
     if (!sizeChanged) {
-      await fsPromises.unlink(backupPath)
+      if (isFileBackup === true) {
+        await fsPromises.unlink(backupPath)
+      }
       return
     }
 

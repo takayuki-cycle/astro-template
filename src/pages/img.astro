@@ -1,9 +1,7 @@
 ---
-// TODO: Imageを使うときは'astro:assets'からは禁止する実装をすること
-// import { Picture } from 'astro:assets'
 import Image from '@/components/image/Image.astro'
 import ship from '@/assets/images/page/ship.jpg'
-// import salt from '@/assets/images/page/salt.jpg'
+import salt from '@/assets/images/page/salt.jpg'
 import Layout from '@/layouts/Layout.astro'
 import type { HeadPageProps } from '@/layouts/head/types'
 
@@ -31,7 +29,8 @@ const headPage: HeadPageProps = {
   <p>TEST_TEST_TEST_TEST_TEST</p>
   <img src={ship.src} alt='船です' width='700' height='300' />
   <p>TEST_TEST_TEST_TEST_TEST</p>
-  {/* <Image src={salt} alt='塩です' width='700' height='300' /> */}
+  <Image src={salt} alt='塩です' width='700' height='300' isOptimization />
   <p>TEST_TEST_TEST_TEST_TEST</p>
+  <p>Pictureです。</p>
   {/* <Picture src={salt} alt='塩です' /> */}
 </Layout>
