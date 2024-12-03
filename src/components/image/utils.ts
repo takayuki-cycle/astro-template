@@ -6,7 +6,7 @@ type SharpTransformFunction = (options: { quality: number }) => sharp.Sharp
 
 const QUALITY_LOW = 50
 const QUALITY_MEDIUM = 80
-const QUALITY_HIGH = 100
+const QUALITY_HIGH = 100 // TODO: この値で適切か検討
 const ALLOWED_DIFF_RATIO = 0.0005 // 許容される差分の割合（0.05%） TODO: この値で適切か検討
 
 const FORMAT_QUALITY_MAP: Record<string, { quality: number; method: keyof sharp.Sharp }> = {
@@ -22,7 +22,16 @@ const FORMAT_QUALITY_MAP: Record<string, { quality: number; method: keyof sharp.
 }
 
 // ローカルの画像の容量を最適化してリポジトリの容量を大幅に削減
-export const optimizeImage = async (imagePath: string, width: number) => {
+export const optimizeImage = async (
+  src: string | ImageMetadata | Promise<{ default: ImageMetadata }>,
+  width: number
+) => {
+  const fullPath = (src as { src: string }).src
+  const match = fullPath.match(
+    /src\/[^?]+\.(jpg|jpeg|png|webp|gif|tiff|avif|heif|jp2|jxl)/
+  ) as RegExpMatchArray
+  const imagePath = match[0]
+
   const maxDensityWidth = width * 4
   const backupPath = `${imagePath}.backup`
   const tempPath = path.join(path.dirname(imagePath), `temp_${path.basename(imagePath)}`)

@@ -48,12 +48,7 @@ if (import.meta.env.DEV) {
 }
 
 if (props.isOptimization) {
-  const fullPath = (props.src as { src: string }).src
-  const match = fullPath.match(/src\/[^?]+\.(jpg|jpeg|png|webp|gif|tiff|avif|heif|jp2|jxl)/)
-  const imagePath = match?.[0]
-  if (imagePath) {
-    optimizeImage(imagePath, props.width)
-  }
+  optimizeImage(props.src, props.width)
 }
 ---
 
