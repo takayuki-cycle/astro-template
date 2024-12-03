@@ -63,6 +63,14 @@ const eslintConfig = [
               group: ['./*', '../*'],
               message: "絶対パスでインポートしてください。例: '@/components/toc/types'"
             }
+          ],
+          paths: [
+            {
+              name: 'astro:assets',
+              importNames: ['Image'],
+              message:
+                '代わりにローカルにある画像最適化付きのImageコンポーネントを使用してください。'
+            }
           ]
         }
       ],
