@@ -1,3 +1,33 @@
 ---
+import Image from '@/components/image/Image.astro'
+import type { Props } from '@/components/picture/types'
+import { AstroError, AstroErrorData } from '@/../node_modules/astro/dist/core/errors/index.js'
 
+const { src, width, height, media, alt, isOptimization } = Astro.props
+const isPropsValid =
+  src.length === width.length && src.length === height.length && src.length === media.length + 1
+const lastSrc = (src.at(-1) ?? '') as ImageMetadata
+const lastWidth = width.at(-1) ?? 0
+const lastHeight = height.at(-1) ?? 0
+
+if (!isPropsValid) throw new AstroError(AstroErrorData.UnknownError)
 ---
+
+<picture>
+  {
+    /* 
+  {
+    media.map((item, index) => (
+      <source srcset='画像1URL' media='(min-width: 1000px)' width='700' height='400' />
+    ))
+  }
+    */
+  }
+  <Image
+    src={lastSrc}
+    alt={alt}
+    width={lastWidth}
+    height={lastHeight}
+    isOptimization={isOptimization}
+  />
+</picture>
