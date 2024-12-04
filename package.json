@@ -6,7 +6,7 @@
     "dev": "astro dev --host",
     "start": "astro dev",
     "build": "astro check && astro build",
-    "lefthook:build": "astro check && astro build 2>&1 | tee /dev/tty | grep 'TypeError:' && exit 1 || true",
+    "lefthook:build": "astro check && astro build 2>&1 | grep 'TypeError:' && exit 1 || true",
     "astro:check": "astro check",
     "preview": "astro preview",
     "astro": "astro",

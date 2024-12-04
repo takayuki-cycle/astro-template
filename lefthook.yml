@@ -15,9 +15,9 @@ pre-commit:
       glob: '*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc,astro}'
       run: npx tsc --noEmit
     lint-astro:
-      glob: '*.{astro}'
+      glob: '*.{astro,ts}'
       # 親と子でpropsが不一致かつ子で型定義してないときに、astro checkだけだとパスしてしまうため、astro buildも追加
-      # また、エラー(例: TypeError)が出ているにも関わらず成功として扱われるため、lefthook専用のスクリプトも追加
+      # また、エラー(例: TypeError)が出ているにも関わらず成功として扱われるため、lefthook専用のスクリプトも追加して、tsファイルもチェック対象
       run: npm run lefthook:build
     lint-markup:
       glob: '*.{astro,tsx}'
