@@ -1,27 +1,48 @@
 ---
+import { getImage } from 'astro:assets'
 import Image from '@/components/image/Image.astro'
 import type { Props } from '@/components/picture/types'
 import { AstroError, AstroErrorData } from '@/../node_modules/astro/dist/core/errors/index.js'
+import type {
+  GetImageResult,
+  UnresolvedImageTransform
+} from '@/../node_modules/astro/dist/assets/types'
 
 const { src, width, height, media, alt, isOptimization } = Astro.props
+
 const isPropsValid =
   src.length === width.length && src.length === height.length && src.length === media.length + 1
+if (!isPropsValid) throw new AstroError(AstroErrorData.UnknownError)
+
 const lastSrc = (src.at(-1) ?? '') as ImageMetadata
 const lastWidth = width.at(-1) ?? 0
 const lastHeight = height.at(-1) ?? 0
 
-if (!isPropsValid) throw new AstroError(AstroErrorData.UnknownError)
+const densities = [1, 1.5, 2, 2.5, 3, 3.5, 4] as const
+const quality = 'mid'
+
+const images: GetImageResult[] = []
+for (const srcItem of src.slice(0, -1)) {
+  const image = await getImage({ src: srcItem, densities, quality } as UnresolvedImageTransform)
+  images.push(image)
+}
+
+// TODO: ここから
+// if (isOptimization) {
+//   optimizeImage(src, width)
+// }
 ---
 
 <picture>
   {
-    /* 
-  {
     media.map((item, index) => (
-      <source srcset='画像1URL' media='(min-width: 1000px)' width='700' height='400' />
+      <source
+        srcset={images[index]?.srcSet.attribute}
+        media={`(min-width: ${item})`}
+        width={width[index]}
+        height={height[index]}
+      />
     ))
-  }
-    */
   }
   <Image
     src={lastSrc}
