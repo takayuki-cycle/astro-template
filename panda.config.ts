@@ -9,6 +9,7 @@ import {
 import { animationNames } from '@/config/panda/creators/animationNames'
 import { globalStyles } from '@/config/panda/creators/globalStyles'
 import { defineConfig, defineGlobalStyles, defineKeyframes } from '@pandacss/dev'
+import { BREAKPOINTS } from '@/constants/breakpoints'
 
 const keyframes = defineKeyframes(animationNames)
 const globalCss = defineGlobalStyles(globalStyles)
@@ -28,13 +29,7 @@ export default defineConfig({
   theme: {
     extend: {
       // モバイルファースト(@media(min-width))
-      breakpoints: {
-        sm: '500px',
-        md: '768px',
-        lg: '1024px',
-        xl: '1280px',
-        '2xl': '1536px'
-      },
+      breakpoints: BREAKPOINTS,
       tokens: {
         colors: {},
         // widthとheightで使用
