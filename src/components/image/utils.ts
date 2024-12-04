@@ -30,6 +30,7 @@ export const optimizeImage = async (
   const match = fullPath.match(
     /src\/[^?]+\.(jpg|jpeg|png|webp|gif|tiff|avif|heif|jp2|jxl)/
   ) as RegExpMatchArray
+  if (!match) return // fullPathの文字列が、指定した正規表現で不一致
   const imagePath = match[0]
 
   const maxDensityWidth = width * 4

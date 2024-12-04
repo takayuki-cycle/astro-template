@@ -1,12 +1,12 @@
 ---
 import Image from '@/components/image/Image.astro'
-import Picture from '@/components/picture/Picture.astro'
+// import Picture from '@/components/picture/Picture.astro'
 import ship from '@/assets/images/page/ship.jpg'
 import salt from '@/assets/images/page/salt.jpg'
-import car from '@/assets/images/page/car.png'
+// import car from '@/assets/images/page/car.png'
 import Layout from '@/layouts/Layout.astro'
 import type { HeadPageProps } from '@/layouts/head/types'
-import { BREAKPOINTS } from '@/constants/breakpoints'
+// import { BREAKPOINTS } from '@/constants/breakpoints'
 
 const headPage: HeadPageProps = {
   title: 'indexPageTitle',
@@ -35,6 +35,8 @@ const headPage: HeadPageProps = {
   <Image src={salt} alt='塩です' width='700' height='300' isOptimization />
   <p>TEST_TEST_TEST_TEST_TEST</p>
   <p>Pictureです。</p>
+  {
+    /*
   <Picture
     src={[ship, salt, car]}
     width={['700', '700', '200']}
@@ -43,4 +45,6 @@ const headPage: HeadPageProps = {
     alt='船です'
     isOptimization
   />
+   */
+  }
 </Layout>
