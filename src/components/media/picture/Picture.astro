@@ -2,7 +2,6 @@
 import { getImage } from 'astro:assets'
 import Image from '@/components/media/image/Image.astro'
 import type { Props } from '@/components/media/picture/types'
-import { AstroError, AstroErrorData } from '@/../node_modules/astro/dist/core/errors/index.js'
 import type {
   GetImageResult,
   UnresolvedImageTransform
@@ -13,8 +12,11 @@ const { src, width, height, media, alt, isOptimization } = Astro.props
 
 const isPropsValid =
   src.length === width.length && src.length === height.length && src.length === media.length + 1
-if (!isPropsValid) throw new AstroError(AstroErrorData.UnknownError)
-
+if (!isPropsValid) {
+  throw new Error(
+    'Pictureコンポーネントにおける、src, width, heightの要素数は同じにしてください。また、mediaの要素数はsrcの要素数から1つ減らした数にしてください。'
+  )
+}
 const lastSrc = (src.at(-1) ?? '') as ImageMetadata
 const lastWidth = width.at(-1) ?? 0
 const lastHeight = height.at(-1) ?? 0
