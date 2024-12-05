@@ -18,7 +18,8 @@ pre-commit:
       glob: '*.{astro,ts}'
       # 親と子でpropsが不一致かつ子で型定義してないときに、astro checkだけだとパスしてしまうため、astro buildも追加
       # また、エラー(例: TypeError)が出ているにも関わらず成功として扱われるため、lefthook専用のスクリプトも追加して、tsファイルもチェック対象
-      run: npm run lefthook:build
+      # TODO: 最終的にlefthook:buildでは元々のbuildで出たエラーを検出できなかったので、いずれスクリプトを改良してください。
+      run: npm run build
     lint-markup:
       glob: '*.{astro,tsx}'
       run: npm run lint:markup
