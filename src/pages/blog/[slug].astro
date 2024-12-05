@@ -1,5 +1,5 @@
 ---
-import { BASE_URL, NOT_FOUND_URL } from '@/constants/url'
+import { BASE_URL } from '@/constants/url'
 import Layout from '@/layouts/Layout.astro'
 import type { AsideProps } from '@/layouts/aside/types'
 import type { HeadPageProps, OgImage, Robots } from '@/layouts/head/types'
@@ -11,7 +11,7 @@ import { getEntry, render } from 'astro:content'
 const PATH_NAME = 'blog'
 const lastSegment = getLastSegment(Astro.url.pathname)
 const slugPost = await getEntry(PATH_NAME, lastSegment)
-if (!slugPost) return Astro.redirect(NOT_FOUND_URL)
+if (!slugPost) return Astro.redirect(`${BASE_URL}404/`)
 const { Content } = await render(slugPost)
 const DEFAULT_POST = {
   title: '',
