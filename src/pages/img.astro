@@ -1,9 +1,10 @@
 ---
-import Image from '@/components/image/Image.astro'
-import Picture from '@/components/picture/Picture.astro'
+import Image from '@/components/media/image/Image.astro'
+import Picture from '@/components/media/picture/Picture.astro'
 import ship from '@/assets/images/page/ship.jpg'
 import salt from '@/assets/images/page/salt.jpg'
 import car from '@/assets/images/page/car.png'
+import living from '@/assets/images/page/living.png'
 import Layout from '@/layouts/Layout.astro'
 import type { HeadPageProps } from '@/layouts/head/types'
 import { BREAKPOINTS } from '@/constants/breakpoints'
@@ -21,8 +22,6 @@ const headPage: HeadPageProps = {
 ---
 
 <Layout headPage={headPage}>
-  <!-- 実験中 -->
-  <!-- sizes, srcset -->
   {
     /* TODO: ダークモード用の画像も用意した方が良いかも？(srcでダークモードであれば分岐させて表示？) */
   }
@@ -36,11 +35,11 @@ const headPage: HeadPageProps = {
   <p>TEST_TEST_TEST_TEST_TEST</p>
   <p>Pictureです。</p>
   <Picture
-    src={[ship, salt, car]}
-    width={['700', '700', '160']}
-    height={['300', '300', '110']}
-    media={[BREAKPOINTS.lg, BREAKPOINTS.md]}
-    alt='船と塩と車です'
+    src={[living, car]}
+    width={['117', '160']}
+    height={['117', '110']}
+    media={[BREAKPOINTS.lg]}
+    alt='リビングと車です'
     isOptimization
   />
 </Layout>

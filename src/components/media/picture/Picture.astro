@@ -1,12 +1,13 @@
 ---
 import { getImage } from 'astro:assets'
-import Image from '@/components/image/Image.astro'
-import type { Props } from '@/components/picture/types'
+import Image from '@/components/media/image/Image.astro'
+import type { Props } from '@/components/media/picture/types'
 import { AstroError, AstroErrorData } from '@/../node_modules/astro/dist/core/errors/index.js'
 import type {
   GetImageResult,
   UnresolvedImageTransform
 } from '@/../node_modules/astro/dist/assets/types'
+import { densities, optimizeImage, quality } from '@/components/media/utils'
 
 const { src, width, height, media, alt, isOptimization } = Astro.props
 
@@ -18,19 +19,21 @@ const lastSrc = (src.at(-1) ?? '') as ImageMetadata
 const lastWidth = width.at(-1) ?? 0
 const lastHeight = height.at(-1) ?? 0
 
-const densities = [1, 1.5, 2, 2.5, 3, 3.5, 4] as const
-const quality = 'mid'
-
 const images: GetImageResult[] = []
-for (const srcItem of src.slice(0, -1)) {
-  const image = await getImage({ src: srcItem, densities, quality } as UnresolvedImageTransform)
+for (let index = 0; index < src.length - 1; index++) {
+  const srcItem = src[index] ?? ''
+  const currentWidth = Number(width[index] ?? 0)
+  const image = await getImage({
+    src: srcItem,
+    densities,
+    quality
+  } as UnresolvedImageTransform)
+
+  if (isOptimization) {
+    optimizeImage(srcItem, currentWidth)
+  }
   images.push(image)
 }
-
-// TODO: ここから
-// if (isOptimization) {
-//   optimizeImage(src, width)
-// }
 ---
 
 <picture>

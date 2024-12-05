@@ -4,6 +4,9 @@ import path from 'node:path'
 
 type SharpTransformFunction = (options: { quality: number }) => sharp.Sharp
 
+export const densities = [1, 1.5, 2, 2.5, 3, 3.5, 4] as const
+export const quality = 'mid'
+
 const QUALITY_LOW = 50
 const QUALITY_MEDIUM = 80
 const QUALITY_HIGH = 100 // TODO: この値で適切か検討

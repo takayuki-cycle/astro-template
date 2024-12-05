@@ -4,7 +4,7 @@ import { type LocalImageProps, type RemoteImageProps, getImage } from 'astro:ass
 import { AstroError, AstroErrorData } from '@/../node_modules/astro/dist/core/errors/index.js'
 import type { HTMLAttributes } from '@/../node_modules/astro/types'
 import type { UnresolvedImageTransform } from 'node_modules/astro/dist/assets/types'
-import { optimizeImage } from '@/components/image/utils'
+import { densities, optimizeImage, quality } from '@/components/media/utils'
 
 // The TypeScript diagnostic for JSX props uses the last member of the union to suggest props, so it would be better for
 // LocalImageProps to be last. Unfortunately, when we do this the error messages that remote images get are complete nonsense
@@ -32,9 +32,6 @@ if (typeof props.width === 'string') {
 if (typeof props.height === 'string') {
   props.height = Number.parseInt(props.height)
 }
-
-const densities = [1, 1.5, 2, 2.5, 3, 3.5, 4] as const
-const quality = 'mid'
 
 const image = await getImage({ ...props, densities, quality } as UnresolvedImageTransform)
 
