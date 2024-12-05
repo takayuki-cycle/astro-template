@@ -12,7 +12,20 @@ const PATH_NAME = 'blog'
 const lastSegment = getLastSegment(Astro.url.pathname)
 const slugPost = await getEntry(PATH_NAME, lastSegment)
 const { Content } = await render(slugPost)
-const post = slugPost?.data ?? {}
+const DEFAULT_POST = {
+  title: '',
+  description: '',
+  robots: 'all',
+  ogType: 'article',
+  ogImage: '',
+  ogImageAlt: '',
+  xCreator: '',
+  author: '',
+  publishedDate: '',
+  updatedDate: '',
+  tags: undefined
+} as const
+const post = slugPost?.data ?? DEFAULT_POST
 const category = await getCategories(PATH_NAME)
 const authorID =
   typeof post.author === 'object' && post.author !== null ? post.author.id : undefined
