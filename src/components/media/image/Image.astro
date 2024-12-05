@@ -33,7 +33,11 @@ if (typeof props.height === 'string') {
   props.height = Number.parseInt(props.height)
 }
 
-const image = await getImage({ ...props, densities, quality } as UnresolvedImageTransform)
+const image = await getImage({
+  ...props,
+  densities,
+  quality
+} as unknown as UnresolvedImageTransform)
 
 const additionalAttributes: HTMLAttributes<'img'> = {}
 if (image.srcSet.values.length > 0) {
