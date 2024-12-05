@@ -7,6 +7,7 @@
     "quickfix.biome": "explicit",
     "source.fixAll.biome": "never"
   },
+  "stylelint.enable": false,
   "prettier.semi": false,
   "prettier.singleQuote": true,
   "prettier.jsxSingleQuote": true,
