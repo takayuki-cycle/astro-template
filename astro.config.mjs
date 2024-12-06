@@ -6,7 +6,6 @@ import { defineConfig } from 'astro/config'
 // https://astro.build/config
 export default defineConfig({
   site: 'https://takayuki-cycle.github.io',
-  base: '/astro-template/',
   trailingSlash: 'always',
   integrations: [react(), sitemap(), mdx()]
 })
