@@ -1,0 +1,24 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import type { HeadPageProps } from '@/layouts/head/types'
+
+// export const prerender = false
+
+const headPage: HeadPageProps = {
+  title: 'ssrPageTitle',
+  description: 'ssrページの説明です。',
+  robots: 'all',
+  ogType: 'website',
+  ogImage: '/ogp/general.webp',
+  ogImageAlt: 'ogImageAlt',
+  xCreator: '@xCreator',
+  author: 'author'
+}
+
+const isSSR = !!Astro.request // SSRモードなら true になる
+---
+
+<Layout headPage={headPage}>
+  <h1>Astro SSR Check</h1>
+  <p>{isSSR ? 'SSR is Enabled!' : 'SSR is Disabled!'}</p>
+</Layout>

@@ -7,5 +7,6 @@ import { defineConfig } from 'astro/config'
 export default defineConfig({
   site: 'https://main.d2869e33y4q9qp.amplifyapp.com',
   trailingSlash: 'always',
-  integrations: [react(), sitemap(), mdx()]
+  integrations: [react(), sitemap(), mdx()],
+  output: 'static'
 })
