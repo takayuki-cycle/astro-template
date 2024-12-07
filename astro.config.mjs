@@ -6,7 +6,7 @@ import vercel from '@astrojs/vercel'
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://main.d2869e33y4q9qp.amplifyapp.com',
+  site: 'https://astro-template-gules-seven.vercel.app',
   trailingSlash: 'always',
   integrations: [react(), sitemap(), mdx()],
   output: 'static',

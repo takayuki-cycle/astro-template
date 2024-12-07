@@ -1,5 +1,8 @@
 ---
-// export const prerender = false
+import Layout from '@/layouts/Layout.astro'
+import type { HeadPageProps } from '@/layouts/head/types'
+
+export const prerender = false
 
 const counter = 0
 
@@ -18,7 +21,20 @@ export async function get() {
 }
 
 const now = new Date().toLocaleString() // 現在のサーバー時間
+
+const headPage: HeadPageProps = {
+  title: 'ssrPageTitle',
+  description: 'ssrページの説明です。',
+  robots: 'all',
+  ogType: 'website',
+  ogImage: '/ogp/general.webp',
+  ogImageAlt: 'ogImageAlt',
+  xCreator: '@xCreator',
+  author: 'author'
+}
 ---
 
-<h1>Astro SSR Check</h1>
-<p>Server-rendered date and time: {now}</p>
+<Layout headPage={headPage}>
+  <h1>Astro SSR Check</h1>
+  <p>Server-rendered date and time: {now}</p>
+</Layout>
