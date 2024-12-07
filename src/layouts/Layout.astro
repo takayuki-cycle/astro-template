@@ -9,6 +9,7 @@ import Header from '@/layouts/header/Header.astro'
 import '@/index.css'
 import { fade } from 'astro:transitions'
 import { css } from '@/../styled-system/css'
+import SpeedInsights from '@vercel/speed-insights/astro'
 
 interface Props {
   headPage: HeadPageProps
@@ -51,5 +52,6 @@ const headSite: HeadSiteProps = {
     </main>
     {aside && <Aside aside={aside} />}
     <Footer />
+    <SpeedInsights />
   </body>
 </html>
