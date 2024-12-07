@@ -45,7 +45,7 @@ const eslintConfig = [
   ...eslintPluginAstro.configs['jsx-a11y-strict'],
   {
     files: ['**/*.{js,jsx,ts,tsx,astro}'],
-    ignores: ['*.d.ts', 'node_modules/**', 'styled-system', '.astro/**', 'dist/**'],
+    ignores: ['*.d.ts', 'node_modules/**', 'styled-system', '.astro/**', 'dist/**', '.vercel/**'],
     plugins: {
       '@pandacss': panda
     },

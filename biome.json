@@ -58,6 +58,6 @@
     }
   ],
   "files": {
-    "ignore": ["node_modules/**", "styled-system/**", ".astro/**", "dist/**"]
+    "ignore": ["node_modules/**", "styled-system/**", ".astro/**", "dist/**", ".vercel/**"]
   }
 }

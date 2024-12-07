@@ -1,24 +1,24 @@
 ---
-import Layout from '@/layouts/Layout.astro'
-import type { HeadPageProps } from '@/layouts/head/types'
+export const prerender = false // Not needed in 'server' mode
 
-// export const prerender = false
+const counter = 0
 
-const headPage: HeadPageProps = {
-  title: 'ssrPageTitle',
-  description: 'ssrページの説明です。',
-  robots: 'all',
-  ogType: 'website',
-  ogImage: '/ogp/general.webp',
-  ogImageAlt: 'ogImageAlt',
-  xCreator: '@xCreator',
-  author: 'author'
+Astro.cookies.set('counter', String(counter))
+
+export async function get() {
+  return {
+    body: JSON.stringify({
+      message: 'Hello, SSR!',
+      date: new Date().toISOString()
+    }),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }
 }
 
-const isSSR = !!Astro.request // SSRモードなら true になる
+const now = new Date().toLocaleString() // 現在のサーバー時間
 ---
 
-<Layout headPage={headPage}>
-  <h1>Astro SSR Check</h1>
-  <p>{isSSR ? 'SSR is Enabled!' : 'SSR is Disabled!'}</p>
-</Layout>
+<h1>Astro SSR Check</h1>
+<p>Server-rendered date and time: {now}</p>
