@@ -1,12 +1,9 @@
 ---
 import Layout from '@/layouts/Layout.astro'
 import type { HeadPageProps } from '@/layouts/head/types'
+import { Ssr as SsrComponent } from '@/templates/ssr/Ssr.tsx'
 
-export const prerender = false
-
-const counter = 0
-
-Astro.cookies.set('counter', String(counter))
+export const prerender = false // SSRを有効
 
 export async function get() {
   return {
@@ -20,7 +17,7 @@ export async function get() {
   }
 }
 
-const now = new Date().toLocaleString() // 現在のサーバー時間
+const now = new Date().toLocaleString() // 現在のサーバーの時間
 
 const headPage: HeadPageProps = {
   title: 'ssrPageTitle',
@@ -37,4 +34,5 @@ const headPage: HeadPageProps = {
 <Layout headPage={headPage}>
   <h1>Astro SSR Check</h1>
   <p>Server-rendered date and time: {now}</p>
+  <SsrComponent client:load />
 </Layout>
