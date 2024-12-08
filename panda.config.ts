@@ -32,7 +32,7 @@ export default defineConfig({
       breakpoints: BREAKPOINTS,
       tokens: {
         colors: {},
-        // widthとheightで使用
+        // widthとheightで使用(4 = 1rem)
         sizes: {
           full: { value: '100%' },
           min: { value: 'min-content' },
