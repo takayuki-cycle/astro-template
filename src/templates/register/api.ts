@@ -10,13 +10,11 @@ const axiosInstance = axios.create({
   }
 })
 
-// CSRFトークンを取得する関数
 export const fetchCsrfToken = async (): Promise<string> => {
   const response = await axiosInstance.get('/csrf-token')
   return response.data.csrf_token
 }
 
-// ユーザー登録を行う関数
 export const registerUser = async (registerState: RegisterState, csrfToken: string) => {
   await axiosInstance.post('/register', registerState, {
     headers: {
@@ -25,7 +23,6 @@ export const registerUser = async (registerState: RegisterState, csrfToken: stri
   })
 }
 
-// ユーザーをログアウトする関数
 export const logoutUser = async (csrfToken: string) => {
   await axiosInstance.post('/logout', null, {
     headers: {
