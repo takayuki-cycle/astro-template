@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import type { RegisterState } from '@/templates/register/types'
 import { Input } from '@/components/input/Input'
 import { validateField } from '@/templates/register/utils/validation'
+import { fetchCsrfToken, registerUser, logoutUser } from '@/templates/register/api'
 
 const initialRegisterState: RegisterState = {
   name: '',
@@ -13,6 +14,20 @@ const initialRegisterState: RegisterState = {
 export const Register = () => {
   const [registerState, setRegisterState] = useState<RegisterState>(initialRegisterState)
   const [error, setError] = useState<RegisterState>(initialRegisterState)
+  const [csrfToken, setCsrfToken] = useState<string>('')
+
+  useEffect(() => {
+    const getCsrfToken = async () => {
+      try {
+        const token = await fetchCsrfToken()
+        setCsrfToken(token)
+      } catch (error) {
+        console.error('Failed to fetch CSRF token:', error)
+      }
+    }
+
+    getCsrfToken()
+  }, [])
 
   const handleChange = (field: keyof RegisterState, value: string) => {
     setRegisterState((prevState) => ({
@@ -26,7 +41,7 @@ export const Register = () => {
     }))
   }
 
-  const handleConfirm = () => {
+  const handleConfirm = async () => {
     const newError: RegisterState = { ...initialRegisterState }
 
     for (const key of Object.keys(registerState)) {
@@ -41,7 +56,19 @@ export const Register = () => {
 
     const hasError = Object.values(newError).some((error) => error !== '')
     if (!hasError) {
-      console.log('登録成功:', registerState)
+      try {
+        await registerUser(registerState, csrfToken)
+      } catch (error) {
+        console.error('登録失敗:', error)
+      }
+    }
+  }
+
+  const handleLogout = async () => {
+    try {
+      await logoutUser(csrfToken)
+    } catch (error) {
+      console.error('ログアウト失敗:', error)
     }
   }
 
@@ -82,7 +109,11 @@ export const Register = () => {
         <button type='button' onClick={handleConfirm}>
           確定
         </button>
+        {csrfToken && <p>CSRF Token: {csrfToken}</p>}
       </form>
+      <button type='button' onClick={handleLogout}>
+        ログアウト
+      </button>
     </>
   )
 }
