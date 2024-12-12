@@ -109,7 +109,6 @@ export const Register = () => {
         <button type='button' onClick={handleConfirm}>
           確定
         </button>
-        {csrfToken && <p>CSRF Token: {csrfToken}</p>}
       </form>
       <button type='button' onClick={handleLogout}>
         ログアウト
