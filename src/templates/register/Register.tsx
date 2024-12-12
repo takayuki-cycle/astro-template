@@ -14,13 +14,11 @@ const initialRegisterState: RegisterState = {
 export const Register = () => {
   const [registerState, setRegisterState] = useState<RegisterState>(initialRegisterState)
   const [error, setError] = useState<RegisterState>(initialRegisterState)
-  const [csrfToken, setCsrfToken] = useState<string>('')
 
   useEffect(() => {
     const getCsrfToken = async () => {
       try {
-        const token = await fetchCsrfToken()
-        setCsrfToken(token)
+        await fetchCsrfToken()
       } catch (error) {
         console.error('Failed to fetch CSRF token:', error)
       }
@@ -57,7 +55,7 @@ export const Register = () => {
     const hasError = Object.values(newError).some((error) => error !== '')
     if (!hasError) {
       try {
-        await registerUser(registerState, csrfToken)
+        await registerUser(registerState)
       } catch (error) {
         console.error('登録失敗:', error)
       }
@@ -66,7 +64,7 @@ export const Register = () => {
 
   const handleLogout = async () => {
     try {
-      await logoutUser(csrfToken)
+      await logoutUser()
     } catch (error) {
       console.error('ログアウト失敗:', error)
     }

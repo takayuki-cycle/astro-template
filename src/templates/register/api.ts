@@ -10,23 +10,31 @@ const axiosInstance = axios.create({
   }
 })
 
+// GET以外のリクエストにCSRFトークンを付与
+axiosInstance.interceptors.request.use((config) => {
+  if (config.method !== 'get' && config.headers) {
+    const csrfToken = localStorage.getItem('csrfToken')
+    if (csrfToken) {
+      config.headers['X-CSRF-TOKEN'] = csrfToken
+    }
+  }
+  return config
+})
+
+// CSRFトークンを取得する関数
 export const fetchCsrfToken = async (): Promise<string> => {
   const response = await axiosInstance.get('/csrf-token')
-  return response.data.csrf_token
+  const csrfToken = response.data.csrf_token
+  localStorage.setItem('csrfToken', csrfToken)
+  return csrfToken
 }
 
-export const registerUser = async (registerState: RegisterState, csrfToken: string) => {
-  await axiosInstance.post('/register', registerState, {
-    headers: {
-      'X-CSRF-TOKEN': csrfToken
-    }
-  })
+// ユーザー登録を行う関数
+export const registerUser = async (registerState: RegisterState) => {
+  await axiosInstance.post('/register', registerState)
 }
 
-export const logoutUser = async (csrfToken: string) => {
-  await axiosInstance.post('/logout', null, {
-    headers: {
-      'X-CSRF-TOKEN': csrfToken
-    }
-  })
+// ユーザーをログアウトする関数
+export const logoutUser = async () => {
+  await axiosInstance.post('/logout')
 }
