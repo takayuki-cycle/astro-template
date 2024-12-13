@@ -1,5 +1,5 @@
 import axios from 'axios'
-import type { RegisterState } from '@/templates/register/types'
+import type { RegisterState, LoginState } from '@/templates/register/types'
 
 // 共通の設定
 const axiosInstance = axios.create({
@@ -34,7 +34,13 @@ export const registerUser = async (registerState: RegisterState) => {
   await axiosInstance.post('/register', registerState)
 }
 
+export const loginUser = async (loginState: LoginState) => {
+  await axiosInstance.post('/login', loginState)
+}
+
 // ユーザーをログアウトする関数
 export const logoutUser = async () => {
   await axiosInstance.post('/logout')
 }
+
+export const checkAuth = () => axiosInstance.get('/api/user')

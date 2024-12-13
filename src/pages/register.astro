@@ -1,13 +1,14 @@
 ---
 import Layout from '@/layouts/Layout.astro'
 import type { HeadPageProps } from '@/layouts/head/types'
-import { Register as RegisterComponent } from '@/templates/register/Register.tsx'
+import { Register as RegisterComponent } from '@/templates/register/Register'
+import { checkAuth } from '@/templates/register/api'
 
 export const prerender = false // SSRを有効
 
 const headPage: HeadPageProps = {
-  title: 'loginPageTitle',
-  description: 'loginページの説明です。',
+  title: 'registerPageTitle',
+  description: 'registerページの説明です。',
   robots: 'all',
   ogType: 'website',
   ogImage: '/ogp/general.webp',
@@ -15,8 +16,35 @@ const headPage: HeadPageProps = {
   xCreator: '@xCreator',
   author: 'author'
 }
+
+// const cookie = Astro.request.headers.get('cookie')
+// console.log('cookie', cookie)
+let isAuthenticated = false
+let user = null
+
+try {
+  const response = await checkAuth()
+
+  if (response.status === 200 || response.status === 204) {
+    user = response.data
+    isAuthenticated = true
+  }
+} catch (error) {
+  // エラー内容を詳細に出力
+  // if (error.response) {
+  //   console.error('Error response status:', error.response.status) // HTTPステータスコード
+  //   console.error('Error response data:', error.response.data) // サーバーからのエラーメッセージ
+  //   console.error('Error response headers:', error.response.headers) // レスポンスヘッダー
+  // } else if (error.request) {
+  //   console.error('Error request:', error.request) // リクエストそのものが失敗した場合
+  // } else {
+  //   console.error('Error message:', error.message) // その他のエラー
+  // }
+  // console.error('Error config:', error.config) // Axiosの設定内容
+}
 ---
 
 <Layout headPage={headPage}>
   <RegisterComponent client:load />
+  {isAuthenticated ? <p>こんにちは、{user.name}さん！</p> : <p>ログインしていません。</p>}
 </Layout>

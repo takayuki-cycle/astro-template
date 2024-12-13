@@ -1,0 +1,22 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import type { HeadPageProps } from '@/layouts/head/types'
+import { Dashboard as DashboardComponent } from '@/templates/dashboard/Dashboard'
+
+export const prerender = false // SSRを有効
+
+const headPage: HeadPageProps = {
+  title: 'dashboardPageTitle',
+  description: 'registerページの説明です。',
+  robots: 'all',
+  ogType: 'website',
+  ogImage: '/ogp/general.webp',
+  ogImageAlt: 'ogImageAlt',
+  xCreator: '@xCreator',
+  author: 'author'
+}
+---
+
+<Layout headPage={headPage}>
+  <DashboardComponent client:load />
+</Layout>

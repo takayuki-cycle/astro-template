@@ -77,6 +77,7 @@
     "noembed",
     "poyoyon",
     "poyopoyo",
-    "vercel"
+    "vercel",
+    "axios"
   ]
 }

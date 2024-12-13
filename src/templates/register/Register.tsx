@@ -1,14 +1,20 @@
 import { useEffect, useState } from 'react'
-import type { RegisterState } from '@/templates/register/types'
+import type { RegisterState, LoginState } from '@/templates/register/types'
 import { Input } from '@/components/input/Input'
 import { validateField } from '@/templates/register/utils/validation'
-import { fetchCsrfToken, registerUser, logoutUser } from '@/templates/register/api'
+import { fetchCsrfToken, registerUser, loginUser, logoutUser } from '@/templates/register/api'
 
 const initialRegisterState: RegisterState = {
   name: '',
   email: '',
   password: '',
   password_confirmation: ''
+}
+
+const loginState: LoginState = {
+  name: 'a',
+  email: 'a@a.com',
+  password: 'AlicePassword123!'
 }
 
 export const Register = () => {
@@ -39,7 +45,7 @@ export const Register = () => {
     }))
   }
 
-  const handleConfirm = async () => {
+  const handleRegister = async () => {
     const newError: RegisterState = { ...initialRegisterState }
 
     for (const key of Object.keys(registerState)) {
@@ -59,6 +65,14 @@ export const Register = () => {
       } catch (error) {
         console.error('登録失敗:', error)
       }
+    }
+  }
+
+  const handleLogin = async () => {
+    try {
+      await loginUser(loginState)
+    } catch (error) {
+      console.error('ログイン失敗:', error)
     }
   }
 
@@ -104,10 +118,14 @@ export const Register = () => {
           placeholder='Confirm Password'
           error={error.password_confirmation}
         />
-        <button type='button' onClick={handleConfirm}>
-          確定
+        <button type='button' onClick={handleRegister}>
+          登録
         </button>
       </form>
+      <button type='button' onClick={handleLogin}>
+        ログイン
+      </button>
+      <br />
       <button type='button' onClick={handleLogout}>
         ログアウト
       </button>
