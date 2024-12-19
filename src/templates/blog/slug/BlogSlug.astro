@@ -2,12 +2,13 @@
 import { css } from '@/../styled-system/css'
 import { TOC } from '@/components/toc/TOC.tsx'
 import { BASE_URL } from '@/constants/url'
-import type { PathNameProps, SlugProps } from '@/templates/blog/slug/types.ts'
-import type { AstroComponentFactory } from 'astro/runtime/server/index.js'
+import type { Props } from '@/templates/blog/slug/types.ts'
 
-const { ogImage, ogImageAlt, title }: SlugProps = Astro.props.post
-const { pathName } = Astro.props as PathNameProps
-const { Content } = Astro.props as { Content: AstroComponentFactory }
+const {
+  post: { ogImage, ogImageAlt, title },
+  pathName,
+  Content
+} = Astro.props
 
 const blogDetail = css({
   '& h2': {
