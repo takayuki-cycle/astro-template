@@ -1,5 +1,5 @@
 ---
-import type { CategoryProps } from '@/components/category/types.ts'
+import type { Props } from '@/components/category/types.ts'
 import {
   getCategoryCount,
   getCategoryList,
@@ -7,7 +7,7 @@ import {
 } from '@/components/category/utils.ts'
 import { BASE_URL } from '@/constants/url'
 
-const { pathName, category } = Astro.props as CategoryProps
+const { pathName, category } = Astro.props
 const contentTotal = category.length
 
 const validCategories = getValidCategories(category)
