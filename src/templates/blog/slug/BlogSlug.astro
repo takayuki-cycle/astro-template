@@ -5,7 +5,7 @@ import { BASE_URL } from '@/constants/url'
 import type { PathNameProps, SlugProps } from '@/templates/blog/slug/types.ts'
 import type { AstroComponentFactory } from 'astro/runtime/server/index.js'
 
-const { ogImage, ogImageAlt, title } = Astro.props.post as SlugProps
+const { ogImage, ogImageAlt, title }: SlugProps = Astro.props.post
 const { pathName } = Astro.props as PathNameProps
 const { Content } = Astro.props as { Content: AstroComponentFactory }
 
