@@ -176,16 +176,20 @@ export default defineConfig({
             footer: ['neutral.700', 'neutral.900'] // #404040, #171717
           },
           text: {
-            DEFAULT: ['neutral.800', 'neutral.200'], // #262626, #e5e5e5
+            DEFAULT: ['neutral.800', 'white'], // #262626, #ffffff
             link: ['blue.600', 'blue.400'], // #2563eb, #60a5fa
-            disabled: ['gray.600', 'gray.400'] // #4b5563, #9ca3af
+            disabled: ['gray.600', 'gray.400'], // #4b5563, #9ca3af
+            light: ['white'] // #ffffff
           },
           success: ['green.500', 'green.300'], // #22c55e, #86efac
           warning: ['yellow.400', 'yellow.200'], // #facc15 , #fef08a
           danger: ['red.600', 'red.400'], // #dc2626, #f87171
           info: ['sky.500', 'sky.300'], // ##0ea5e9, #7dd3fc
           border: ['gray.300', 'gray.700'], // #d1d5db, #374151
-          hover: ['blue.800', 'blue.600'] // #1e40af, #2563eb
+          hover: {
+            DEFAULT: ['blue.800', 'blue.600'], // #1e40af, #2563eb
+            bg: ['neutral.100', 'neutral.800'] // #f5f5f5, #262626
+          }
         }),
         gradients: createGradientSemanticTokens({
           // 元々の値
@@ -251,6 +255,12 @@ export default defineConfig({
           //     _osDark: { width: '0.0625rem', style: 'dotted', color: '{colors.red.200}' },
           //   },
           // },
+          primary: [0.125, 'solid', ['blue.700', 'blue.500']],
+          secondary: [0.125, 'solid', ['gray.500', 'gray.300']],
+          tertiary: [0.125, 'solid', ['pink.600', 'pink.400']],
+          hover: {
+            bg: [0.125, 'solid', ['neutral.100', 'neutral.800']]
+          },
           border1: [0.0625, 'dotted', ['black', 'red.600']],
           border2: [0.125, 'dashed', ['blue.400']],
           border3: {
@@ -304,6 +314,8 @@ export default defineConfig({
         assets: {}
       },
       keyframes
+      // Config Recipeではtype-safe runtime APIが使えなかったので、Atomic Recipeを使うことにしました。
+      // recipes: {}
     }
   },
   globalCss

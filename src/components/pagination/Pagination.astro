@@ -1,37 +1,56 @@
 ---
-import { css } from '@/../styled-system/css'
-import type { PaginationProps } from '@/components/pagination/types.ts'
+import type { Props } from '@/components/pagination/types.ts'
 import { calculatePagination } from '@/components/pagination/utils.ts'
 import { BASE_URL } from '@/constants/url'
+import { style } from '@/components/pagination/styles.ts'
 
-const { pathName, currentPage, lastPage, step = 2 } = Astro.props as PaginationProps
+const { pathName, currentPage, lastPage, step = 1 } = Astro.props
 
-const { isShowFirstLink, isShowLastLink, isShowFirstOmit, isShowLastOmit, range } =
-  calculatePagination(currentPage, lastPage, step)
+const {
+  isShowFirstOmitNumber,
+  isShowLastOmitNumber,
+  isShowFirstLink,
+  isShowLastLink,
+  isShowFirstOmit,
+  isShowLastOmit,
+  range
+} = calculatePagination(currentPage, lastPage, step)
 ---
 
-<nav aria-label='ページネーション'>
-  <ul
-    class={css({
-      display: 'flex',
-      columnGap: '8'
-    })}
-  >
+<nav class={style({ shape: 'rounded' })} aria-label='ページネーション'>
+  <ul>
     {
       currentPage > 1 && (
         <li>
-          <a href={`${BASE_URL}${pathName}/${currentPage - 1}/`}>＜ 前へ</a>
+          <a
+            href={`${BASE_URL}${pathName}/${currentPage - 1}/`}
+            aria-label='前のページへ戻ります。'
+          >
+            {'<'}
+          </a>
         </li>
       )
     }
     {
       isShowFirstLink && (
         <li>
-          <a href={`${BASE_URL}${pathName}/1/`}>1</a>
+          <a href={`${BASE_URL}${pathName}/1/`} aria-label='最初のページへ戻ります。'>
+            1
+          </a>
         </li>
       )
     }
-    {isShowFirstLink && isShowFirstOmit && <li>...</li>}
+    {
+      isShowFirstOmitNumber ? (
+        <li>
+          <a href={`${BASE_URL}${pathName}/2/`} aria-label='最初から2つ目のページへ戻ります。'>
+            2
+          </a>
+        </li>
+      ) : (
+        isShowFirstLink && isShowFirstOmit && <li>...</li>
+      )
+    }
     {
       range.map((number) => (
         <li>
@@ -43,18 +62,38 @@ const { isShowFirstLink, isShowLastLink, isShowFirstOmit, isShowLastOmit, range 
         </li>
       ))
     }
-    {isShowLastLink && isShowLastOmit && <li>...</li>}
+    {
+      isShowLastOmitNumber ? (
+        <li>
+          <a
+            href={`${BASE_URL}${pathName}/${lastPage - 1}/`}
+            aria-label='最後から2つ目のページへ進みます。'
+          >
+            {lastPage - 1}
+          </a>
+        </li>
+      ) : (
+        isShowLastLink && isShowLastOmit && <li>...</li>
+      )
+    }
     {
       isShowLastLink && (
         <li>
-          <a href={`${BASE_URL}${pathName}/${lastPage}/`}>{lastPage}</a>
+          <a href={`${BASE_URL}${pathName}/${lastPage}/`} aria-label='最後のページへ進みます。'>
+            {lastPage}
+          </a>
         </li>
       )
     }
     {
       currentPage < lastPage && (
         <li>
-          <a href={`${BASE_URL}${pathName}/${currentPage + 1}/`}>次へ ＞</a>
+          <a
+            href={`${BASE_URL}${pathName}/${currentPage + 1}/`}
+            aria-label='次のページへ進みます。'
+          >
+            {'>'}
+          </a>
         </li>
       )
     }
