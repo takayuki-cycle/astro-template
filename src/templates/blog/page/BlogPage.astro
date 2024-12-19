@@ -3,7 +3,7 @@ import Pagination from '@/components/pagination/Pagination.astro'
 import { BASE_URL } from '@/constants/url'
 import type { PageProps, PathNameProps } from '@/templates/blog/page/types.ts'
 
-const { data, total, size, currentPage, lastPage } = Astro.props.page as PageProps
+const { data, total, size, currentPage, lastPage }: PageProps = Astro.props.page
 const { pathName, categoryPathName } = Astro.props as PathNameProps
 ---
 
