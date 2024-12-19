@@ -1,10 +1,18 @@
 ---
 import Pagination from '@/components/pagination/Pagination.astro'
 import { BASE_URL } from '@/constants/url'
-import type { PageProps, PathNameProps } from '@/templates/blog/page/types.ts'
+import type { Props } from '@/templates/blog/page/types.ts'
 
-const { data, total, size, currentPage, lastPage }: PageProps = Astro.props.page
-const { pathName, categoryPathName } = Astro.props as PathNameProps
+const {
+  pathName,
+  categoryPathName,
+  page: { data, total, size, currentPage, lastPage }
+} = Astro.props
+
+// TODO: 上記のAstro.propsでエラーが出るようであれば、昔書いた以下のコードへ置き換えてください。
+// import type { PageProps, PathNameProps } from '@/templates/blog/page/types.ts'
+// const { data, total, size, currentPage, lastPage }: PageProps = Astro.props.page
+// const { pathName, categoryPathName } = Astro.props as PathNameProps
 ---
 
 <h1>Page {currentPage}</h1>
