@@ -11,10 +11,7 @@ const pagination = {
   ...calculatePaginationUnder(currentPage, lastPage)
 }
 
-const firstMaps = [
-  { condition: pagination.isShowFirstLink },
-  { condition: pagination.isShowFirstLinkUnder }
-]
+const firstMaps = [pagination.isShowFirstLink, pagination.isShowFirstLinkUnder]
 const secondMaps = [
   {
     condition: pagination.isShowFirstOmitNumber,
@@ -25,7 +22,7 @@ const secondMaps = [
     showOmit: pagination.isShowFirstLinkUnder && pagination.isShowFirstOmitUnder
   }
 ]
-const rangeMaps = [{ condition: pagination.range }, { condition: pagination.rangeUnder }]
+const rangeMaps = [pagination.range, pagination.rangeUnder]
 const lastSecondMaps = [
   {
     condition: pagination.isShowLastOmitNumber,
@@ -36,14 +33,7 @@ const lastSecondMaps = [
     showOmit: pagination.isShowLastLinkUnder && pagination.isShowLastOmitUnder
   }
 ]
-const lastMaps = [
-  {
-    condition: pagination.isShowLastLink
-  },
-  {
-    condition: pagination.isShowLastLinkUnder
-  }
-]
+const lastMaps = [pagination.isShowLastLink, pagination.isShowLastLinkUnder]
 ---
 
 <nav class={style({ shape: 'rounded' })} aria-label='ページネーション'>
@@ -63,7 +53,7 @@ const lastMaps = [
     {
       firstMaps.map(
         (map, index) =>
-          map.condition && (
+          map && (
             <li class={index === 0 ? 'upper' : 'under'}>
               <a href={`${BASE_URL}${pathName}/1/`} aria-label='最初のページへ戻ります。'>
                 1
@@ -87,7 +77,7 @@ const lastMaps = [
     }
     {
       rangeMaps.map((map, index) =>
-        map.condition.map((number) => (
+        map.map((number) => (
           <li class={index === 0 ? 'upper' : 'under'}>
             {number === currentPage ? (
               <span>{number}</span>
@@ -122,7 +112,7 @@ const lastMaps = [
     {
       lastMaps.map(
         (map, index) =>
-          map.condition && (
+          map && (
             <li class={index === 0 ? 'upper' : 'under'}>
               <a href={`${BASE_URL}${pathName}/${lastPage}/`} aria-label='最後のページへ進みます。'>
                 {lastPage}
