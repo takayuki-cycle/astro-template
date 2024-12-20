@@ -9,23 +9,19 @@ const styledPatterns =
   'box|flex|stack|vstack|hstack|spacer|square|circle|center|link-overlay|aspect-ratio|grid|grid-item|wrap|container|divider|float|bleed|visually-hidden|cq'
 const styledCalleeName = `${styledCss}|${styledPatterns}`
 
-const createStyledNoRestrictedSyntax = (rules) =>
-  rules.map(([property, suggestion]) => ({
-    selector: `CallExpression[callee.name=/^(${styledCalleeName})$/] Property[key.name='${property}'][value.type!='ObjectExpression']`,
-    message: `'${property}' は使用しないでください。${suggestion ? `代わりに '${suggestion}' にしてください。` : '非推奨です。'}`
-  }))
+const createNoRestrictedSyntax = (type, rules) =>
+  rules.map(([property, suggestion]) => {
+    const selectors = {
+      styled: `CallExpression[callee.name=/^(${styledCalleeName})$/] Property[key.name='${property}'][value.type!='ObjectExpression']`,
+      htmlTag: `JSXOpeningElement[name.name='${property}']`,
+      attribute: `JSXAttribute[name.name='${property}']`
+    }
 
-const createHTMLTagNoRestrictedSyntax = (rules) =>
-  rules.map(([property, suggestion]) => ({
-    selector: `JSXOpeningElement[name.name='${property}']`,
-    message: `'${property}' は使用しないでください。${suggestion ? `代わりに '${suggestion}' にしてください。` : '非推奨です。'}`
-  }))
-
-const createAttributeNoRestrictedSyntax = (rules) =>
-  rules.map(([property, suggestion]) => ({
-    selector: `JSXAttribute[name.name='${property}']`,
-    message: `'${property}' は使用しないでください。${suggestion ? `代わりに '${suggestion}' にしてください。` : '非推奨です。'}`
-  }))
+    return {
+      selector: selectors[type],
+      message: `'${property}' は使用しないでください。${suggestion ? `代わりに '${suggestion}' にしてください。` : '非推奨です。'}`
+    }
+  })
 
 const pandaRules = {
   ...Object.fromEntries(
@@ -79,7 +75,7 @@ const eslintConfig = [
         // Panda CSSで特定のプロパティ名の使用を禁止
         // ['使用を禁止したいプロパティ名', '代わりに提案したい方法'](代わりに提案したい方法がなければ、''にしてください。)
         // 使用を禁止するプロパティ名は、https://developer.mozilla.org/ja/docs/Web/CSS を参考にしました。
-        ...createStyledNoRestrictedSyntax([
+        ...createNoRestrictedSyntax('styled', [
           ['bgImage', 'Imageコンポーネント'],
           ['float', 'flexboxやgridレイアウト'],
           ['clip', 'clipPath'],
@@ -96,7 +92,7 @@ const eslintConfig = [
         // ['使用を禁止したいHTMLタグ', '代わりに提案したい方法'](代わりに提案したい方法がなければ、''にしてください。)
         // Markuplintで<font>、<center>、<marquee>、<frameset>、<frame>、<noframes>、<big>、<applet>、<blink>、<strike>、<rb>、<rtc>、<acronym>、<basefont>、<bgsound>、<dir>、<isindex>、<keygen>、<listing>、<marquee>、<menuitem>、<nobr>、<noembed>、<plaintext>、<tt>、<xmp>の使用は、既に禁止されています。
         // <small>は補足情報で使用するので、禁止にはしていません。
-        ...createHTMLTagNoRestrictedSyntax([
+        ...createNoRestrictedSyntax('htmlTag', [
           ['b', '<strong>または<em>またはスタイルで太字'],
           ['i', '<em>または<cite>またはスタイルで斜体'],
           ['u', '<mark>または<abbr>またはスタイルで下線'],
@@ -107,7 +103,7 @@ const eslintConfig = [
           // ['img', 'Imageコンポーネント'], // TODO: いずれ適用
         ]),
         // 特定のHTML属性の使用を禁止
-        ...createAttributeNoRestrictedSyntax([['style', 'Panda CSS']])
+        ...createNoRestrictedSyntax('attribute', [['style', 'Panda CSS']])
       ]
     }
   },
