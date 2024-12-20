@@ -1,6 +1,15 @@
-import type { Step } from '@/components/pagination/types'
+import type {
+  Step,
+  PaginationOptions,
+  PaginationResult,
+  PaginationResultUnder
+} from '@/components/pagination/types'
 
-export const calculatePagination = (currentPage: number, lastPage: number, step: Step) => {
+const calculatePaginationBase = ({
+  currentPage,
+  lastPage,
+  step
+}: PaginationOptions): PaginationResult => {
   const firstStep = Math.max(1, currentPage - step)
   const lastStep = Math.min(lastPage, currentPage + step)
   const isShowFirstOmitNumber = currentPage - step - 2 === 1
@@ -9,8 +18,7 @@ export const calculatePagination = (currentPage: number, lastPage: number, step:
   const isShowLastLink = lastStep < lastPage
   const isShowFirstOmit = currentPage - (step + 1) !== 1
   const isShowLastOmit = currentPage + (step + 1) !== lastPage
-  const range = (start: number, end: number) =>
-    Array.from({ length: end - start + 1 }, (_, i) => start + i)
+  const range = Array.from({ length: lastStep - firstStep + 1 }, (_, i) => firstStep + i)
 
   return {
     isShowFirstOmitNumber,
@@ -19,6 +27,26 @@ export const calculatePagination = (currentPage: number, lastPage: number, step:
     isShowLastLink,
     isShowFirstOmit,
     isShowLastOmit,
-    range: range(firstStep, lastStep)
+    range
   }
+}
+
+export const calculatePagination = (
+  currentPage: number,
+  lastPage: number,
+  step: Step
+): PaginationResult => {
+  return calculatePaginationBase({ currentPage, lastPage, step })
+}
+
+export const calculatePaginationUnder = (
+  currentPage: number,
+  lastPage: number
+): PaginationResultUnder => {
+  const step: Step = 1
+  const baseResult = calculatePaginationBase({ currentPage, lastPage, step })
+
+  return Object.fromEntries(
+    Object.entries(baseResult).map(([key, value]) => [`${key}Under`, value])
+  ) as PaginationResultUnder
 }

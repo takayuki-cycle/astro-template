@@ -1,20 +1,49 @@
 ---
 import type { Props } from '@/components/pagination/types.ts'
-import { calculatePagination } from '@/components/pagination/utils.ts'
+import { calculatePagination, calculatePaginationUnder } from '@/components/pagination/utils.ts'
 import { BASE_URL } from '@/constants/url'
 import { style } from '@/components/pagination/styles.ts'
 
-const { pathName, currentPage, lastPage, step = 1 } = Astro.props
+const { pathName, currentPage, lastPage, step = 2 } = Astro.props
 
-const {
-  isShowFirstOmitNumber,
-  isShowLastOmitNumber,
-  isShowFirstLink,
-  isShowLastLink,
-  isShowFirstOmit,
-  isShowLastOmit,
-  range
-} = calculatePagination(currentPage, lastPage, step)
+const pagination = {
+  ...calculatePagination(currentPage, lastPage, step),
+  ...calculatePaginationUnder(currentPage, lastPage)
+}
+
+const firstMaps = [
+  { condition: pagination.isShowFirstLink },
+  { condition: pagination.isShowFirstLinkUnder }
+]
+const secondMaps = [
+  {
+    condition: pagination.isShowFirstOmitNumber,
+    showOmit: pagination.isShowFirstLink && pagination.isShowFirstOmit
+  },
+  {
+    condition: pagination.isShowFirstOmitNumberUnder,
+    showOmit: pagination.isShowFirstLinkUnder && pagination.isShowFirstOmitUnder
+  }
+]
+const rangeMaps = [{ condition: pagination.range }, { condition: pagination.rangeUnder }]
+const lastSecondMaps = [
+  {
+    condition: pagination.isShowLastOmitNumber,
+    showOmit: pagination.isShowLastLink && pagination.isShowLastOmit
+  },
+  {
+    condition: pagination.isShowLastOmitNumberUnder,
+    showOmit: pagination.isShowLastLinkUnder && pagination.isShowLastOmitUnder
+  }
+]
+const lastMaps = [
+  {
+    condition: pagination.isShowLastLink
+  },
+  {
+    condition: pagination.isShowLastLinkUnder
+  }
+]
 ---
 
 <nav class={style({ shape: 'rounded' })} aria-label='ページネーション'>
@@ -32,57 +61,74 @@ const {
       )
     }
     {
-      isShowFirstLink && (
-        <li>
-          <a href={`${BASE_URL}${pathName}/1/`} aria-label='最初のページへ戻ります。'>
-            1
-          </a>
-        </li>
+      firstMaps.map(
+        (map, index) =>
+          map.condition && (
+            <li class={index === 0 ? 'upper' : 'under'}>
+              <a href={`${BASE_URL}${pathName}/1/`} aria-label='最初のページへ戻ります。'>
+                1
+              </a>
+            </li>
+          )
       )
     }
     {
-      isShowFirstOmitNumber ? (
-        <li>
-          <a href={`${BASE_URL}${pathName}/2/`} aria-label='最初から2つ目のページへ戻ります。'>
-            2
-          </a>
-        </li>
-      ) : (
-        isShowFirstLink && isShowFirstOmit && <li>...</li>
+      secondMaps.map((map, index) =>
+        map.condition ? (
+          <li class={index === 0 ? 'upper' : 'under'}>
+            <a href={`${BASE_URL}${pathName}/2/`} aria-label='最初から2つ目のページへ戻ります。'>
+              2
+            </a>
+          </li>
+        ) : (
+          map.showOmit && <li class={index === 0 ? 'upper' : 'under'}>...</li>
+        )
       )
     }
     {
-      range.map((number) => (
-        <li>
-          {number === currentPage ? (
-            <span>{number}</span>
-          ) : (
-            <a href={`${BASE_URL}${pathName}/${number}/`}>{number}</a>
-          )}
-        </li>
-      ))
-    }
-    {
-      isShowLastOmitNumber ? (
-        <li>
-          <a
-            href={`${BASE_URL}${pathName}/${lastPage - 1}/`}
-            aria-label='最後から2つ目のページへ進みます。'
-          >
-            {lastPage - 1}
-          </a>
-        </li>
-      ) : (
-        isShowLastLink && isShowLastOmit && <li>...</li>
+      rangeMaps.map((map, index) =>
+        map.condition.map((number) => (
+          <li class={index === 0 ? 'upper' : 'under'}>
+            {number === currentPage ? (
+              <span>{number}</span>
+            ) : (
+              <a
+                href={`${BASE_URL}${pathName}/${number}/`}
+                aria-label={`${number}つ目のページへ遷移します。`}
+              >
+                {number}
+              </a>
+            )}
+          </li>
+        ))
       )
     }
     {
-      isShowLastLink && (
-        <li>
-          <a href={`${BASE_URL}${pathName}/${lastPage}/`} aria-label='最後のページへ進みます。'>
-            {lastPage}
-          </a>
-        </li>
+      lastSecondMaps.map((map, index) =>
+        map.condition ? (
+          <li class={index === 0 ? 'upper' : 'under'}>
+            <a
+              href={`${BASE_URL}${pathName}/${lastPage - 1}/`}
+              aria-label='最後から2つ目のページへ進みます。'
+            >
+              {lastPage - 1}
+            </a>
+          </li>
+        ) : (
+          map.showOmit && <li class={index === 0 ? 'upper' : 'under'}>...</li>
+        )
+      )
+    }
+    {
+      lastMaps.map(
+        (map, index) =>
+          map.condition && (
+            <li class={index === 0 ? 'upper' : 'under'}>
+              <a href={`${BASE_URL}${pathName}/${lastPage}/`} aria-label='最後のページへ進みます。'>
+                {lastPage}
+              </a>
+            </li>
+          )
       )
     }
     {

@@ -2,6 +2,8 @@ import { cva } from '@/../styled-system/css'
 
 export const style = cva({
   base: {
+    '& .upper': { display: 'none', md: { display: 'flex' } },
+    '& .under': { display: 'flex', md: { display: 'none' } },
     w: 'fit',
     '& > ul': {
       display: 'flex',
