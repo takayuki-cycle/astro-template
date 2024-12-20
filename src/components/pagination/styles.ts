@@ -2,17 +2,23 @@ import { cva } from '@/../styled-system/css'
 
 export const style = cva({
   base: {
-    '& .upper': { display: 'none', md: { display: 'flex' } },
-    '& .under': { display: 'flex', md: { display: 'none' } },
-    w: 'fit',
+    w: 'full',
+    sm: {
+      w: 'fit',
+      columnGap: '1'
+    },
+    '& .upper': { display: 'none', sm: { display: 'flex' } },
+    '& .under': { display: 'flex', sm: { display: 'none' } },
     '& > ul': {
       display: 'flex',
       flexWrap: 'wrap',
       columnGap: '0',
       alignItems: 'center',
+      justifyContent: 'space-around',
       rowGap: '1',
-      md: {
-        columnGap: '2'
+      sm: {
+        justifyContent: 'normal',
+        columnGap: '1'
       }
     },
     '& li': {
@@ -23,7 +29,7 @@ export const style = cva({
       color: 'text',
       minW: '9',
       h: '9',
-      md: { minW: '10', h: '10' }
+      sm: { minW: '10', h: '10' }
     },
     '& li:not(:has(a))': {
       minW: 'fit'
@@ -51,7 +57,7 @@ export const style = cva({
       fontWeight: 'bold',
       minW: '9',
       h: '9',
-      md: { minW: '10', h: '10' }
+      sm: { minW: '10', h: '10' }
     }
   },
   variants: {
