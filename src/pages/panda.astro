@@ -45,7 +45,17 @@ const testCSS = cva({
 ---
 
 <Layout headPage={headPage}>
-  <h1 class={css({ fontWeight: 'bold', _hover: { fontWeight: 'thin' } })}>h1h1h1</h1>
+  <h1
+    class={css({
+      fontWeight: 'bold',
+      _hover: { '@media (any-hover: hover)': { fontWeight: 'thin' } },
+      pos: 'fixed',
+      bottom: '0',
+      right: '0'
+    })}
+  >
+    h1h1h1
+  </h1>
   <h2 class={css({ fontWeight: 'thin' })}>h2h2h2</h2>
   <h3 class={testCSS({})}>h3h3h3</h3>
   <h4 class={css({ fontWeight: { base: 'normal', sm: 'bold' } })}>h4h4h4</h4>
@@ -94,13 +104,15 @@ const testCSS = cva({
       w: '16',
       bg: 'primary',
       _hover: {
-        w: 'full',
-        bg: 'tertiary',
-        transitionProperty: 'background-color, width',
-        // transition: 'all',
-        transitionTimingFunction: 'jumpNone4',
-        // transitionDelay: 'fast',
-        transitionDuration: 'slowest' // 'faster',
+        '@media (any-hover: hover)': {
+          w: 'full',
+          bg: 'tertiary',
+          transitionProperty: 'background-color, width',
+          // transition: 'all',
+          transitionTimingFunction: 'jumpNone4',
+          // transitionDelay: 'fast',
+          transitionDuration: 'slowest' // 'faster',
+        }
       }
     })}
   >
@@ -112,7 +124,7 @@ const testCSS = cva({
       h: '8',
       bgColor: 'bg.header',
       transitionDuration: 'slow',
-      _hover: { w: '64', bgColor: 'bg.footer' }
+      _hover: { '@media (any-hover: hover)': { w: '64', bgColor: 'bg.footer' } }
     })}
   >
     ABC

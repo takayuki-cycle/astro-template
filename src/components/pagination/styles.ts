@@ -44,11 +44,7 @@ export const style = cva({
       transitionProperty: 'background-color',
       transitionDuration: 'normal',
       transitionTimingFunction: 'ease',
-      '@media (hover: hover)': {
-        _hover: {
-          bgColor: 'hover.bg'
-        }
-      }
+      _hover: { '@media (any-hover: hover)': { bgColor: 'hover.bg' } }
     },
     '& span': {
       display: 'flex',

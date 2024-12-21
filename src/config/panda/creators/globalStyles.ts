@@ -4,9 +4,17 @@ export const globalStyles = {
     '--global-font-mono': 'Noto Sans Mono',
     fontOpticalSizing: 'auto'
   },
+  body: {
+    // 左右スワイプによる履歴ナビゲーションを無効化
+    overscrollBehaviorX: 'none'
+  },
   strong: {
     fontWeight: 'normal'
   },
   textarea: { resize: 'none' },
-  summary: {}
+  summary: {},
+  // iOSでbuttonと特定のinputを連続でタップしても、画面が拡大されないようにします。
+  ':where(button, [type="button"], [type="reset"], [type="submit"])': {
+    touchAction: 'manipulation'
+  }
 }

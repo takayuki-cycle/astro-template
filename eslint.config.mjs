@@ -103,7 +103,19 @@ const eslintConfig = [
           // ['img', 'Imageコンポーネント'], // TODO: いずれ適用
         ]),
         // 特定のHTML属性の使用を禁止
-        ...createNoRestrictedSyntax('attribute', [['style', 'Panda CSS']])
+        ...createNoRestrictedSyntax('attribute', [['style', 'Panda CSS']]),
+        {
+          selector: `ObjectExpression:has(Property[key.name='overflow'][value.value='auto']):not(:has(Property[key.name='overscrollBehaviorBlock'][value.value='contain']))`,
+          message: `'overflow: auto' を使用する場合は、 'overscrollBehaviorBlock: 'contain'' を設定してください。ラバーバンドスクロールによる意図しない操作を防ぐためです。`
+        },
+        {
+          selector: `ObjectExpression:has(Property[key.name='overflow'][value.value='scroll']):not(:has(Property[key.name='overscrollBehaviorBlock'][value.value='contain']))`,
+          message: `'overflow: scroll' を使用する場合は、 'overscrollBehaviorBlock: 'contain'' を設定してください。ラバーバンドスクロールによる意図しない操作を防ぐためです。`
+        },
+        {
+          selector: `Property[key.name='_hover']:not(:has(ObjectExpression > Property[key.value='@media (any-hover: hover)']))`,
+          message: `'_hover' を使用する場合は、 '@media (any-hover: hover)' を入れ子にしてください。タップ後にhoverの状態が継続してUIの予期しない振る舞いを防ぐためです。例: '_hover: { '@media (any-hover: hover)': { bgColor: 'hover.bg' } }'`
+        }
       ]
     }
   },
