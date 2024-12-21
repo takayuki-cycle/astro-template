@@ -114,7 +114,11 @@ const eslintConfig = [
         },
         {
           selector: `Property[key.name='_hover']:not(:has(ObjectExpression > Property[key.value='@media (any-hover: hover)']))`,
-          message: `'_hover' を使用する場合は、 '@media (any-hover: hover)' を入れ子にしてください。タップ後にhoverの状態が継続してUIの予期しない振る舞いを防ぐためです。例: '_hover: { '@media (any-hover: hover)': { bgColor: 'hover.bg' } }'`
+          message: `'_hover' を使用する場合は '@media (any-hover: hover)' を入れ子にしてください。\nタップ後にhoverの状態が継続してUIの予期しない振る舞いを防ぐためです。\n例: '_hover: { '@media (any-hover: hover)': { bgColor: 'hover.bg' } }'`
+        },
+        {
+          selector: `ObjectExpression:has(Property[key.name='_hover']):not(:has(Property[key.name='_focusVisible'])) > Property[key.name='_hover']`,
+          message: `'_hover' を使用する場合は '_focusVisible' を隣接セレクタで定義してください。\nキーボードで操作するときにフォーカスされている要素を明確に示すためです。(特に指定がなければホバーのスタイルを流用してください。)\n例: '_hover: { '@media (any-hover: hover)': { bgColor: 'hover.bg' } }, _focusVisible: { bgColor: 'hover.bg' }'`
         }
       ]
     }

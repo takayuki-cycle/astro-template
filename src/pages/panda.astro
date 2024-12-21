@@ -48,7 +48,6 @@ const testCSS = cva({
   <h1
     class={css({
       fontWeight: 'bold',
-      _hover: { '@media (any-hover: hover)': { fontWeight: 'thin' } },
       pos: 'fixed',
       bottom: '0',
       right: '0'
@@ -102,18 +101,19 @@ const testCSS = cva({
     class={css({
       transitionTimingFunction: 'linear',
       w: '16',
-      bg: 'primary',
-      _hover: {
-        '@media (any-hover: hover)': {
-          w: 'full',
-          bg: 'tertiary',
-          transitionProperty: 'background-color, width',
-          // transition: 'all',
-          transitionTimingFunction: 'jumpNone4',
-          // transitionDelay: 'fast',
-          transitionDuration: 'slowest' // 'faster',
-        }
-      }
+      bg: 'primary'
+      // ホバーはインタラクティブな要素だけに適用するためコメント
+      // _hover: {
+      //   '@media (any-hover: hover)': {
+      //     w: 'full',
+      //     bg: 'tertiary',
+      //     transitionProperty: 'background-color, width',
+      //     // transition: 'all',
+      //     transitionTimingFunction: 'jumpNone4',
+      //     // transitionDelay: 'fast',
+      //     transitionDuration: 'slowest' // 'faster',
+      //   }
+      // }
     })}
   >
     transitionTimingFunction
@@ -123,8 +123,9 @@ const testCSS = cva({
       w: '16',
       h: '8',
       bgColor: 'bg.header',
-      transitionDuration: 'slow',
-      _hover: { '@media (any-hover: hover)': { w: '64', bgColor: 'bg.footer' } }
+      transitionDuration: 'slow'
+      // ホバーはインタラクティブな要素だけに適用するためコメント
+      // _hover: { '@media (any-hover: hover)': { w: '64', bgColor: 'bg.footer' } }
     })}
   >
     ABC
