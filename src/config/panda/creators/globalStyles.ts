@@ -17,8 +17,13 @@ export const globalStyles = {
   ':where(button, [type="button"], [type="reset"], [type="submit"])': {
     touchAction: 'manipulation'
   },
+  // クリックしたら何かが行われる要素に対して、カーソルをポインターアイコンへ変更
   ':where(:any-link, button, [type="button"], [type="reset"], [type="submit"], label[for], select, summary, [role="tab"], [role="button"])':
     {
       cursor: 'pointer'
-    }
+    },
+  // キーボードで操作したときのフォーカスリングを維持しつつ、クリックやタップしたときのフォーカスリングを抑制
+  ':focus:not(:focus-visible)': {
+    outline: 'none'
+  }
 }
