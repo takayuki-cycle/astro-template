@@ -6,7 +6,9 @@ export const Input = ({
   id,
   value,
   onChange,
+  autoComplete = 'off',
   placeholder = '',
+  ariaRequired = undefined,
   error
 }: InputProps) => {
   return (
@@ -17,7 +19,9 @@ export const Input = ({
         type={type}
         value={value}
         onChange={(e) => onChange(e.target.value)}
+        autoComplete={autoComplete}
         placeholder={placeholder}
+        aria-required={ariaRequired}
       />
       <p className={css({ color: 'danger' })}>{error}</p>
     </div>

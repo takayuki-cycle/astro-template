@@ -92,14 +92,18 @@ export const Register = () => {
           id='名前'
           value={registerState.name}
           onChange={(value) => handleChange('name', value)}
+          autoComplete='name'
           placeholder='Name'
+          ariaRequired
           error={error.name}
         />
         <Input
           id='メールアドレス'
           value={registerState.email}
           onChange={(value) => handleChange('email', value)}
+          autoComplete='email'
           placeholder='Email'
+          ariaRequired
           error={error.email}
         />
         <Input
@@ -107,7 +111,9 @@ export const Register = () => {
           id='パスワード'
           value={registerState.password}
           onChange={(value) => handleChange('password', value)}
+          autoComplete='new-password'
           placeholder='Password'
+          ariaRequired
           error={error.password}
         />
         <Input
@@ -115,7 +121,9 @@ export const Register = () => {
           id='パスワード確認'
           value={registerState.password_confirmation}
           onChange={(value) => handleChange('password_confirmation', value)}
+          autoComplete='new-password'
           placeholder='Confirm Password'
+          ariaRequired
           error={error.password_confirmation}
         />
         <button type='button' onClick={handleRegister}>
