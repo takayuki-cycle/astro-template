@@ -16,5 +16,9 @@ export const globalStyles = {
   // iOSでbuttonと特定のinputを連続でタップしても、画面が拡大されないようにします。
   ':where(button, [type="button"], [type="reset"], [type="submit"])': {
     touchAction: 'manipulation'
-  }
+  },
+  ':where(:any-link, button, [type="button"], [type="reset"], [type="submit"], label[for], select, summary, [role="tab"], [role="button"])':
+    {
+      cursor: 'pointer'
+    }
 }
