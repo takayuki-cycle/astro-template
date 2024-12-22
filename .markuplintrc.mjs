@@ -22,6 +22,12 @@ const markuplintConfig = {
         'permitted-contents': false,
         'required-element': false
       }
+    },
+    {
+      selector: 'ul',
+      rules: {
+        'wai-aria': false
+      }
     }
   ],
   pretenders: [

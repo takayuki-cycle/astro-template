@@ -51,6 +51,7 @@ const eslintConfig = [
     rules: {
       ...pandaRules,
       'no-duplicate-imports': 'error',
+      'astro/jsx-a11y/no-redundant-roles': 'off',
       'no-restricted-imports': [
         'error',
         {
@@ -119,6 +120,11 @@ const eslintConfig = [
         {
           selector: `ObjectExpression:has(Property[key.name='_hover']):not(:has(Property[key.name='_focusVisible'])) > Property[key.name='_hover']`,
           message: `'_hover' を使用する場合は '_focusVisible' を隣接セレクタで定義してください。\nキーボードで操作するときにフォーカスされている要素を明確に示すためです。(特に指定がなければホバーのスタイルを流用してください。)\n例: '_hover: { '@media (any-hover: hover)': { bgColor: 'hover.bg' } }, _focusVisible: { bgColor: 'hover.bg' }'`
+        },
+        {
+          selector:
+            "JSXOpeningElement[name.name='ul']:not([attributes.0.name.name='role'][attributes.0.value.value='list'])",
+          message: `'<ul>' を使用する場合は 'role='list' を定義してください。\nリセットCSSで 'list-style: none;' が適用されていると、SafariとVoiceOverの組み合わせでリストだと認識されないためです。\n例: '<ul role='list'>'`
         }
       ]
     }

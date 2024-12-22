@@ -26,12 +26,12 @@ const headPage: HeadPageProps = {
   <a href={`${BASE_URL}`} class={css({})}> indexへ遷移 </a>
   <br />
   <a href={`${BASE_URL}blog/1/`} class={css({})}> blogへ遷移 </a>
-  <ul>
+  <ul role='list'>
     {
       fruits.map((fruit) => (
         <li
           class={css({
-            color: 'black',
+            color: 'black'
           })}
         >
           {fruit.value}
