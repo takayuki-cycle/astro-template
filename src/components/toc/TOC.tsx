@@ -18,6 +18,7 @@ const renderHeadings = (
       className={css({
         pl: '5'
       })}
+      {...(ListTag === 'ul' && { role: 'list' })}
     >
       {extendHeadings.map((heading) => (
         <li key={heading.slug}>
