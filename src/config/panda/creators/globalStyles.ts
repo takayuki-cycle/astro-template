@@ -2,14 +2,14 @@ export const globalStyles = {
   // 視差効果を減らす設定がされている場合はアニメーションを行わないようにします。
   '@media (prefers-reduced-motion: reduce)': {
     '*, ::before, ::after, ::backdrop': {
-      backgroundAttachment: 'scroll !important',
-      transitionDelay: '0s !important',
+      backgroundAttachment: 'scroll!',
+      transitionDelay: '0s!',
       // eslint-disable-next-line no-restricted-syntax
-      transitionDuration: '1ms !important',
-      animationDuration: '1ms !important',
-      animationDelay: '0s !important',
-      animationIterationCount: '1 !important',
-      scrollBehavior: 'auto !important'
+      transitionDuration: '1ms!',
+      animationDuration: '1ms!',
+      animationDelay: '0s!',
+      animationIterationCount: '1!',
+      scrollBehavior: 'auto!'
     }
   },
   html: {
@@ -39,7 +39,7 @@ export const globalStyles = {
     },
   // キーボードで操作したときのフォーカスリングを維持しつつ、クリックやタップしたときのフォーカスリングを抑制
   ':focus:not(:focus-visible)': {
-    outline: 'none'
+    ring: 'none'
   },
   // テキストと下線が重なると読みにくいため、位置の調整を微調整
   ':where(:any-link)': {
