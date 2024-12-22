@@ -32,5 +32,9 @@ export const globalStyles = {
   // テキストと下線が重なると読みにくいため、位置の調整を微調整
   ':where(:any-link)': {
     textUnderlineOffset: '4'
+  },
+  // 固定ヘッダーの高さを取得して、ページ内リンクで遷移するときにその高さを加えてスクロールすることでコンテンツと重なる問題を解消(取得方法はHead.astroを参照)
+  '[id], :focus': {
+    scrollMarginBlockStart: 'var(--header-block-size)'
   }
 }

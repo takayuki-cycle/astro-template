@@ -132,10 +132,21 @@ const origin = Astro.url.origin
         timeout = requestAnimationFrame(() => callback.apply(this, args))
       }
     }
-    // 終了: 340pxの画面幅未満ではviewportを固定してレイアウト崩れを防止
+    // 終了
+
+    // 開始: 固定ヘッダーの高さを取得して、ページ内リンクで遷移するときにその高さを加えてスクロールすることでコンテンツと重なる問題を解消
+    const observeHeaderBlockSize = new ResizeObserver((entries) => {
+      const header = entries[0]
+      const blockSize = header?.borderBoxSize[0]?.blockSize // 少数を含むヘッダーの高さを取得[px]
+      const roundedBlockSize = blockSize !== undefined ? Math.round(blockSize) : 0
+      document.documentElement.style.setProperty('--header-block-size', `${roundedBlockSize}px`)
+    })
+    // 終了
 
     document.addEventListener('DOMContentLoaded', () => {
+      const header = document.querySelector('header')
       initializeViewport()
+      if (header) observeHeaderBlockSize.observe(header)
     })
   </script>
 </head>
