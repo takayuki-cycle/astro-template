@@ -114,12 +114,20 @@ const eslintConfig = [
           message: `'overflow: scroll' を使用する場合は、 'overscrollBehaviorBlock: 'contain'' を設定してください。ラバーバンドスクロールによる意図しない操作を防ぐためです。`
         },
         {
+          selector: `ObjectExpression:has(Property[key.name='transitionProperty'][value.value='all']) > Property[key.name='transitionProperty']`,
+          message: `'transitionProperty' に 'all' を使用するのは避けてください。\n'all' を設定することで意図しないアニメーションが起こらないようにするためです。\n例: 'transitionProperty: 'background-color'`
+        },
+        {
           selector: `Property[key.name='_hover']:not(:has(ObjectExpression > Property[key.value='@media (any-hover: hover)']))`,
           message: `'_hover' を使用する場合は '@media (any-hover: hover)' を入れ子にしてください。\nタップ後にhoverの状態が継続してUIの予期しない振る舞いを防ぐためです。\n例: '_hover: { '@media (any-hover: hover)': { bgColor: 'hover.bg' } }'`
         },
         {
           selector: `ObjectExpression:has(Property[key.name='_hover']):not(:has(Property[key.name='_focusVisible'])) > Property[key.name='_hover']`,
           message: `'_hover' を使用する場合は '_focusVisible' を隣接セレクタで定義してください。\nキーボードで操作するときにフォーカスされている要素を明確に示すためです。(特に指定がなければホバーのスタイルを流用してください。)\n例: '_hover: { '@media (any-hover: hover)': { bgColor: 'hover.bg' } }, _focusVisible: { bgColor: 'hover.bg' }'`
+        },
+        {
+          selector: `ObjectExpression:has(Property[key.name='transitionDuration']):not(:has(Property[key.name='transitionProperty'])) > Property[key.name='transitionDuration']`,
+          message: `'transitionDuration' を使用する場合は 'transitionProperty' を隣接セレクタで定義してください。\n省略することで初期値の 'all' が設定されて意図しないアニメーションが起こらないようにするためです。\n例: 'transitionProperty: 'background-color', transitionDuration: 'normal''`
         },
         {
           selector:

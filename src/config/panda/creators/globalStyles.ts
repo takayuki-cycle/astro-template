@@ -4,6 +4,7 @@ export const globalStyles = {
     '*, ::before, ::after, ::backdrop': {
       backgroundAttachment: 'scroll !important',
       transitionDelay: '0s !important',
+      // eslint-disable-next-line no-restricted-syntax
       transitionDuration: '1ms !important',
       animationDuration: '1ms !important',
       animationDelay: '0s !important',
@@ -27,7 +28,6 @@ export const globalStyles = {
     fontWeight: 'normal'
   },
   textarea: { resize: 'none' },
-  summary: {},
   // iOSでbuttonと特定のinputを連続でタップしても、画面が拡大されないようにします。
   ':where(button, [type="button"], [type="reset"], [type="submit"])': {
     touchAction: 'manipulation'
