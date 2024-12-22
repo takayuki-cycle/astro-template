@@ -8,6 +8,9 @@ export const globalStyles = {
     // 左右スワイプによる履歴ナビゲーションを無効化
     overscrollBehaviorX: 'none'
   },
+  ':where(body)': {
+    color: 'text'
+  },
   strong: {
     fontWeight: 'normal'
   },
