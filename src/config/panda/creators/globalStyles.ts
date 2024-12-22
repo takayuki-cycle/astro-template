@@ -25,5 +25,9 @@ export const globalStyles = {
   // キーボードで操作したときのフォーカスリングを維持しつつ、クリックやタップしたときのフォーカスリングを抑制
   ':focus:not(:focus-visible)': {
     outline: 'none'
+  },
+  // テキストと下線が重なると読みにくいため、位置の調整を微調整
+  ':where(:any-link)': {
+    textUnderlineOffset: '4'
   }
 }
