@@ -107,7 +107,7 @@ const origin = Astro.url.origin
   {gtmID && <HeadGTM />}
 
   <script>
-    // 340pxの画面幅未満ではviewportを固定してレイアウト崩れを防止
+    // 開始: 340pxの画面幅未満ではviewportを固定してレイアウト崩れを防止
     const initializeViewport = () => {
       const debouncedResize = debounce(handleResize)
       window.addEventListener('resize', debouncedResize, false)
@@ -132,6 +132,7 @@ const origin = Astro.url.origin
         timeout = requestAnimationFrame(() => callback.apply(this, args))
       }
     }
+    // 終了: 340pxの画面幅未満ではviewportを固定してレイアウト崩れを防止
 
     document.addEventListener('DOMContentLoaded', () => {
       initializeViewport()
