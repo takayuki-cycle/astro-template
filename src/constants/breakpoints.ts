@@ -1,3 +1,4 @@
+// 補足: 340pxの画面幅未満ではviewportを固定してレイアウト崩れを防止
 export const BREAKPOINTS = {
   sm: '500px',
   md: '768px',
