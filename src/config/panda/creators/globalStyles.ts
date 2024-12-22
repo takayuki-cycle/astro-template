@@ -1,4 +1,16 @@
 export const globalStyles = {
+  // 視差効果を減らす設定がされている場合はアニメーションを行わないようにします。
+  '@media (prefers-reduced-motion: reduce)': {
+    '*, ::before, ::after, ::backdrop': {
+      backgroundAttachment: 'scroll !important',
+      transitionDelay: '0s !important',
+      transitionDuration: '1ms !important',
+      animationDuration: '1ms !important',
+      animationDelay: '0s !important',
+      animationIterationCount: '1 !important',
+      scrollBehavior: 'auto !important'
+    }
+  },
   html: {
     '--global-font-body': 'Noto Sans JP',
     '--global-font-mono': 'Noto Sans Mono',
