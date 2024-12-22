@@ -38,7 +38,7 @@ export default defineConfig({
           min: { value: 'min-content' },
           max: { value: 'max-content' },
           fit: { value: 'fit-content' },
-          innerSize: { value: 'calc(100% - 2rem)' }
+          innerSize: { value: 'calc(100% - 2.5rem)' }
         },
         // paddingで使用
         spacing: {},
@@ -46,7 +46,26 @@ export default defineConfig({
           body: { value: 'Noto Sans JP' },
           mono: { value: 'Noto Sans Mono' }
         },
-        fontSizes: {},
+        fontSizes: {
+          h1: {
+            DEFAULT: { value: 'min(10.286vw, 3rem)' } // min(viewportが固定された時点での横幅)=36px, max=48px
+            // mv: { value: '' }
+          },
+          h2: {
+            DEFAULT: { value: 'min(8.572vw, 2.25rem)' } // min=30px, max=36px
+            // mv: { value: '' }
+          },
+          h3: {
+            DEFAULT: { value: 'min(6.8572vw, 1.875rem)' } // min=24px, max=30px
+            // mv: { value: '' }
+          },
+          h4: {
+            DEFAULT: { value: 'min(5.714vw, 1.5rem)' } // min=20px, max=24px
+            // mv: { value: '' }
+          },
+          h5: { value: 'min(5.14287vw, 1.25rem)' }, // min=18px, max=20px
+          h6: { value: 'min(4.572vw, 1.125rem)' } // min=16px, max=18px
+        },
         fontWeights: {},
         letterSpacings: {},
         // 単位付き(rem)を用いることは非推奨

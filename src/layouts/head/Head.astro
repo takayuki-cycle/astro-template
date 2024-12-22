@@ -107,7 +107,7 @@ const origin = Astro.url.origin
   {gtmID && <HeadGTM />}
 
   <script>
-    // 開始: 340pxの画面幅未満ではviewportを固定してレイアウト崩れを防止
+    // 開始: 350pxの画面幅未満ではviewportを固定してレイアウト崩れを防止
     const initializeViewport = () => {
       const debouncedResize = debounce(handleResize)
       window.addEventListener('resize', debouncedResize, false)
@@ -115,7 +115,7 @@ const origin = Astro.url.origin
     }
 
     const handleResize = () => {
-      const minWidth = 340
+      const minWidth = 350
       const value =
         window.outerWidth > minWidth ? 'width=device-width, initial-scale=1' : `width=${minWidth}`
       const viewport = document.querySelector('meta[name="viewport"]')

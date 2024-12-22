@@ -24,6 +24,24 @@ export const globalStyles = {
   ':where(body)': {
     color: 'text'
   },
+  ':where(h1)': {
+    fontSize: 'h1'
+  },
+  ':where(h2)': {
+    fontSize: 'h2'
+  },
+  ':where(h3)': {
+    fontSize: 'h3'
+  },
+  ':where(h4)': {
+    fontSize: 'h4'
+  },
+  ':where(h5)': {
+    fontSize: 'h5'
+  },
+  ':where(h6)': {
+    fontSize: 'h6'
+  },
   strong: {
     fontWeight: 'normal'
   },
