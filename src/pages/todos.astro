@@ -1,0 +1,22 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import type { HeadPageProps } from '@/layouts/head/types'
+import { Todos as TodosComponent } from '@/templates/todos/Todos'
+
+export const prerender = false // SSRを有効
+
+const headPage: HeadPageProps = {
+  title: 'todosPageTitle',
+  description: 'todosページの説明です。',
+  robots: 'all',
+  ogType: 'website',
+  ogImage: '/ogp/general.webp',
+  ogImageAlt: 'ogImageAlt',
+  xCreator: '@xCreator',
+  author: 'author'
+}
+---
+
+<Layout headPage={headPage}>
+  <TodosComponent client:load />
+</Layout>

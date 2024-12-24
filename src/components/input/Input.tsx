@@ -12,7 +12,7 @@ export const Input = ({
   error
 }: InputProps) => {
   return (
-    <div>
+    <>
       {id && <label htmlFor={id}>{id}</label>}
       <input
         id={id}
@@ -24,6 +24,6 @@ export const Input = ({
         aria-required={ariaRequired}
       />
       <p className={css({ color: 'danger' })}>{error}</p>
-    </div>
+    </>
   )
 }
