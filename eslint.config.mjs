@@ -52,6 +52,7 @@ const eslintConfig = [
       ...pandaRules,
       'no-duplicate-imports': 'error',
       'astro/jsx-a11y/no-redundant-roles': 'off',
+      'jsx-a11y/no-redundant-roles': ['off', { ul: ['list'] }],
       'no-restricted-imports': [
         'error',
         {
