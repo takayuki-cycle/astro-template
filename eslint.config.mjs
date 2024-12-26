@@ -147,7 +147,16 @@ const eslintConfig = [
         extraFileExtensions: ['.astro']
       }
     },
-    rules: pandaRules
+    rules: {
+      'no-restricted-syntax': [
+        'error',
+        {
+          selector:
+            "JSXOpeningElement[name.name=/^(Button|Radio)$/]:not(:has([namespace.name='client']))",
+          message: `Astroファイルでクライアントコンポーネントを使用する場合は、'client:*' ディレクティブを必ず設定してください。\n例: '<Button client:load />' や '<Button client:idle />' など`
+        }
+      ]
+    }
   },
   {
     files: ['**/*.{js,jsx,ts,tsx}'],
