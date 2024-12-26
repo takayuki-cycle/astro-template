@@ -2,13 +2,13 @@ import { Input } from '@/components/input/Input'
 import type { TodosState } from '@/templates/todos/types'
 import { useState } from 'react'
 import { validateField } from '@/templates/todos/utils/validation'
-import { todosUser } from '@/templates/todos/api'
+import { createTodo } from '@/templates/todos/api'
 
 const initialTodosState: TodosState = {
   title: ''
 }
 
-export const Todos = () => {
+export const Store = () => {
   const [todosState, setTodosState] = useState<TodosState>(initialTodosState)
   const [error, setError] = useState<TodosState>(initialTodosState)
 
@@ -40,7 +40,7 @@ export const Todos = () => {
     const hasError = Object.values(newError).some((error) => error !== '')
     if (!hasError) {
       try {
-        await todosUser(todosState)
+        await createTodo(todosState)
       } catch (error) {
         console.error('登録失敗:', error)
       }

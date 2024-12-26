@@ -1,16 +1,27 @@
-import axios from 'axios'
+import { axiosInstance } from '@/utils/api'
 import type { TodosState } from '@/templates/todos/types'
 
-// 共通の設定
-const axiosInstance = axios.create({
-  baseURL: 'http://localhost:8000/api',
-  withCredentials: true,
-  headers: {
-    'Content-Type': 'application/json'
-  }
-})
+export const fetchTodos = async () => {
+  const response = await axiosInstance.get('/todos')
+  return response.data
+}
 
-// ユーザー登録を行う関数
-export const todosUser = async (todosState: TodosState) => {
-  await axiosInstance.post('/todos', todosState)
+export const createTodo = async (todosState: TodosState) => {
+  const response = await axiosInstance.post('/todos', todosState)
+  return response.data
+}
+
+export const fetchTodoById = async (id: number) => {
+  const response = await axiosInstance.get(`/todos/${id}`)
+  return response.data
+}
+
+export const updateTodo = async (id: number, updatedTodo: TodosState) => {
+  const response = await axiosInstance.put(`/todos/${id}`, updatedTodo)
+  return response.data
+}
+
+export const deleteTodo = async (id: number) => {
+  const response = await axiosInstance.delete(`/todos/${id}`)
+  return response.data
 }

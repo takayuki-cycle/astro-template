@@ -344,6 +344,22 @@ const markuplintConfig = {
       as: 'div'
     },
     {
+      selector: 'Radio',
+      as: {
+        element: 'input',
+        attrs: [
+          {
+            name: 'type',
+            value: 'radio'
+          },
+          {
+            name: 'aria-label',
+            value: 'dummy'
+          }
+        ]
+      }
+    },
+    {
       selector: 'RadioButtonGroup',
       as: {
         element: 'ul',

@@ -1,0 +1,29 @@
+---
+import { fetchTodos } from '@/templates/todos/api'
+import { Radio } from '@/components/radio/Radio'
+import { Button } from '@/components/button/Button'
+
+interface Todo {
+  id: number
+  title: string
+}
+const todos: Todo[] = await fetchTodos()
+---
+
+<div>
+  <h1>タスク一覧</h1>
+  <ul role='list'>
+    {
+      todos.map((todo, index) => (
+        <li>
+          <p>{index}</p>
+          <p>
+            <Radio client:load id={index} name='index' />
+            <label for={String(index)}>{todo.title}</label>
+          </p>
+        </li>
+      ))
+    }
+  </ul>
+  <Button client:load />
+</div>

@@ -1,7 +1,7 @@
 ---
 import Layout from '@/layouts/Layout.astro'
 import type { HeadPageProps } from '@/layouts/head/types'
-import { Todos as TodosComponent } from '@/templates/todos/Todos'
+import TodosComponent from '@/templates/todos/Todos.astro'
 
 export const prerender = false // SSRを有効
 
@@ -18,5 +18,5 @@ const headPage: HeadPageProps = {
 ---
 
 <Layout headPage={headPage}>
-  <TodosComponent client:load />
+  <TodosComponent />
 </Layout>
