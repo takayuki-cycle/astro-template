@@ -150,6 +150,7 @@ const eslintConfig = [
     rules: {
       'no-restricted-syntax': [
         'error',
+        // TODO: クライアントコンポーネントを追加するときは、　以下にタグ名を追記してください。
         {
           selector:
             "JSXOpeningElement[name.name=/^(Button|Radio)$/]:not(:has([namespace.name='client']))",

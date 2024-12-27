@@ -19,7 +19,20 @@ const todos: Todo[] = await fetchTodos()
           <p>{index}</p>
           <p>
             <Radio client:load id={index} name='index' />
-            <label for={String(index)}>{todo.title}</label>
+            <label for={`index-${index}`}>{todo.title}</label>
+          </p>
+        </li>
+      ))
+    }
+  </ul>
+  <ul role='list'>
+    {
+      todos.map((todo, index) => (
+        <li>
+          <p>{index}</p>
+          <p>
+            <Radio client:load id={index} name='bbb' />
+            <label for={`bbb-${index}`}>{todo.title}</label>
           </p>
         </li>
       ))

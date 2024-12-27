@@ -16,7 +16,7 @@ export const Radio = ({ id, name }: RadioProps) => {
   return (
     <input
       type='radio'
-      id={String(id)}
+      id={`${name}-${id}`}
       name={name}
       checked={selectedId[name] === id}
       onChange={handleRadioChange}
