@@ -1,6 +1,6 @@
 import { deepMap } from 'nanostores'
 
-export type ButtonStoreState = {
+type ButtonStoreState = {
   [key: string]: unknown
 }
 
