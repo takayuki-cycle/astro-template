@@ -1,12 +1,12 @@
 import type { RadioProps } from '@/components/radio/types'
 import { useStore } from '@nanostores/react'
-import { selectedRadioId } from '@/stores/radio'
+import { buttonStore } from '@/stores/radio'
 
 export const Radio = ({ id, name }: RadioProps) => {
-  const selectedId = useStore(selectedRadioId)
+  const selectedId = useStore(buttonStore)
 
   const handleRadioChange = () => {
-    selectedRadioId.set(id)
+    buttonStore.setKey('name', id)
   }
 
   return (
@@ -14,7 +14,7 @@ export const Radio = ({ id, name }: RadioProps) => {
       type='radio'
       id={String(id)}
       name={name}
-      checked={selectedId === id}
+      checked={selectedId.name === id}
       onChange={handleRadioChange}
     />
   )

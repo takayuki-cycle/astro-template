@@ -1,3 +1,3 @@
-import { atom } from 'nanostores'
+import { deepMap } from 'nanostores'
 
-export const selectedRadioId = atom(0)
+export const buttonStore = deepMap({ name: 0 })
