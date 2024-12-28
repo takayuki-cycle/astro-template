@@ -52,7 +52,8 @@ const noRestrictedSyntax = [
     ['s', '<del>または<ins>またはスタイルで打ち消し線'],
     ['hgroup', '<header>または<section>または<div>にARIA属性'],
     ['command', '<menu>または<button>または<kbd>または<ul>または<ol>または<span>'],
-    ['style', 'Panda CSS']
+    ['style', 'Panda CSS'],
+    ['Radio', 'RadioLabelコンポーネント']
     // ['img', 'Imageコンポーネント'], // TODO: いずれ適用
   ]),
   // 特定のHTML属性の使用を禁止

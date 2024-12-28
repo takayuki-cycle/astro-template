@@ -30,7 +30,7 @@ const todos: Todo[] = await fetchTodos()
         <li>
           <p>{index}</p>
           <p>
-            <RadioLabel id={index} name='bbb' label={todo.title} />
+            <RadioLabel sx={{ display: 'block' }} id={index} name='bbb' label={todo.title} invert />
           </p>
         </li>
       ))

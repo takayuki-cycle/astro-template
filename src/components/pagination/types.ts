@@ -1,4 +1,7 @@
+import type { Variants } from '@/components/pagination/styles'
+
 export interface Props {
+  sx?: Variants
   pathName: string
   currentPage: number
   lastPage: number

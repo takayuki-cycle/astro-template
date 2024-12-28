@@ -4,7 +4,7 @@ import { calculatePagination, calculatePaginationUnder } from '@/components/pagi
 import { BASE_URL } from '@/constants/url'
 import { style } from '@/components/pagination/styles.ts'
 
-const { pathName, currentPage, lastPage, step = 2 } = Astro.props
+const { sx, pathName, currentPage, lastPage, step = 2 } = Astro.props
 
 const pagination = {
   ...calculatePagination(currentPage, lastPage, step),
@@ -36,7 +36,7 @@ const lastSecondMaps = [
 const lastMaps = [pagination.isShowLastLink, pagination.isShowLastLinkUnder]
 ---
 
-<nav class={style({ shape: 'rounded' })} aria-label='ページネーション'>
+<nav class={style(sx)} aria-label='ページネーション'>
   <ul role='list'>
     {
       currentPage > 1 && (
