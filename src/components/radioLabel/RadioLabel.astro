@@ -1,0 +1,20 @@
+---
+import { Radio } from '@/components/radio/Radio'
+import type { Props } from '@/components/radioLabel/types.ts'
+
+const { id, name, label, invert = false } = Astro.props
+---
+
+{
+  invert ? (
+    <>
+      <label for={`${name}-${id}`}>{label}</label>
+      <Radio client:load id={id} name={name} />
+    </>
+  ) : (
+    <>
+      <Radio client:load id={id} name={name} />
+      <label for={`${name}-${id}`}>{label}</label>
+    </>
+  )
+}
