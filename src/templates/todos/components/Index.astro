@@ -1,6 +1,6 @@
 ---
 import { fetchTodos } from '@/templates/todos/api'
-import RadioLabel from '@/components/radioLabel/RadioLabel.astro'
+import RadioGroup from '@/components/radioGroup/RadioGroup.astro'
 import { Button } from '@/components/button/Button'
 
 interface Todo {
@@ -18,7 +18,7 @@ const todos: Todo[] = await fetchTodos()
         <li>
           <p>{index}</p>
           <p>
-            <RadioLabel id={index} name='index' label={todo.title} />
+            <RadioGroup id={index} name='index' label={todo.title} />
           </p>
         </li>
       ))
@@ -30,7 +30,7 @@ const todos: Todo[] = await fetchTodos()
         <li>
           <p>{index}</p>
           <p>
-            <RadioLabel sx={{ display: 'block' }} id={index} name='bbb' label={todo.title} invert />
+            <RadioGroup sx={{ display: 'block' }} id={index} name='bbb' label={todo.title} invert />
           </p>
         </li>
       ))
