@@ -1,22 +1,31 @@
 ---
 import { Radio } from '@/components/radio/Radio'
 import type { Props } from '@/components/radioGroup/types.ts'
+import { style } from '@/components/radioGroup/styles.ts'
 
-const { sx, id, name, label, invert = false } = Astro.props
+const { sx, label = 'タグ', group, apiKey = undefined, invert = false } = Astro.props
+const name = apiKey === undefined ? label : apiKey
 ---
 
-{
-  invert ? (
-    <>
-      <label for={`${name}-${id}`}>{label}</label>
-      {/* eslint-disable-next-line no-restricted-syntax */}
-      <Radio client:load sx={sx} id={id} name={name} />
-    </>
-  ) : (
-    <>
-      {/* eslint-disable-next-line no-restricted-syntax */}
-      <Radio client:load sx={sx} id={id} name={name} />
-      <label for={`${name}-${id}`}>{label}</label>
-    </>
-  )
-}
+<fieldset class={style(sx)}>
+  <legend>{label}</legend>
+  {
+    group.map((g, index) => (
+      <>
+        {invert ? (
+          <>
+            <label for={`${name}-${index}`}>{g}</label>
+            {/* eslint-disable-next-line no-restricted-syntax */}
+            <Radio client:load id={index} name={name} />
+          </>
+        ) : (
+          <>
+            {/* eslint-disable-next-line no-restricted-syntax */}
+            <Radio client:load id={index} name={name} />
+            <label for={`${name}-${index}`}>{g}</label>
+          </>
+        )}
+      </>
+    ))
+  }
+</fieldset>

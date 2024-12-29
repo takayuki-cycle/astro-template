@@ -3,38 +3,14 @@ import { fetchTodos } from '@/templates/todos/api'
 import RadioGroup from '@/components/radioGroup/RadioGroup.astro'
 import { Button } from '@/components/button/Button'
 
-interface Todo {
-  id: number
-  title: string
-}
-const todos: Todo[] = await fetchTodos()
+const todos = await fetchTodos()
+const titles = todos.map((todo) => todo.title)
+console.log('todostodostodostodostodos', todos)
 ---
 
 <div>
   <h1>タスク一覧</h1>
-  <ul role='list'>
-    {
-      todos.map((todo, index) => (
-        <li>
-          <p>{index}</p>
-          <p>
-            <RadioGroup id={index} name='index' label={todo.title} />
-          </p>
-        </li>
-      ))
-    }
-  </ul>
-  <ul role='list'>
-    {
-      todos.map((todo, index) => (
-        <li>
-          <p>{index}</p>
-          <p>
-            <RadioGroup sx={{ display: 'block' }} id={index} name='bbb' label={todo.title} invert />
-          </p>
-        </li>
-      ))
-    }
-  </ul>
+  <RadioGroup label='果物' group={titles} apiKey='fruit' />
+  <RadioGroup label='野菜' group={titles} invert />
   <Button client:load />
 </div>

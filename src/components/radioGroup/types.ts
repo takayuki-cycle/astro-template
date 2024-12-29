@@ -1,9 +1,9 @@
-import type { Variants } from '@/components/radio/styles'
+import type { Variants } from '@/components/radioGroup/styles'
 
 export interface Props {
   sx?: Variants
-  id: number
-  name: string
-  label: string
+  label?: string // 原則は必須
+  group: string[]
+  apiKey?: string
   invert?: boolean
 }

@@ -1,7 +1,15 @@
 import { axiosInstance } from '@/utils/api'
 import type { TodosState } from '@/templates/todos/types'
 
-export const fetchTodos = async () => {
+interface Todo {
+  id: number
+  title: string
+  completed: boolean
+  created_at: string
+  updated_at: string
+}
+
+export const fetchTodos = async (): Promise<Todo[]> => {
   const response = await axiosInstance.get('/todos')
   return response.data
 }

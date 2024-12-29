@@ -3,7 +3,9 @@ import { cva, type RecipeVariantProps } from '@/../styled-system/css'
 export type Variants = RecipeVariantProps<typeof style>
 
 export const style = cva({
-  base: {},
+  base: {
+    '& > legend': {}
+  },
   variants: {
     display: {
       none: { display: 'none' },
