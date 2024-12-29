@@ -32,8 +32,10 @@ export default defineConfig({
       breakpoints: BREAKPOINTS,
       tokens: {
         colors: {},
+        borders: { '0': { value: '0' } },
         // widthとheightで使用(4 = 1rem)
         sizes: {
+          0.25: { value: '0.0625rem' },
           full: { value: '100%' },
           min: { value: 'min-content' },
           max: { value: 'max-content' },
@@ -41,7 +43,7 @@ export default defineConfig({
           innerSize: { value: 'calc(100% - 2.5rem)' }
         },
         // paddingで使用
-        spacing: {},
+        spacing: { '-0.25': { value: '-0.0625rem' } },
         fonts: {
           body: { value: 'Noto Sans JP' },
           mono: { value: 'Noto Sans Mono' }
