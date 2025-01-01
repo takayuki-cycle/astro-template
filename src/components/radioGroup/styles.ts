@@ -1,29 +1,69 @@
 import { cva, type RecipeVariantProps } from '@/../styled-system/css'
+import { visibilityHidden } from '@/config/panda/creators/apply'
+import type { DurationToken, EasingToken } from '@/../styled-system/tokens/tokens'
 
 export type Variants = RecipeVariantProps<typeof style>
 
+const colorVariants = (color: 'primary' | 'secondary' | 'tertiary') => {
+  const transitionDuration: DurationToken = 'normal'
+  const transitionTimingFunction: EasingToken = 'ease'
+
+  return {
+    '& > legend': {
+      transitionProperty: 'color',
+      transitionDuration,
+      transitionTimingFunction
+    },
+    _focusWithin: { '& > legend': { color: color } },
+    _active: {
+      '@media (any-hover: hover)': {
+        '& > legend:not(:active)': { color: color }
+      }
+    }
+  }
+}
+
 export const style = cva({
   base: {
+    display: 'flex',
+    alignItems: 'baseline',
+    gap: '1',
+    // flexWrap: 'wrap',
+    // gridAutoFlow: 'column',
+    // gridTemplateColumns: 'repeat(auto-fill,1fr)',
+    // gridTemplateColumns: 'repeat(2, 1fr)',
+    // gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+    // gap: '4',
+    w: 'fit',
+    pointerEvents: 'none',
+    '& > *': { pointerEvents: 'auto' },
     '& > legend': {
-      pos: 'absolute',
-      w: '0.25',
-      h: '0.25',
-      // eslint-disable-next-line @pandacss/no-margin-properties
-      m: '-0.25',
-      p: '0',
-      border: '0',
-      overflow: 'hidden',
-      // eslint-disable-next-line no-restricted-syntax
-      clip: 'rect(0, 0, 0, 0)'
+      // gridColumn: '1 / -1'
+    },
+    '& > label': {
+      display: 'flex',
+      // alignItems: 'center',
+      gap: '2'
     }
   },
   variants: {
-    display: {
-      none: { display: 'none' },
-      block: { display: 'block' }
+    labelRadio: {
+      visible: {
+        '& > legend': {}
+      },
+      hidden: {
+        '& > legend': visibilityHidden
+      }
+    },
+    color: {
+      primary: colorVariants('primary'),
+      secondary: colorVariants('secondary'),
+      tertiary: colorVariants('tertiary')
+    },
+    orientation: {
+      vertical: { flexDir: 'column' },
+      horizontal: {}
     }
   },
-  defaultVariants: {
-    display: 'block'
-  }
+  defaultVariants: { labelRadio: 'visible', color: 'primary', orientation: 'vertical' }
 })

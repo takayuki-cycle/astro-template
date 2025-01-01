@@ -53,7 +53,7 @@ const noRestrictedSyntax = [
     ['hgroup', '<header>または<section>または<div>にARIA属性'],
     ['command', '<menu>または<button>または<kbd>または<ul>または<ol>または<span>'],
     ['style', 'Panda CSS'],
-    ['Radio', 'RadioGroupコンポーネント']
+    ['Radio', 'RadioGroupコンポーネント'] // ラジオボタンは複数で用いることが前提だからです。
     // ['img', 'Imageコンポーネント'], // TODO: いずれ適用
   ]),
   // 特定のHTML属性の使用を禁止
@@ -79,6 +79,22 @@ const noRestrictedSyntax = [
     message: `'_hover' を使用する場合は '_focusVisible' を隣接セレクタで定義してください。\nキーボードで操作するときにフォーカスされている要素を明確に示すためです。(特に指定がなければホバーのスタイルを流用してください。)\n例: '_hover: { '@media (any-hover: hover)': { bgColor: 'hover.bg' } }, _focusVisible: { bgColor: 'hover.bg' }'`
   },
   {
+    selector: `ObjectExpression:has(Property[key.name='_hover']):not(:has(Property[key.name='transitionDuration'])) > Property[key.name='_hover']`,
+    message: `'_hover' を使用する場合は 'transitionDuration' を隣接セレクタで定義してください。\n状態変化を滑らかに見せるためです。\n例:\n'transitionProperty: 'background-color',\ntransitionDuration: 'normal',\ntransitionTimingFunction: 'ease',\n_hover: { '@media (any-hover: hover)': { bgColor: 'hover.bg' } }'`
+  },
+  {
+    selector: `ObjectExpression:has(Property[key.name='_focusVisible']):not(:has(Property[key.name='transitionDuration'])) > Property[key.name='_focusVisible']`,
+    message: `'_focusVisible' を使用する場合は 'transitionDuration' を隣接セレクタで定義してください。\n状態変化を滑らかに見せるためです。\n例:\n'transitionProperty: 'background-color',\ntransitionDuration: 'normal',\ntransitionTimingFunction: 'ease',\n_focusVisible: { bgColor: 'hover.bg' }'`
+  },
+  {
+    selector: `ObjectExpression:has(Property[key.name='_checked']):not(:has(Property[key.name='transitionDuration'])) > Property[key.name='_checked']`,
+    message: `'_checked' を使用する場合は 'transitionDuration' を隣接セレクタで定義してください。\n状態変化を滑らかに見せるためです。\n例:\n'transitionProperty: 'background-color',\ntransitionDuration: 'normal',\ntransitionTimingFunction: 'ease',\n_checked: { ringColor: color }'`
+  },
+  {
+    selector: `ObjectExpression:has(Property[key.name='_active']):not(:has(Property[key.name='transitionDuration'])) > Property[key.name='_active']`,
+    message: `'_active' を使用する場合は 'transitionDuration' を隣接セレクタで定義してください。\n状態変化を滑らかに見せるためです。\n例:\n'transitionProperty: 'background-color',\ntransitionDuration: 'normal',\ntransitionTimingFunction: 'ease',\n_active: { '&:active': { bgColor: colorActive } }'`
+  },
+  {
     selector: `ObjectExpression:has(Property[key.name='transitionDuration']):not(:has(Property[key.name='transitionProperty'])) > Property[key.name='transitionDuration']`,
     message: `'transitionDuration' を使用する場合は 'transitionProperty' を隣接セレクタで定義してください。\n省略することで初期値の 'all' が設定されて意図しないアニメーションが起こらないようにするためです。\n例: 'transitionProperty: 'background-color', transitionDuration: 'normal''`
   },
@@ -86,6 +102,11 @@ const noRestrictedSyntax = [
     selector:
       "JSXOpeningElement[name.name='ul']:not([attributes.0.name.name='role'][attributes.0.value.value='list'])",
     message: `'<ul>' を使用する場合は 'role='list' を定義してください。\nリセットCSSで 'list-style: none;' が適用されていると、SafariとVoiceOverの組み合わせでリストだと認識されないためです。\n例: '<ul role='list'>'`
+  },
+  {
+    selector:
+      "JSXOpeningElement[name.name='input'] > JSXAttribute[name.name='type'][value.value='radio']",
+    message: `'<input type="radio" />' は使用しないでください。代わりに 'RadioGroupコンポーネント' にしてください。`
   }
 ]
 

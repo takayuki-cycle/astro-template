@@ -43,7 +43,11 @@ export default defineConfig({
           innerSize: { value: 'calc(100% - 2.5rem)' }
         },
         // paddingで使用
-        spacing: { '-0.25': { value: '-0.0625rem' } },
+        spacing: {
+          '-0.25': { value: '-0.0625rem' },
+          '1.25': { value: '0.3125rem' },
+          '50%': { value: '50%' }
+        },
         fonts: {
           body: { value: 'Noto Sans JP' },
           mono: { value: 'Noto Sans Mono' }
@@ -188,9 +192,21 @@ export default defineConfig({
         colors: createColorSemanticTokens({
           // [key]: [base, _osDark(任意)]
           // baseの値は必須で、他の使わない値には空文字列を設定
-          primary: ['blue.700', 'blue.500'], // #1d4ed8, #3b82f6
-          secondary: ['gray.500', 'gray.300'], // #6b7280, #d1d5db
-          tertiary: ['pink.600', 'pink.400'], // #db2777, #f472b6
+          primary: {
+            DEFAULT: ['blue.700', 'blue.500'], // #1d4ed8, #3b82f6
+            hover: ['blue.200', 'blue.800'], // #bfdbfe, #1e40af
+            active: ['blue.300', 'blue.700'] // #93c5fd, #1d4ed8
+          },
+          secondary: {
+            DEFAULT: ['gray.500', 'gray.300'], // #6b7280, #d1d5db
+            hover: ['gray.200', 'gray.700'], // #e5e7eb, #374151
+            active: ['gray.300', 'gray.600'] // #d1d5db, #4b5563
+          },
+          tertiary: {
+            DEFAULT: ['pink.600', 'pink.400'], // #db2777, #f472b6
+            hover: ['pink.200', 'pink.800'], // #fbcfe8, #9d174d
+            active: ['pink.300', 'pink.700'] // #f9a8d4, #be185d
+          },
           bg: {
             DEFAULT: ['white', 'neutral.900'], // #ffffff, #171717
             header: ['neutral.200', 'neutral.800'], // #e5e5e5, #262626
@@ -210,7 +226,8 @@ export default defineConfig({
           hover: {
             DEFAULT: ['blue.800', 'blue.600'], // #1e40af, #2563eb
             bg: ['neutral.100', 'neutral.800'] // #f5f5f5, #262626
-          }
+          },
+          unchecked: ['gray.500', 'gray.400'] // #6b7280, #9ca3af
         }),
         gradients: createGradientSemanticTokens({
           // 元々の値
