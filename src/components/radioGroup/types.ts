@@ -5,5 +5,4 @@ export interface Props {
   label?: string // 原則は必須
   group: string[]
   apiKey?: string
-  invert?: boolean
 }

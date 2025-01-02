@@ -3,7 +3,7 @@ import { Radio } from '@/components/radio/Radio'
 import type { Props } from '@/components/radioGroup/types.ts'
 import { style } from '@/components/radioGroup/styles.ts'
 
-const { sx, label = undefined, group, apiKey = undefined, invert = false } = Astro.props
+const { sx, label = undefined, group, apiKey = undefined } = Astro.props
 const sxResult = label === undefined ? { ...sx, visibility: 'hidden' as const } : sx
 const labelResult = label === undefined ? 'タブ' : label
 const name = (apiKey === undefined ? labelResult : apiKey) || ''
@@ -14,25 +14,11 @@ const sxRadio = { color: sx?.color }
   <legend>{labelResult}</legend>
   {
     group.map((g, index) => (
-      <>
-        {invert ? (
-          <>
-            <label for={`${name}-${index}`}>
-              {g}
-              {/* eslint-disable-next-line no-restricted-syntax */}
-              <Radio client:load sx={sxRadio} id={index} name={name} />
-            </label>
-          </>
-        ) : (
-          <>
-            <label for={`${name}-${index}`}>
-              {/* eslint-disable-next-line no-restricted-syntax */}
-              <Radio client:load sx={sxRadio} id={index} name={name} />
-              {g}
-            </label>
-          </>
-        )}
-      </>
+      <label for={`${name}-${index}`}>
+        {/* eslint-disable-next-line no-restricted-syntax */}
+        <Radio client:load sx={sxRadio} id={index} name={name} />
+        {g}
+      </label>
     ))
   }
 </fieldset>
