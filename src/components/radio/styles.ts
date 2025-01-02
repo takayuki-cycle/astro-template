@@ -36,12 +36,13 @@ export const style = cva({
     appearance: 'none',
     pos: 'relative',
     flexShrink: '0',
-    w: '4',
-    h: '4',
+    w: '6',
+    h: '6',
     // eslint-disable-next-line @pandacss/no-margin-properties
-    mt: '1.25',
+    mt: '1',
     rounded: 'full',
-    ringWidth: '2',
+    ringWidth: '3',
+    ringOffset: '-0.75',
     ringColor: 'unchecked',
     outlineStyle: 'solid',
     cursor: 'pointer',
@@ -60,8 +61,8 @@ export const style = cva({
     },
     _checked: {
       _after: {
-        w: '2.5',
-        h: '2.5'
+        w: '3',
+        h: '3'
       }
     },
     '&:focus, &:active': {}

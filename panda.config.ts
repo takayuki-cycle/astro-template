@@ -44,8 +44,9 @@ export default defineConfig({
         },
         // paddingで使用
         spacing: {
+          '-0.75': { value: '-0.1875rem' },
           '-0.25': { value: '-0.0625rem' },
-          '1.25': { value: '0.3125rem' },
+          // '1.25': { value: '0.3125rem' },
           '50%': { value: '50%' }
         },
         fonts: {

@@ -26,24 +26,18 @@ const colorVariants = (color: 'primary' | 'secondary' | 'tertiary') => {
 export const style = cva({
   base: {
     display: 'flex',
-    alignItems: 'baseline',
-    gap: '1',
-    // flexWrap: 'wrap',
-    // gridAutoFlow: 'column',
-    // gridTemplateColumns: 'repeat(auto-fill,1fr)',
-    // gridTemplateColumns: 'repeat(2, 1fr)',
-    // gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-    // gap: '4',
     w: 'fit',
     pointerEvents: 'none',
-    '& > *': { pointerEvents: 'auto' },
     '& > legend': {
-      // gridColumn: '1 / -1'
+      pointerEvents: 'auto',
+      fontSize: '2xl'
     },
     '& > label': {
+      pointerEvents: 'auto',
       display: 'flex',
-      // alignItems: 'center',
-      gap: '2'
+      alignItems: 'center',
+      gap: '1.5',
+      h: '12'
     }
   },
   variants: {
@@ -62,7 +56,7 @@ export const style = cva({
     },
     orientation: {
       vertical: { flexDir: 'column' },
-      horizontal: {}
+      horizontal: { flexDir: 'row', flexWrap: 'wrap', columnGap: '4' }
     }
   },
   defaultVariants: { labelRadio: 'visible', color: 'primary', orientation: 'vertical' }
