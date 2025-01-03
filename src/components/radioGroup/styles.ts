@@ -34,7 +34,6 @@ export const style = cva({
     },
     '& > label': {
       pointerEvents: 'auto',
-      display: 'flex',
       alignItems: 'center',
       gap: '1.5',
       h: '12'
@@ -57,7 +56,18 @@ export const style = cva({
     orientation: {
       vertical: { flexDir: 'column' },
       horizontal: { flexDir: 'row', flexWrap: 'wrap', columnGap: '4' }
+    },
+    direction: {
+      normal: { '& > label': { display: 'flex' } },
+      reverse: {
+        '& > label': { display: 'flex', flexDir: 'row-reverse', justifyContent: 'space-between' }
+      }
     }
   },
-  defaultVariants: { labelRadio: 'visible', color: 'primary', orientation: 'vertical' }
+  defaultVariants: {
+    labelRadio: 'visible',
+    color: 'primary',
+    orientation: 'horizontal',
+    direction: 'normal'
+  }
 })
