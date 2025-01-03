@@ -1,3 +1,5 @@
+// TODO: CSSをまとめる考え方は使えない可能性があるので、いずれこのファイルを削除するかもしれないです。
+
 // 注意: このファイルでは、eslint-plugin-pandaが非対応
 import type { SystemStyleObject } from 'styled-system/types'
 
