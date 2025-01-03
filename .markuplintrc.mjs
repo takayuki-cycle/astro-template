@@ -373,15 +373,7 @@ const markuplintConfig = {
     },
     {
       selector: 'RadioGroup',
-      as: {
-        element: 'ul',
-        attrs: [
-          {
-            name: 'aria-busy',
-            value: 'true'
-          }
-        ]
-      }
+      as: 'fieldset'
     },
     {
       selector: 'RatingGroup',
