@@ -193,6 +193,7 @@ export default defineConfig({
         colors: createColorSemanticTokens({
           // [key]: [base, _osDark(任意)]
           // baseの値は必須で、他の使わない値には空文字列を設定
+          // TODO: コントラスト比を考慮して色を設定してください。
           primary: {
             DEFAULT: ['blue.700', 'blue.500'], // #1d4ed8, #3b82f6
             hover: ['blue.200', 'blue.800'], // #bfdbfe, #1e40af

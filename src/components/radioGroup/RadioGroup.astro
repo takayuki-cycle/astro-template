@@ -14,11 +14,22 @@ const sxRadio = { color: sx?.color }
   <legend>{labelResult}</legend>
   {
     group.map((g, index) => (
-      <label for={`${name}-${index}`}>
-        {/* eslint-disable-next-line no-restricted-syntax */}
-        <Radio client:load sx={sxRadio} id={index} name={name} />
-        {g}
-      </label>
+      <>
+        {/* eslint-disable no-restricted-syntax */}
+        {sx?.type === 'tab' ? (
+          <label for={`${name}-${index}`}>
+            <Radio sx={sxRadio} id={index} name={name} />
+            {g}
+          </label>
+        ) : (
+          <label for={`${name}-${index}`}>
+            <Radio client:load sx={sxRadio} id={index} name={name} />
+            {g}
+          </label>
+        )}
+        {/* eslint-enable no-restricted-syntax */}
+      </>
     ))
   }
+  <slot />
 </fieldset>
