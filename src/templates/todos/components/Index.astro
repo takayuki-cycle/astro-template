@@ -2,26 +2,36 @@
 import { fetchTodos } from '@/templates/todos/api'
 import RadioGroup from '@/components/radioGroup/RadioGroup.astro'
 import { Button } from '@/components/button/Button'
+import { css } from '@/../styled-system/css'
 
 const todos = await fetchTodos()
 const titles = todos.map((todo) => todo.title)
-console.log('todostodostodostodostodos', todos)
+const testCSS = css({})
 ---
 
 <div>
   <h1>タスク一覧</h1>
-  <RadioGroup sx={{}} label='果物' group={titles} apiKey='fruit'>
-    {
-      /* 
-      titles.map((title, index) => (
-        <section>
-          <p>SECTION</p>
-          <p>TEST</p>
-        </section>
-      ))
-    */
-    }
+  <RadioGroup
+    sx={{ type: 'tab', orientation: 'horizontal' }}
+    label='果物'
+    group={titles}
+    apiKey='fruit'
+  >
+    <section class={testCSS}>
+      <p>SECTION 1</p>
+    </section>
+    <section class={testCSS}>
+      <p>SECTION 2</p>
+    </section>
+    <section class={testCSS}>
+      <p>SECTION 3</p>
+    </section>
+    <section class={testCSS}>
+      <p>SECTION 4</p>
+    </section>
+    <section class={testCSS}>
+      <p>SECTION 5</p>
+    </section>
   </RadioGroup>
-  {/* <RadioGroup label='野菜' group={titles} invert /> */}
   <Button client:load />
 </div>

@@ -4,7 +4,8 @@ import type { Props } from '@/components/radioGroup/types.ts'
 import { style } from '@/components/radioGroup/styles.ts'
 
 const { sx, label = undefined, group, apiKey = undefined } = Astro.props
-const sxResult = label === undefined ? { ...sx, visibility: 'hidden' as const } : sx
+// 本来は2だけではなくcontentsNumberの取りうる範囲をすべて列挙するべきなのですが、列挙を省略するために2だけにしています。
+const sxResult = sx?.type === 'tab' ? { ...sx, contentsNumber: group.length as 2 } : sx
 const labelResult = label === undefined ? 'タブ' : label
 const name = (apiKey === undefined ? labelResult : apiKey) || ''
 const sxRadio = { color: sx?.color }
@@ -17,10 +18,12 @@ const sxRadio = { color: sx?.color }
       <>
         {/* eslint-disable no-restricted-syntax */}
         {sx?.type === 'tab' ? (
-          <label for={`${name}-${index}`}>
-            <Radio sx={sxRadio} id={index} name={name} />
-            {g}
-          </label>
+          <>
+            <label for={`${name}-${index}`}>
+              <Radio sx={sxRadio} id={index} name={name} />
+              {g}
+            </label>
+          </>
         ) : (
           <label for={`${name}-${index}`}>
             <Radio client:load sx={sxRadio} id={index} name={name} />
@@ -31,5 +34,11 @@ const sxRadio = { color: sx?.color }
       </>
     ))
   }
-  <slot />
+  {
+    sx?.type === 'tab' && (
+      <slot>
+        <p>This is my fallback content, if there is no child passed into slot</p>
+      </slot>
+    )
+  }
 </fieldset>

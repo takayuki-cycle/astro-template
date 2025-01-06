@@ -1,5 +1,6 @@
 import { cva, type RecipeVariantProps } from '@/../styled-system/css'
 import type { DurationToken, EasingToken } from '@/../styled-system/tokens/tokens'
+import type { SystemStyleObject } from '@/../styled-system/types'
 
 export type Variants = RecipeVariantProps<typeof style>
 type Color = BaseColor
@@ -84,10 +85,22 @@ const typeColor = (color: Color, colorHover: ColorHover, colorActive: ColorActiv
   }
 }
 
+const checkedTabSelector = (groupLength: number) => {
+  const checkedTab: SystemStyleObject = {}
+  for (let i = 1; i <= groupLength; i++) {
+    checkedTab[
+      `& > label:nth-of-type(${i}):has(input:checked) ~ *:not(legend):not(label):nth-of-type(${i})`
+    ] = {
+      display: 'block'
+    }
+  }
+
+  return checkedTab
+}
+
 export const style = cva({
   base: {
     display: 'flex',
-    w: 'fit',
     '& > label': {
       minW: '12',
       minH: '12'
@@ -96,6 +109,7 @@ export const style = cva({
   variants: {
     type: {
       radio: {
+        w: 'fit',
         pointerEvents: 'none',
         '& > legend': {
           pointerEvents: 'auto',
@@ -141,6 +155,10 @@ export const style = cva({
             w: 'full',
             h: '0.5'
           }
+        },
+        '& > *:not(legend):not(label)': {
+          w: 'full',
+          display: 'none'
         }
       }
     },
@@ -157,6 +175,37 @@ export const style = cva({
       reverse: {
         '& > label': { flexDir: 'row-reverse', justifyContent: 'space-between' }
       }
+    },
+    contentsNumber: {
+      2: checkedTabSelector(2),
+      3: checkedTabSelector(3),
+      4: checkedTabSelector(4),
+      5: checkedTabSelector(5),
+      6: checkedTabSelector(6),
+      7: checkedTabSelector(7),
+      8: checkedTabSelector(8),
+      9: checkedTabSelector(9),
+      10: checkedTabSelector(10),
+      11: checkedTabSelector(11),
+      12: checkedTabSelector(12),
+      13: checkedTabSelector(13),
+      14: checkedTabSelector(14),
+      15: checkedTabSelector(15),
+      16: checkedTabSelector(16),
+      17: checkedTabSelector(17),
+      18: checkedTabSelector(18),
+      19: checkedTabSelector(19),
+      20: checkedTabSelector(20),
+      21: checkedTabSelector(21),
+      22: checkedTabSelector(22),
+      23: checkedTabSelector(23),
+      24: checkedTabSelector(24),
+      25: checkedTabSelector(25),
+      26: checkedTabSelector(26),
+      27: checkedTabSelector(27),
+      28: checkedTabSelector(28),
+      29: checkedTabSelector(29),
+      30: checkedTabSelector(30)
     }
   },
   compoundVariants: [
@@ -178,6 +227,7 @@ export const style = cva({
       }
     }
   ],
+  // contentsNumberは"type: 'tab'"のときに"group.length"の値によって決まるため、指定していません。
   defaultVariants: {
     color: 'primary',
     type: 'radio',
