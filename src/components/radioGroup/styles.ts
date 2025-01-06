@@ -93,6 +93,11 @@ const checkedTabSelector = (groupLength: number) => {
     ] = {
       display: 'flex'
     }
+    checkedTab[
+      `& > label:nth-of-type(${i}):has(input:checked) ~ *:not(legend):not(label):not(:nth-of-type(${i}))`
+    ] = {
+      display: 'none'
+    }
   }
 
   return checkedTab
@@ -157,8 +162,7 @@ export const style = cva({
           }
         },
         '& > *:not(legend):not(label)': {
-          w: 'full',
-          display: 'none'
+          w: 'full'
         }
       }
     },

@@ -6,7 +6,7 @@ import { css } from '@/../styled-system/css'
 
 const todos = await fetchTodos()
 const titles = todos.map((todo) => todo.title)
-const testCSS = css({})
+const testCSS = css({ flexDir: 'column' })
 ---
 
 <div>
@@ -19,19 +19,27 @@ const testCSS = css({})
   >
     <section class={testCSS}>
       <p>SECTION 1</p>
-      <p>aaa</p>
+      <p>11111</p>
     </section>
     <section class={testCSS}>
       <p>SECTION 2</p>
+      <p>22222</p>
+      <p>22222</p>
     </section>
     <section class={testCSS}>
       <p>SECTION 3</p>
+      <p>33333</p>
+      <p>33333</p>
+      <p>33333</p>
     </section>
     <section class={testCSS}>
       <p>SECTION 4</p>
+      <p>44444</p>
+      <p>44444</p>
     </section>
     <section class={testCSS}>
       <p>SECTION 5</p>
+      <p>55555</p>
     </section>
   </RadioGroup>
   <Button client:load />
