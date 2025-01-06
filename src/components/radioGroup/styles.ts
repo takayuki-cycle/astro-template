@@ -228,6 +228,7 @@ export const style = cva({
     }
   ],
   // contentsNumberは"type: 'tab'"のときに"group.length"の値によって決まるため、指定していません。
+  // "type: 'tab'"かつ"orientation: 'vertical'"のときのスタイルは未対応です。
   defaultVariants: {
     color: 'primary',
     type: 'radio',
