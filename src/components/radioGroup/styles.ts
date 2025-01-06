@@ -91,7 +91,7 @@ const checkedTabSelector = (groupLength: number) => {
     checkedTab[
       `& > label:nth-of-type(${i}):has(input:checked) ~ *:not(legend):not(label):nth-of-type(${i})`
     ] = {
-      display: 'block'
+      display: 'flex'
     }
   }
 
