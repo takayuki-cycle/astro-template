@@ -1,6 +1,6 @@
 ---
 import { fetchTodos } from '@/templates/todos/api'
-import RadioGroup from '@/components/radioGroup/RadioGroup.astro'
+import RadioOrTabGroup from '@/components/radioOrTabGroup/RadioOrTabGroup.astro'
 import { Button } from '@/components/button/Button'
 import { css } from '@/../styled-system/css'
 
@@ -11,7 +11,7 @@ const testCSS = css({ flexDir: 'column' })
 
 <div>
   <h1>タスク一覧</h1>
-  <RadioGroup
+  <RadioOrTabGroup
     sx={{ type: 'tab', orientation: 'horizontal' }}
     label='果物'
     group={titles}
@@ -41,6 +41,6 @@ const testCSS = css({ flexDir: 'column' })
       <p>SECTION 5</p>
       <p>55555</p>
     </section>
-  </RadioGroup>
+  </RadioOrTabGroup>
   <Button client:load />
 </div>

@@ -1,4 +1,4 @@
-import type { Variants } from '@/components/radioGroup/styles'
+import type { Variants } from '@/components/radioOrTabGroup/styles'
 
 export interface Props {
   sx: Variants // colorは必須で指定してください。例: sx={{ color: 'primary' }}
