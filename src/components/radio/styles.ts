@@ -24,10 +24,7 @@ const colorVariants = (color: Color, colorHover: ColorHover, colorActive: ColorA
       ringColor: color,
       _after: { bgColor: color }
     },
-    _active: { '&:active': { bgColor: colorActive } },
-    '&:focus, &:active': {
-      // ringColor: color
-    }
+    _active: { '&:active': { bgColor: colorActive } }
   }
 }
 
@@ -64,8 +61,7 @@ export const style = cva({
         w: '3',
         h: '3'
       }
-    },
-    '&:focus, &:active': {}
+    }
   },
   variants: {
     color: {
