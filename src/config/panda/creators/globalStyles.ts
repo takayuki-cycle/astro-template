@@ -66,5 +66,11 @@ export const globalStyles = {
   // 固定ヘッダーの高さを取得して、ページ内リンクで遷移するときにその高さを加えてスクロールすることでコンテンツと重なる問題を解消(取得方法はHead.astroを参照)
   '[id], :focus': {
     scrollMarginBlockStart: 'var(--header-block-size)'
+  },
+  '.global-hidden-important': {
+    display: 'none!'
+  },
+  '.global-flex-important': {
+    display: 'flex!'
   }
 }

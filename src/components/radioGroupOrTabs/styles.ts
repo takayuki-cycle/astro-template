@@ -1,6 +1,5 @@
 import { cva, type RecipeVariantProps } from '@/../styled-system/css'
 import type { DurationToken, EasingToken } from '@/../styled-system/tokens/tokens'
-import type { SystemStyleObject } from '@/../styled-system/types'
 
 export type Variants = RecipeVariantProps<typeof style>
 type Color = BaseColor
@@ -36,7 +35,7 @@ const typeColor = (color: Color, colorHover: ColorHover, colorActive: ColorActiv
     color: color,
     css: {
       _focusWithin: {
-        '& :has(input:checked)': {
+        '& > .tab-container :has(input:checked)': {
           transitionProperty: 'background-color, color',
           transitionDuration,
           transitionTimingFunction,
@@ -56,7 +55,7 @@ const typeColor = (color: Color, colorHover: ColorHover, colorActive: ColorActiv
           bgColor: 'transparent'
         }
       },
-      '& > label': {
+      '& > .tab-container > label': {
         // eslint-disable-next-line no-restricted-syntax
         _hover: {
           '@media (any-hover: hover)': {
@@ -75,7 +74,7 @@ const typeColor = (color: Color, colorHover: ColorHover, colorActive: ColorActiv
           }
         }
       },
-      '& :has(input:checked)': {
+      '& > .tab-container :has(input:checked)': {
         color: color,
         _after: {
           bgColor: color // 下線
@@ -85,28 +84,9 @@ const typeColor = (color: Color, colorHover: ColorHover, colorActive: ColorActiv
   }
 }
 
-const checkedTabSelector = (groupLength: number) => {
-  const checkedTab: SystemStyleObject = {}
-  for (let i = 1; i <= groupLength; i++) {
-    checkedTab[
-      `& > label:nth-of-type(${i}):has(input:checked) ~ *:not(legend):not(label):nth-of-type(${i})`
-    ] = {
-      display: 'flex'
-    }
-    checkedTab[
-      `& > label:nth-of-type(${i}):has(input:checked) ~ *:not(legend):not(label):not(:nth-of-type(${i}))`
-    ] = {
-      display: 'none'
-    }
-  }
-
-  return checkedTab
-}
-
 export const style = cva({
   base: {
-    display: 'flex',
-    '& > label': {
+    '& label': {
       minW: '12',
       minH: '12'
     }
@@ -114,6 +94,8 @@ export const style = cva({
   variants: {
     type: {
       radio: {
+        display: 'flex',
+        flexWrap: 'wrap',
         w: 'fit',
         pointerEvents: 'none',
         '& > legend': {
@@ -128,7 +110,10 @@ export const style = cva({
         }
       },
       tab: {
-        columnGap: '0',
+        '& .tab-container': {
+          display: 'flex',
+          overflowX: 'scroll'
+        },
         // 非表示だがスクリーンリーダーからは認識
         '& > legend, & input': {
           pos: 'absolute',
@@ -142,10 +127,11 @@ export const style = cva({
           // eslint-disable-next-line no-restricted-syntax
           clip: 'rect(0, 0, 0, 0)'
         },
-        '& > label': {
+        '& label': {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
+          flexShrink: 0,
           px: '2'
         },
         '& :has(input)': {
@@ -161,8 +147,11 @@ export const style = cva({
             h: '0.5'
           }
         },
-        '& > *:not(legend):not(label)': {
-          w: 'full'
+        '& > *:not(legend):not(.tab-container):nth-of-type(1)': {
+          display: 'flex'
+        },
+        '& > *:not(legend):not(.tab-container):not(:nth-of-type(1))': {
+          display: 'none'
         }
       }
     },
@@ -172,44 +161,13 @@ export const style = cva({
       tertiary: colorVariants('tertiary')
     },
     orientation: {
-      vertical: { flexDir: 'column' },
-      horizontal: { flexDir: 'row', flexWrap: 'wrap' }
+      vertical: {},
+      horizontal: {}
     },
     direction: {
       reverse: {
         '& > label': { flexDir: 'row-reverse', justifyContent: 'space-between' }
       }
-    },
-    contentsNumber: {
-      2: checkedTabSelector(2),
-      3: checkedTabSelector(3),
-      4: checkedTabSelector(4),
-      5: checkedTabSelector(5),
-      6: checkedTabSelector(6),
-      7: checkedTabSelector(7),
-      8: checkedTabSelector(8),
-      9: checkedTabSelector(9),
-      10: checkedTabSelector(10),
-      11: checkedTabSelector(11),
-      12: checkedTabSelector(12),
-      13: checkedTabSelector(13),
-      14: checkedTabSelector(14),
-      15: checkedTabSelector(15),
-      16: checkedTabSelector(16),
-      17: checkedTabSelector(17),
-      18: checkedTabSelector(18),
-      19: checkedTabSelector(19),
-      20: checkedTabSelector(20),
-      21: checkedTabSelector(21),
-      22: checkedTabSelector(22),
-      23: checkedTabSelector(23),
-      24: checkedTabSelector(24),
-      25: checkedTabSelector(25),
-      26: checkedTabSelector(26),
-      27: checkedTabSelector(27),
-      28: checkedTabSelector(28),
-      29: checkedTabSelector(29),
-      30: checkedTabSelector(30)
     }
   },
   compoundVariants: [
@@ -218,8 +176,14 @@ export const style = cva({
     typeColor('tertiary', 'tertiary.hover', 'tertiary.active'),
     {
       type: 'radio',
+      orientation: 'vertical',
+      css: { flexDir: 'column' }
+    },
+    {
+      type: 'radio',
       orientation: 'horizontal',
       css: {
+        flexDir: 'row',
         columnGap: '4'
       }
     },
@@ -229,13 +193,41 @@ export const style = cva({
       css: {
         columnGap: '0'
       }
+    },
+    {
+      type: 'tab',
+      orientation: 'vertical',
+      css: {
+        sm: {
+          display: 'flex',
+          columnGap: '4',
+          '& .tab-container': { flexDir: 'column', rowGap: '2', w: '1/5' },
+          '& > *:not(legend):not(.tab-container)': { w: '4/5' }
+        }
+      }
     }
   ],
-  // contentsNumberは"type: 'tab'"のときに"group.length"の値によって決まるため、指定していません。
-  // "type: 'tab'"かつ"orientation: 'vertical'"のときのスタイルは未対応です。
   defaultVariants: {
     color: 'primary',
     type: 'radio',
     orientation: 'vertical'
   }
 })
+
+// メモ(いずれ消します。)
+// & > .tab-container > label:nth-of-type(${i}):has(input:checked)
+// & *:not(legend):not(.tab-container):not(label):nth-of-type(${i})
+
+// const checkedTabSelector = (groupLength: number) => {
+//   const checkedTab: SystemStyleObject = {}
+//   for (let i = 1; i <= groupLength; i++) {
+//     checkedTab[
+//       `& > .tab-container > label:nth-of-type(${i}):has(input:checked)`
+//     ] = {
+//       color: 'red.900',
+//       display: 'flex'
+//     }
+//   }
+
+//   return checkedTab
+// }

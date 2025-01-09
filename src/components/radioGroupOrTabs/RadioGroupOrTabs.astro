@@ -4,41 +4,60 @@ import type { Props } from '@/components/radioGroupOrTabs/types'
 import { style } from '@/components/radioGroupOrTabs/styles'
 
 const { sx, label = undefined, group, apiKey = undefined } = Astro.props
-// 本来は2だけではなくcontentsNumberの取りうる範囲をすべて列挙するべきなのですが、列挙を省略するために2だけにしています。
-const sxResult = sx?.type === 'tab' ? { ...sx, contentsNumber: group.length as 2 } : sx
-const labelResult = label === undefined ? 'タブ' : label
-const name = (apiKey === undefined ? labelResult : apiKey) || ''
+const name = (apiKey === undefined ? label : apiKey) || ''
 const sxRadio = { color: sx?.color }
 ---
 
-<fieldset class={style(sxResult)}>
-  <legend>{labelResult}</legend>
+<fieldset class={`radio-group-or-tabs-class ${style(sx)}`}>
+  <legend>{label}</legend>
   {
-    group.map((g, index) => (
+    sx?.type === 'tab' ? (
       <>
-        {/* eslint-disable no-restricted-syntax */}
-        {sx?.type === 'tab' ? (
-          <>
+        <div class='tab-container'>
+          {group.map((g, index) => (
             <label for={`${name}-${index}`}>
+              {/* eslint-disable-next-line no-restricted-syntax */}
               <Radio sx={sxRadio} id={index} name={name} />
               {g}
             </label>
-          </>
-        ) : (
-          <label for={`${name}-${index}`}>
-            <Radio client:load sx={sxRadio} id={index} name={name} />
-            {g}
-          </label>
-        )}
-        {/* eslint-enable no-restricted-syntax */}
+          ))}
+        </div>
+        <slot>
+          <p>This is my fallback content, if there is no child passed into slot</p>
+        </slot>
       </>
-    ))
-  }
-  {
-    sx?.type === 'tab' && (
-      <slot>
-        <p>This is my fallback content, if there is no child passed into slot</p>
-      </slot>
+    ) : (
+      // sx?.type === 'radio'のとき
+      group.map((g, index) => (
+        <label for={`${name}-${index}`}>
+          {/* eslint-disable-next-line no-restricted-syntax */}
+          <Radio client:load sx={sxRadio} id={index} name={name} />
+          {g}
+        </label>
+      ))
     )
   }
 </fieldset>
+
+<script>
+  // タブの切り替え(sx?.type === 'radio'のときは不使用)
+  if (document.querySelector('.tab-container')) {
+    document.querySelectorAll('.radio-group-or-tabs-class').forEach((container) => {
+      const labels = container.querySelectorAll('fieldset > .tab-container > label')
+      const contents = container.querySelectorAll<HTMLElement>(
+        'fieldset > *:not(legend):not(.tab-container):not(label)'
+      )
+      labels.forEach((label, index) => {
+        const input = label.querySelector('input')
+        if (input) {
+          input.addEventListener('change', () => {
+            contents.forEach((content, i) => {
+              content.classList.toggle('global-hidden-important', i !== index)
+              content.classList.toggle('global-flex-important', i === index)
+            })
+          })
+        }
+      })
+    })
+  }
+</script>
