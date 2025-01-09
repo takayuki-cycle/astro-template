@@ -372,7 +372,7 @@ const markuplintConfig = {
       }
     },
     {
-      selector: 'RadioGroup',
+      selector: 'RadioGroupOrTabs',
       as: 'fieldset'
     },
     {
