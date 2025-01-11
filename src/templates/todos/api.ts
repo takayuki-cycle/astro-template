@@ -11,7 +11,6 @@ interface Todo {
 
 export const fetchTodos = async (): Promise<Todo[]> => {
   const response = await axiosInstance.get('/todos')
-  await new Promise((resolve) => setTimeout(resolve, 3000))
   return response.data
 }
 
