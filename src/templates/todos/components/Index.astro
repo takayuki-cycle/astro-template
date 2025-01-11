@@ -11,7 +11,15 @@ const titles = todos.map((todo) => todo.title)
 
 <div>
   <h1>タスク一覧</h1>
-  <RadioGroupOrTabs sx={{ orientation: 'horizontal' }} label='果物' group={titles} apiKey='fruit' />
+  <RadioGroupOrTabs
+    sx={{ orientation: 'horizontal' }}
+    label='果物'
+    group={titles}
+    apiKey='fruit'
+    server:defer
+  >
+    <div slot='fallback'>fallback server:defer</div>
+  </RadioGroupOrTabs>
   {
     /*
   <RadioGroupOrTabs label='魚' group={titles} apiKey='fish' />
