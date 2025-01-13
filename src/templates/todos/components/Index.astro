@@ -1,27 +1,19 @@
 ---
-import { fetchTodos } from '@/templates/todos/api'
-import RadioGroupOrTabs from '@/components/radioGroupOrTabs/RadioGroupOrTabs.astro'
+import FetchRadioGroupOrTabs from '@/templates/todos/components/fetch/FetchRadioGroupOrTabs.astro'
 import { Button } from '@/components/button/Button'
 // import { css } from '@/../styled-system/css'
 
-const todos = await fetchTodos()
-const titles = todos.map((todo) => todo.title)
 // const testCSS = css({})
 ---
 
 <div>
   <h1>タスク一覧</h1>
-  <RadioGroupOrTabs
-    sx={{ orientation: 'horizontal' }}
-    label='果物'
-    group={titles}
-    apiKey='fruit'
-    server:defer
-  >
-    <div slot='fallback'>fallback server:defer</div>
-  </RadioGroupOrTabs>
-  {
-    /*
+  <FetchRadioGroupOrTabs server:defer>
+    <div slot='fallback'>fallback</div>
+  </FetchRadioGroupOrTabs>
+</div>
+{
+  /*
   <RadioGroupOrTabs label='魚' group={titles} apiKey='fish' />
   <RadioGroupOrTabs sx={{ type: 'tab', orientation: 'horizontal' }} label='果物' group={['1', '2']}>
     <section class={testCSS}>
@@ -71,6 +63,5 @@ const titles = todos.map((todo) => todo.title)
     </div>
   </RadioGroupOrTabs>
   */
-  }
-  <Button client:load />
-</div>
+}
+<Button client:load />

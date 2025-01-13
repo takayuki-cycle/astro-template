@@ -1,0 +1,11 @@
+---
+import { fetchTodos } from '@/templates/todos/api'
+import RadioGroupOrTabs from '@/components/radioGroupOrTabs/RadioGroupOrTabs.astro'
+// import { css } from '@/../styled-system/css'
+
+const todos = await fetchTodos()
+const titles = todos.map((todo) => todo.title)
+// const testCSS = css({})
+---
+
+<RadioGroupOrTabs sx={{ orientation: 'horizontal' }} label='果物' group={titles} apiKey='fruit' />
