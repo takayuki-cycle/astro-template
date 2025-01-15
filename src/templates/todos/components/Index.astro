@@ -1,15 +1,33 @@
 ---
 import FetchRadioGroupOrTabs from '@/templates/todos/components/fetch/FetchRadioGroupOrTabs.astro'
+import RadioGroupOrTabs from '@/components/radioGroupOrTabs/RadioGroupOrTabs.astro'
 import { Button } from '@/components/button/Button'
 // import { css } from '@/../styled-system/css'
 
 // const testCSS = css({})
+const labelFruit = '果物'
 ---
 
 <div>
   <h1>タスク一覧</h1>
-  <FetchRadioGroupOrTabs server:defer>
-    <div slot='fallback'>fallback</div>
+  {
+    /* 
+  <RadioGroupOrTabs
+    slot='fallback'
+    sx={{ color: 'none', preview: 'skeleton', orientation: 'horizontal' }}
+    label='野菜'
+    group={[]}
+  />
+  <h2>タスク二覧</h2>
+  */
+  }
+  <FetchRadioGroupOrTabs server:defer label={labelFruit}>
+    <RadioGroupOrTabs
+      slot='fallback'
+      sx={{ color: 'none', preview: 'skeleton', orientation: 'vertical' }}
+      label={labelFruit}
+      group={[]}
+    />
   </FetchRadioGroupOrTabs>
 </div>
 {

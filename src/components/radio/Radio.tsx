@@ -15,14 +15,20 @@ export const Radio = ({ sx, id, name }: RadioProps) => {
   }
 
   return (
-    <input
-      className={style(sx)}
-      // eslint-disable-next-line no-restricted-syntax
-      type='radio'
-      id={`${name}-${id}`}
-      name={name}
-      checked={selectedId[name] === id}
-      onChange={handleRadioChange}
-    />
+    <>
+      {sx?.preview === 'skeleton' ? (
+        <div className={style(sx)} data-inner-circle={id === 0 ? 'true' : undefined} />
+      ) : (
+        <input
+          className={style(sx)}
+          // eslint-disable-next-line no-restricted-syntax
+          type='radio'
+          id={`${name}-${id}`}
+          name={name}
+          checked={selectedId[name] === id}
+          onChange={handleRadioChange}
+        />
+      )}
+    </>
   )
 }

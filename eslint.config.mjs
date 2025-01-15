@@ -174,11 +174,16 @@ const eslintConfig = [
     rules: {
       'no-restricted-syntax': [
         ...noRestrictedSyntax,
-        // TODO: クライアントコンポーネントを追加するときは、　以下にタグ名を追記してください。
+        // TODO: クライアントコンポーネントまたはサーバーアイランドコンポーネントを追加するときは、　以下にタグ名を追記してください。
         {
           selector:
             "JSXOpeningElement[name.name=/^(Button|Radio)$/]:not(:has([namespace.name='client']))",
           message: `Astroファイルでクライアントコンポーネントを使用する場合は、'client:*' ディレクティブを必ず設定してください。\n例: '<Button client:load />' や '<Button client:idle />' など`
+        },
+        {
+          selector:
+            "JSXOpeningElement[name.name=/^(FetchRadioGroupOrTabs)$/]:not(:has([namespace.name='server']))",
+          message: `Astroファイルでサーバーアイランドコンポーネントを使用する場合は、'server:defer' ディレクティブを必ず設定してください。\n例: '<FetchRadioGroupOrTabs server:defer label={labelExample}>' など`
         }
       ]
     }

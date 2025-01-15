@@ -1,11 +1,14 @@
 ---
 import { fetchTodos } from '@/templates/todos/api'
 import RadioGroupOrTabs from '@/components/radioGroupOrTabs/RadioGroupOrTabs.astro'
-// import { css } from '@/../styled-system/css'
 
+interface Props {
+  label: string // 1画面に対してこのコンポーネントを複数使うときは、それぞれ異なるラベル名(name属性)を設定してください。
+}
+
+const { label } = Astro.props
 const todos = await fetchTodos()
 const titles = todos.map((todo) => todo.title)
-// const testCSS = css({})
 ---
 
-<RadioGroupOrTabs sx={{ orientation: 'horizontal' }} label='果物' group={titles} apiKey='fruit' />
+<RadioGroupOrTabs label={label} group={titles} apiKey='fruit' />

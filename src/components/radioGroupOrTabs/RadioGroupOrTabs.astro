@@ -3,9 +3,9 @@ import { Radio } from '@/components/radio/Radio'
 import type { Props } from '@/components/radioGroupOrTabs/types'
 import { style } from '@/components/radioGroupOrTabs/styles'
 
-const { sx, label = undefined, group, apiKey = undefined } = Astro.props
+const { sx, label = undefined, group, apiKey = undefined, skeletonItem = 2 } = Astro.props
 const name = (apiKey === undefined ? label : apiKey) || ''
-const sxRadio = { color: sx?.color }
+const sxRadio = { color: sx?.color, preview: sx?.preview }
 ---
 
 <fieldset class={`radio-group-or-tabs-class ${style(sx)}`}>
@@ -25,6 +25,21 @@ const sxRadio = { color: sx?.color }
         <slot>
           <p>This is my fallback content, if there is no child passed into slot</p>
         </slot>
+      </>
+    ) : sx?.preview === 'skeleton' ? (
+      <>
+        {Array.from({ length: skeletonItem }, (_, id) => (
+          <div
+            class='radio-group-skeleton-container'
+            role='status'
+            aria-busy='true'
+            aria-label='読み込み中です。'
+          >
+            {/* eslint-disable-next-line no-restricted-syntax */}
+            <Radio sx={sxRadio} id={id} name='preview-skeleton' />
+            <div class='radio-group-skeleton-item' />
+          </div>
+        ))}
       </>
     ) : (
       // sx?.type === 'radio'のとき

@@ -97,14 +97,11 @@ export const style = cva({
         display: 'flex',
         flexWrap: 'wrap',
         w: 'fit',
-        pointerEvents: 'none',
         '& > legend': {
-          pointerEvents: 'auto',
           fontSize: '2xl'
         },
         '& > label': {
           display: 'flex',
-          pointerEvents: 'auto',
           alignItems: 'center',
           gap: '1.5'
         }
@@ -158,7 +155,8 @@ export const style = cva({
     color: {
       primary: colorVariants('primary'),
       secondary: colorVariants('secondary'),
-      tertiary: colorVariants('tertiary')
+      tertiary: colorVariants('tertiary'),
+      none: {}
     },
     orientation: {
       vertical: {},
@@ -168,6 +166,34 @@ export const style = cva({
       reverse: {
         '& > label': { flexDir: 'row-reverse', justifyContent: 'space-between' }
       }
+    },
+    preview: {
+      skeleton: {
+        // legendの部分もスケルトンにする場合は、以下のコメントを外してください。
+        // '& > legend': {
+        //   w: '28',
+        //   h: '9',
+        //   cursor: 'wait',
+        //   bgColor: 'skeleton',
+        //   rounded: 'md',
+        //   animation: 'pulse'
+        // },
+        '& > .radio-group-skeleton-container': {
+          display: 'flex',
+          alignItems: 'center',
+          gap: '1.5',
+          minH: '12',
+          cursor: 'wait'
+        },
+        '& > .radio-group-skeleton-container > .radio-group-skeleton-item': {
+          minW: '28',
+          h: '7',
+          bgColor: 'skeleton',
+          rounded: 'md',
+          animation: 'pulse'
+        }
+      },
+      none: {}
     }
   },
   compoundVariants: [
@@ -185,6 +211,19 @@ export const style = cva({
       css: {
         flexDir: 'row',
         columnGap: '4'
+      }
+    },
+    {
+      type: 'radio',
+      preview: 'none',
+      css: {
+        pointerEvents: 'none',
+        '& > legend': {
+          pointerEvents: 'auto'
+        },
+        '& > label': {
+          pointerEvents: 'auto'
+        }
       }
     },
     {
@@ -210,7 +249,8 @@ export const style = cva({
   defaultVariants: {
     color: 'primary',
     type: 'radio',
-    orientation: 'vertical'
+    orientation: 'vertical',
+    preview: 'none'
   }
 })
 

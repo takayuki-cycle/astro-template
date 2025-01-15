@@ -169,6 +169,9 @@ export default defineConfig({
           },
           fadeUp: {
             value: 'fadeUp 1s cubic-bezier(0.33, 1, 0.68, 1) forwards'
+          },
+          pulse: {
+            value: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
           }
         },
         aspectRatios: {
@@ -231,7 +234,8 @@ export default defineConfig({
             DEFAULT: ['blue.800', 'blue.600'], // #1e40af, #2563eb
             bg: ['neutral.100', 'neutral.800'] // #f5f5f5, #262626
           },
-          unchecked: ['gray.500', 'gray.400'] // #6b7280, #9ca3af
+          unchecked: ['gray.500', 'gray.400'], // #6b7280, #9ca3af
+          skeleton: ['slate.400', 'slate.600'] // #94a3b8, #475569
         }),
         gradients: createGradientSemanticTokens({
           // 元々の値

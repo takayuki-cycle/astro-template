@@ -135,5 +135,14 @@ export const animationNames = {
       transform: 'translateY(0)',
       opacity: '1'
     }
+  },
+  // 主にスケルトンで使用
+  pulse: {
+    '0%, 100%': {
+      opacity: '1'
+    },
+    '50%': {
+      opacity: '0.5'
+    }
   }
 }
