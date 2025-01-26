@@ -11,8 +11,6 @@ import { globalStyles } from '@/config/panda/creators/globalStyles'
 import { defineConfig, defineGlobalStyles, defineKeyframes } from '@pandacss/dev'
 import { BREAKPOINTS } from '@/constants/breakpoints'
 
-//
-
 const keyframes = defineKeyframes(animationNames)
 const globalCss = defineGlobalStyles(globalStyles)
 
