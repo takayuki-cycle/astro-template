@@ -9,10 +9,10 @@
     "dbaeumer.vscode-eslint",
     "unifiedjs.vscode-mdx",
     "esbenp.prettier-vscode",
-    "taichi.vscode-textlint",
     "davidanson.vscode-markdownlint",
     "github.vscode-github-actions",
-    "cipchk.cssrem"
+    "cipchk.cssrem",
+    "3w36zj6.textlint"
   ],
   "unwantedRecommendations": ["stylelint.vscode-stylelint"]
 }
