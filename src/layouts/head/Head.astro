@@ -143,7 +143,8 @@ const origin = Astro.url.origin
     })
     // 終了
 
-    document.addEventListener('DOMContentLoaded', () => {
+    // 注意: <ClientRouter />を使用するときは、'DOMContentLoaded'の代わりに'astro:page-load'を使用してください。
+    document.addEventListener('astro:page-load', () => {
       const header = document.querySelector('header')
       initializeViewport()
       if (header) observeHeaderBlockSize.observe(header)
