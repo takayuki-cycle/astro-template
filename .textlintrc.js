@@ -9,7 +9,7 @@ module.exports = {
     'preset-ja-technical-writing': {
       'no-exclamation-question-mark': false,
       'ja-no-mixed-period': {
-        periodMark: ['。', '笑', 'w', 'W', '…', '...', ':'],
+        periodMark: ['。', '笑', 'w', 'W', '…', '...'],
         allowEmojiAtEnd: true
       },
       'sentence-length': {
