@@ -1,70 +1,87 @@
-<!-- プルリクエストを作成する際のテンプレートです。各項目に例と記述の補足を含めています。(不要な項目は削除しても構いません。) -->
+<!-- PRを作成する際のテンプレートです。各項目に例を記載しておりますので、状況に合わせて変更してください。 -->
+
+<!-- PRのタイトル -->
+<!-- feat/ページネーションのコンポーネントを実装 -->
 
 # 📝 概要
 
-<!-- このPRの目的・背景を簡潔に記述してください。 -->
+表示する記事が多すぎるとWebページの読み込み速度が低下するため、ページネーションを実装して小分けを可能にすることで読み込み速度を改善する。
 
-例:
+# 🔧 実装内容
 
-- ユーザー登録画面で、パスワードの最低文字数を追加
-- バリデーションメッセージの表示タイミングをUXに合わせて調整
+- `Pagination.astro`を実装
+  - `props`
+    - `sx`(型: `Variants`)
+      - `color`(`primary`, `secondary`, `tertiary`)
+      - `variant`(`solid`, `outline`)
+      - `shape`(`circular`, `rounded`)
+    - `pathName`(型: `string`): 記事の種類(ブログ、ニュースなど)を識別するため
+    - `currentPage`(型: `number`): 現在が何ページ目なのかと、URLにも記載して一意に決定するため
+    - `lastPage`(型: `number`): 記事の総数
+    - `step`(型: `0 | 1 | 2 | 3 | 4 | 5 | 6`): `currentPage`の前後で遷移できるページを表示
+- `styles.ts`を実装
+  - `defaultVariants: {color: 'primary', variant: 'solid', shape: 'circular'}`
+- `types.ts`で以下の型を実装
+  - `Props`
+  - `Step`
+  - `PaginationOptions`
+  - `PaginationResult`
+  - `PaginationResultUnder`
+- `utils.ts`を実装
+  - `calculatePaginationBase`: 基本のページネーション計算
+  - `calculatePagination`: 標準のページネーション
+  - `calculatePaginationUnder`: 簡易ページネーション
 
-# 🔧 変更内容
+# 🧪 動作の確認方法
 
-<!-- このPRで実施した具体的な変更点を箇条書きで記載してください。 -->
+- `lastPage = 12`, `step = 2`
+  - `currentPage = 1`
+    - `1 2 3 ... 12 >`がただしく表示されることを確認
+  - `currentPage = 2`
+    - `< 1 2 3 4 ... 12 >`がただしく表示されることを確認
+  - `currentPage = 5`
+    - `< 1 2 3 4 5 6 7 ... 12 >`がただしく表示されることを確認
+  - `currentPage = 6`
+    - `< 1 ... 4 5 6 7 8 ... 12 >`がただしく表示されることを確認
+  - `currentPage = 8`
+    - `< 1 ... 6 7 8 9 10 11 12 >`がただしく表示されることを確認
+  - `currentPage = 12`
+    - `< 1 ... 10 11 12`がただしく表示されることを確認
 
-例:
+# 📸 スクリーンショットまたは動画
 
-- `RegisterForm.tsx` にパスワードのminLengthを追加
-- `FormErrorMessage.tsx` に条件分岐ロジックを追加
-- Storybookの登録画面にエラー表示のケースを追加
+<!-- 簡素版
+| 画面幅 | 改修前(任意) | 改修後 |
+| :----: | :----------: | :----: |
+| 1024px |              |        |
+| 768px  |              |        |
+| 767px  |              |        |
+| 350px  |              |        |
+-->
 
-# 🧪 テスト内容
+<!-- テンプレートでの画像のパスはリポジトリ内を指していますが、実際に使用するときは容量の肥大化を抑えるためにリポジトリ内のパスを指定しないでください。 -->
 
-<!-- 動作確認方法や、通したテストの種類を記載してください。 -->
+| `currentPage` | 改修前(任意) |                             改修後                             |
+| :-----------: | :----------: | :------------------------------------------------------------: |
+|       1       |     なし     |  ![currentPage1](/src/assets/images/prTemp/currentPage1.webp)  |
+|       2       |     なし     |  ![currentPage2](/src/assets/images/prTemp/currentPage2.webp)  |
+|       5       |     なし     |  ![currentPage5](/src/assets/images/prTemp/currentPage5.webp)  |
+|       6       |     なし     |  ![currentPage6](/src/assets/images/prTemp/currentPage6.webp)  |
+|       8       |     なし     |  ![currentPage8](/src/assets/images/prTemp/currentPage8.webp)  |
+|      12       |     なし     | ![currentPage12](/src/assets/images/prTemp/currentPage12.webp) |
 
-例:
+# ✅ チェックリスト
 
-- [x] 正常系／異常系の入力をしてエラーメッセージが期待通り表示されることを確認(手動)
-- [x] `RegisterForm.spec.ts` ユニットテスト追加・通過
-- [x] E2Eテストの`registration.spec.ts`がCIで成功
-
-# 📸 スクリーンショット
-
-<!-- 改修前(任意)と改修後のキャプチャを添付してください。 -->
-
-例:
-
-|     | 改修前(任意) | 改修後 |
-| :-: | :----------: | :----: |
-|     |              |        |
-
-# ✅ チェックリスト(作成者・レビュアー向け)
-
-<!-- 提出前の確認事項として使います。不要な項目は削除してください。 -->
-
-- [ ] フォーマッターとリンターをパス
-- [ ] 不要な`console.log`やコメントが削除されている
-- [ ] 命名が適切(関数・変数・ファイル名)
-- [ ] UI/UXに問題がない(SP(スマホ)でも確認)
-- [ ] 必要であればStorybook/Docsを更新した
+- [ ] コミットするときにフォーマッターとリンターをすべてパスしている
 
 # 🗒 補足
 
-<!-- 技術的な選択理由、制約、レビュアーへの伝達事項などがあれば記載してください。 -->
+- こちらのレスポンシブ対応のためにWebサイトの画面の最小幅を350pxへ設定したので、改善できればレスポンシブできる画面幅を320pxへ設定して、その画面幅でも1行で収まるようにしたい
 
-例:
+# 🔗 関連資料
 
-- `Zod`の型定義に統一したため、今後はYupではなくZodを使用予定
-- 本対応で既存のテスト3件が影響を受ける可能性
+- Backlog(チケット): <https://backlog.com/ja/>
+- Notion(タスク): <https://www.notion.com/ja/>
+- Figma(デザインカンプ): <https://www.figma.com/ja-jp/>
 
-# 🔗 関連PR/チケット
-
-<!-- PR, タスク管理ツール(Backlog, Notionなど), Issueと紐付けてください。 -->
-
-例:
-
-- Fixes #123 (マージすると自動でclose)
-- Related to #124
-- チケット: <https://jira.example.com/browse/PROJECT-456>
-- Figma:
+テストです。
