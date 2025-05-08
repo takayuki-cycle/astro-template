@@ -59,16 +59,14 @@
 | 350px  |              |        |
 -->
 
-<!-- テンプレートでの画像のパスはリポジトリ内を指していますが、実際に使用するときは容量の肥大化を抑えるためにリポジトリ内のパスを指定しないでください。 -->
-
-| `currentPage` | 改修前(任意) |                             改修後                             |
-| :-----------: | :----------: | :------------------------------------------------------------: |
-|       1       |     なし     |  ![currentPage1](/src/assets/images/prTemp/currentPage1.webp)  |
-|       2       |     なし     |  ![currentPage2](/src/assets/images/prTemp/currentPage2.webp)  |
-|       5       |     なし     |  ![currentPage5](/src/assets/images/prTemp/currentPage5.webp)  |
-|       6       |     なし     |  ![currentPage6](/src/assets/images/prTemp/currentPage6.webp)  |
-|       8       |     なし     |  ![currentPage8](/src/assets/images/prTemp/currentPage8.webp)  |
-|      12       |     なし     | ![currentPage12](/src/assets/images/prTemp/currentPage12.webp) |
+| `currentPage` | 改修前(任意) |                                                                    改修後                                                                     |
+| :-----------: | :----------: | :-------------------------------------------------------------------------------------------------------------------------------------------: |
+|       1       |     なし     |  ![currentPage1](https://raw.githubusercontent.com/takayuki-cycle/astro-template/refs/heads/main/src/assets/images/prTemp/currentPage1.webp)  |
+|       2       |     なし     |  ![currentPage2](https://raw.githubusercontent.com/takayuki-cycle/astro-template/refs/heads/main/src/assets/images/prTemp/currentPage2.webp)  |
+|       5       |     なし     |  ![currentPage5](https://raw.githubusercontent.com/takayuki-cycle/astro-template/refs/heads/main/src/assets/images/prTemp/currentPage5.webp)  |
+|       6       |     なし     |  ![currentPage6](https://raw.githubusercontent.com/takayuki-cycle/astro-template/refs/heads/main/src/assets/images/prTemp/currentPage6.webp)  |
+|       8       |     なし     |  ![currentPage8](https://raw.githubusercontent.com/takayuki-cycle/astro-template/refs/heads/main/src/assets/images/prTemp/currentPage8.webp)  |
+|      12       |     なし     | ![currentPage12](https://raw.githubusercontent.com/takayuki-cycle/astro-template/refs/heads/main/src/assets/images/prTemp/currentPage12.webp) |
 
 # ✅ チェックリスト
 
@@ -83,3 +81,5 @@
 - Backlog(チケット): <https://backlog.com/ja/>
 - Notion(タスク): <https://www.notion.com/ja/>
 - Figma(デザインカンプ): <https://www.figma.com/ja-jp/>
+
+テストです。
