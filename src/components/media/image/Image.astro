@@ -16,6 +16,7 @@ type Props = (LocalImageProps | RemoteImageProps) & {
   densities?: undefined
   quality?: undefined
   isOptimization: true // 元の画像を上書きして最適化するため、意図しない変更を防ぐためにtrueと指定したときに最適化を実行
+  isAvatar?: boolean // avatarコンポーネント専用の変数です。avatarの幅と高さは同じ値になります。avatarの画像の最大幅は容量の肥大化を防ぐために128pxにしています。
 }
 
 const props = Astro.props
@@ -49,7 +50,7 @@ if (import.meta.env.DEV) {
 }
 
 if (props.isOptimization) {
-  optimizeImage(props.src, props.width)
+  optimizeImage(props.src, props.width, props.isAvatar ?? false)
 }
 ---
 

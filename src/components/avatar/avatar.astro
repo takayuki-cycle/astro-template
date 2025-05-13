@@ -1,0 +1,29 @@
+---
+import Image from '@/components/media/image/Image.astro'
+import anonymousGeneral from '@/assets/images/content/authors/anonymous/general.webp'
+import { SIZE_MAP } from '@/components/avatar/utils.ts'
+import type { Props } from '@/components/avatar/types.ts'
+
+const { size } = Astro.props
+const mappedSize = SIZE_MAP[size as keyof typeof SIZE_MAP] ?? size
+const mappedSizeNumber = Number(mappedSize)
+
+if (Number.isNaN(mappedSizeNumber)) {
+  throw new Error('sizeは数値またはsizeに関係した文字列リテラル型を指定してください。')
+}
+if (mappedSizeNumber > 128) {
+  throw new Error('画像の容量の肥大化を防ぐため、sizeは128px以下の値を指定してください。')
+}
+if (mappedSizeNumber < 1) {
+  throw new Error('sizeは自然数を指定してください。')
+}
+---
+
+<Image
+  src={anonymousGeneral}
+  alt='匿名'
+  width={mappedSizeNumber}
+  height={mappedSizeNumber}
+  isOptimization={true}
+  isAvatar
+/>

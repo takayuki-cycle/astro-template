@@ -27,8 +27,14 @@ const FORMAT_QUALITY_MAP: Record<string, { quality: number; method: keyof sharp.
 // ローカルの画像の容量を最適化してリポジトリの容量を大幅に削減
 export const optimizeImage = async (
   src: string | ImageMetadata | Promise<{ default: ImageMetadata }>,
-  width: number
+  width: number,
+  size: boolean
 ) => {
+  const MAX_DENSITY = 4 as const // 最大密度幅(4倍)
+  const MAX_SIZE = 128 as const // 128pxはChakra UIの2xlに相当(Avatarコンポーネントを使用する場合の変数)
+  const MAX_DENSITY_WIDTH = width * MAX_DENSITY
+  const MAX_DENSITY_SIZE = MAX_SIZE * MAX_DENSITY // 512px
+
   const fullPath = (src as { src: string }).src
   const match = fullPath.match(
     /src\/[^?]+\.(jpg|jpeg|png|webp|gif|tiff|avif|heif|jp2|jxl)/
@@ -36,7 +42,7 @@ export const optimizeImage = async (
   if (!match) return // fullPathの文字列が、指定した正規表現で不一致
   const imagePath = match[0]
 
-  const maxDensityWidth = width * 4
+  const maxDensityWidthOrSize = size === false ? MAX_DENSITY_WIDTH : MAX_DENSITY_SIZE
   const backupPath = `${imagePath}.backup`
   const tempPath = path.join(path.dirname(imagePath), `temp_${path.basename(imagePath)}`)
 
@@ -49,11 +55,11 @@ export const optimizeImage = async (
     let transformer = sharp(imagePath)
 
     // 幅が最大密度幅(4倍)を超えている場合はリサイズ
-    if (metadata.width !== undefined && metadata.width > maxDensityWidth) {
+    if (metadata.width !== undefined && metadata.width > maxDensityWidthOrSize) {
       // 元の画像をバックアップ
       await fsPromises.copyFile(imagePath, backupPath)
       isFileBackup = true
-      transformer = transformer.resize(maxDensityWidth)
+      transformer = transformer.resize(maxDensityWidthOrSize)
     }
 
     // 元のファイルサイズを取得
