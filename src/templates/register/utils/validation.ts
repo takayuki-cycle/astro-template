@@ -45,8 +45,9 @@ export const validateField = (
     case 'email':
       if (!value) return 'メールアドレスを入力してください'
       if (/[A-Z]/.test(value)) return 'メールアドレスには大文字を使用しないでください'
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value))
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
         return '有効なメールアドレス形式で入力してください'
+      }
       if (value.length > 255) return 'メールアドレスは255文字以内で入力してください'
       break
     case 'password':

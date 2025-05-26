@@ -1,0 +1,20 @@
+---
+import { style } from '@/components/list/styles.ts'
+import type { ListItem } from '@/components/list/types.ts'
+
+const { sx, items } = Astro.props
+---
+
+<ul role='list' class={style(sx)}>
+  {
+    items.map((item: ListItem) => (
+      <li>
+        <a href={item.link}>
+          <span>{item.leftItem}</span> {/* TODO: アイコンやチェックボックスへ変更すること */}
+          {item.text}
+          <span>{item.rightItem}</span> {/* TODO: アイコンやチェックボックスへ変更すること */}
+        </a>
+      </li>
+    ))
+  }
+</ul>

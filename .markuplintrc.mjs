@@ -32,6 +32,10 @@ const markuplintConfig = {
   ],
   pretenders: [
     {
+      selector: 'summary',
+      as: 'summary'
+    },
+    {
       selector: 'Image',
       as: {
         element: 'img',
@@ -538,6 +542,10 @@ const markuplintConfig = {
           }
         ]
       }
+    },
+    {
+      selector: 'List',
+      as: 'ul'
     }
   ],
   excludeFiles: ['node_modules/**', 'styled-system/**', '.astro/**', 'dist/**', '.vercel/**']

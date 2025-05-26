@@ -139,8 +139,9 @@ const origin = Astro.url.origin
       const header = entries[0]
       const blockSize = header?.borderBoxSize[0]?.blockSize // 少数を含むヘッダーの高さを取得[px]
       const roundedBlockSize = blockSize !== undefined ? Math.round(blockSize) : 0
-      if (roundedBlockSize !== 0)
+      if (roundedBlockSize !== 0) {
         document.documentElement.style.setProperty('--header-block-size', `${roundedBlockSize}px`)
+      }
     })
     // 終了
 

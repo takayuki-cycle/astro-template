@@ -140,6 +140,7 @@ const eslintConfig = [
       'no-duplicate-imports': 'error',
       'astro/jsx-a11y/no-redundant-roles': 'off',
       'jsx-a11y/no-redundant-roles': ['off', { ul: ['list'] }],
+      curly: ['error', 'multi-line'],
       'no-restricted-imports': [
         'error',
         {

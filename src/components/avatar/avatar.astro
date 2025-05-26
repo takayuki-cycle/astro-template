@@ -1,29 +1,42 @@
 ---
 import Image from '@/components/media/image/Image.astro'
 import anonymousGeneral from '@/assets/images/content/authors/anonymous/general.webp'
-import { SIZE_MAP } from '@/components/avatar/utils.ts'
+import {
+  SIZE_MAP,
+  extractInitialCharacters,
+  validateAvatarProps
+} from '@/components/avatar/utils.ts'
+import { styleLetter, styleImage } from '@/components/avatar/styles.ts'
 import type { Props } from '@/components/avatar/types.ts'
+import List from '@/components/list/List.astro'
 
-const { size } = Astro.props
-const mappedSize = SIZE_MAP[size as keyof typeof SIZE_MAP] ?? size
-const mappedSizeNumber = Number(mappedSize)
+const { sx, src = anonymousGeneral, size = 'md', alt = '匿名', items } = Astro.props
+const mappedSize = SIZE_MAP[size as keyof typeof SIZE_MAP]
+const initial = extractInitialCharacters(alt)
+const sxConditional = {
+  ...sx,
+  // Listコンポーネントを使わないときは、クリック(タップ)を無効
+  ...(items ? {} : { pointerEvents: 'none' as const }),
+  size
+}
+// Letter avatars or Image avatars
+const isLetterAvatar = src === anonymousGeneral && alt !== '匿名'
 
-if (Number.isNaN(mappedSizeNumber)) {
-  throw new Error('sizeは数値またはsizeに関係した文字列リテラル型を指定してください。')
-}
-if (mappedSizeNumber > 128) {
-  throw new Error('画像の容量の肥大化を防ぐため、sizeは128px以下の値を指定してください。')
-}
-if (mappedSizeNumber < 1) {
-  throw new Error('sizeは自然数を指定してください。')
-}
+validateAvatarProps(sx?.size, sx?.pointerEvents)
 ---
 
-<Image
-  src={anonymousGeneral}
-  alt='匿名'
-  width={mappedSizeNumber}
-  height={mappedSizeNumber}
-  isOptimization={true}
-  isAvatar
-/>
+{
+  /* avatarの容量を最適化する画像幅の基準は512pxで固定にしているため、意図しない最適化が発生する可能性が低いと思うので、isOptimizationは常にtrueにしています。 */
+}
+<details class={isLetterAvatar ? styleLetter(sxConditional) : styleImage(sxConditional)}>
+  <summary>
+    {
+      isLetterAvatar ? (
+        initial
+      ) : (
+        <Image src={src} width={mappedSize} height={mappedSize} alt={alt} isOptimization isAvatar />
+      )
+    }
+  </summary>
+  {items && <List items={items} />}
+</details>

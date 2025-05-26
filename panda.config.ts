@@ -219,6 +219,11 @@ export default defineConfig({
           },
           text: {
             DEFAULT: ['neutral.800', 'white'], // #262626, #ffffff
+            reverse: {
+              DEFAULT: ['white', 'neutral.800'], // #ffffff, #262626
+              hover: ['neutral.800', 'neutral.200'], // #262626, #e5e5e5
+              active: ['neutral.900', 'neutral.100'] // #171717, #f5f5f5
+            },
             link: ['blue.600', 'blue.400'], // #2563eb, #60a5fa
             disabled: ['gray.600', 'gray.400'], // #4b5563, #9ca3af
             light: ['white'] // #ffffff

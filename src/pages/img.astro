@@ -9,6 +9,8 @@ import Layout from '@/layouts/Layout.astro'
 import type { HeadPageProps } from '@/layouts/head/types'
 import { BREAKPOINTS } from '@/constants/breakpoints'
 import Avatar from '@/components/avatar/avatar.astro'
+import test1 from '@/assets/images/content/authors/anonymous/test1.png'
+import test2 from '@/assets/images/content/authors/anonymous/test2.png'
 
 const headPage: HeadPageProps = {
   title: 'indexPageTitle',
@@ -20,6 +22,27 @@ const headPage: HeadPageProps = {
   xCreator: '@xCreator',
   author: 'author'
 }
+
+const items = [
+  {
+    leftItem: 'A',
+    text: 'test1',
+    rightItem: 'B',
+    link: 'https://www.google.com/'
+  },
+  {
+    leftItem: 'C',
+    text: 'test2',
+    rightItem: 'D',
+    link: 'https://www.apple.com/'
+  },
+  {
+    leftItem: 'E',
+    text: 'test3',
+    rightItem: 'F',
+    link: 'https://www.microsoft.com/'
+  }
+]
 ---
 
 <Layout headPage={headPage}>
@@ -43,5 +66,10 @@ const headPage: HeadPageProps = {
     alt='リビングと車です'
     isOptimization
   />
-  <Avatar size='104' />
+  <Avatar items={items} />{/* Image */}
+  <Avatar src={test1} size='lg' />{/* Image */}
+  <Avatar src={test2} alt='James Smith' />{/* Image */}
+  <Avatar size='2xl' alt='遠藤 達郎' items={items} />{/* Letter */}
+  <Avatar src={test2} alt='James Smith' items={items} />{/* Image */}
+  <Avatar alt='Bob' size='xs' />{/* Letter */}
 </Layout>

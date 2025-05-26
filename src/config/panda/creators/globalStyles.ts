@@ -63,6 +63,9 @@ export const globalStyles = {
   ':where(:any-link)': {
     textUnderlineOffset: '4'
   },
+  ':where(summary)': {
+    listStyle: 'none'
+  },
   // 固定ヘッダーの高さを取得して、ページ内リンクで遷移するときにその高さを加えてスクロールすることでコンテンツと重なる問題を解消(取得方法はHead.astroを参照)
   '[id], :focus': {
     scrollMarginBlockStart: 'var(--header-block-size)'
