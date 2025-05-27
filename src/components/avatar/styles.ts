@@ -1,59 +1,61 @@
 import { cva, type RecipeVariantProps } from '@/../styled-system/css'
+import { SIZE_MAP } from '@/components/avatar/utils.ts'
 
 export type Variants = RecipeVariantProps<typeof styleLetter> &
   RecipeVariantProps<typeof styleImage>
 
-const size = (type: 'letter' | 'image') =>
-  ({
+const size = (type: 'letter' | 'image') => {
+  return {
     // width = 24px
     xs: {
       '& > summary': {
-        w: '6',
-        h: '6',
+        w: `${SIZE_MAP.xs}`,
+        h: `${SIZE_MAP.xs}`,
         ...(type === 'letter' && ({ fontSize: '2xs', py: '1', border: 'secondary' } as const))
       }
     },
     // width = 32px
     sm: {
       '& > summary': {
-        w: '8',
-        h: '8',
+        w: `${SIZE_MAP.sm}`,
+        h: `${SIZE_MAP.sm}`,
         ...(type === 'letter' && ({ fontSize: 'xs', py: '1', border: 'secondary' } as const))
       }
     },
     // width = 48px(初期値)
     md: {
       '& > summary': {
-        w: '12',
-        h: '12',
+        w: `${SIZE_MAP.md}`,
+        h: `${SIZE_MAP.md}`,
         ...(type === 'letter' && ({ fontSize: 'md', py: '2', border: 'secondary' } as const))
       }
     },
     // width = 64px
     lg: {
       '& > summary': {
-        w: '16',
-        h: '16',
+        w: `${SIZE_MAP.lg}`,
+        h: `${SIZE_MAP.lg}`,
         ...(type === 'letter' && ({ fontSize: '2xl', py: '2.5', border: 'secondary' } as const))
       }
     },
     // width = 96px
     xl: {
       '& > summary': {
-        w: '24',
-        h: '24',
+        w: `${SIZE_MAP.xl}`,
+        h: `${SIZE_MAP.xl}`,
         ...(type === 'letter' && ({ fontSize: '4xl', py: '4', border: 'secondary' } as const))
       }
     },
     // width = 128px
     '2xl': {
       '& > summary': {
-        w: '32',
-        h: '32',
+        w: `${SIZE_MAP['2xl']}`,
+        h: `${SIZE_MAP['2xl']}`,
         ...(type === 'letter' && ({ fontSize: '5xl', py: '6', border: 'secondary' } as const))
       }
     }
-  }) as const
+  } as const
+}
 
 const pointerEvents = {
   auto: {},
