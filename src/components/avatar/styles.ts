@@ -4,8 +4,8 @@ import { SIZE_MAP } from '@/components/avatar/utils.ts'
 export type Variants = RecipeVariantProps<typeof styleLetter> &
   RecipeVariantProps<typeof styleImage>
 
-const size = (type: 'letter' | 'image') => {
-  return {
+const size = (type: 'letter' | 'image') =>
+  ({
     // width = 24px
     xs: {
       '& > summary': {
@@ -54,8 +54,7 @@ const size = (type: 'letter' | 'image') => {
         ...(type === 'letter' && ({ fontSize: '5xl', py: '6', border: 'secondary' } as const))
       }
     }
-  } as const
-}
+  }) as const
 
 const pointerEvents = {
   auto: {},
