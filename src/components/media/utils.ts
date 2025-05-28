@@ -9,14 +9,15 @@ export const quality = 'mid'
 
 const QUALITY_LOW = 50
 const QUALITY_MEDIUM = 80
+const QUALITY_MEDIUM_HIGH = 95 // TODO: .webpだと品質が大幅に減る可能性があるので、別の方法を検討する必要あり
 const QUALITY_HIGH = 100 // TODO: この値で適切か検討
-const ALLOWED_DIFF_RATIO = 0.001 // 許容される差分の割合（0.1%） TODO: この値で適切か検討(増やすと微小な違いは無視されやすくなる。)
+const ALLOWED_DIFF_RATIO = 0.1 // 許容される差分の割合（10%） TODO: この値で適切か検討(増やすと微小な違いは無視されやすくなる。)
 
 const FORMAT_QUALITY_MAP: Record<string, { quality: number; method: keyof sharp.Sharp }> = {
   jpeg: { quality: QUALITY_MEDIUM, method: 'jpeg' },
   jpg: { quality: QUALITY_MEDIUM, method: 'jpeg' },
   png: { quality: QUALITY_HIGH, method: 'png' },
-  webp: { quality: QUALITY_MEDIUM, method: 'webp' },
+  webp: { quality: QUALITY_MEDIUM_HIGH, method: 'webp' },
   jp2: { quality: QUALITY_MEDIUM, method: 'jp2' },
   tiff: { quality: QUALITY_MEDIUM, method: 'tiff' },
   avif: { quality: QUALITY_LOW, method: 'avif' },
