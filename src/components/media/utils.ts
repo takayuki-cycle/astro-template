@@ -10,7 +10,7 @@ export const quality = 'mid'
 const QUALITY_LOW = 50
 const QUALITY_MEDIUM = 80
 const QUALITY_HIGH = 100 // TODO: この値で適切か検討
-const ALLOWED_DIFF_RATIO = 0.0005 // 許容される差分の割合（0.05%） TODO: この値で適切か検討
+const ALLOWED_DIFF_RATIO = 0.001 // 許容される差分の割合（0.1%） TODO: この値で適切か検討(増やすと微小な違いは無視されやすくなる。)
 
 const FORMAT_QUALITY_MAP: Record<string, { quality: number; method: keyof sharp.Sharp }> = {
   jpeg: { quality: QUALITY_MEDIUM, method: 'jpeg' },
