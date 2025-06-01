@@ -1,7 +1,5 @@
 ---
 import { css } from '@/../styled-system/css'
-import Card from '@/components/Card.astro'
-import { App } from '@/components/app'
 import { BASE_URL } from '@/constants/url'
 import Layout from '@/layouts/Layout.astro'
 import type { HeadPageProps } from '@/layouts/head/types'
@@ -37,7 +35,6 @@ const headPage: HeadPageProps = {
   <br />
   <a href={`${BASE_URL}todos/`} class={css({})}>TODOへ遷移</a>
   <div class={testCSS}>AAA</div>
-  <App client:only='react' />
   <div
     class={css({
       fontSize: '2xl',
@@ -53,22 +50,6 @@ const headPage: HeadPageProps = {
     To get started, open the directory <code>src/pages</code> in your project.<br />
     <strong>Code Challenge:</strong> Tweak the Welcome to Astro message above.
   </p>
-  <ul role='list'>
-    <li>
-      <Card
-        href='https://docs.astro.build/'
-        title='Documentation'
-        body='Learn how Astro works and explore the official API docs.'
-      />
-    </li>
-    <li>
-      <Card
-        href='https://astro.build/integrations/'
-        title='Integrations'
-        body='Supercharge your project with new frameworks and libraries.'
-      />
-    </li>
-  </ul>
   <h1>H1,H1,H1,H1,H1,H1,H1,H1,H1,H1,H1</h1>
   <h2>H2,H2,H2,H2,H2,H2,H2,H2,H2,H2,H2</h2>
   <h3>H3,H3,H3,H3,H3,H3,H3,H3,H3,H3,H3</h3>
