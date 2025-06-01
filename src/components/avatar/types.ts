@@ -1,5 +1,6 @@
 import type { Variants } from '@/components/avatar/styles'
 import type { ListItem } from '@/components/list/types.ts'
+import type { FontSizeToken, SizeToken, SpacingToken } from '@/../styled-system/tokens/tokens'
 
 export interface Props {
   sx?: Variants
@@ -11,3 +12,8 @@ export interface Props {
 }
 
 export type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+
+export type SizeStyleMap = Record<
+  Size,
+  { size: SizeToken; fontSize: FontSizeToken; py: SpacingToken }
+>

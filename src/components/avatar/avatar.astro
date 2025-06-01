@@ -7,7 +7,7 @@ import {
   validateAvatarProps
 } from '@/components/avatar/utils.ts'
 import { styleLetter, styleImage } from '@/components/avatar/styles.ts'
-import type { Props } from '@/components/avatar/types.ts'
+import type { Props, Size } from '@/components/avatar/types.ts'
 import List from '@/components/list/List.astro'
 
 const { sx, src = anonymousGeneral, size = 'md', alt = '匿名', items } = Astro.props
@@ -22,7 +22,7 @@ const sxConditional = {
 // Letter avatars or Image avatars
 const isLetterAvatar = src === anonymousGeneral && alt !== '匿名'
 
-validateAvatarProps(sx?.size, sx?.pointerEvents)
+validateAvatarProps(sx?.size as Size | undefined, sx?.pointerEvents)
 ---
 
 {

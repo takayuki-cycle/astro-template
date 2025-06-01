@@ -1,59 +1,37 @@
 import { cva, type RecipeVariantProps } from '@/../styled-system/css'
+import type { SizeStyleMap } from '@/components/avatar/types.ts'
 
 export type Variants = RecipeVariantProps<typeof styleLetter> &
   RecipeVariantProps<typeof styleImage>
 
+const SIZE_STYLE_MAP: SizeStyleMap = {
+  // size * 4 = px, 例: xs = 24px
+  xs: { size: '6', fontSize: '2xs', py: '1' },
+  sm: { size: '8', fontSize: 'xs', py: '1' },
+  md: { size: '12', fontSize: 'md', py: '2' },
+  lg: { size: '16', fontSize: '2xl', py: '2.5' },
+  xl: { size: '24', fontSize: '4xl', py: '4' },
+  '2xl': { size: '32', fontSize: '5xl', py: '6' }
+} as const
+
 const size = (type: 'letter' | 'image') =>
-  ({
-    // width = 24px
-    xs: {
-      '& > summary': {
-        w: '6',
-        h: '6',
-        ...(type === 'letter' && ({ fontSize: '2xs', py: '1', border: 'secondary' } as const))
+  Object.fromEntries(
+    Object.entries(SIZE_STYLE_MAP).map(([key, value]) => [
+      key,
+      {
+        '& > summary': {
+          w: value.size,
+          h: value.size,
+          ...(type === 'letter' &&
+            ({
+              fontSize: value.fontSize,
+              py: value.py,
+              border: 'secondary'
+            } as const))
+        }
       }
-    },
-    // width = 32px
-    sm: {
-      '& > summary': {
-        w: '8',
-        h: '8',
-        ...(type === 'letter' && ({ fontSize: 'xs', py: '1', border: 'secondary' } as const))
-      }
-    },
-    // width = 48px(初期値)
-    md: {
-      '& > summary': {
-        w: '12',
-        h: '12',
-        ...(type === 'letter' && ({ fontSize: 'md', py: '2', border: 'secondary' } as const))
-      }
-    },
-    // width = 64px
-    lg: {
-      '& > summary': {
-        w: '16',
-        h: '16',
-        ...(type === 'letter' && ({ fontSize: '2xl', py: '2.5', border: 'secondary' } as const))
-      }
-    },
-    // width = 96px
-    xl: {
-      '& > summary': {
-        w: '24',
-        h: '24',
-        ...(type === 'letter' && ({ fontSize: '4xl', py: '4', border: 'secondary' } as const))
-      }
-    },
-    // width = 128px
-    '2xl': {
-      '& > summary': {
-        w: '32',
-        h: '32',
-        ...(type === 'letter' && ({ fontSize: '5xl', py: '6', border: 'secondary' } as const))
-      }
-    }
-  }) as const
+    ])
+  )
 
 const pointerEvents = {
   auto: {
