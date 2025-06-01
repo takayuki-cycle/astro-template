@@ -1,7 +1,5 @@
-import { cva, type RecipeVariantProps } from '@/../styled-system/css'
+import { cva } from '@/../styled-system/css'
 import type { DurationToken, EasingToken } from '@/../styled-system/tokens/tokens'
-
-export type Variants = RecipeVariantProps<typeof style>
 
 type Color = BaseColor
 type ColorHover = `${BaseColor}.hover`

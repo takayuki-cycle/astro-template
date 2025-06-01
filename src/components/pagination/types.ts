@@ -1,4 +1,5 @@
-import type { Variants } from '@/components/pagination/styles'
+import type { RecipeVariantProps } from '@/../styled-system/css'
+import type { style } from '@/components/pagination/styles.ts'
 
 export interface Props {
   sx?: Variants
@@ -7,6 +8,8 @@ export interface Props {
   lastPage: number
   step?: Step
 }
+
+type Variants = RecipeVariantProps<typeof style>
 
 export type Step = 0 | 1 | 2 | 3 | 4 | 5 | 6 // 現在のページの前後表示数
 

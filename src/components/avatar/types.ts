@@ -1,4 +1,5 @@
-import type { Variants } from '@/components/avatar/styles'
+import type { RecipeVariantProps } from '@/../styled-system/css'
+import type { styleImage, styleLetter } from '@/components/avatar/styles.ts'
 import type { ListItem } from '@/components/list/types.ts'
 import type { FontSizeToken, SizeToken, SpacingToken } from '@/../styled-system/tokens/tokens'
 
@@ -10,6 +11,8 @@ export interface Props {
   badge?: string // TODO: Avatarの右下に表示されるステータスをいずれ実装すること
   items?: ListItem[] // Avatarをクリック(タップ)したときに表示されるリスト
 }
+
+type Variants = RecipeVariantProps<typeof styleLetter> & RecipeVariantProps<typeof styleImage>
 
 export type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'
 

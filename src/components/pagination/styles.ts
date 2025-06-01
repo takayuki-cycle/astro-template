@@ -1,6 +1,4 @@
-import { cva, type RecipeVariantProps } from '@/../styled-system/css'
-
-export type Variants = RecipeVariantProps<typeof style>
+import { cva } from '@/../styled-system/css'
 
 export const style = cva({
   base: {

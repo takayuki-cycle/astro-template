@@ -1,4 +1,5 @@
-import type { Variants } from '@/components/radioGroupOrTabs/styles'
+import type { RecipeVariantProps } from '@/../styled-system/css'
+import type { style } from '@/components/radioGroupOrTabs/styles.ts'
 
 export interface Props {
   sx?: Variants
@@ -7,3 +8,5 @@ export interface Props {
   apiKey?: string
   skeletonItem?: number
 }
+
+export type Variants = RecipeVariantProps<typeof style>

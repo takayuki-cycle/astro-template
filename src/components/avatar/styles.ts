@@ -1,8 +1,5 @@
-import { cva, type RecipeVariantProps } from '@/../styled-system/css'
+import { cva } from '@/../styled-system/css'
 import type { SizeStyleMap } from '@/components/avatar/types.ts'
-
-export type Variants = RecipeVariantProps<typeof styleLetter> &
-  RecipeVariantProps<typeof styleImage>
 
 const SIZE_STYLE_MAP: SizeStyleMap = {
   // size * 4 = px, 例: xs = 24px
