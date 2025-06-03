@@ -45,7 +45,8 @@ export const style = cva({
       transitionDuration: 'normal',
       transitionTimingFunction: 'ease',
       _hover: { '@media (any-hover: hover)': { bgColor: 'hover.bg' } },
-      _focusVisible: { bgColor: 'hover.bg' }
+      _focusVisible: { bgColor: 'hover.bg' },
+      _active: { '&:active': { bgColor: 'hover.bg.active' } }
     },
     '& span': {
       display: 'flex',

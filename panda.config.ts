@@ -235,7 +235,10 @@ export default defineConfig({
           border: ['gray.300', 'gray.700'], // #d1d5db, #374151
           hover: {
             DEFAULT: ['blue.800', 'blue.600'], // #1e40af, #2563eb
-            bg: ['neutral.100', 'neutral.800'] // #f5f5f5, #262626
+            bg: {
+              DEFAULT: ['neutral.100', 'neutral.800'], // #f5f5f5, #262626
+              active: ['neutral.200', 'neutral.700'] // #e5e5e5, #404040
+            }
           },
           unchecked: ['gray.500', 'gray.400'], // #6b7280, #9ca3af
           skeleton: ['slate.400', 'slate.600'] // #94a3b8, #475569
