@@ -7,7 +7,7 @@
 
 表示する記事が多すぎるとWebページの読み込み速度が低下するため、ページネーションを実装して小分けを可能にすることで読み込み速度を改善する。
 
-# 🔧 実装内容
+## 🔧 実装内容
 
 - `Pagination.astro`を実装
   - `props`
@@ -32,7 +32,7 @@
   - `calculatePagination`: 標準のページネーション
   - `calculatePaginationUnder`: 簡易ページネーション
 
-# 🧪 動作の確認方法
+## 🧪 動作の確認方法
 
 - `lastPage = 12`, `step = 2`
   - `currentPage = 1`
@@ -48,7 +48,7 @@
   - `currentPage = 12`
     - `< 1 ... 10 11 12`がただしく表示されることを確認
 
-# 📸 スクリーンショットまたは動画
+## 📸 スクリーンショットまたは動画
 
 <!-- 簡素版
 | 画面幅 | 改修前(任意) | 改修後 |
@@ -68,18 +68,16 @@
 |       8       |     なし     |  ![currentPage8](https://raw.githubusercontent.com/takayuki-cycle/astro-template/refs/heads/main/src/assets/images/prTemp/currentPage8.webp)  |
 |      12       |     なし     | ![currentPage12](https://raw.githubusercontent.com/takayuki-cycle/astro-template/refs/heads/main/src/assets/images/prTemp/currentPage12.webp) |
 
-# ✅ チェックリスト
+## ✅ チェックリスト
 
 - [ ] コミットするときにフォーマッターとリンターをすべてパスしている(部分的にスキップされていてもOK)
 
-# 🗒 補足
+## 🗒 補足
 
 - こちらのレスポンシブ対応のためにWebサイトの画面の最小幅を350pxへ設定したので、改善できればレスポンシブできる画面幅を320pxへ設定して、その画面幅でも1行で収まるようにしたい
 
-# 🔗 関連資料
+## 🔗 関連資料
 
 - Backlog(チケット): <https://backlog.com/ja/>
 - Notion(タスク): <https://www.notion.com/ja/>
 - Figma(デザインカンプ): <https://www.figma.com/ja-jp/>
-
-- test
