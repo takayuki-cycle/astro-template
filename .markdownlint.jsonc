@@ -1,4 +1,5 @@
 {
+  // TODO: MD025がlintでは正常だと誤って判定されてしまうので、いずれ修正すること
   "default": true,
   "MD013": false,
   "MD033": {
