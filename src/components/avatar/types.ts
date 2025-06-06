@@ -18,5 +18,9 @@ export type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'
 
 export type SizeStyleMap = Record<
   Size,
-  { size: SizeToken; fontSize: FontSizeToken; py: SpacingToken }
+  {
+    sizeAndBottom: SizeToken & SpacingToken
+    fontSize: FontSizeToken
+    py: SpacingToken
+  }
 >

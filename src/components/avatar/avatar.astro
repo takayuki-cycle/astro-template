@@ -21,6 +21,7 @@ const sxConditional = {
 }
 // Letter avatars or Image avatars
 const isLetterAvatar = src === anonymousGeneral && alt !== '匿名'
+const style = isLetterAvatar ? styleLetter(sxConditional) : styleImage(sxConditional)
 
 validateAvatarProps(sx?.size as Size | undefined, sx?.pointerEvents)
 ---
@@ -28,7 +29,7 @@ validateAvatarProps(sx?.size as Size | undefined, sx?.pointerEvents)
 {
   /* avatarの容量を最適化する画像幅の基準は512pxで固定にしているため、意図しない最適化が発生する可能性が低いと思うので、isOptimizationは常にtrueにしています。 */
 }
-<details class={isLetterAvatar ? styleLetter(sxConditional) : styleImage(sxConditional)}>
+<details class={`${style} ${items ? 'script-avatar' : ''}`}>
   <summary>
     {
       isLetterAvatar ? (
@@ -40,3 +41,32 @@ validateAvatarProps(sx?.size as Size | undefined, sx?.pointerEvents)
   </summary>
   {items && <List items={items} />}
 </details>
+
+<script>
+  const avatars = document.querySelectorAll<HTMLDetailsElement>('.script-avatar')
+
+  avatars.forEach((avatar) => {
+    const summary = avatar.querySelector('.script-avatar > summary')
+    const list = avatar.querySelector<HTMLUListElement>('.script-avatar > ul')
+
+    if (!summary || !list) return
+    // summaryタグがクリックされたとき(Listタグは非表示)
+    summary.addEventListener('click', () => {
+      list.classList.add('opacity-zero')
+      list.classList.remove('bottom-space')
+    })
+
+    // Listタグが表示された直後
+    avatar.addEventListener('toggle', () => {
+      // summaryとウィンドウの下端の距離
+      const summaryBottomSpace = window.innerHeight - summary.getBoundingClientRect().bottom
+      const listHeight = list.getBoundingClientRect().height
+
+      list.classList.remove('opacity-zero')
+      // avatarの直下のスペースが狭いときはavatarの直上にListを表示することで、訪問者が縦スクロールして内容を読む必要がなくなるようにしてDXを向上
+      if (listHeight > summaryBottomSpace) {
+        list.classList.add('bottom-space')
+      }
+    })
+  })
+</script>

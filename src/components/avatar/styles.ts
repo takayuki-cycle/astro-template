@@ -3,12 +3,12 @@ import type { SizeStyleMap } from '@/components/avatar/types.ts'
 
 const SIZE_STYLE_MAP: SizeStyleMap = {
   // size * 4 = px, 例: xs = 24px
-  xs: { size: '6', fontSize: '2xs', py: '1' },
-  sm: { size: '8', fontSize: 'xs', py: '1' },
-  md: { size: '12', fontSize: 'md', py: '2' },
-  lg: { size: '16', fontSize: '2xl', py: '2.5' },
-  xl: { size: '24', fontSize: '4xl', py: '4' },
-  '2xl': { size: '32', fontSize: '5xl', py: '6' }
+  xs: { sizeAndBottom: '6', fontSize: '2xs', py: '1' },
+  sm: { sizeAndBottom: '8', fontSize: 'xs', py: '1' },
+  md: { sizeAndBottom: '12', fontSize: 'md', py: '2' },
+  lg: { sizeAndBottom: '16', fontSize: '2xl', py: '2.5' },
+  xl: { sizeAndBottom: '24', fontSize: '4xl', py: '4' },
+  '2xl': { sizeAndBottom: '32', fontSize: '5xl', py: '6' }
 } as const
 
 const size = (type: 'letter' | 'image') =>
@@ -17,14 +17,17 @@ const size = (type: 'letter' | 'image') =>
       key,
       {
         '& > summary': {
-          w: value.size,
-          h: value.size,
+          w: value.sizeAndBottom,
+          h: value.sizeAndBottom,
           ...(type === 'letter' &&
             ({
               fontSize: value.fontSize,
               py: value.py,
               border: 'secondary'
             } as const))
+        },
+        '&.script-avatar > .bottom-space': {
+          bottom: value.sizeAndBottom
         }
       }
     ])
@@ -33,6 +36,9 @@ const size = (type: 'letter' | 'image') =>
 const pointerEvents = {
   auto: {
     // TODO: ::details-contentではListタグにおけるSafariとFirefoxの開閉のアニメーションが効かないので、対処方法を考えること(JSでアニメーションした方が良いかも?)
+    '&.script-avatar > .opacity-zero': {
+      opacity: 'none' as const
+    }
   },
   none: {
     pointerEvents: 'none' as const
