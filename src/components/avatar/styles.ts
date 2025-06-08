@@ -35,7 +35,15 @@ const size = (type: 'letter' | 'image') =>
 
 const pointerEvents = {
   auto: {
-    // TODO: ::details-contentではListタグにおけるSafariとFirefoxの開閉のアニメーションが効かないので、対処方法を考えること(JSでアニメーションした方が良いかも?)
+    '&.script-avatar > ul': {
+      opacity: 'none',
+      transitionProperty: 'opacity',
+      transitionDuration: 'normal',
+      transitionTimingFunction: 'ease'
+    } as const,
+    '&.script-avatar > .fade-animation': {
+      opacity: 'full'
+    } as const
   },
   none: {
     pointerEvents: 'none' as const

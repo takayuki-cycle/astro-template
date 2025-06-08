@@ -43,6 +43,7 @@ validateAvatarProps(sx?.size as Size | undefined, sx?.pointerEvents)
 </details>
 
 <script>
+  const TRANSITION_DURATION = 200 // normal = 200ms
   const avatars = document.querySelectorAll<HTMLDetailsElement>('.script-avatar')
 
   avatars.forEach((avatar) => {
@@ -51,22 +52,36 @@ validateAvatarProps(sx?.size as Size | undefined, sx?.pointerEvents)
 
     if (!summary || !list) return
 
-    summary.addEventListener('click', () => {
-      if (avatar.open) {
-        // Listタグを閉じるときの処理
-        list.classList.remove('bottom-space')
-      } else {
-        // Listタグを開くときの処理
-        // summaryとウィンドウの下端の距離
-        const summaryBottomSpace = window.innerHeight - summary.getBoundingClientRect().bottom
-        const listHeight = list.getBoundingClientRect().height
+    // Listタグを閉じるときの処理
+    const closeAvatar = () => {
+      list.classList.remove('fade-animation')
 
-        // avatarの直下のスペースが狭いときはavatarの直上にListを表示することで、訪問者が縦スクロールして内容を読む必要がなくなるようにしてDXを向上
-        if (listHeight > summaryBottomSpace) {
-          // avatarの直上にListを表示
-          list.classList.add('bottom-space')
-        }
+      setTimeout(() => {
+        list.classList.remove('bottom-space')
+        avatar.removeAttribute('open')
+      }, TRANSITION_DURATION)
+    }
+
+    // Listタグを開くときの処理
+    const openAvatar = () => {
+      avatar.setAttribute('open', 'true')
+
+      // summaryとウィンドウの下端の距離
+      const summaryBottom = window.innerHeight - summary.getBoundingClientRect().bottom
+      const listHeight = list.getBoundingClientRect().height
+
+      list.classList.add('fade-animation')
+
+      // avatarの直下のスペースが狭いときはavatarの直上にListを表示することで、訪問者が縦スクロールして内容を読む必要がなくなるようにしてDXを向上
+      if (listHeight > summaryBottom) {
+        // avatarの直上にListを表示
+        list.classList.add('bottom-space')
       }
+    }
+
+    summary.addEventListener('click', (event) => {
+      event.preventDefault() // デフォルトの挙動を無効化
+      avatar.open ? closeAvatar() : openAvatar()
     })
   })
 </script>
