@@ -50,22 +50,22 @@ validateAvatarProps(sx?.size as Size | undefined, sx?.pointerEvents)
     const list = avatar.querySelector<HTMLUListElement>('.script-avatar > ul')
 
     if (!summary || !list) return
-    // summaryタグがクリックされたとき(Listタグは非表示)
+
     summary.addEventListener('click', () => {
-      list.classList.add('visibility-hidden') // listのチラつきを防止
-      list.classList.remove('bottom-space')
-    })
+      if (avatar.open) {
+        // Listタグを閉じるときの処理
+        list.classList.remove('bottom-space')
+      } else {
+        // Listタグを開くときの処理
+        // summaryとウィンドウの下端の距離
+        const summaryBottomSpace = window.innerHeight - summary.getBoundingClientRect().bottom
+        const listHeight = list.getBoundingClientRect().height
 
-    // Listタグが表示された直後
-    avatar.addEventListener('toggle', () => {
-      // summaryとウィンドウの下端の距離
-      const summaryBottomSpace = window.innerHeight - summary.getBoundingClientRect().bottom
-      const listHeight = list.getBoundingClientRect().height
-
-      list.classList.remove('visibility-hidden') // listのチラつきを防止
-      // avatarの直下のスペースが狭いときはavatarの直上にListを表示することで、訪問者が縦スクロールして内容を読む必要がなくなるようにしてDXを向上
-      if (listHeight > summaryBottomSpace) {
-        list.classList.add('bottom-space')
+        // avatarの直下のスペースが狭いときはavatarの直上にListを表示することで、訪問者が縦スクロールして内容を読む必要がなくなるようにしてDXを向上
+        if (listHeight > summaryBottomSpace) {
+          // avatarの直上にListを表示
+          list.classList.add('bottom-space')
+        }
       }
     })
   })
