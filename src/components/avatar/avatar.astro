@@ -83,5 +83,13 @@ validateAvatarProps(sx?.size as Size | undefined, sx?.pointerEvents)
       event.preventDefault() // デフォルトの挙動を無効化
       avatar.open ? closeAvatar() : openAvatar()
     })
+
+    // アバター以外をクリック/タップでクローズ
+    document.addEventListener('click', ({ target }) => {
+      if (!(target instanceof Node)) return // DOM要素でなければ、処理を中止
+      if (!avatar.contains(target) && avatar.open) {
+        closeAvatar()
+      }
+    })
   })
 </script>
