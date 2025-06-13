@@ -2,7 +2,7 @@
 import Layout from '@/layouts/Layout.astro'
 import type { HeadPageProps } from '@/layouts/head/types'
 import { css } from '@/../styled-system/css'
-import { SearchIcon, HomeIcon, HomeFillIcon, MenuIcon } from '@/assets/icons'
+import { SearchIcon, HomeIcon, HomeFillIcon, MenuIcon, CloseIcon } from '@/assets/icons'
 
 const headPage: HeadPageProps = {
   title: 'iconPageTitle',
@@ -21,9 +21,10 @@ const headPage: HeadPageProps = {
   <HomeIcon width='22px' height='24px' class={css({ fill: 'primary' })} />
   <HomeFillIcon width='22px' height='24px' class={css({ fill: 'primary' })} />
   <MenuIcon width='24px' height='16px' class={css({ fill: 'primary' })} />
+  <CloseIcon width='24px' height='24px' class={css({ fill: 'primary' })} />
   {
     /* 書き方の例
-      <svg viewBox='148 -840 664 720' width='22px' height='24px' class={css({ fill: 'primary' })}>
+      <svg viewBox='148 -840 664 720' width='22px' height='24px' fill='#262626'>
         <path d='M160-120v-480l320-240 320 240v480H560v-280H400v280H160Z'></path>
         <title>home fill</title>
       </svg>
