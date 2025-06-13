@@ -1,0 +1,23 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import type { HeadPageProps } from '@/layouts/head/types'
+import { css } from '@/../styled-system/css'
+import { SearchIcon, HomeIcon, MenuIcon } from '@/assets/icons'
+
+const headPage: HeadPageProps = {
+  title: 'iconPageTitle',
+  description: 'iconページの説明です。',
+  robots: 'all',
+  ogType: 'website',
+  ogImage: '/ogp/general.webp',
+  ogImageAlt: 'ogImageAlt',
+  xCreator: '@xCreator',
+  author: 'author'
+}
+---
+
+<Layout headPage={headPage}>
+  <SearchIcon width='24px' height='24px' class={css({ fill: 'primary' })} />
+  <HomeIcon width='22px' height='24px' class={css({ fill: 'primary' })} />
+  <MenuIcon width='24px' height='16px' class={css({ fill: 'primary' })} />
+</Layout>
