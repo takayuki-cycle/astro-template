@@ -12,3 +12,5 @@ export { default as CheckCircleFillIcon } from '@/assets/icons/check-circle-fill
 export { default as DeleteIcon } from '@/assets/icons/delete.svg'
 export { default as DeleteFillIcon } from '@/assets/icons/delete-fill.svg'
 export { default as ArrowBackIcon } from '@/assets/icons/arrow-back.svg'
+export { default as StarIcon } from '@/assets/icons/star.svg'
+export { default as StarFillIcon } from '@/assets/icons/star-fill.svg'
