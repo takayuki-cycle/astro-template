@@ -1,0 +1,10 @@
+<svg
+  viewBox='160 -800 640 640'
+  width='24px'
+  height='24px'
+  fill='#262626'
+  aria-label='arrow upward'
+>
+  <path d='M440-160v-487L216-423l-56-57 320-320 320 320-56 57-224-224v487h-80Z'></path>
+  <title>arrow upward</title>
+</svg>
