@@ -75,9 +75,9 @@ import {
   ExpandCircleDownFillIcon,
   UndoIcon,
   BackspaceIcon,
-  BackspaceFillIcon
-  // ArrowCircleRightIcon,
-  // ArrowCircleRightFillIcon
+  BackspaceFillIcon,
+  ArrowCircleRightIcon,
+  ArrowCircleRightFillIcon
 } from '@/assets/icons'
 
 const headPage: HeadPageProps = {
@@ -157,11 +157,6 @@ const headPage: HeadPageProps = {
   <SortIcon width='24px' height='16px' class={css({ fill: 'primary' })} />
   <AddBoxIcon width='24px' height='24px' class={css({ fill: 'primary' })} />
   <AddBoxFillIcon width='24px' height='24px' class={css({ fill: 'primary' })} />
-
-  <!-- -------------------------------------------------------------------------- -->
-  <!-- -------------------------------------------------------------------------- -->
-  <!-- -------------------------------------------------------------------------- -->
-
   <ArrowBackIOSNewIcon width='15px' height='24px' class={css({ fill: 'primary' })} />
   <RestartAltIcon width='21px' height='24px' class={css({ fill: 'primary' })} />
   <ShoppingCartCheckoutIcon width='24px' height='23px' class={css({ fill: 'primary' })} />
@@ -171,11 +166,12 @@ const headPage: HeadPageProps = {
   <UndoIcon width='24px' height='23px' class={css({ fill: 'primary' })} />
   <BackspaceIcon width='24px' height='20px' class={css({ fill: 'primary' })} />
   <BackspaceFillIcon width='24px' height='20px' class={css({ fill: 'primary' })} />
-  {/* <ArrowCircleRightIcon width='px' height='px' class={css({ fill: 'primary' })} /> */}
-  {/* <ArrowCircleRightFillIcon width='px' height='px' class={css({ fill: 'primary' })} /> */}
+  <ArrowCircleRightIcon width='24px' height='24px' class={css({ fill: 'primary' })} />
+  <ArrowCircleRightFillIcon width='24px' height='24px' class={css({ fill: 'primary' })} />
 
   {
     /* 書き方の例
+    // TODO: widthまたはheightで小数点が発生した場合は自然数にしているが、本当にそれで良かったのか検討すること
     <svg viewBox='85 -880 803 800' width='24px' height='24px' fill='#262626' aria-label=''>
       <path
         d='m370-80-16-128q-13-5-24.5-12T307-235l-119 50L78-375l103-78q-1-7-1-13.5v-27q0-6.5 1-13.5L78-585l110-190 119 50q11-8 23-15t24-12l16-128h220l16 128q13 5 24.5 12t22.5 15l119-50 110 190-103 78q1 7 1 13.5v27q0 6.5-2 13.5l103 78-110 190-118-50q-11 8-23 15t-24 12L590-80H370Zm112-260q58 0 99-41t41-99q0-58-41-99t-99-41q-59 0-99.5 41T342-480q0 58 40.5 99t99.5 41Z'
@@ -185,31 +181,4 @@ const headPage: HeadPageProps = {
     </svg>
     */
   }
-
-  <svg
-    viewBox='0 -960 960 960'
-    width='24px'
-    height='24px'
-    fill='#262626'
-    aria-label='arrow circle right'
-  >
-    <path
-      d='m480-320 160-160-160-160-56 56 64 64H320v80h168l-64 64 56 56Zm0 240q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z'
-    >
-    </path>
-    <title>arrow circle right</title>
-  </svg>
-  <svg
-    viewBox='0 -960 960 960'
-    width='24px'
-    height='24px'
-    fill='#262626'
-    aria-label='arrow circle right fill'
-  >
-    <path
-      d='m480-320 160-160-160-160-56 56 64 64H320v80h168l-64 64 56 56Zm0 240q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z'
-    >
-    </path>
-    <title>arrow circle right fill</title>
-  </svg>
 </Layout>

@@ -73,5 +73,5 @@ export { default as ExpandCircleDownFillIcon } from '@/assets/icons/expand-circl
 export { default as UndoIcon } from '@/assets/icons/undo.svg'
 export { default as BackspaceIcon } from '@/assets/icons/backspace.svg'
 export { default as BackspaceFillIcon } from '@/assets/icons/backspace-fill.svg'
-// export { default as ArrowCircleRightIcon } from '@/assets/icons/arrow-circle-right.svg'
-// export { default as ArrowCircleRightFillIcon } from '@/assets/icons/arrow-circle-right-fill.svg'
+export { default as ArrowCircleRightIcon } from '@/assets/icons/arrow-circle-right.svg'
+export { default as ArrowCircleRightFillIcon } from '@/assets/icons/arrow-circle-right-fill.svg'
