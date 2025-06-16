@@ -75,7 +75,7 @@ export { default as ShoppingCartCheckoutIcon } from '@/assets/icons/shopping-car
 export { default as MenuOpenIcon } from '@/assets/icons/menu-open.svg'
 export { default as ExpandCircleDownIcon } from '@/assets/icons/expand-circle-down.svg'
 export { default as ExpandCircleDownFillIcon } from '@/assets/icons/expand-circle-down-fill.svg'
-// export { default as UndoIcon } from '@/assets/icons/undo.svg'
+export { default as UndoIcon } from '@/assets/icons/undo.svg'
 // export { default as BackspaceIcon } from '@/assets/icons/backspace.svg'
 // export { default as BackspaceFillIcon } from '@/assets/icons/backspace-fill.svg'
 // export { default as ArrowCircleRightIcon } from '@/assets/icons/arrow-circle-right.svg'
