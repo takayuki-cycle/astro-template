@@ -53,11 +53,6 @@ export { default as ArrowUpwardIcon } from '@/assets/icons/arrow-upward.svg'
 export { default as ToggleOffIcon } from '@/assets/icons/toggle-off.svg'
 export { default as ToggleOffFillIcon } from '@/assets/icons/toggle-off-fill.svg'
 export { default as FilterListIcon } from '@/assets/icons/filter-list.svg'
-
-////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
-
 export { default as DeleteForeverIcon } from '@/assets/icons/delete-forever.svg'
 export { default as DeleteForeverFillIcon } from '@/assets/icons/delete-forever-fill.svg'
 export { default as AutorenewIcon } from '@/assets/icons/autorenew.svg'
@@ -67,8 +62,8 @@ export { default as BlockIcon } from '@/assets/icons/block.svg'
 export { default as SyncIcon } from '@/assets/icons/sync.svg'
 export { default as ArrowDownwardIcon } from '@/assets/icons/arrow-downward.svg'
 export { default as SortIcon } from '@/assets/icons/sort.svg'
-// export { default as AddBoxIcon } from '@/assets/icons/add-box.svg'
-// export { default as AddBoxFillIcon } from '@/assets/icons/add-box-fill.svg'
+export { default as AddBoxIcon } from '@/assets/icons/add-box.svg'
+export { default as AddBoxFillIcon } from '@/assets/icons/add-box-fill.svg'
 
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
