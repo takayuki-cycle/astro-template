@@ -64,11 +64,6 @@ export { default as ArrowDownwardIcon } from '@/assets/icons/arrow-downward.svg'
 export { default as SortIcon } from '@/assets/icons/sort.svg'
 export { default as AddBoxIcon } from '@/assets/icons/add-box.svg'
 export { default as AddBoxFillIcon } from '@/assets/icons/add-box-fill.svg'
-
-////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
-
 export { default as ArrowBackIOSNewIcon } from '@/assets/icons/arrow-back-iOS-new.svg'
 export { default as RestartAltIcon } from '@/assets/icons/restart-alt.svg'
 export { default as ShoppingCartCheckoutIcon } from '@/assets/icons/shopping-cart-checkout.svg'
@@ -76,7 +71,7 @@ export { default as MenuOpenIcon } from '@/assets/icons/menu-open.svg'
 export { default as ExpandCircleDownIcon } from '@/assets/icons/expand-circle-down.svg'
 export { default as ExpandCircleDownFillIcon } from '@/assets/icons/expand-circle-down-fill.svg'
 export { default as UndoIcon } from '@/assets/icons/undo.svg'
-// export { default as BackspaceIcon } from '@/assets/icons/backspace.svg'
-// export { default as BackspaceFillIcon } from '@/assets/icons/backspace-fill.svg'
+export { default as BackspaceIcon } from '@/assets/icons/backspace.svg'
+export { default as BackspaceFillIcon } from '@/assets/icons/backspace-fill.svg'
 // export { default as ArrowCircleRightIcon } from '@/assets/icons/arrow-circle-right.svg'
 // export { default as ArrowCircleRightFillIcon } from '@/assets/icons/arrow-circle-right-fill.svg'
