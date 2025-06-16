@@ -66,7 +66,7 @@ export { default as KeyFillIcon } from '@/assets/icons/key-fill.svg'
 export { default as BlockIcon } from '@/assets/icons/block.svg'
 export { default as SyncIcon } from '@/assets/icons/sync.svg'
 export { default as ArrowDownwardIcon } from '@/assets/icons/arrow-downward.svg'
-// export { default as SortIcon } from '@/assets/icons/sort.svg'
+export { default as SortIcon } from '@/assets/icons/sort.svg'
 // export { default as AddBoxIcon } from '@/assets/icons/add-box.svg'
 // export { default as AddBoxFillIcon } from '@/assets/icons/add-box-fill.svg'
 
