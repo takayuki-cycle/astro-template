@@ -69,8 +69,8 @@ export { default as AddBoxFillIcon } from '@/assets/icons/add-box-fill.svg'
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-// export { default as ArrowBackIOSNewIcon } from '@/assets/icons/arrow-back-iOS-new.svg'
-// export { default as RestartAltIcon } from '@/assets/icons/restart-alt.svg'
+export { default as ArrowBackIOSNewIcon } from '@/assets/icons/arrow-back-iOS-new.svg'
+export { default as RestartAltIcon } from '@/assets/icons/restart-alt.svg'
 // export { default as ShoppingCartCheckoutIcon } from '@/assets/icons/shopping-cart-checkout.svg'
 // export { default as MenuOpenIcon } from '@/assets/icons/menu-open.svg'
 // export { default as ExpandCircleDownIcon } from '@/assets/icons/expand-circle-down.svg'
