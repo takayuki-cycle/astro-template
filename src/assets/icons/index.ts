@@ -58,8 +58,8 @@ export { default as FilterListIcon } from '@/assets/icons/filter-list.svg'
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-// export { default as DeleteForeverIcon } from '@/assets/icons/delete-forever.svg'
-// export { default as DeleteForeverFillIcon } from '@/assets/icons/delete-forever-fill.svg'
+export { default as DeleteForeverIcon } from '@/assets/icons/delete-forever.svg'
+export { default as DeleteForeverFillIcon } from '@/assets/icons/delete-forever-fill.svg'
 // export { default as AutorenewIcon } from '@/assets/icons/autorenew.svg'
 // export { default as KeyIcon } from '@/assets/icons/key.svg'
 // export { default as KeyFillIcon } from '@/assets/icons/key-fill.svg'
