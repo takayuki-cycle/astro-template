@@ -1,0 +1,10 @@
+<svg
+  viewBox='160 -800 640 640'
+  width='24px'
+  height='24px'
+  fill='#262626'
+  aria-label='arrow downward'
+>
+  <path d='M440-800v487L216-537l-56 57 320 320 320-320-56-57-224 224v-487h-80Z'></path>
+  <title>arrow downward</title>
+</svg>
