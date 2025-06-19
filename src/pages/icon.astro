@@ -86,7 +86,15 @@ import {
   ManageSearchIcon,
   DoubleArrowIcon,
   SyncAltIcon,
-  DoneOutlineIcon
+  DoneOutlineIcon,
+  ZoomInIcon,
+  DragIndicatorIcon,
+  FullscreenIcon,
+  IOSShareIcon,
+  StarHalfIcon,
+  KeyboardDoubleArrowRightIcon,
+  SettingsAccessibilityIcon,
+  ReplyIcon
 } from '@/assets/icons'
 
 const headPage: HeadPageProps = {
@@ -189,9 +197,6 @@ const headPage: HeadPageProps = {
   <DoubleArrowIcon class={css({ fill: 'primary' })} />
   <SyncAltIcon class={css({ fill: 'primary' })} />
   <DoneOutlineIcon class={css({ fill: 'primary' })} />
-
-  {
-    /* 
   <ZoomInIcon class={css({ fill: 'primary' })} />
   <DragIndicatorIcon class={css({ fill: 'primary' })} />
   <FullscreenIcon class={css({ fill: 'primary' })} />
@@ -200,8 +205,6 @@ const headPage: HeadPageProps = {
   <KeyboardDoubleArrowRightIcon class={css({ fill: 'primary' })} />
   <SettingsAccessibilityIcon class={css({ fill: 'primary' })} />
   <ReplyIcon class={css({ fill: 'primary' })} />
-  */
-  }
 
   {
     /* 書き方の例
@@ -214,86 +217,4 @@ const headPage: HeadPageProps = {
     </svg>
     */
   }
-
-  <svg viewBox='0 -960 960 960' width='24px' height='24px' fill='#262626' aria-label='zoom in'>
-    <path
-      d='M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Zm-40-60v-80h-80v-80h80v-80h80v80h80v80h-80v80h-80Z'
-    >
-    </path>
-    <title>zoom in</title>
-  </svg>
-
-  <svg
-    viewBox='0 -960 960 960'
-    width='24px'
-    height='24px'
-    fill='#262626'
-    aria-label='drag indicator'
-  >
-    <path
-      d='M360-160q-33 0-56.5-23.5T280-240q0-33 23.5-56.5T360-320q33 0 56.5 23.5T440-240q0 33-23.5 56.5T360-160Zm240 0q-33 0-56.5-23.5T520-240q0-33 23.5-56.5T600-320q33 0 56.5 23.5T680-240q0 33-23.5 56.5T600-160ZM360-400q-33 0-56.5-23.5T280-480q0-33 23.5-56.5T360-560q33 0 56.5 23.5T440-480q0 33-23.5 56.5T360-400Zm240 0q-33 0-56.5-23.5T520-480q0-33 23.5-56.5T600-560q33 0 56.5 23.5T680-480q0 33-23.5 56.5T600-400ZM360-640q-33 0-56.5-23.5T280-720q0-33 23.5-56.5T360-800q33 0 56.5 23.5T440-720q0 33-23.5 56.5T360-640Zm240 0q-33 0-56.5-23.5T520-720q0-33 23.5-56.5T600-800q33 0 56.5 23.5T680-720q0 33-23.5 56.5T600-640Z'
-    >
-    </path>
-    <title>drag indicator</title>
-  </svg>
-
-  <svg viewBox='0 -960 960 960' width='24px' height='24px' fill='#262626' aria-label='fullscreen'>
-    <path
-      d='M120-120v-200h80v120h120v80H120Zm520 0v-80h120v-120h80v200H640ZM120-640v-200h200v80H200v120h-80Zm640 0v-120H640v-80h200v200h-80Z'
-    >
-    </path>
-    <title>fullscreen</title>
-  </svg>
-
-  <svg viewBox='0 -960 960 960' width='24px' height='24px' fill='#262626' aria-label='iOS share'>
-    <path
-      d='M240-40q-33 0-56.5-23.5T160-120v-440q0-33 23.5-56.5T240-640h120v80H240v440h480v-440H600v-80h120q33 0 56.5 23.5T800-560v440q0 33-23.5 56.5T720-40H240Zm200-280v-447l-64 64-56-57 160-160 160 160-56 57-64-64v447h-80Z'
-    >
-    </path>
-    <title>iOS share</title>
-  </svg>
-
-  <svg viewBox='0 -960 960 960' width='24px' height='24px' fill='#262626' aria-label='star half'>
-    <path
-      d='m606-286-33-144 111-96-146-13-58-136v312l126 77ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Z'
-    >
-    </path>
-    <title>star half</title>
-  </svg>
-
-  <svg
-    viewBox='0 -960 960 960'
-    width='24px'
-    height='24px'
-    fill='#262626'
-    aria-label='keyboard double arrow right'
-  >
-    <path
-      d='M383-480 200-664l56-56 240 240-240 240-56-56 183-184Zm264 0L464-664l56-56 240 240-240 240-56-56 183-184Z'
-    >
-    </path>
-    <title>keyboard double arrow right</title>
-  </svg>
-
-  <svg
-    viewBox='0 -960 960 960'
-    width='24px'
-    height='24px'
-    fill='#262626'
-    aria-label='settings accessibility'
-  >
-    <path
-      d='M480-800q-33 0-56.5-23.5T400-880q0-33 23.5-56.5T480-960q33 0 56.5 23.5T560-880q0 33-23.5 56.5T480-800ZM360-200v-480q-60-5-122-15t-118-25l20-80q78 21 166 30.5t174 9.5q86 0 174-9.5T820-800l20 80q-56 15-118 25t-122 15v480h-80v-240h-80v240h-80ZM320 0q-17 0-28.5-11.5T280-40q0-17 11.5-28.5T320-80q17 0 28.5 11.5T360-40q0 17-11.5 28.5T320 0Zm160 0q-17 0-28.5-11.5T440-40q0-17 11.5-28.5T480-80q17 0 28.5 11.5T520-40q0 17-11.5 28.5T480 0Zm160 0q-17 0-28.5-11.5T600-40q0-17 11.5-28.5T640-80q17 0 28.5 11.5T680-40q0 17-11.5 28.5T640 0Z'
-    >
-    </path>
-    <title>settings accessibility</title>
-  </svg>
-
-  <svg viewBox='0 -960 960 960' width='24px' height='24px' fill='#262626' aria-label='reply'>
-    <path
-      d='M760-200v-160q0-50-35-85t-85-35H273l144 144-57 56-240-240 240-240 57 56-144 144h367q83 0 141.5 58.5T840-360v160h-80Z'
-    >
-    </path>
-    <title>reply</title>
-  </svg>
 </Layout>
