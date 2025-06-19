@@ -82,12 +82,11 @@ import {
   ArrowRightIcon,
   DoNotDisturbOnIcon,
   DoNotDisturbOnFillIcon,
-  OpenInFullIcon
-
-  // ManageSearchIcon,
-  // DoubleArrowIcon,
-  // SyncAltIcon,
-  // DoneOutlineIcon
+  OpenInFullIcon,
+  ManageSearchIcon,
+  DoubleArrowIcon,
+  SyncAltIcon,
+  DoneOutlineIcon
 } from '@/assets/icons'
 
 const headPage: HeadPageProps = {
@@ -186,11 +185,10 @@ const headPage: HeadPageProps = {
   <DoNotDisturbOnIcon class={css({ fill: 'primary' })} />
   <DoNotDisturbOnFillIcon class={css({ fill: 'primary' })} />
   <OpenInFullIcon class={css({ fill: 'primary' })} />
-  {
-    /* <ManageSearchIcon class={css({ fill: 'primary' })} /> *}
-  {/* <DoubleArrowIcon class={css({ fill: 'primary' })} /> *}
-  {/* <SyncAltIcon class={css({ fill: 'primary' })} /> *}
-  {/* <DoneOutlineIcon class={css({ fill: 'primary' })} /> *}
+  <ManageSearchIcon class={css({ fill: 'primary' })} />
+  <DoubleArrowIcon class={css({ fill: 'primary' })} />
+  <SyncAltIcon class={css({ fill: 'primary' })} />
+  <DoneOutlineIcon class={css({ fill: 'primary' })} />
 
   {
     /* 書き方の例
@@ -203,42 +201,4 @@ const headPage: HeadPageProps = {
     </svg>
     */
   }
-
-  <svg
-    viewBox='0 -960 960 960'
-    width='24px'
-    height='24px'
-    fill='#262626'
-    aria-label='manage search'
-  >
-    <path
-      d='M80-200v-80h400v80H80Zm0-200v-80h200v80H80Zm0-200v-80h200v80H80Zm744 400L670-354q-24 17-52.5 25.5T560-320q-83 0-141.5-58.5T360-520q0-83 58.5-141.5T560-720q83 0 141.5 58.5T760-520q0 29-8.5 57.5T726-410l154 154-56 56ZM560-400q50 0 85-35t35-85q0-50-35-85t-85-35q-50 0-85 35t-35 85q0 50 35 85t85 35Z'
-    >
-    </path>
-    <title>manage search</title>
-  </svg>
-
-  <svg viewBox='0 -960 960 960' width='24px' height='24px' fill='#262626' aria-label='double arrow'>
-    <path
-      d='m242-200 200-280-200-280h98l200 280-200 280h-98Zm238 0 200-280-200-280h98l200 280-200 280h-98Z'
-    >
-    </path>
-    <title>double arrow</title>
-  </svg>
-
-  <svg viewBox='0 -960 960 960' width='24px' height='24px' fill='#262626' aria-label='sync alt'>
-    <path
-      d='M280-120 80-320l200-200 57 56-104 104h607v80H233l104 104-57 56Zm400-320-57-56 104-104H120v-80h607L623-784l57-56 200 200-200 200Z'
-    >
-    </path>
-    <title>sync alt</title>
-  </svg>
-
-  <svg viewBox='0 -960 960 960' width='24px' height='24px' fill='#262626' aria-label='done outline'>
-    <path
-      d='m381-240 424-424-57-56-368 367-169-170-57 57 227 226Zm0 113L42-466l169-170 170 170 366-367 172 168-538 538Z'
-    >
-    </path>
-    <title>done outline</title>
-  </svg>
 </Layout>
