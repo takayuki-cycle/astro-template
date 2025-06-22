@@ -1,0 +1,10 @@
+<svg
+  viewBox='240 -200 480 80'
+  width='24px'
+  height='4px'
+  fill='currentColor'
+  aria-label='minimize'
+>
+  <path d='M240-120v-80h480v80H240Z'></path>
+  <title>minimize</title>
+</svg>
