@@ -1,4 +1,4 @@
-<svg viewBox='120 -720 720 480' width='24px' height='16px' fill='#262626' aria-label='sort'>
+<svg viewBox='120 -720 720 480' width='24px' height='16px' fill='currentColor' aria-label='sort'>
   <path d='M120-240v-80h240v80H120Zm0-200v-80h480v80H120Zm0-200v-80h720v80H120Z'></path>
   <title>sort</title>
 </svg>

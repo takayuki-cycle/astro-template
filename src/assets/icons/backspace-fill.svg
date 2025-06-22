@@ -2,7 +2,7 @@
   viewBox='80 -800 800 640'
   width='24px'
   height='19.2px'
-  fill='#262626'
+  fill='currentColor'
   aria-label='backspace fill'
 >
   <path

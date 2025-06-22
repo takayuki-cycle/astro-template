@@ -2,7 +2,7 @@
   viewBox='280 -560 400 200'
   width='24px'
   height='12px'
-  fill='#262626'
+  fill='currentColor'
   aria-label='arrow drop down'
 >
   <path d='M480-360 280-560h400L480-360Z'></path>

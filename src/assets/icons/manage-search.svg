@@ -2,7 +2,7 @@
   viewBox='80 -720 800 520'
   width='20px'
   height='13px'
-  fill='#262626'
+  fill='currentColor'
   aria-label='manage search'
 >
   <path

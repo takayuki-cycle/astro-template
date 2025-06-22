@@ -2,7 +2,7 @@
   viewBox='200 -720 560 480'
   width='14px'
   height='12px'
-  fill='#262626'
+  fill='currentColor'
   aria-label='keyboard double arrow right'
 >
   <path

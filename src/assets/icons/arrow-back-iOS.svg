@@ -2,7 +2,7 @@
   viewBox='0 -880 471 800'
   width='14px'
   height='23.78px'
-  fill='#262626'
+  fill='currentColor'
   aria-label='arrow back iOS'
 >
   <path d='M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z'></path>

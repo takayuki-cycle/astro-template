@@ -2,7 +2,7 @@
   viewBox='160 -720 640 480'
   width='24px'
   height='18px'
-  fill='#262626'
+  fill='currentColor'
   aria-label='arrow right alt'
 >
   <path d='m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z'></path>

@@ -2,7 +2,7 @@
   viewBox='120 -960 720 960'
   width='18px'
   height='24px'
-  fill='#262626'
+  fill='currentColor'
   aria-label='settings accessibility'
 >
   <path
