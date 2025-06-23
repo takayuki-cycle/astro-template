@@ -137,18 +137,17 @@ import {
   SettingsApplicationsIcon,
   SettingsApplicationsFillIcon,
   PublishIcon,
-  RedoIcon
-
-  // ZoomOutIcon
-  // ArrowLeftIcon
-  // TokenIcon
-  // TokenFillIcon
-  // HTMLIcon
-  // SwitchAccessShortcutIcon
-  // FullscreenExitIcon
-  // ArrowCircleDownIcon
-  // ArrowCircleDownFillIcon
-  // SortByAlphaIcon
+  RedoIcon,
+  ZoomOutIcon,
+  ArrowLeftIcon,
+  TokenIcon,
+  TokenFillIcon,
+  HTMLIcon,
+  SwitchAccessShortcutIcon,
+  FullscreenExitIcon,
+  ArrowCircleDownIcon,
+  ArrowCircleDownFillIcon,
+  SortByAlphaIcon
 } from '@/assets/icons'
 
 const headPage: HeadPageProps = {
@@ -303,9 +302,6 @@ const headPage: HeadPageProps = {
   <SettingsApplicationsFillIcon class={css({ fill: 'primary' })} />
   <PublishIcon class={css({ fill: 'primary' })} />
   <RedoIcon class={css({ fill: 'primary' })} />
-
-  {
-    /*
   <ZoomOutIcon class={css({ fill: 'primary' })} />
   <ArrowLeftIcon class={css({ fill: 'primary' })} />
   <TokenIcon class={css({ fill: 'primary' })} />
@@ -316,8 +312,6 @@ const headPage: HeadPageProps = {
   <ArrowCircleDownIcon class={css({ fill: 'primary' })} />
   <ArrowCircleDownFillIcon class={css({ fill: 'primary' })} />
   <SortByAlphaIcon class={css({ fill: 'primary' })} />
-     */
-  }
 
   {
     /* 書き方の例
@@ -330,127 +324,4 @@ const headPage: HeadPageProps = {
     </svg>
     */
   }
-
-  <svg
-    viewBox='0 -960 960 960'
-    width='24px'
-    height='24px'
-    fill='currentColor'
-    aria-label='zoom out'
-  >
-    <path
-      d='M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400ZM280-540v-80h200v80H280Z'
-    >
-    </path>
-    <title>zoom out</title>
-  </svg>
-
-  <svg
-    viewBox='0 -960 960 960'
-    width='24px'
-    height='24px'
-    fill='currentColor'
-    aria-label='arrow left'
-  >
-    <path d='M560-280 360-480l200-200v400Z'></path>
-    <title>arrow left</title>
-  </svg>
-
-  <svg viewBox='0 -960 960 960' width='24px' height='24px' fill='currentColor' aria-label='token'>
-    <path
-      d='M480-80 120-280v-400l360-200 360 200v400L480-80ZM364-590q23-24 53-37t63-13q33 0 63 13t53 37l120-67-236-131-236 131 120 67Zm76 396v-131q-54-14-87-57t-33-98q0-11 1-20.5t4-19.5l-125-70v263l240 133Zm40-206q33 0 56.5-23.5T560-480q0-33-23.5-56.5T480-560q-33 0-56.5 23.5T400-480q0 33 23.5 56.5T480-400Zm40 206 240-133v-263l-125 70q3 10 4 19.5t1 20.5q0 55-33 98t-87 57v131Z'
-    >
-    </path>
-    <title>token</title>
-  </svg>
-  <svg
-    viewBox='0 -960 960 960'
-    width='24px'
-    height='24px'
-    fill='currentColor'
-    aria-label='token fill'
-  >
-    <path
-      d='M364-590 162-703l318-177 318 177-202 113q-23-24-53-37t-63-13q-33 0-63 13t-53 37Zm76 488L120-280v-355l205 115q-3 10-4 19.5t-1 20.5q0 55 33 98t87 57v223Zm40-298q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm40 298v-223q54-14 87-57t33-98q0-11-1-20.5t-4-19.5l205-115v355L520-102Z'
-    >
-    </path>
-    <title>token fill</title>
-  </svg>
-
-  <svg viewBox='0 -960 960 960' width='24px' height='24px' fill='currentColor' aria-label='html'>
-    <path
-      d='M0-360v-240h60v80h80v-80h60v240h-60v-100H60v100H0Zm310 0v-180h-70v-60h200v60h-70v180h-60Zm170 0v-200q0-17 11.5-28.5T520-600h180q17 0 28.5 11.5T740-560v200h-60v-180h-40v140h-60v-140h-40v180h-60Zm320 0v-240h60v180h100v60H800Z'
-    >
-    </path>
-    <title>html</title>
-  </svg>
-
-  <svg
-    viewBox='0 -960 960 960'
-    width='24px'
-    height='24px'
-    fill='currentColor'
-    aria-label='switch access shortcut'
-  >
-    <path
-      d='M600-80q-127-48-203.5-158T320-484q0-91 36-172.5T458-800H320v-80h280v280h-80v-148q-57 51-88.5 119.5T400-484q0 102 54 187.5T600-167v87Z'
-    >
-    </path>
-    <title>switch access shortcut</title>
-  </svg>
-
-  <svg
-    viewBox='0 -960 960 960'
-    height='24px'
-    width='24px'
-    fill='currentColor'
-    aria-label='fullscreen exit'
-  >
-    <path
-      d='M240-120v-120H120v-80h200v200h-80Zm400 0v-200h200v80H720v120h-80ZM120-640v-80h120v-120h80v200H120Zm520 0v-200h80v120h120v80H640Z'
-    >
-    </path>
-    <title>fullscreen exit</title>
-  </svg>
-
-  <svg
-    viewBox='0 -960 960 960'
-    width='24px'
-    height='24px'
-    fill='currentColor'
-    aria-label='arrow circle down'
-  >
-    <path
-      d='m480-320 160-160-56-56-64 64v-168h-80v168l-64-64-56 56 160 160Zm0 240q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z'
-    >
-    </path>
-    <title>arrow circle down</title>
-  </svg>
-  <svg
-    viewBox='0 -960 960 960'
-    width='24px'
-    height='24px'
-    fill='currentColor'
-    aria-label='arrow circle down fill'
-  >
-    <path
-      d='m480-320 160-160-56-56-64 64v-168h-80v168l-64-64-56 56 160 160Zm0 240q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z'
-    >
-    </path>
-    <title>arrow circle down fill</title>
-  </svg>
-
-  <svg
-    viewBox='0 -960 960 960'
-    width='24px'
-    height='24px'
-    fill='currentColor'
-    aria-label='sort by alpha'
-  >
-    <path
-      d='m80-280 150-400h86l150 400h-82l-34-96H196l-32 96H80Zm140-164h104l-48-150h-6l-50 150Zm328 164v-76l202-252H556v-72h282v76L638-352h202v72H548ZM360-760l120-120 120 120H360ZM480-80 360-200h240L480-80Z'
-    >
-    </path>
-    <title>sort by alpha</title>
-  </svg>
 </Layout>
