@@ -127,18 +127,17 @@ import {
   FileOpenFillIcon,
   StartIcon,
   KeyboardDoubleArrowLeftIcon,
-  KeyboardDoubleArrowDownIcon
-
-  // CreateNewFolderIcon,
-  // CreateNewFolderFillIcon,
-  // UploadIcon,
-  // ForwardIcon,
-  // CompareArrowsIcon,
-  // DownloadingIcon,
-  // SettingsApplicationsIcon,
-  // SettingsApplicationsFillIcon,
-  // PublishIcon,
-  // RedoIcon,
+  KeyboardDoubleArrowDownIcon,
+  CreateNewFolderIcon,
+  CreateNewFolderFillIcon,
+  UploadIcon,
+  ForwardIcon,
+  CompareArrowsIcon,
+  DownloadingIcon,
+  SettingsApplicationsIcon,
+  SettingsApplicationsFillIcon,
+  PublishIcon,
+  RedoIcon
 
   // ZoomOutIcon
   // ArrowLeftIcon
@@ -294,9 +293,6 @@ const headPage: HeadPageProps = {
   <StartIcon class={css({ fill: 'primary' })} />
   <KeyboardDoubleArrowLeftIcon class={css({ fill: 'primary' })} />
   <KeyboardDoubleArrowDownIcon class={css({ fill: 'primary' })} />
-
-  {
-    /*
   <CreateNewFolderIcon class={css({ fill: 'primary' })} />
   <CreateNewFolderFillIcon class={css({ fill: 'primary' })} />
   <UploadIcon class={css({ fill: 'primary' })} />
@@ -304,11 +300,9 @@ const headPage: HeadPageProps = {
   <CompareArrowsIcon class={css({ fill: 'primary' })} />
   <DownloadingIcon class={css({ fill: 'primary' })} />
   <SettingsApplicationsIcon class={css({ fill: 'primary' })} />
-  <SettingsApplicationsIcon class={css({ fill: 'primary' })} />
+  <SettingsApplicationsFillIcon class={css({ fill: 'primary' })} />
   <PublishIcon class={css({ fill: 'primary' })} />
   <RedoIcon class={css({ fill: 'primary' })} />
-  */
-  }
 
   {
     /*
@@ -336,122 +330,6 @@ const headPage: HeadPageProps = {
     </svg>
     */
   }
-
-  <svg
-    viewBox='0 -960 960 960'
-    width='24px'
-    height='24px'
-    fill='currentColor'
-    aria-label='create new folder'
-  >
-    <path
-      d='M560-320h80v-80h80v-80h-80v-80h-80v80h-80v80h80v80ZM160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h240l80 80h320q33 0 56.5 23.5T880-640v400q0 33-23.5 56.5T800-160H160Zm0-80h640v-400H447l-80-80H160v480Zm0 0v-480 480Z'
-    >
-    </path>
-    <title>create new folder</title>
-  </svg>
-  <svg
-    viewBox='0 -960 960 960'
-    width='24px'
-    height='24px'
-    fill='currentColor'
-    aria-label='create new folder fill'
-  >
-    <path
-      d='M560-320h80v-80h80v-80h-80v-80h-80v80h-80v80h80v80ZM160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h240l80 80h320q33 0 56.5 23.5T880-640v400q0 33-23.5 56.5T800-160H160Z'
-    >
-    </path>
-    <title>create new folder fill</title>
-  </svg>
-
-  <svg viewBox='0 -960 960 960' width='24px' height='24px' fill='currentColor' aria-label='upload'>
-    <path
-      d='M440-320v-326L336-542l-56-58 200-200 200 200-56 58-104-104v326h-80ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z'
-    >
-    </path>
-    <title>upload</title>
-  </svg>
-
-  <svg viewBox='0 -960 960 960' width='24px' height='24px' fill='currentColor' aria-label='forward'>
-    <path
-      d='m640-280-57-56 184-184-184-184 57-56 240 240-240 240ZM80-200v-160q0-83 58.5-141.5T280-560h247L383-704l57-56 240 240-240 240-57-56 144-144H280q-50 0-85 35t-35 85v160H80Z'
-    >
-    </path>
-    <title>forward</title>
-  </svg>
-
-  <svg
-    viewBox='0 -960 960 960'
-    width='24px'
-    height='24px'
-    fill='currentColor'
-    aria-label='compare arrows'
-  >
-    <path
-      d='m320-160-56-57 103-103H80v-80h287L264-503l56-57 200 200-200 200Zm320-240L440-600l200-200 56 57-103 103h287v80H593l103 103-56 57Z'
-    >
-    </path>
-    <title>compare arrows</title>
-  </svg>
-
-  <svg
-    viewBox='0 -960 960 960'
-    width='24px'
-    height='24px'
-    fill='currentColor'
-    aria-label='downloading'
-  >
-    <path
-      d='M439-82q-76-8-141.5-42.5t-113.5-88Q136-266 108.5-335T81-481q0-155 102.5-268.5T440-880v80q-121 17-200 107.5T161-481q0 121 79 211.5T439-162v80Zm40-198L278-482l57-57 104 104v-245h80v245l103-103 57 58-200 200Zm40 198v-80q43-6 82.5-23t73.5-43l58 58q-47 37-101 59.5T519-82Zm158-652q-35-26-74.5-43T520-800v-80q59 6 113 28.5T733-792l-56 58Zm112 506-56-57q26-34 42-73.5t22-82.5h82q-8 59-30 113.5T789-228Zm8-293q-6-43-22-82.5T733-677l56-57q38 45 61 99.5T879-521h-82Z'
-    >
-    </path>
-    <title>downloading</title>
-  </svg>
-
-  <svg
-    viewBox='0 -960 960 960'
-    width='24px'
-    height='24px'
-    fill='currentColor'
-    aria-label='settings applications'
-  >
-    <path
-      d='M440-280h80l12-60q12-5 22.5-10.5T576-364l58 18 40-68-46-40q2-14 2-26t-2-26l46-40-40-68-58 18q-11-8-21.5-13.5T532-620l-12-60h-80l-12 60q-12 5-22.5 10.5T384-596l-58-18-40 68 46 40q-2 14-2 26t2 26l-46 40 40 68 58-18q11 8 21.5 13.5T428-340l12 60Zm40-120q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm0-560v560-560Z'
-    >
-    </path>
-    <title>settings applications</title>
-  </svg>
-  <svg
-    viewBox='0 -960 960 960'
-    width='24px'
-    height='24px'
-    fill='currentColor'
-    aria-label='settings applications fill'
-  >
-    <path
-      d='M440-280h80l12-60q12-5 22.5-10.5T576-364l58 18 40-68-46-40q2-14 2-26t-2-26l46-40-40-68-58 18q-11-8-21.5-13.5T532-620l-12-60h-80l-12 60q-12 5-22.5 10.5T384-596l-58-18-40 68 46 40q-2 14-2 26t2 26l-46 40 40 68 58-18q11 8 21.5 13.5T428-340l12 60Zm40-120q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Z'
-    >
-    </path>
-    <title>settings applications fill</title>
-  </svg>
-
-  <svg viewBox='0 -960 960 960' width='24px' height='24px' fill='currentColor' aria-label='publish'>
-    <path
-      d='M440-160v-326L336-382l-56-58 200-200 200 200-56 58-104-104v326h-80ZM160-600v-120q0-33 23.5-56.5T240-800h480q33 0 56.5 23.5T800-720v120h-80v-120H240v120h-80Z'
-    >
-    </path>
-    <title>publish</title>
-  </svg>
-
-  <svg viewBox='0 -960 960 960' width='24px' height='24px' fill='currentColor' aria-label='redo'>
-    <path
-      d='M396-200q-97 0-166.5-63T160-420q0-94 69.5-157T396-640h252L544-744l56-56 200 200-200 200-56-56 104-104H396q-63 0-109.5 40T240-420q0 60 46.5 100T396-280h284v80H396Z'
-    >
-    </path>
-    <title>redo</title>
-  </svg>
-
-  {/********************************************************************************** */}
 
   <svg
     viewBox='0 -960 960 960'
