@@ -1,0 +1,22 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import type { HeadPageProps } from '@/layouts/head/types'
+import UsersIndex from '@/templates/users/Index.astro'
+
+export const prerender = false // SSRを有効 念の為記載しているため、不要であれば削除
+
+const headPage: HeadPageProps = {
+  title: 'usersIndexPageTitle',
+  description: 'usersIndexページの説明です。',
+  robots: 'all',
+  ogType: 'website',
+  ogImage: '/ogp/general.webp',
+  ogImageAlt: 'ogImageAlt',
+  xCreator: '@xCreator',
+  author: 'author'
+}
+---
+
+<Layout headPage={headPage}>
+  <UsersIndex />
+</Layout>
