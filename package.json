@@ -20,7 +20,7 @@
     "lint:text": "textlint \"**/*.{md,mdx}\" \"!**/node_modules\"",
     "lint:markup": "markuplint \"src/**/*.{astro,jsx,tsx}\" --problem-only",
     "lint:markdown": "markdownlint-cli2 \"**/*.{md,mdx}\" \"!**/node_modules\"",
-    "json-server": "json-server --watch db.json --port 8000"
+    "json-server": "json-server --watch src/mocks/db.json --port 8000 --routes src/mocks/routes.json"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
