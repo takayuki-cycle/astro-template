@@ -8,9 +8,9 @@ import living from '@/assets/images/page/living.png'
 import Layout from '@/layouts/Layout.astro'
 import type { HeadPageProps } from '@/layouts/head/types'
 import { BREAKPOINTS } from '@/constants/breakpoints'
-// import Avatar from '@/components/avatar/Avatar.astro'
-// import test1 from '@/assets/images/content/authors/anonymous/test1.png'
-// import test2 from '@/assets/images/content/authors/anonymous/test2.png'
+import Avatar from '@/components/avatar/Avatar.astro'
+import test1 from '@/assets/images/content/authors/anonymous/test1.png'
+import test2 from '@/assets/images/content/authors/anonymous/test2.png'
 
 const headPage: HeadPageProps = {
   title: 'indexPageTitle',
@@ -23,7 +23,6 @@ const headPage: HeadPageProps = {
   author: 'author'
 }
 
-/*
 const items = [
   {
     leftItem: 'A',
@@ -44,7 +43,6 @@ const items = [
     link: 'https://www.microsoft.com/'
   }
 ]
-  */
 ---
 
 <Layout headPage={headPage}>
@@ -68,4 +66,18 @@ const items = [
     alt='リビングと車です'
     isOptimization
   />
+  <div>
+    <Avatar items={items} />{/* Image */}
+    <Avatar src={test1} size='lg' />{/* Image */}
+    <Avatar src={test2} alt='James Smith' />{/* Image */}
+    <Avatar size='2xl' alt='遠藤 達郎' items={items} />{/* Letter */}
+    <Avatar src={test2} alt='James Smith' items={items} />{/* Image */}
+    <Avatar alt='Bob' size='xs' />{/* Letter */}
+  </div>
+  <div>
+    <Avatar alt='Bob' size='xs' />
+    <Avatar alt='Bob' size='sm' />
+    <Avatar alt='Bob' size='md' />
+    <Avatar alt='Bob' size='2xl' items={items} />
+  </div>
 </Layout>

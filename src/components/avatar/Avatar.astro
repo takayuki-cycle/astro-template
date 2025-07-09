@@ -1,0 +1,95 @@
+---
+import Image from '@/components/media/image/Image.astro'
+import anonymousGeneral from '@/assets/images/content/authors/anonymous/general.webp'
+import {
+  SIZE_MAP,
+  extractInitialCharacters,
+  validateAvatarProps
+} from '@/components/avatar/utils.ts'
+import { styleLetter, styleImage } from '@/components/avatar/styles.ts'
+import type { Props, Size } from '@/components/avatar/types.ts'
+import List from '@/components/list/List.astro'
+
+const { sx, src = anonymousGeneral, size = 'md', alt = '匿名', items } = Astro.props
+const mappedSize = SIZE_MAP[size as keyof typeof SIZE_MAP] * 4 // pxへ変換
+const initial = extractInitialCharacters(alt)
+const sxConditional = {
+  ...sx,
+  // Listコンポーネントを使わないときは、クリック(タップ)を無効
+  ...(items ? {} : { pointerEvents: 'none' as const }),
+  size
+}
+// Letter avatars or Image avatars
+const isLetterAvatar = src === anonymousGeneral && alt !== '匿名'
+const style = isLetterAvatar ? styleLetter(sxConditional) : styleImage(sxConditional)
+
+validateAvatarProps(sx?.size as Size | undefined, sx?.pointerEvents)
+---
+
+{
+  /* avatarの容量を最適化する画像幅の基準は512pxで固定にしているため、意図しない最適化が発生する可能性が低いと思うので、isOptimizationは常にtrueにしています。 */
+}
+<details class={`${style} ${items ? 'script-avatar' : ''}`}>
+  <summary>
+    {
+      isLetterAvatar ? (
+        initial
+      ) : (
+        <Image src={src} width={mappedSize} height={mappedSize} alt={alt} isOptimization isAvatar />
+      )
+    }
+  </summary>
+  {items && <List items={items} />}
+</details>
+
+<script>
+  const TRANSITION_DURATION = 200 // normal = 200ms
+  const avatars = document.querySelectorAll<HTMLDetailsElement>('.script-avatar')
+
+  avatars.forEach((avatar) => {
+    const summary = avatar.querySelector('.script-avatar > summary')
+    const list = avatar.querySelector<HTMLUListElement>('.script-avatar > ul')
+
+    if (!summary || !list) return
+
+    // Listタグを閉じるときの処理
+    const closeAvatar = () => {
+      list.classList.remove('fade-animation')
+
+      setTimeout(() => {
+        list.classList.remove('bottom-space')
+        avatar.removeAttribute('open')
+      }, TRANSITION_DURATION)
+    }
+
+    // Listタグを開くときの処理
+    const openAvatar = () => {
+      avatar.setAttribute('open', 'true')
+
+      // summaryとウィンドウの下端の距離
+      const summaryBottom = window.innerHeight - summary.getBoundingClientRect().bottom
+      const listHeight = list.getBoundingClientRect().height
+
+      list.classList.add('fade-animation')
+
+      // avatarの直下のスペースが狭いときはavatarの直上にListを表示することで、訪問者が縦スクロールして内容を読む必要がなくなるようにしてDXを向上
+      if (listHeight > summaryBottom) {
+        // avatarの直上にListを表示
+        list.classList.add('bottom-space')
+      }
+    }
+
+    summary.addEventListener('click', (event) => {
+      event.preventDefault() // デフォルトの挙動を無効化
+      avatar.open ? closeAvatar() : openAvatar()
+    })
+
+    // アバター以外をクリック/タップでクローズ
+    document.addEventListener('click', ({ target }) => {
+      if (!(target instanceof Node)) return // DOM要素でなければ、処理を中止
+      if (!avatar.contains(target) && avatar.open) {
+        closeAvatar()
+      }
+    })
+  })
+</script>
