@@ -1,1 +1,1 @@
-# `db.json`と`routes.json`は`json-server`のために必要
+# `db.json`と`routes.json`は、`json-server`のために必要
