@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import type { RegisterState, LoginState } from '@/templates/register/types'
-import { Input } from '@/components/input/Input'
+import { Input } from '@/components'
 import { validateField } from '@/templates/register/utils/validation'
 import { fetchCsrfToken, registerUser, loginUser, logoutUser } from '@/templates/register/api'
 

@@ -1,4 +1,4 @@
-import { Input } from '@/components/input/Input'
+import { Input } from '@/components'
 import type { TodosState } from '@/templates/todos/types'
 import { useState } from 'react'
 import { validateField } from '@/templates/todos/utils/validation'

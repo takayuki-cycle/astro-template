@@ -150,6 +150,7 @@ const eslintConfig = [
               message: "絶対パスでインポートしてください。例: '@/components/toc/types'"
             },
             {
+              // TODO: import { Radio } from '@/components/radio/Radio'のような、コンポーネントのimportをエラーできていない問題を修正すること(修正後はimport { Radio } from '@/components')
               group: ['@/components/**/*.jsx', '@/components/**/*.tsx', '@/components/**/*.astro'],
               message:
                 "インポートを簡潔にしてください。例: 'import { Image, Avatar } from '@/components''"
