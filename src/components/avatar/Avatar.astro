@@ -1,5 +1,5 @@
 ---
-import Image from '@/components/media/image/Image.astro'
+import { Image, List } from '@/components'
 import anonymousGeneral from '@/assets/images/content/authors/anonymous/general.webp'
 import {
   SIZE_MAP,
@@ -8,7 +8,6 @@ import {
 } from '@/components/avatar/utils.ts'
 import { styleLetter, styleImage } from '@/components/avatar/styles.ts'
 import type { Props, Size } from '@/components/avatar/types.ts'
-import List from '@/components/list/List.astro'
 
 const { sx, src = anonymousGeneral, size = 'md', alt = '匿名', items } = Astro.props
 const mappedSize = SIZE_MAP[size as keyof typeof SIZE_MAP] * 4 // pxへ変換

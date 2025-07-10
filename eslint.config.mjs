@@ -148,6 +148,11 @@ const eslintConfig = [
             {
               group: ['./*', '../*'],
               message: "絶対パスでインポートしてください。例: '@/components/toc/types'"
+            },
+            {
+              group: ['@/components/**/*.jsx', '@/components/**/*.tsx', '@/components/**/*.astro'],
+              message:
+                "インポートを簡潔にしてください。例: 'import { Image, Avatar } from '@/components''"
             }
           ],
           paths: [

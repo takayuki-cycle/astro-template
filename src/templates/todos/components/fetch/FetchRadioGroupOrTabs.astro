@@ -1,6 +1,6 @@
 ---
 import { fetchTodos } from '@/templates/todos/api'
-import RadioGroupOrTabs from '@/components/radioGroupOrTabs/RadioGroupOrTabs.astro'
+import { RadioGroupOrTabs } from '@/components'
 
 interface Props {
   label: string // 1画面に対してこのコンポーネントを複数使うときは、それぞれ異なるラベル名(name属性)を設定してください。
