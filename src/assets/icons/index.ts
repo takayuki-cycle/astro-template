@@ -155,6 +155,5 @@ export { default as FirstPageIcon } from './first-page.svg'
 export { default as KeyboardDoubleArrowUpIcon } from './keyboard-double-arrow-up.svg'
 export { default as SyncProblemIcon } from './sync-problem.svg'
 export { default as SettingsBackupRestoreIcon } from './settings-backup-restore.svg'
-////////////////////////////////////////////////////////////////////////////////////////
-// export { default as AssistantNavigationIcon } from './assistant-navigation.svg'
-// export { default as AssistantNavigationFillIcon } from './assistant-navigation-fill.svg'
+export { default as AssistantNavigationIcon } from './assistant-navigation.svg'
+export { default as AssistantNavigationFillIcon } from './assistant-navigation-fill.svg'
