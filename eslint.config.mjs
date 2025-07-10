@@ -154,6 +154,11 @@ const eslintConfig = [
               group: ['@/components/**/*.jsx', '@/components/**/*.tsx', '@/components/**/*.astro'],
               message:
                 "インポートを簡潔にしてください。例: 'import { Image, Avatar } from '@/components''"
+            },
+            {
+              group: ['@/assets/icons/**/*'],
+              message:
+                "インポートを簡潔にしてください。例: 'import { SearchIcon, HomeIcon } from '@/assets/icons''"
             }
           ],
           paths: [
