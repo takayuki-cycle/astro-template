@@ -1,0 +1,13 @@
+<svg
+  viewBox='80 -780 800 580'
+  width='20px'
+  height='14.5px'
+  fill='currentColor'
+  aria-label='delete sweep fill'
+>
+  <path
+    d='M600-240v-80h160v80H600Zm0-320v-80h280v80H600Zm0 160v-80h240v80H600ZM120-640H80v-80h160v-60h160v60h160v80h-40v360q0 33-23.5 56.5T440-200H200q-33 0-56.5-23.5T120-280v-360Z'
+  >
+  </path>
+  <title>delete sweep fill</title>
+</svg>
