@@ -1,7 +1,5 @@
 // Reference: https://fonts.google.com/icons
 // 参照先のSVGファイルから上下左右の余白(マージン)を削除しています。
-// 相対パスでのインポートを許可するために、以下のeslint-disableを追加
-/* eslint-disable no-restricted-imports */
 export { default as SearchIcon } from './search.svg'
 export { default as HomeIcon } from './home.svg'
 export { default as HomeFillIcon } from './home-fill.svg'

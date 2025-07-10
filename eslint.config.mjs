@@ -202,6 +202,23 @@ const eslintConfig = [
     rules: {
       ...jsxA11y.flatConfigs.recommended.rules
     }
+  },
+  {
+    files: ['**/index.{js,ts}'],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            {
+              group: ['@/components/**/*'],
+              message:
+                "index.{js,ts}は絶対パスより相対パスでの利点の方が上回るので、相対パスでインポートしてください。例: './avatar/Avatar.astro'"
+            }
+          ]
+        }
+      ]
+    }
   }
 ]
 
