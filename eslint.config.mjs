@@ -217,7 +217,7 @@ const eslintConfig = [
         {
           patterns: [
             {
-              group: ['@/components/**/*'],
+              group: ['@/**/*'],
               message:
                 "index.{js,ts}は絶対パスより相対パスでの利点の方が上回るので、相対パスでインポートしてください。例: './avatar/Avatar.astro'"
             }
