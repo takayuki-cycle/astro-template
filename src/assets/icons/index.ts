@@ -149,9 +149,9 @@ export { default as IndeterminateCheckBoxIcon } from './indeterminate-check-box.
 export { default as IndeterminateCheckBoxFillIcon } from './indeterminate-check-box-fill.svg'
 export { default as DeleteSweepIcon } from './delete-sweep.svg'
 export { default as DeleteSweepFillIcon } from './delete-sweep-fill.svg'
+export { default as ViewTimelineIcon } from './view-timeline.svg'
+export { default as ViewTimelineFillIcon } from './view-timeline-fill.svg'
 ////////////////////////////////////////////////////////////////////////////////////////
-// export { default as ViewTimelineIcon } from './view-timeline.svg'
-// export { default as ViewTimelineFillIcon } from './view-timeline-fill.svg'
 // export { default as FirstPageIcon } from './first-page.svg'
 // export { default as KeyboardDoubleArrowUpIcon } from './keyboard-double-arrow-up.svg'
 // export { default as SyncProblemIcon } from './sync-problem.svg'
