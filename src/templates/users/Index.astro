@@ -11,6 +11,12 @@
   button?.addEventListener('click', async () => {
     // TODO: getUsersがあいさつするコードになっているので修正が必要
     const { data, error } = await actions.users.getUsers({ name: 'Houston' })
-    if (!error) alert(data)
+
+    if (error) {
+      // エラー処理
+      return
+    }
+    // dataを利用
+    alert(data)
   })
 </script>
