@@ -9,14 +9,13 @@
 
   const button = document.querySelector('button')
   button?.addEventListener('click', async () => {
-    // TODO: getUsersがあいさつするコードになっているので修正が必要
-    const { data, error } = await actions.users.getUsers({ name: 'Houston' })
+    // TODO: 勉強中
+    const { data, error } = await actions.users.getUsers({ name: 'TEST' })
 
-    if (error) {
-      // エラー処理
+    if (error?.code === 'NOT_FOUND') {
+      alert(error.message)
       return
     }
-    // dataを利用
     alert(data)
   })
 </script>
