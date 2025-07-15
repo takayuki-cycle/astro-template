@@ -2,10 +2,12 @@
 
 ---
 
-<button>Get greeting</button>
+<button>Get Astro</button>
 
 <script>
+  console.log('AAA')
   import { actions } from 'astro:actions'
+  import { navigate } from 'astro:transitions/client'
 
   const button = document.querySelector('button')
   button?.addEventListener('click', async () => {
@@ -14,6 +16,8 @@
 
     if (error?.code === 'NOT_FOUND') {
       alert(error.message)
+      // TODO: 以下のnavigateを実行後に再度このページを訪れるとscriptタグ内がすべて使われない原因を調査すること
+      navigate('/')
       return
     }
     alert(data)
