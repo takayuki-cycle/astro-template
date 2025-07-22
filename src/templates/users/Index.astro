@@ -4,15 +4,29 @@
 
 <button>Get Astro</button>
 
+<p>----------------</p>
+
+<!-- type属性の挙動はWebブラウザごとに違うため統一するためにnovalidateを付与、type属性はa11yで必要なので書きました。 -->
+<form novalidate>
+  <label for='email'>E-mail</label>
+  <input id='email' required type='email' name='email' />
+  <br />
+  <label>
+    <input required type='checkbox' name='terms' />
+    I agree to the terms of service
+  </label>
+  <br />
+  <button>Sign up</button>
+</form>
+
 <script>
-  console.log('AAA')
-  import { actions } from 'astro:actions'
+  import { actions, isInputError } from 'astro:actions'
   import { navigate } from 'astro:transitions/client'
 
   const button = document.querySelector('button')
   button?.addEventListener('click', async () => {
     // TODO: 勉強中
-    const { data, error } = await actions.users.getUsers({ name: 'TEST' })
+    const { data, error } = await actions.users.getUsers({ name: 'Astro' })
 
     if (error?.code === 'NOT_FOUND') {
       alert(error.message)
@@ -21,5 +35,25 @@
       return
     }
     alert(data)
+  })
+
+  /////////////////////////////////////
+
+  const form = document.querySelector('form')
+  form?.addEventListener('submit', async (event) => {
+    event.preventDefault()
+    const formData = new FormData(form)
+    const { error } = await actions.newsletter.postNewsletter(formData)
+    console.log('formData', formData)
+
+    if (isInputError(error)) {
+      // 入力エラーを処理
+      if (error.fields.email) {
+        const message = error.fields.email.join(', ')
+        console.log('message', message)
+        alert(message)
+        return
+      }
+    }
   })
 </script>
