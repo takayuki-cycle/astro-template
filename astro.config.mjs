@@ -9,6 +9,6 @@ export default defineConfig({
   site: 'https://astro-template-gules-seven.vercel.app',
   trailingSlash: 'always',
   integrations: [react(), sitemap(), mdx()],
-  output: 'static',
+  output: 'server',
   adapter: vercel()
 })
