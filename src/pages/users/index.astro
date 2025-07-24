@@ -3,7 +3,7 @@ import Layout from '@/layouts/Layout.astro'
 import type { HeadPageProps } from '@/layouts/head/types'
 import UsersIndex from '@/templates/users/Index.astro'
 
-// export const prerender = false // SSRを有効 念の為記載しているため、不要であれば削除
+export const prerender = false // SSRを有効 念の為記載しているため、不要であれば削除
 
 const headPage: HeadPageProps = {
   title: 'usersIndexPageTitle',
